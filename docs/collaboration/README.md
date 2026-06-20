@@ -1,31 +1,31 @@
-# Collaboration Records
+# 协作记录
 
-This directory records the work we do together in project000 and the observed impact on progress and efficiency.
+这个目录记录我们在 project000 中一起推进的工作，以及这些工作对进度和效率的影响。
 
-It is different from `docs/logs/`:
+它和 `docs/logs/` 的区别是：
 
-- `docs/logs/` records one-off project events or start notes.
-- `docs/collaboration/` is the long-term review ledger for weekly and monthly reflection.
+- `docs/logs/` 记录一次性的项目事件或启动说明。
+- `docs/collaboration/` 是长期复盘台账，用于周回顾和月回顾。
 
-## What To Record
+## 记录内容
 
-Each meaningful collaboration item should capture:
+每个有意义的协作事项都应该记录：
 
-- Completed or advanced work.
-- Business or project value.
-- Efficiency impact.
-- Risks, blockers, or quality issues.
-- Follow-up actions.
+- 已完成或已推进的工作。
+- 对业务或项目的价值。
+- 对效率的影响。
+- 风险、阻塞或质量问题。
+- 后续动作。
 
-## Update Rhythm
+## 更新节奏
 
-- Update `work-items.md` whenever a meaningful work item is completed or materially advanced.
-- Add a weekly review under `weekly-reviews/` at the end of each week.
-- Add a monthly review under `monthly-reviews/` at the end of each month.
+- 每当有重要事项完成或明显推进时，更新 `work-items.md`。
+- 每周结束时，在 `weekly-reviews/` 下新增周回顾。
+- 每月结束时，在 `monthly-reviews/` 下新增月回顾。
 
-## Review Focus
+## 复盘重点
 
-Weekly and monthly reviews should answer two questions:
+周回顾和月回顾要回答两个问题：
 
-- Are we making progress on the AI assistant roadmap?
-- Is Codex participation improving team efficiency in a visible way?
+- AI 助手路线图是否在持续推进？
+- Codex 的参与是否以可见方式提升了团队效率？

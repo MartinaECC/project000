@@ -1,41 +1,40 @@
-# AI Assistant Roadmap
+# AI 助手路线图
 
-This roadmap tracks assistants from opportunity discovery to working implementation.
+这份路线图用于跟踪 AI 助手从机会发现到可用实现的全过程。
 
-## Stages
+## 阶段
 
-| Stage | Purpose | Output |
+| 阶段 | 目的 | 产出 |
 | --- | --- | --- |
-| 1. Role mapping | Understand who does what. | Role and task map. |
-| 2. Task screening | Identify high-frequency, low-risk opportunities. | Prioritized task list. |
-| 3. Assistant design | Define one small assistant loop. | Assistant spec. |
-| 4. Implementation | Build the smallest working workflow. | Code, tests, and operating notes. |
-| 5. Review | Check usefulness, risk, and adoption. | Summary and next iteration. |
+| 1. 岗位盘点 | 理解谁在做什么。 | 岗位和任务地图。 |
+| 2. 任务筛选 | 找出高频、低风险的 AI 介入机会。 | 优先级任务清单。 |
+| 3. 助手设计 | 定义一个小而完整的助手闭环。 | 助手设计说明。 |
+| 4. 实现落地 | 建出最小可用工作流。 | 代码、测试和运行说明。 |
+| 5. 复盘评估 | 检查实用性、风险和团队采用情况。 | 阶段总结和下一轮迭代。 |
 
-## Initial Assistant Candidates
+## 初始助手候选
 
-These are placeholders until the role map is filled with team-specific work.
+以下只是占位候选，等岗位任务地图填入真实团队工作后再调整。
 
-| Candidate | Likely owner role | Value | Risk | Notes |
+| 候选助手 | 可能负责岗位 | 价值 | 风险 | 备注 |
 | --- | --- | --- | --- | --- |
-| Chat summary assistant | Operations, customer success, BD | Consolidates group discussion into structured notes. | Low | Strong fit for existing DingTalk bot and DWS message tooling. |
-| Weekly report draft assistant | Operations, management | Turns messages, tasks, and notes into a report draft. | Low | Should start as draft-only. |
-| Customer review assistant | Operations, data, customer success | Creates first-pass customer monthly review material. | Medium | Needs clear data sources and metric definitions. |
-| Meeting follow-up assistant | Product, project management, customer success | Extracts decisions and follow-ups from meeting notes. | Low to medium | Task creation should require confirmation. |
+| 群聊总结助手 | 运营、客户成功、BD | 将群聊讨论整理成结构化记录。 | 低 | 和现有钉钉机器人及 DWS 消息工具很匹配。 |
+| 周报初稿助手 | 运营、管理者 | 将消息、任务、记录整理成周报草稿。 | 低 | 初期只做草稿，不自动发布。 |
+| 客户复盘助手 | 运营、数据、客户成功 | 生成客户月度复盘的一版材料。 | 中 | 需要明确数据来源和指标口径。 |
+| 会议跟进助手 | 产品、项目管理、客户成功 | 从会议记录中提取决议和跟进事项。 | 低到中 | 创建任务前需要人工确认。 |
 
-## Assistant Spec Template
+## 助手设计模板
 
-Each assistant should have:
+每个助手都应该说明：
 
-- Name
-- Owner role
-- Problem
-- Trigger
-- Inputs
-- Output
-- Human review point
-- Tool and data dependencies
-- Failure handling
-- Verification method
-- Rollout notes
-
+- 名称
+- 负责岗位
+- 要解决的问题
+- 触发方式
+- 输入来源
+- 输出内容
+- 人工确认点
+- 工具和数据依赖
+- 失败处理方式
+- 验证方法
+- 上线和推广说明

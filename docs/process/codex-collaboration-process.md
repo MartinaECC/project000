@@ -1,35 +1,34 @@
-# Codex Collaboration Process
+# Codex 协作流程
 
-This process keeps the project incremental, reviewable, and useful to the team.
+这个流程用于确保项目以小步、可检查、对团队有实际帮助的方式推进。
 
-## Operating Principles
+## 工作原则
 
-- Start from real roles and recurring tasks, not from abstract AI capability.
-- Prefer low-risk draft, summary, and preparation workflows before execution workflows.
-- Keep a human review point wherever output leaves the team or changes important state.
-- Build one small assistant loop at a time.
-- Record decisions, assumptions, and verification results as project documents.
+- 从真实岗位和重复任务出发，而不是从抽象 AI 能力出发。
+- 先做低风险的草稿、总结、准备类流程，再做执行类流程。
+- 任何输出离开团队或改变重要状态前，都保留人工确认点。
+- 一次只构建一个小助手闭环。
+- 将决策、假设和验证结果记录为项目文档。
 
-## Working Loop
+## 工作闭环
 
-1. List the role and recurring task.
-2. Classify risk and frequency.
-3. Pick one low-risk task.
-4. Write a small assistant spec.
-5. Implement the smallest useful workflow.
-6. Verify with tests or a real dry run.
-7. Summarize what worked, what failed, and what to do next.
+1. 列出岗位和重复任务。
+2. 标注风险和频率。
+3. 选择一个低风险任务。
+4. 编写小助手设计说明。
+5. 实现最小可用工作流。
+6. 用测试或真实演练验证。
+7. 总结有效之处、问题和下一步。
 
-## GitHub Sync Rule
+## GitHub 同步规则
 
-GitHub is the source of record for reusable project materials:
+GitHub 是可复用项目材料的记录源：
 
-- Role and task maps.
-- Assistant designs.
-- Process documents.
-- Implementation code.
-- Tests and verification notes.
-- Periodic summaries when requested.
+- 岗位和任务地图。
+- 助手设计说明。
+- 流程文档。
+- 实现代码。
+- 测试和验证记录。
+- 按需生成的周期总结。
 
-Temporary files, credentials, local exports, screenshots, and auth artifacts should not be committed.
-
+临时文件、凭据、本地导出、截图和认证产物不应提交到仓库。

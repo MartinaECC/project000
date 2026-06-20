@@ -1,43 +1,43 @@
-# Monthly Reviews
+# 月回顾
 
-Monthly reviews summarize progress across a full month and evaluate whether Codex collaboration is improving team efficiency.
+月回顾用于总结整个月的进展，并评估 Codex 协作是否提升了团队效率。
 
-## File Naming
+## 文件命名
 
-Use month naming:
+使用月份命名：
 
 ```text
 YYYY-MM.md
 ```
 
-Example:
+示例：
 
 ```text
 2026-06.md
 ```
 
-## Template
+## 模板
 
 ```markdown
-# YYYY-MM Monthly Review
+# YYYY-MM 月回顾
 
-## Key Outcomes
+## 本月重点成果
 
-- TBD
+- 待补充
 
-## Assistant Capability Progress
+## 助手能力进展
 
-- TBD
+- 待补充
 
-## Team Collaboration Progress
+## 团队协作进展
 
-- TBD
+- 待补充
 
-## Efficiency Evaluation
+## 效率评估
 
-- TBD
+- 待补充
 
-## Next Month Focus
+## 下月重点
 
-- TBD
+- 待补充
 ```

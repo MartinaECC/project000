@@ -1,43 +1,43 @@
-# Weekly Reviews
+# 周回顾
 
-Weekly reviews summarize what changed during a week and whether Codex collaboration improved progress or efficiency.
+周回顾用于总结一周内发生的变化，以及 Codex 协作是否改善了进度或效率。
 
-## File Naming
+## 文件命名
 
-Use ISO week naming:
+使用 ISO 周命名：
 
 ```text
 YYYY-WW.md
 ```
 
-Example:
+示例：
 
 ```text
 2026-W25.md
 ```
 
-## Template
+## 模板
 
 ```markdown
-# YYYY-WW Weekly Review
+# YYYY-WW 周回顾
 
-## Completed This Week
+## 本周完成
 
-- TBD
+- 待补充
 
-## In Progress
+## 进行中
 
-- TBD
+- 待补充
 
-## Efficiency Impact
+## 效率影响
 
-- TBD
+- 待补充
 
-## Blockers or Risks
+## 阻塞或风险
 
-- TBD
+- 待补充
 
-## Next Week
+## 下周计划
 
-- TBD
+- 待补充
 ```

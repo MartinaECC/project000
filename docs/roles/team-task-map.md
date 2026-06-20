@@ -1,24 +1,23 @@
-# Team Role and Task Map
+# 团队岗位和任务地图
 
-This document is the working map for finding safe, high-frequency tasks that Codex can help with.
+这份文档用于寻找 Codex 可以参与的高频、低风险任务。
 
-## How to Fill This In
+## 填写方式
 
-Start with 1-3 roles. For each role, list real recurring work before proposing any assistant.
+先从 1-3 个岗位开始。每个岗位先列出真实、重复发生的工作，再讨论是否适合做成 AI 助手。
 
-| Role | Core responsibilities | High-frequency tasks | Current tools or data sources | Codex intervention | Risk level | Priority | First small assistant |
+| 岗位 | 核心职责 | 高频任务 | 当前工具或数据来源 | Codex 可介入方式 | 风险等级 | 优先级 | 第一个小助手 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| TBD | TBD | TBD | TBD | TBD | TBD | TBD | TBD |
+| 待补充 | 待补充 | 待补充 | 待补充 | 待补充 | 待补充 | 待补充 | 待补充 |
 
-## Risk Levels
+## 风险等级
 
-| Level | Meaning | Examples |
+| 等级 | 含义 | 示例 |
 | --- | --- | --- |
-| Low | Codex prepares, summarizes, formats, checks, or drafts; a human reviews before any external impact. | Meeting summaries, weekly report drafts, customer note consolidation, document cleanup. |
-| Medium | Codex proposes actions or prepares updates that affect internal work tracking; a human confirms before execution. | Task creation, follow-up reminders, internal status updates. |
-| High | Codex could affect customers, money, approvals, production data, legal commitments, or personnel decisions. | Customer commitments, refunds, approvals, financial operations, production database changes. |
+| 低 | Codex 只做准备、总结、格式整理、检查或草稿；对外产生影响前由人工确认。 | 会议总结、周报草稿、客户记录整理、文档清理。 |
+| 中 | Codex 提出动作建议或准备会影响内部跟进的更新；执行前由人工确认。 | 创建任务、跟进提醒、内部状态更新。 |
+| 高 | Codex 可能影响客户、资金、审批、生产数据、法律承诺或人事决策。 | 客户承诺、退款、审批、财务操作、生产数据库变更。 |
 
-## First-Pass Selection Rule
+## 第一轮筛选规则
 
-Prioritize tasks that are high-frequency, low-risk, input-clear, output-reviewable, and useful even when the assistant only drafts the result.
-
+优先选择高频、低风险、输入清楚、输出可人工检查，并且即使只生成草稿也有价值的任务。

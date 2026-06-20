@@ -1,29 +1,28 @@
-# 2026-06-20 Project Start
+# 2026-06-20 项目启动记录
 
-## Direction
+## 方向
 
-The project will build a series of work-oriented AI assistants incrementally.
+本项目会逐步建设一系列面向实际工作的 AI 助手。
 
-The first step is not to implement a broad platform. The team will first map current roles, list each role's recurring tasks, and identify high-frequency tasks that are safe for Codex to perform or draft without creating business risk.
+第一步不是直接实现一个庞大的平台，而是先梳理当前岗位，列出每个岗位的重复任务，并找出适合 Codex 执行或起草、且不会带来业务风险的高频任务。
 
-## Agreed Approach
+## 已确认的方法
 
-- Start small so the user and team can learn what Codex can do.
-- Build trust through low-risk, reviewable workflows.
-- Improve collaboration patterns while building.
-- Establish process documents, task records, and eventually supporting databases.
-- Sync durable project materials to GitHub.
+- 从小处开始，让用户和团队逐步理解 Codex 能做什么。
+- 通过低风险、可检查的工作流建立信任。
+- 在建设过程中持续改进协作方式。
+- 建立流程文档、任务记录，并逐步建设支撑数据库。
+- 将长期有价值的项目材料同步到 GitHub。
 
-## GitHub Repository
+## GitHub 仓库
 
-Repository: https://github.com/MartinaECC/project000
+仓库：https://github.com/MartinaECC/project000
 
-## Immediate Next Inputs
+## 近期需要的输入
 
-- Team role list.
-- For each role: core responsibilities, frequent tasks, current tools, data sources, and risk boundaries.
+- 团队岗位清单。
+- 每个岗位的核心职责、高频任务、当前工具、数据来源和风险边界。
 
-## Suggested First Deliverable
+## 建议的第一个产出
 
-Create the first version of `docs/roles/team-task-map.md` from the team's real roles and tasks.
-
+基于团队真实岗位和任务，创建第一版 `docs/roles/team-task-map.md`。

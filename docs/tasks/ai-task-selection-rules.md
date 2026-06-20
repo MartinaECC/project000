@@ -1,41 +1,40 @@
-# AI Task Selection Rules
+# AI 任务筛选规则
 
-The first stage of this project focuses on small, safe work loops. The goal is to help the team learn where Codex is useful while keeping human review in control.
+项目第一阶段聚焦小而安全的工作闭环。目标是在保留人工审核的前提下，让团队逐步理解 Codex 在哪些地方真正有用。
 
-## Prefer First
+## 优先选择
 
-- Repetitive information collection and summarization.
-- Draft generation for internal reports, notes, and follow-ups.
-- Formatting, cleanup, and conversion of existing materials.
-- Data readout and first-pass interpretation where a human owns the conclusion.
-- Reminder and task preparation where a human confirms before sending or assigning.
+- 重复性的信息收集和总结。
+- 内部报告、记录、跟进事项的草稿生成。
+- 既有材料的格式整理、清理和转换。
+- 数据读取和初步解读，最终结论由人工负责。
+- 提醒和任务准备，发送或分配前由人工确认。
 
-## Avoid First
+## 暂不优先
 
-- Automatic customer commitments.
-- Automatic approvals.
-- Automatic production data changes.
-- Financial, legal, HR, or sensitive personnel decisions.
-- Any workflow where a wrong answer would be hard to detect before damage occurs.
+- 自动对客户作出承诺。
+- 自动审批。
+- 自动修改生产数据。
+- 财务、法务、人事或敏感决策。
+- 错误在造成影响前很难被发现的流程。
 
-## Candidate Scoring
+## 候选任务评分
 
-| Dimension | Good sign | Warning sign |
+| 维度 | 好信号 | 风险信号 |
 | --- | --- | --- |
-| Frequency | Happens daily or weekly. | Rare or one-off. |
-| Risk | Human can review before impact. | Direct external or irreversible impact. |
-| Input clarity | Source data is known and accessible. | Requires hidden context or judgment. |
-| Output clarity | Expected format is easy to describe. | Success is subjective or ambiguous. |
-| Reuse | Helps multiple roles or future assistants. | Only useful for one edge case. |
+| 频率 | 每天或每周都会发生。 | 很少发生或只是一次性事项。 |
+| 风险 | 产生影响前可以人工检查。 | 会直接对外产生影响，或影响不可逆。 |
+| 输入清晰度 | 数据来源已知且可访问。 | 依赖隐藏上下文或复杂判断。 |
+| 输出清晰度 | 期望格式容易描述。 | 成功标准主观或模糊。 |
+| 复用价值 | 能帮助多个岗位或未来助手。 | 只适用于一个边缘场景。 |
 
-## Assistant Entry Criteria
+## 进入助手设计的条件
 
-A task can become an assistant when it has:
+一个任务具备以下条件后，才适合进入助手设计：
 
-- A named owner role.
-- A clear trigger phrase or start action.
-- Known input sources.
-- A reviewable output.
-- A human approval point for any action beyond drafting.
-- A basic verification method.
-
+- 明确的负责岗位。
+- 清晰的触发语句或启动动作。
+- 已知的输入来源。
+- 可检查的输出结果。
+- 对草稿以外的动作设置人工确认点。
+- 基本验证方法。
