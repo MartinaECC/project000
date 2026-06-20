@@ -63,6 +63,21 @@ function buildStandardCardData(title: string, markdown: string) {
 
 The card-builder docs call this a "富文本模块". Its `type` is `markdown`, and it supports line breaks, bold, italics, links, images, font size, font color, and DingTalk emoji syntax.
 
+## Product Display Modes
+
+DingTalk report broadcasts should treat display mode as an explicit product option:
+
+- `markdown`: use a `StandardCard` markdown component for short reports, summaries, anomaly explanations, and copy-friendly text.
+- `image`: render complex tables to PNG and embed the image in a `StandardCard` markdown component for multi-row or multi-column operational reports.
+
+Selection rules:
+
+- Use `image` by default for long operational reports that many people need to scan, compare, or forward.
+- Use `markdown` by default for short alerts, single-customer notes, anomaly summaries, or content the user may need to copy.
+- If the user explicitly chooses Markdown text or chart/image mode, follow that choice.
+- Keep both code paths available behind configuration such as `REFUND_REPORT_RENDER_MODE=markdown|image`.
+- Do not silently downgrade from image to markdown on image generation or upload failure. Log the failure and send a clear failure card or alert, then switch configuration deliberately if rollback is needed.
+
 ## Typography And Spacing In Card Markdown
 
 For `StandardCard` markdown content, prefer DingTalk markdown variables and design tokens over generic Markdown headings or numeric HTML font sizes.
