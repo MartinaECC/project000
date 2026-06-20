@@ -10,3 +10,4 @@
 | 2026-06-20 | 定义高频低风险任务筛选规则 | 风险控制 | Markdown | 已完成 | [AI 任务筛选规则](../tasks/ai-task-selection-rules.md) | 通过明确早期 Codex 适合参与的任务标准，降低试点风险。 | 用这些规则筛选第一批助手候选任务。 |
 | 2026-06-20 | 创建 AI 助手路线图 | 产品规划 | Markdown | 已完成 | [AI 助手路线图](../assistants/assistant-roadmap.md) | 建立了从岗位盘点、任务筛选、助手设计、实现到复盘的阶段路径。 | 将第一个选定任务转化为助手设计说明。 |
 | 2026-06-20 | 创建周期性协作复盘区域 | 进度跟踪 | Markdown、GitHub | 已完成 | [协作记录](README.md)、[周回顾模板](weekly-reviews/README.md)、[月回顾模板](monthly-reviews/README.md) | 增加了按周、按月追踪进度和效率影响的固定位置。 | 每周和每月结束时更新。 |
+| 2026-06-20 | 中文化说明文档并整理可复用工程成果 | 项目整理 | GitHub、Markdown、Node.js、Python | 已完成 | [工作区成果清单](artifact-inventory.md)、[README](../../README.md) | 把本地已有机器人、脚本、测试、skill 和展示页从零散工作区推进为可追踪、可复用的仓库资产。 | 后续继续修复历史中文编码，并按真实岗位任务选择第一个助手。 |

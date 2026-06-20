@@ -1,0 +1,71 @@
+import type { ReplyMode } from './reply-service.ts';
+import type { BotConfig } from './types.ts';
+
+export type AppConfig = BotConfig & {
+  port: number;
+  dwsBin: string;
+  mode: 'stream' | 'http';
+  dingtalkClientId?: string;
+  dingtalkClientSecret?: string;
+  dingtalkBotId?: string;
+  dingtalkReplyMode: ReplyMode;
+  llm: {
+    apiKey?: string;
+    baseUrl: string;
+    model?: string;
+  };
+};
+
+export function loadConfig(env: NodeJS.ProcessEnv = process.env): AppConfig {
+  return {
+    port: Number(env.PORT ?? 3000),
+    dwsBin: env.DWS_BIN ?? 'dws',
+    mode: env.DINGTALK_MODE === 'http' ? 'http' : 'stream',
+    dingtalkClientId: env.DINGTALK_CLIENT_ID,
+    dingtalkClientSecret: env.DINGTALK_CLIENT_SECRET,
+    dingtalkBotId: env.DINGTALK_BOT_ID,
+    dingtalkReplyMode: env.DINGTALK_REPLY_MODE === 'single' ? 'single' : 'group',
+    allowedConversationIds: splitCsv(env.DINGTALK_ALLOWED_CONVERSATION_IDS),
+    allowedUserIds: splitCsv(env.DINGTALK_ALLOWED_USER_IDS),
+    defaultGroupConversationId: blankToUndefined(env.DINGTALK_DEFAULT_GROUP_CONVERSATION_ID),
+    groupSummaryLimits: {
+      today: numberEnv(env.DINGTALK_GROUP_SUMMARY_LIMIT_TODAY, 50),
+      this_week: numberEnv(env.DINGTALK_GROUP_SUMMARY_LIMIT_WEEK, 100)
+    },
+    refundReport: {
+      enabled: env.REFUND_REPORT_ENABLED === 'true',
+      userIds: splitCsv(env.REFUND_REPORT_USER_IDS),
+      thresholdPercent: numberEnv(env.REFUND_REPORT_THRESHOLD_PERCENT, 20),
+      timezone: blankToUndefined(env.REFUND_REPORT_TIMEZONE) ?? 'Asia/Shanghai',
+      llmOnAnomaly: parseRefundReportLlmPolicy(env.REFUND_REPORT_LLM_ON_ANOMALY)
+    },
+    llm: {
+      apiKey: env.LLM_API_KEY,
+      baseUrl: env.LLM_BASE_URL ?? 'https://api.openai.com/v1',
+      model: env.LLM_MODEL
+    }
+  };
+}
+
+function blankToUndefined(value: string | undefined): string | undefined {
+  const trimmed = value?.trim();
+  return trimmed ? trimmed : undefined;
+}
+
+function numberEnv(value: string | undefined, fallback: number): number {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
+}
+
+function parseRefundReportLlmPolicy(value: string | undefined): 'never' | 'fail_only' | 'fail_or_threshold' {
+  return value === 'never' || value === 'fail_only' || value === 'fail_or_threshold' ? value : 'fail_or_threshold';
+}
+
+function splitCsv(value: string | undefined): string[] {
+  return value
+    ? value
+        .split(',')
+        .map((item) => item.trim())
+        .filter(Boolean)
+    : [];
+}

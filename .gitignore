@@ -11,7 +11,9 @@ tmp/
 *.png
 *.jpg
 *.jpeg
+*_review.xml
+*_data.json
+ai_monthly_review_project.xml
 
 *.pyc
 __pycache__/
-

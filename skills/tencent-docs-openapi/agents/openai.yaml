@@ -1,0 +1,4 @@
+interface:
+  display_name: "腾讯文档 OpenAPI"
+  short_description: "安全接入腾讯文档 OpenAPI。"
+  default_prompt: "使用腾讯文档 OpenAPI 完成鉴权、能力检查，以及文档、表格、智能表、云盘 API 调用；不要使用浏览器自动化。"

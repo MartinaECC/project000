@@ -1,0 +1,39 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { parseEnvFile } from '../src/env-file.ts';
+import { loadConfig } from '../src/config.ts';
+
+test('parses dotenv style key values without overriding existing env', () => {
+  const parsed = parseEnvFile(`
+PORT=3099
+DINGTALK_BOT_ID=ding3cv0e5gguron10zy
+LLM_BASE_URL="https://example.com/v1"
+EMPTY=
+# ignored
+`);
+
+  assert.deepEqual(parsed, {
+    PORT: '3099',
+    DINGTALK_BOT_ID: 'ding3cv0e5gguron10zy',
+    LLM_BASE_URL: 'https://example.com/v1',
+    EMPTY: ''
+  });
+});
+
+test('loads refund report configuration from env', () => {
+  const config = loadConfig({
+    REFUND_REPORT_ENABLED: 'true',
+    REFUND_REPORT_USER_IDS: 'user-1,user-2',
+    REFUND_REPORT_THRESHOLD_PERCENT: '30',
+    REFUND_REPORT_TIMEZONE: 'Asia/Shanghai',
+    REFUND_REPORT_LLM_ON_ANOMALY: 'fail_or_threshold'
+  });
+
+  assert.deepEqual(config.refundReport, {
+    enabled: true,
+    userIds: ['user-1', 'user-2'],
+    thresholdPercent: 30,
+    timezone: 'Asia/Shanghai',
+    llmOnAnomaly: 'fail_or_threshold'
+  });
+});
