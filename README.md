@@ -57,9 +57,12 @@ $env:DATAFINDER_SECRET_KEY="DataFinder Secret Key"
 ```powershell
 D:\nodejs24\npm.cmd test
 D:\nodejs24\npm.cmd start
+D:\nodejs24\npm.cmd run refund-report:once
 ```
 
 启动后，如果 `DINGTALK_MODE=stream`，服务会主动通过 DingTalk Stream 长连接接收机器人消息，不需要公网 HTTPS 回调。
+
+退费率播报上云时，优先使用青龙任务调用 `scripts/ql_refund_report.sh`，不要在青龙里启动常驻 Stream 服务；详细步骤见 [钉钉图表播报产品文档](docs/products/dingtalk-chart-broadcast.md)。
 
 ## 本地事件调试
 

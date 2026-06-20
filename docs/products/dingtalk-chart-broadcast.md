@@ -224,7 +224,71 @@ REFUND_REPORT_THRESHOLD_PERCENT=10
 - `REFUND_REPORT_RENDER_MODE=image`：发送图片表格卡片，适合长报表和多人阅读。
 - `REFUND_REPORT_RENDER_MODE=markdown`：发送 Markdown 卡片，适合快速回退或短报表。
 
-## 7. 异常与回退
+## 7. 青龙任务部署
+
+云服务器上推荐使用青龙任务调度单次脚本，不启动本地常驻 Stream 服务。
+
+### 7.1 执行入口
+
+本地和云上都可用的单次执行命令：
+
+```bash
+npm run refund-report:once
+```
+
+青龙任务推荐执行包装脚本：
+
+```bash
+bash /ql/data/scripts/project000/scripts/ql_refund_report.sh
+```
+
+该脚本会：
+
+- 进入项目目录。
+- 执行 `git pull --ff-only` 拉取最新代码。
+- 在依赖缺失或 `package-lock.json` 变化时执行 `npm ci`。
+- 检查 Python 依赖 `rangersdk`，缺失时安装。
+- 执行单次退费率播报脚本。
+
+### 7.2 青龙配置
+
+推荐配置：
+
+```text
+任务名称：退费率播报-钉钉卡片
+命令：bash /ql/data/scripts/project000/scripts/ql_refund_report.sh
+定时：0 * * * *
+```
+
+青龙环境变量必填：
+
+```text
+DINGTALK_CLIENT_ID
+DINGTALK_CLIENT_SECRET
+DINGTALK_BOT_ID
+REFUND_REPORT_USER_IDS
+DATAFINDER_APP_ID
+DATAFINDER_ACCESS_KEY
+DATAFINDER_SECRET_KEY
+```
+
+青龙环境变量推荐：
+
+```text
+REFUND_REPORT_RENDER_MODE=image
+REFUND_REPORT_CARD_TEMPLATE_ID=StandardCard
+REFUND_REPORT_TIMEZONE=Asia/Shanghai
+REFUND_REPORT_THRESHOLD_PERCENT=10
+DINGTALK_API_BASE_URL=https://api.dingtalk.com
+```
+
+### 7.3 本地服务与青龙任务边界
+
+- `src/index.ts` 继续用于本地机器人 Stream 对话、群聊总结和本地小时调度。
+- 青龙任务只调用 `scripts/send_refund_report_once.mjs` 做一次播报。
+- 青龙任务失败时由青龙记录失败日志，不在脚本内静默吞错。
+
+## 8. 异常与回退
 
 图片模式失败时，不静默降级成 Markdown，避免误以为图片版发送成功。
 
@@ -234,7 +298,7 @@ REFUND_REPORT_THRESHOLD_PERCENT=10
 2. 发送失败卡片或告警。
 3. 如需临时恢复播报，改为 `REFUND_REPORT_RENDER_MODE=markdown` 后重启服务。
 
-## 8. 验收标准
+## 9. 验收标准
 
 功能验收：
 
@@ -253,7 +317,13 @@ REFUND_REPORT_THRESHOLD_PERCENT=10
 - 单测覆盖字段顺序、退费后金额计算、排序、PNG 生成和卡片发送。
 - 服务重启后日志显示 `renderMode: image` 或指定模式。
 
-## 9. 后续扩展
+青龙验收：
+
+- 手动运行青龙任务一次，日志出现 `refund_report.once.completed`。
+- 钉钉客户端收到一张完整卡片。
+- 等待下一个整点，确认任务自动触发成功。
+
+## 10. 后续扩展
 
 后续新增钉钉图表播报时，优先复用本规范：
 

@@ -78,6 +78,25 @@ Selection rules:
 - Keep both code paths available behind configuration such as `REFUND_REPORT_RENDER_MODE=markdown|image`.
 - Do not silently downgrade from image to markdown on image generation or upload failure. Log the failure and send a clear failure card or alert, then switch configuration deliberately if rollback is needed.
 
+## Scheduled Cloud Jobs
+
+For cloud-hosted scheduled report broadcasts, prefer a scheduler-owned one-shot job instead of starting the long-running Stream service:
+
+- Use QingLong or cron to trigger one run at each schedule point.
+- Keep `src/index.ts` for Stream robot conversations and local long-running service mode.
+- Put the reusable report execution in a one-shot entry such as `scripts/send_refund_report_once.mjs`.
+- Let the scheduler call a shell wrapper such as `scripts/ql_refund_report.sh` to pull latest code, ensure dependencies, and execute the one-shot entry.
+- Store DingTalk, DataFinder, and LLM secrets in the scheduler's environment variable manager, not in tracked files.
+- Let failures bubble up so the scheduler marks the task failed; do not swallow errors or silently downgrade modes.
+
+For the refund-rate report QingLong task, use:
+
+```text
+name: 退费率播报-钉钉卡片
+command: bash /ql/data/scripts/project000/scripts/ql_refund_report.sh
+cron: 0 * * * *
+```
+
 ## Typography And Spacing In Card Markdown
 
 For `StandardCard` markdown content, prefer DingTalk markdown variables and design tokens over generic Markdown headings or numeric HTML font sizes.

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "node --watch src/index.ts",
     "start": "node src/index.ts",
+    "refund-report:once": "node scripts/send_refund_report_once.mjs",
     "test": "node --test \"test/**/*.test.ts\""
   },
   "engines": {
