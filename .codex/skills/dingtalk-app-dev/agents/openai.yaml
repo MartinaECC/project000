@@ -1,0 +1,4 @@
+interface:
+  display_name: "DingTalk App Dev"
+  short_description: "Build DingTalk apps, robots, cards, and alerts."
+  default_prompt: "Use $dingtalk-app-dev to build a DingTalk robot workflow with Stream events or interactive cards."

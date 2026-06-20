@@ -35,7 +35,14 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): AppConfig {
     refundReport: {
       enabled: env.REFUND_REPORT_ENABLED === 'true',
       userIds: splitCsv(env.REFUND_REPORT_USER_IDS),
-      thresholdPercent: numberEnv(env.REFUND_REPORT_THRESHOLD_PERCENT, 20),
+      groupConversationId:
+        blankToUndefined(env.REFUND_REPORT_GROUP_CONVERSATION_ID) ??
+        blankToUndefined(env.DINGTALK_DEFAULT_GROUP_CONVERSATION_ID),
+      cardTemplateId: blankToUndefined(env.REFUND_REPORT_CARD_TEMPLATE_ID) ?? 'StandardCard',
+      cardCallbackRouteKey: blankToUndefined(env.REFUND_REPORT_CARD_CALLBACK_ROUTE_KEY),
+      cardApiBaseUrl: blankToUndefined(env.DINGTALK_API_BASE_URL),
+      renderMode: parseRefundReportRenderMode(env.REFUND_REPORT_RENDER_MODE),
+      thresholdPercent: numberEnv(env.REFUND_REPORT_THRESHOLD_PERCENT, 10),
       timezone: blankToUndefined(env.REFUND_REPORT_TIMEZONE) ?? 'Asia/Shanghai',
       llmOnAnomaly: parseRefundReportLlmPolicy(env.REFUND_REPORT_LLM_ON_ANOMALY)
     },
@@ -59,6 +66,10 @@ function numberEnv(value: string | undefined, fallback: number): number {
 
 function parseRefundReportLlmPolicy(value: string | undefined): 'never' | 'fail_only' | 'fail_or_threshold' {
   return value === 'never' || value === 'fail_only' || value === 'fail_or_threshold' ? value : 'fail_or_threshold';
+}
+
+function parseRefundReportRenderMode(value: string | undefined): 'markdown' | 'image' {
+  return value === 'image' ? 'image' : 'markdown';
 }
 
 function splitCsv(value: string | undefined): string[] {

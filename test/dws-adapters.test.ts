@@ -211,6 +211,32 @@ test('DWS reply service sends scheduled markdown to configured users', async () 
   ]);
 });
 
+test('DWS reply service sends scheduled markdown to a configured group', async () => {
+  const calls: string[][] = [];
+  const reply = new DwsReplyService('dws', 'robot-1', async (_bin, args) => {
+    calls.push(args);
+    return '{}';
+  });
+
+  await reply.sendToGroup('cid-1', '退费率播报', 'report markdown');
+
+  assert.deepEqual(calls[0], [
+    'chat',
+    'message',
+    'send-by-bot',
+    '--robot-code',
+    'robot-1',
+    '--group',
+    'cid-1',
+    '--title',
+    '退费率播报',
+    '--text',
+    'report markdown',
+    '--format',
+    'json'
+  ]);
+});
+
 test('DWS runner uses a shell for Windows command shims', () => {
   assert.equal(shouldUseShellForDwsBin('C:\\Users\\Administrator\\AppData\\Roaming\\npm\\dws.cmd'), true);
   assert.equal(shouldUseShellForDwsBin('C:\\tools\\dws.bat'), true);

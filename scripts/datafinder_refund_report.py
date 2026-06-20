@@ -3,9 +3,9 @@ from __future__ import annotations
 import json
 import os
 import sys
-import time
 from datetime import datetime, timedelta
 from typing import Any
+from zoneinfo import ZoneInfo
 
 try:
     from rangersdk import RangersClient
@@ -13,7 +13,7 @@ except ImportError as exc:
     raise SystemExit("rangersdk is required to query DataFinder") from exc
 
 
-TIMEZONE = os.getenv("REFUND_REPORT_TIMEZONE", "Asia/Shanghai")
+DEFAULT_TIMEZONE = "Asia/Shanghai"
 COMPANY_FIELD = "$_vp_alis_name"
 INCOME_EVENT = "order_suc_back"
 REFUND_EVENT = "refund_back"
@@ -27,23 +27,24 @@ def main() -> None:
     access_key = require_env("DATAFINDER_ACCESS_KEY")
     secret_key = require_env("DATAFINDER_SECRET_KEY")
     domain = os.getenv("DATAFINDER_DOMAIN", "analytics.volcengineapi.com")
+    timezone_name = os.getenv("REFUND_REPORT_TIMEZONE", DEFAULT_TIMEZONE)
 
+    periods = report_periods(timezone_name)
     client = RangersClient(access_key, secret_key, 1800, domain)
-    income = query_amount_groups(client, app_id, INCOME_EVENT)
-    refund = query_amount_groups(client, app_id, REFUND_EVENT)
-
-    income_totals = aggregate(income["groups"])
-    refund_totals = aggregate(refund["groups"])
+    current = load_period_data(client, app_id, periods["current"], timezone_name)
+    baseline = load_period_data(client, app_id, periods["baseline"], timezone_name)
 
     output = {
-        "rows": build_rows(income_totals, refund_totals),
-        "diagnostics": {
-            "incomeRows": income["row_count"],
-            "refundRows": refund["row_count"],
-            "incomeBadRows": income["bad_rows"],
-            "refundBadRows": refund["bad_rows"],
-            "incomeTruncated": income["is_truncated"],
-            "refundTruncated": refund["is_truncated"],
+        "rows": current["rows"],
+        "diagnostics": current["diagnostics"],
+        "baselineRows": baseline["rows"],
+        "baselineDiagnostics": baseline["diagnostics"],
+        "periods": {
+            name: {
+                "start": period["start"].isoformat(),
+                "end": period["end"].isoformat(),
+            }
+            for name, period in periods.items()
         },
     }
     print(json.dumps(output, ensure_ascii=True, separators=(",", ":")))
@@ -68,8 +69,58 @@ def require_env(name: str) -> str:
     return value
 
 
-def query_amount_groups(client: Any, app_id: str, event_name: str) -> dict[str, Any]:
-    start, end = today_range_ms()
+def report_periods(timezone_name: str) -> dict[str, dict[str, datetime]]:
+    tz = ZoneInfo(timezone_name)
+    now = parse_now(tz)
+    current_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
+    current_end = now.replace(minute=0, second=0, microsecond=0)
+    return {
+        "current": {"start": current_start, "end": current_end},
+        "baseline": {"start": current_start - timedelta(days=1), "end": current_end - timedelta(days=1)},
+    }
+
+
+def parse_now(tz: ZoneInfo) -> datetime:
+    raw = os.getenv("REFUND_REPORT_NOW_ISO")
+    if not raw:
+        return datetime.now(tz)
+    normalized = raw.replace("Z", "+00:00")
+    parsed = datetime.fromisoformat(normalized)
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=tz)
+    return parsed.astimezone(tz)
+
+
+def load_period_data(client: Any, app_id: str, period: dict[str, datetime], timezone_name: str) -> dict[str, Any]:
+    income = query_amount_groups(client, app_id, INCOME_EVENT, period["start"], period["end"], timezone_name)
+    refund = query_amount_groups(client, app_id, REFUND_EVENT, period["start"], period["end"], timezone_name)
+
+    income_totals = aggregate_amount(income["groups"])
+    refund_totals = aggregate_amount(refund["groups"])
+    income_counts = aggregate_count(income["groups"])
+    refund_counts = aggregate_count(refund["groups"])
+
+    return {
+        "rows": build_rows(income_totals, refund_totals, income_counts, refund_counts),
+        "diagnostics": {
+            "incomeRows": income["row_count"],
+            "refundRows": refund["row_count"],
+            "incomeBadRows": income["bad_rows"],
+            "refundBadRows": refund["bad_rows"],
+            "incomeTruncated": income["is_truncated"],
+            "refundTruncated": refund["is_truncated"],
+        },
+    }
+
+
+def query_amount_groups(
+    client: Any,
+    app_id: str,
+    event_name: str,
+    start: datetime,
+    end: datetime,
+    timezone_name: str,
+) -> dict[str, Any]:
     query = {
         "event_name": event_name,
         "event_type": "origin",
@@ -91,8 +142,8 @@ def query_amount_groups(client: Any, app_id: str, event_name: str) -> dict[str, 
             {
                 "granularity": "day",
                 "type": "range",
-                "range": [start, end],
-                "timezone": TIMEZONE,
+                "range": [int(start.timestamp()), int(end.timestamp())],
+                "timezone": timezone_name,
             }
         ],
         "content": {
@@ -109,13 +160,6 @@ def query_amount_groups(client: Any, app_id: str, event_name: str) -> dict[str, 
     payload = response.json()
     groups, bad_rows, row_count, is_truncated = extract_groups(payload)
     return {"groups": groups, "bad_rows": bad_rows, "row_count": row_count, "is_truncated": is_truncated}
-
-
-def today_range_ms() -> tuple[int, int]:
-    now = datetime.now()
-    start = now.replace(hour=0, minute=0, second=0, microsecond=0)
-    end = start + timedelta(days=1)
-    return int(time.mktime(start.timetuple())), int(time.mktime(end.timetuple()))
 
 
 def extract_groups(payload: dict[str, Any]) -> tuple[list[dict[str, Any]], list[dict[str, Any]], int, bool]:
@@ -198,7 +242,7 @@ def extract_count(row: dict[str, Any]) -> float | None:
     return None
 
 
-def aggregate(groups: list[dict[str, Any]]) -> dict[str, float]:
+def aggregate_amount(groups: list[dict[str, Any]]) -> dict[str, float]:
     totals: dict[str, float] = {}
     for group in groups:
         company = str(group["company"])
@@ -206,21 +250,38 @@ def aggregate(groups: list[dict[str, Any]]) -> dict[str, float]:
     return totals
 
 
-def build_rows(income: dict[str, float], refund: dict[str, float]) -> list[dict[str, Any]]:
+def aggregate_count(groups: list[dict[str, Any]]) -> dict[str, float]:
+    totals: dict[str, float] = {}
+    for group in groups:
+        company = str(group["company"])
+        totals[company] = totals.get(company, 0.0) + float(group["count"])
+    return totals
+
+
+def build_rows(
+    income: dict[str, float],
+    refund: dict[str, float],
+    income_counts: dict[str, float],
+    refund_counts: dict[str, float],
+) -> list[dict[str, Any]]:
     rows = []
     for company in sorted(set(income) | set(refund)):
         income_amount = round(income.get(company, 0.0), 2)
         refund_amount = round(refund.get(company, 0.0), 2)
+        if income_amount == 0 and refund_amount == 0:
+            continue
         refund_rate = None if income_amount <= 0 else refund_amount / income_amount * 100
         rows.append(
             {
                 "company": company,
                 "incomeAmount": income_amount,
                 "refundAmount": refund_amount,
+                "incomeCount": round(income_counts.get(company, 0.0), 2),
+                "refundCount": round(refund_counts.get(company, 0.0), 2),
                 "refundRate": refund_rate,
             }
         )
-    rows.sort(key=lambda row: ((row["refundRate"] is not None), -(row["refundRate"] or 0), row["company"]))
+    rows.sort(key=lambda row: (-row["refundAmount"], -(row["refundRate"] if row["refundRate"] is not None else float("inf")), row["company"]))
     return rows
 
 

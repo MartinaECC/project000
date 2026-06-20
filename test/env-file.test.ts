@@ -24,6 +24,11 @@ test('loads refund report configuration from env', () => {
   const config = loadConfig({
     REFUND_REPORT_ENABLED: 'true',
     REFUND_REPORT_USER_IDS: 'user-1,user-2',
+    REFUND_REPORT_GROUP_CONVERSATION_ID: 'cid-1',
+    REFUND_REPORT_CARD_TEMPLATE_ID: 'template-1',
+    REFUND_REPORT_CARD_CALLBACK_ROUTE_KEY: 'refund-report',
+    DINGTALK_API_BASE_URL: 'https://example.dingtalk.test',
+    REFUND_REPORT_RENDER_MODE: 'image',
     REFUND_REPORT_THRESHOLD_PERCENT: '30',
     REFUND_REPORT_TIMEZONE: 'Asia/Shanghai',
     REFUND_REPORT_LLM_ON_ANOMALY: 'fail_or_threshold'
@@ -32,6 +37,11 @@ test('loads refund report configuration from env', () => {
   assert.deepEqual(config.refundReport, {
     enabled: true,
     userIds: ['user-1', 'user-2'],
+    groupConversationId: 'cid-1',
+    cardTemplateId: 'template-1',
+    cardCallbackRouteKey: 'refund-report',
+    cardApiBaseUrl: 'https://example.dingtalk.test',
+    renderMode: 'image',
     thresholdPercent: 30,
     timezone: 'Asia/Shanghai',
     llmOnAnomaly: 'fail_or_threshold'

@@ -1,9 +1,13 @@
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
+import type { RefundReportCardSender } from './dingtalk-card-service.ts';
 import { errorFields, logger } from './logger.ts';
+import { renderRefundReportTablePng } from './refund-report-image.ts';
 import type { LlmAgent } from './types.ts';
 
 const execFileAsync = promisify(execFile);
+const DEFAULT_TIMEZONE = 'Asia/Shanghai';
+const DEFAULT_CHUNK_SIZE = 6;
 
 export type AmountGroup = {
   company: string;
@@ -15,6 +19,8 @@ export type RefundReportRow = {
   company: string;
   incomeAmount: number;
   refundAmount: number;
+  incomeCount: number;
+  refundCount: number;
   refundRate: number | null;
 };
 
@@ -30,19 +36,27 @@ export type RefundReportDiagnostics = {
 export type RefundReportData = {
   rows: RefundReportRow[];
   diagnostics: RefundReportDiagnostics;
+  baselineRows?: RefundReportRow[];
+  baselineDiagnostics?: RefundReportDiagnostics;
+};
+
+export type RefundReportPeriods = {
+  current: { start: Date; end: Date };
+  baseline: { start: Date; end: Date };
 };
 
 export type RefundReportSource = {
-  load(): Promise<RefundReportData>;
-};
-
-export type ScheduledRefundReportSender = {
-  sendToUsers(userIds: string[], title: string, markdown: string): Promise<void>;
+  load(now?: Date): Promise<RefundReportData>;
 };
 
 export type RefundReportConfig = {
   enabled: boolean;
   userIds: string[];
+  groupConversationId?: string;
+  cardTemplateId?: string;
+  cardCallbackRouteKey?: string;
+  cardApiBaseUrl?: string;
+  renderMode: 'markdown' | 'image';
   thresholdPercent: number;
   timezone: string;
   llmOnAnomaly: 'never' | 'fail_only' | 'fail_or_threshold';
@@ -56,14 +70,28 @@ export function aggregateAmountGroups(groups: AmountGroup[]): Record<string, num
     if (!group.company || !Number.isFinite(amount) || !Number.isFinite(count)) {
       continue;
     }
-    totals[group.company] = (totals[group.company] ?? 0) + amount * count;
+    totals[group.company] = roundMoney((totals[group.company] ?? 0) + amount * count);
+  }
+  return totals;
+}
+
+export function aggregateCountGroups(groups: AmountGroup[]): Record<string, number> {
+  const totals: Record<string, number> = {};
+  for (const group of groups) {
+    const count = Number(group.count);
+    if (!group.company || !Number.isFinite(count)) {
+      continue;
+    }
+    totals[group.company] = roundCount((totals[group.company] ?? 0) + count);
   }
   return totals;
 }
 
 export function buildRefundReportRows(
   incomeByCompany: Record<string, number>,
-  refundByCompany: Record<string, number>
+  refundByCompany: Record<string, number>,
+  incomeCountByCompany: Record<string, number> = {},
+  refundCountByCompany: Record<string, number> = {}
 ): RefundReportRow[] {
   return [...new Set([...Object.keys(incomeByCompany), ...Object.keys(refundByCompany)])]
     .map((company) => {
@@ -73,58 +101,55 @@ export function buildRefundReportRows(
         company,
         incomeAmount,
         refundAmount,
+        incomeCount: roundCount(incomeCountByCompany[company] ?? 0),
+        refundCount: roundCount(refundCountByCompany[company] ?? 0),
         refundRate: incomeAmount > 0 ? (refundAmount / incomeAmount) * 100 : null
       };
     })
-    .sort((left, right) => sortRate(right) - sortRate(left) || left.company.localeCompare(right.company, 'zh-Hans-CN'));
+    .filter((row) => !(row.incomeAmount === 0 && row.refundAmount === 0))
+    .sort(compareRefundRows);
 }
 
-export function formatRefundReportMarkdown(rows: RefundReportRow[], generatedAt: Date, anomalySummary?: string): string {
-  return [
-    '## 每小时退费率报表',
-    '',
-    `生成时间：${formatDateTime(generatedAt)}`,
-    '',
-    ...(anomalySummary ? [`**异常说明**：${anomalySummary}`, ''] : []),
-    '| 企业 | 支付成功金额 | 退费金额 | 退费率 |',
-    '|---|---:|---:|---:|',
-    ...rows.map(
-      (row) =>
-        `| ${row.company} | ${formatMoney(row.incomeAmount)} | ${formatMoney(row.refundAmount)} | ${formatRate(row.refundRate)} |`
-    )
-  ].join('\n');
-}
-
-export function formatRefundReportTextChunks(
+export function formatRefundReportMarkdown(
   rows: RefundReportRow[],
   generatedAt: Date,
-  anomalySummary?: string,
-  chunkSize = 5
+  options: {
+    baselineRows?: RefundReportRow[];
+    baselineDiagnostics?: RefundReportDiagnostics;
+    diagnostics?: RefundReportDiagnostics;
+    anomalySummary?: string;
+    thresholdPercent?: number;
+    timezone?: string;
+  } = {}
+): string {
+  return buildMarkdown(rows, rows, generatedAt, options);
+}
+
+export function formatRefundReportMarkdownChunks(
+  rows: RefundReportRow[],
+  generatedAt: Date,
+  options: {
+    baselineRows?: RefundReportRow[];
+    baselineDiagnostics?: RefundReportDiagnostics;
+    diagnostics?: RefundReportDiagnostics;
+    anomalySummary?: string;
+    thresholdPercent?: number;
+    timezone?: string;
+    chunkSize?: number;
+  } = {}
 ): string[] {
+  const chunkSize = options.chunkSize ?? DEFAULT_CHUNK_SIZE;
   const totalParts = Math.max(1, Math.ceil(rows.length / chunkSize));
   const chunks: string[] = [];
+
   for (let offset = 0; offset < rows.length || offset === 0; offset += chunkSize) {
-    const partNo = Math.floor(offset / chunkSize) + 1;
-    const body = rows.slice(offset, offset + chunkSize).map((row, index) => {
-      const rank = offset + index + 1;
-      return `${rank}.${row.company}｜支付${formatMoney(row.incomeAmount)}｜退费${formatMoney(row.refundAmount)}｜退费率${formatRate(row.refundRate)}`;
-    });
-    chunks.push(
-      compactBotText(
-        [
-          `【正文第${partNo}/${totalParts}段】今日退费率报表`,
-          `生成时间:${formatDateTime(generatedAt)}`,
-          '金额单位:元',
-          '字段:企业｜支付成功｜退费｜退费率',
-          ...(anomalySummary ? [`异常说明:${anomalySummary}`] : []),
-          ...body
-        ].join(';')
-      )
-    );
+    const visibleRows = rows.slice(offset, offset + chunkSize);
+    chunks.push(buildMarkdown(rows, visibleRows, generatedAt, { ...options, partNo: chunks.length + 1, totalParts }));
     if (offset + chunkSize >= rows.length) {
       break;
     }
   }
+
   return chunks;
 }
 
@@ -134,13 +159,32 @@ export function msUntilNextHour(now = new Date()): number {
   return next.getTime() - now.getTime();
 }
 
+export function computeRefundReportPeriods(now = new Date(), timezone = DEFAULT_TIMEZONE): RefundReportPeriods {
+  const parts = getDateTimeParts(now, timezone);
+  const currentStart = zonedDate(parts.year, parts.month, parts.day, 0, timezone);
+  const currentEnd = zonedDate(parts.year, parts.month, parts.day, parts.hour, timezone);
+  return {
+    current: { start: currentStart, end: currentEnd },
+    baseline: {
+      start: new Date(currentStart.getTime() - 24 * 60 * 60 * 1000),
+      end: new Date(currentEnd.getTime() - 24 * 60 * 60 * 1000)
+    }
+  };
+}
+
 export function hasRefundReportAnomaly(data: RefundReportData, thresholdPercent: number): boolean {
+  const baselineByCompany = new Map((data.baselineRows ?? []).map((row) => [row.company, row]));
   return (
     data.diagnostics.incomeTruncated ||
     data.diagnostics.refundTruncated ||
     data.diagnostics.incomeBadRows.length > 0 ||
     data.diagnostics.refundBadRows.length > 0 ||
-    data.rows.some((row) => row.refundRate !== null && row.refundRate >= thresholdPercent)
+    (data.baselineDiagnostics?.incomeTruncated ?? false) ||
+    (data.baselineDiagnostics?.refundTruncated ?? false) ||
+    (data.baselineDiagnostics?.incomeBadRows.length ?? 0) > 0 ||
+    (data.baselineDiagnostics?.refundBadRows.length ?? 0) > 0 ||
+    data.rows.some((row) => isRefundRateChangeAnomaly(row, baselineByCompany.get(row.company), thresholdPercent)) ||
+    data.rows.some((row) => row.incomeAmount === 0 && row.refundAmount > 0)
   );
 }
 
@@ -153,41 +197,56 @@ export class PythonRefundReportSource implements RefundReportSource {
     this.#scriptPath = scriptPath;
   }
 
-  async load(): Promise<RefundReportData> {
+  async load(now = new Date()): Promise<RefundReportData> {
     const { stdout } = await execFileAsync(this.#pythonBin, [this.#scriptPath], {
       encoding: 'utf8',
+      env: { ...process.env, REFUND_REPORT_NOW_ISO: now.toISOString() },
       windowsHide: true,
       timeout: 60_000,
       maxBuffer: 8 * 1024 * 1024
     });
-    const parsed = JSON.parse(stdout) as { rows?: RefundReportRow[]; diagnostics?: RefundReportDiagnostics };
+    const parsed = JSON.parse(stdout) as {
+      rows?: RefundReportRow[];
+      diagnostics?: RefundReportDiagnostics;
+      baselineRows?: RefundReportRow[];
+      baselineDiagnostics?: RefundReportDiagnostics;
+    };
     if (!Array.isArray(parsed.rows) || !parsed.diagnostics) {
       throw new Error('Invalid refund report JSON from DataFinder script.');
     }
-    return { rows: parsed.rows, diagnostics: parsed.diagnostics };
+    return {
+      rows: normalizeRows(parsed.rows),
+      diagnostics: parsed.diagnostics,
+      baselineRows: Array.isArray(parsed.baselineRows) ? normalizeRows(parsed.baselineRows) : undefined,
+      baselineDiagnostics: parsed.baselineDiagnostics
+    };
   }
 }
 
 export async function sendRefundReportOnce(options: {
   source: RefundReportSource;
-  sender: ScheduledRefundReportSender;
+  sender: RefundReportCardSender;
   userIds: string[];
   thresholdPercent: number;
+  timezone?: string;
+  renderMode?: RefundReportConfig['renderMode'];
   llm?: LlmAgent;
   llmOnAnomaly: RefundReportConfig['llmOnAnomaly'];
   now?: Date;
 }): Promise<void> {
   let data: RefundReportData;
   let anomalySummary: string | undefined;
+  const generatedAt = options.now ?? new Date();
+  const timezone = options.timezone ?? DEFAULT_TIMEZONE;
 
   try {
-    data = await options.source.load();
+    data = await options.source.load(generatedAt);
   } catch (error) {
-    anomalySummary = await maybeSummarize(options.llm, options.llmOnAnomaly, '退费率报表数据查询失败', String(error));
-    await options.sender.sendToUsers(
+    anomalySummary = await maybeSummarize(options.llm, options.llmOnAnomaly, '退费率播报数据查询失败', String(error));
+    await options.sender.sendRefundReportCard(
       options.userIds,
-      '退费率报表失败',
-      compactBotText(`退费率报表数据查询失败;生成时间${formatDateTime(options.now ?? new Date())};${anomalySummary ?? String(error)}`)
+      '退费率播报失败',
+      formatFailureMarkdown('退费率播报失败', generatedAt, anomalySummary, error, timezone)
     );
     throw error;
   }
@@ -196,22 +255,61 @@ export async function sendRefundReportOnce(options: {
     anomalySummary = await maybeSummarize(
       options.llm,
       options.llmOnAnomaly,
-      '退费率报表存在异常',
-      JSON.stringify({ thresholdPercent: options.thresholdPercent, rows: data.rows.slice(0, 10), diagnostics: data.diagnostics })
+      '退费率播报存在异常',
+      JSON.stringify({
+        thresholdPercent: options.thresholdPercent,
+        thresholdMeaning: 'refund-rate period-over-period relative change percent',
+        rows: data.rows.slice(0, 10),
+        baselineRows: data.baselineRows?.slice(0, 10),
+        diagnostics: data.diagnostics
+      })
     );
   }
 
-  const chunks = formatRefundReportTextChunks(data.rows, options.now ?? new Date(), anomalySummary);
-  for (const [index, chunk] of chunks.entries()) {
-    await options.sender.sendToUsers(options.userIds, `今日退费率报表${index + 1}/${chunks.length}`, chunk);
+  const markdownOptions = {
+    baselineRows: data.baselineRows,
+    baselineDiagnostics: data.baselineDiagnostics,
+    diagnostics: data.diagnostics,
+    anomalySummary,
+    thresholdPercent: options.thresholdPercent,
+    timezone
+  };
+
+  if ((options.renderMode ?? 'markdown') === 'image') {
+    try {
+      if (!options.sender.sendRefundReportImageCard) {
+        throw new Error('Refund report image mode requires sendRefundReportImageCard.');
+      }
+      const image = await renderRefundReportTablePng(data.rows, generatedAt, {
+        baselineRows: data.baselineRows,
+        thresholdPercent: options.thresholdPercent,
+        timezone
+      });
+      const markdown = formatRefundReportImageCardMarkdown(generatedAt, timezone);
+      await options.sender.sendRefundReportImageCard(options.userIds, '退费率播报', markdown, image);
+      return;
+    } catch (error) {
+      logger.error('refund_report.image_send_failed', errorFields(error));
+      await options.sender.sendRefundReportCard(
+        options.userIds,
+        '退费率播报失败',
+        formatFailureMarkdown('退费率播报失败', generatedAt, anomalySummary, error, timezone)
+      );
+      throw error;
+    }
   }
+
+  const markdown = formatRefundReportMarkdown(data.rows, generatedAt, markdownOptions);
+  await options.sender.sendRefundReportCard(options.userIds, '退费率播报', markdown);
 }
 
 export function startHourlyRefundReport(options: {
   source: RefundReportSource;
-  sender: ScheduledRefundReportSender;
+  sender: RefundReportCardSender;
   userIds: string[];
   thresholdPercent: number;
+  timezone?: string;
+  renderMode?: RefundReportConfig['renderMode'];
   llm?: LlmAgent;
   llmOnAnomaly: RefundReportConfig['llmOnAnomaly'];
   setTimer?: typeof setTimeout;
@@ -245,37 +343,287 @@ export function startHourlyRefundReport(options: {
   };
 }
 
+function buildMarkdown(
+  allRows: RefundReportRow[],
+  visibleRows: RefundReportRow[],
+  generatedAt: Date,
+  options: {
+    baselineRows?: RefundReportRow[];
+    baselineDiagnostics?: RefundReportDiagnostics;
+    diagnostics?: RefundReportDiagnostics;
+    anomalySummary?: string;
+    thresholdPercent?: number;
+    timezone?: string;
+    partNo?: number;
+    totalParts?: number;
+  }
+): string {
+  const thresholdPercent = options.thresholdPercent ?? 10;
+  const summary = summarizeRows(allRows);
+  const baselineSummary = options.baselineRows ? summarizeRows(options.baselineRows) : undefined;
+  const baselineByCompany = new Map((options.baselineRows ?? []).map((row) => [row.company, row]));
+  const reportTitle = options.totalParts && options.totalParts > 1 ? `退费率播报 ${options.partNo}/${options.totalParts}` : '退费率播报';
+  const lines = [
+    titleHeading(reportTitle),
+    timeHeading(`时间: ${formatDateTime(generatedAt, options.timezone ?? DEFAULT_TIMEZONE)}`),
+    spacer(),
+    sectionHeading('总览'),
+    formatMetricLine('退费率', formatRate(summary.refundRate), summary.refundRate, baselineSummary?.refundRate, 'rate'),
+    formatMetricLine('退费数', formatCount(summary.refundCount), summary.refundCount, baselineSummary?.refundCount, 'count'),
+    formatMetricLine('支付数', formatCount(summary.incomeCount), summary.incomeCount, baselineSummary?.incomeCount, 'count'),
+    formatMetricLine('退费金额', formatMoney(summary.refundAmount), summary.refundAmount, baselineSummary?.refundAmount, 'money'),
+    formatMetricLine('支付金额', formatMoney(summary.incomeAmount), summary.incomeAmount, baselineSummary?.incomeAmount, 'money')
+  ];
+
+  if (visibleRows.length === 0) {
+    lines.push(spacer(), sectionHeading('企业明细'), '暂无当日支付或退费数据');
+  } else {
+    for (const row of visibleRows) {
+      const baseline = baselineByCompany.get(row.company);
+      lines.push(
+        spacer(),
+        sectionHeading(row.company),
+        formatMetricLine('退费率', formatRate(row.refundRate), row.refundRate, baseline?.refundRate, 'rate'),
+        formatMetricLine('退费数', formatCount(row.refundCount), row.refundCount, baseline?.refundCount, 'count'),
+        formatMetricLine('支付数', formatCount(row.incomeCount), row.incomeCount, baseline?.incomeCount, 'count'),
+        formatMetricLine('退费金额', formatMoney(row.refundAmount), row.refundAmount, baseline?.refundAmount, 'money'),
+        formatMetricLine('支付金额', formatMoney(row.incomeAmount), row.incomeAmount, baseline?.incomeAmount, 'money'),
+        `关注点：${formatRowAttention(row, baseline, thresholdPercent)}`
+      );
+    }
+  }
+
+  lines.push(
+    spacer(),
+    sectionHeading('异常总结'),
+    ...formatAnomalyLines(
+      allRows,
+      options.baselineRows,
+      options.diagnostics,
+      thresholdPercent,
+      options.anomalySummary,
+      options.baselineDiagnostics
+    )
+  );
+  return lines.join('\n');
+}
+
+function formatRefundReportImageCardMarkdown(generatedAt: Date, timezone: string): string {
+  return [titleHeading('退费率播报'), timeHeading(`时间: ${formatDateTime(generatedAt, timezone)}`)].join('\n');
+}
+
+function summarizeRows(rows: RefundReportRow[]): Omit<RefundReportRow, 'company'> {
+  const incomeAmount = roundMoney(rows.reduce((sum, row) => sum + row.incomeAmount, 0));
+  const refundAmount = roundMoney(rows.reduce((sum, row) => sum + row.refundAmount, 0));
+  const incomeCount = roundCount(rows.reduce((sum, row) => sum + row.incomeCount, 0));
+  const refundCount = roundCount(rows.reduce((sum, row) => sum + row.refundCount, 0));
+  return {
+    incomeAmount,
+    refundAmount,
+    incomeCount,
+    refundCount,
+    refundRate: incomeAmount > 0 ? (refundAmount / incomeAmount) * 100 : null
+  };
+}
+
+function formatMetricLine(
+  label: string,
+  currentText: string,
+  currentValue: number | null,
+  baselineValue: number | null | undefined,
+  kind: 'count' | 'money' | 'rate'
+): string {
+  return `${label}：${currentText}${formatComparison(currentValue, baselineValue, kind)}`;
+}
+
+function formatComparison(
+  currentValue: number | null,
+  baselineValue: number | null | undefined,
+  kind: 'count' | 'money' | 'rate'
+): string {
+  if (currentValue === null || baselineValue === null || baselineValue === undefined || baselineValue === 0) {
+    return '';
+  }
+  const relative = ((currentValue - baselineValue) / baselineValue) * 100;
+  const baselineText = kind === 'money' ? formatMoney(baselineValue) : kind === 'rate' ? formatRate(baselineValue) : formatCount(baselineValue);
+  const deltaText = kind === 'rate' ? ` / ${formatSigned(currentValue - baselineValue)}pp` : '';
+  return `（${baselineText}，环比：${formatSigned(relative)}%${deltaText}）`;
+}
+
+function titleHeading(text: string): string {
+  return `<font sizeToken=common_h1_text_style__font_size>**${text}**</font>`;
+}
+
+function timeHeading(text: string): string {
+  return `<font sizeToken=common_h2_text_style__font_size>**${text}**</font>`;
+}
+
+function sectionHeading(text: string): string {
+  return `<font sizeToken=common_h3_text_style__font_size>**${text}**</font>`;
+}
+
+function spacer(): string {
+  return '&nbsp;';
+}
+
+function formatSigned(value: number): string {
+  return `${value >= 0 ? '+' : ''}${value.toFixed(2)}`;
+}
+
+function formatRowAttention(row: RefundReportRow, baseline: RefundReportRow | undefined, thresholdPercent: number): string {
+  if (row.incomeAmount === 0 && row.refundAmount > 0) {
+    return '支付金额为 0 但产生退费，需优先核查';
+  }
+  const refundRateChange = refundRateRelativeChange(row, baseline);
+  if (refundRateChange !== null && refundRateChange > thresholdPercent) {
+    return `退费率环比上升 ${formatSigned(refundRateChange)}%，需关注`;
+  }
+  if (refundRateChange !== null && refundRateChange <= -thresholdPercent) {
+    return `退费率环比下降 ${formatSigned(refundRateChange)}%，需关注`;
+  }
+  return '无明显异常';
+}
+
+function isRefundRateChangeAnomaly(row: RefundReportRow, baseline: RefundReportRow | undefined, thresholdPercent: number): boolean {
+  const refundRateChange = refundRateRelativeChange(row, baseline);
+  return refundRateChange !== null && (refundRateChange > thresholdPercent || refundRateChange <= -thresholdPercent);
+}
+
+function refundRateRelativeChange(row: RefundReportRow, baseline: RefundReportRow | undefined): number | null {
+  if (row.refundRate === null || baseline?.refundRate === null || baseline?.refundRate === undefined || baseline.refundRate === 0) {
+    return null;
+  }
+  return ((row.refundRate - baseline.refundRate) / baseline.refundRate) * 100;
+}
+
+function formatAnomalyLines(
+  rows: RefundReportRow[],
+  baselineRows: RefundReportRow[] | undefined,
+  diagnostics: RefundReportDiagnostics | undefined,
+  thresholdPercent: number,
+  anomalySummary: string | undefined,
+  baselineDiagnostics: RefundReportDiagnostics | undefined = undefined
+): string[] {
+  const lines: string[] = [];
+  const baselineByCompany = new Map((baselineRows ?? []).map((row) => [row.company, row]));
+  for (const row of rows) {
+    const attention = formatRowAttention(row, baselineByCompany.get(row.company), thresholdPercent);
+    if (attention !== '无明显异常') {
+      lines.push(`- ${row.company}：${attention}`);
+    }
+  }
+  if (diagnostics?.incomeTruncated) {
+    lines.push('- 支付数据返回被截断，需检查 DataFinder 分页或维度数量');
+  }
+  if (diagnostics?.refundTruncated) {
+    lines.push('- 退费数据返回被截断，需检查 DataFinder 分页或维度数量');
+  }
+  if ((diagnostics?.incomeBadRows.length ?? 0) > 0) {
+    lines.push(`- 支付数据存在 ${diagnostics?.incomeBadRows.length} 条无法解析记录`);
+  }
+  if ((diagnostics?.refundBadRows.length ?? 0) > 0) {
+    lines.push(`- 退费数据存在 ${diagnostics?.refundBadRows.length} 条无法解析记录`);
+  }
+  if (baselineDiagnostics?.incomeTruncated) {
+    lines.push('- 昨日同期支付数据返回被截断，需检查 DataFinder 分页或维度数量');
+  }
+  if (baselineDiagnostics?.refundTruncated) {
+    lines.push('- 昨日同期退费数据返回被截断，需检查 DataFinder 分页或维度数量');
+  }
+  if ((baselineDiagnostics?.incomeBadRows.length ?? 0) > 0) {
+    lines.push(`- 昨日同期支付数据存在 ${baselineDiagnostics?.incomeBadRows.length} 条无法解析记录`);
+  }
+  if ((baselineDiagnostics?.refundBadRows.length ?? 0) > 0) {
+    lines.push(`- 昨日同期退费数据存在 ${baselineDiagnostics?.refundBadRows.length} 条无法解析记录`);
+  }
+  if (anomalySummary) {
+    lines.push(`- AI 说明：${anomalySummary}`);
+  }
+  return lines.length > 0 ? lines : ['- 暂无'];
+}
+
+function compareRefundRows(left: RefundReportRow, right: RefundReportRow): number {
+  return (
+    right.refundAmount - left.refundAmount ||
+    sortRate(right) - sortRate(left) ||
+    left.company.localeCompare(right.company, 'zh-Hans-CN')
+  );
+}
+
 function sortRate(row: RefundReportRow): number {
   return row.refundRate ?? Number.POSITIVE_INFINITY;
 }
 
-function compactBotText(text: string): string {
-  return text.replace(/\s+/gu, '').replace(/[|#*`]/gu, '');
+function normalizeRows(rows: RefundReportRow[]): RefundReportRow[] {
+  return rows.map((row) => ({
+    company: row.company,
+    incomeAmount: roundMoney(row.incomeAmount),
+    refundAmount: roundMoney(row.refundAmount),
+    incomeCount: roundCount(row.incomeCount ?? 0),
+    refundCount: roundCount(row.refundCount ?? 0),
+    refundRate: row.refundRate
+  }));
 }
 
 function formatMoney(value: number): string {
   return value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
+function formatCount(value: number): string {
+  return value.toLocaleString('en-US', { maximumFractionDigits: 2 });
+}
+
 function formatRate(value: number | null): string {
   return value === null ? '无法计算' : `${value.toFixed(2)}%`;
 }
 
-function formatDateTime(date: Date): string {
+function formatDateTime(date: Date, timezone: string): string {
+  const parts = getDateTimeParts(date, timezone);
+  return `${parts.year}-${parts.month}-${parts.day} ${parts.hour}:${parts.minute}:${parts.second}`;
+}
+
+function getDateTimeParts(date: Date, timezone: string): {
+  year: string;
+  month: string;
+  day: string;
+  hour: string;
+  minute: string;
+  second: string;
+} {
   const parts = new Intl.DateTimeFormat('zh-CN', {
-    timeZone: 'Asia/Shanghai',
+    timeZone: timezone,
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',
     hour: '2-digit',
     minute: '2-digit',
+    second: '2-digit',
     hour12: false
   }).formatToParts(date);
   const pick = (type: string) => parts.find((part) => part.type === type)?.value ?? '';
-  return `${pick('year')}-${pick('month')}-${pick('day')} ${pick('hour')}:${pick('minute')}`;
+  return {
+    year: pick('year'),
+    month: pick('month'),
+    day: pick('day'),
+    hour: pick('hour'),
+    minute: pick('minute'),
+    second: pick('second')
+  };
+}
+
+function zonedDate(year: string, month: string, day: string, hour: string | number, timezone: string): Date {
+  const hourText = String(hour).padStart(2, '0');
+  if (timezone === DEFAULT_TIMEZONE) {
+    return new Date(`${year}-${month}-${day}T${hourText}:00:00+08:00`);
+  }
+  return new Date(`${year}-${month}-${day}T${hourText}:00:00`);
 }
 
 function roundMoney(value: number): number {
+  return Math.round(value * 100) / 100;
+}
+
+function roundCount(value: number): number {
   return Math.round(value * 100) / 100;
 }
 
@@ -291,6 +639,12 @@ async function maybeSummarize(
   return llm.chat(`${title}\n请用一句中文说明重点，不要扩展事实。\n${detail}`);
 }
 
-function formatFailureMarkdown(title: string, generatedAt: Date, anomalySummary: string | undefined, error: unknown): string {
-  return [`## ${title}`, '', `生成时间：${formatDateTime(generatedAt)}`, '', anomalySummary ?? String(error)].join('\n');
+function formatFailureMarkdown(
+  title: string,
+  generatedAt: Date,
+  anomalySummary: string | undefined,
+  error: unknown,
+  timezone: string
+): string {
+  return [titleHeading(title), timeHeading(`时间: ${formatDateTime(generatedAt, timezone)}`), spacer(), anomalySummary ?? String(error)].join('\n');
 }

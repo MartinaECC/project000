@@ -42,6 +42,11 @@ export type ReplyService = {
 export type RefundReportSettings = {
   enabled: boolean;
   userIds: string[];
+  groupConversationId?: string;
+  cardTemplateId?: string;
+  cardCallbackRouteKey?: string;
+  cardApiBaseUrl?: string;
+  renderMode: 'markdown' | 'image';
   thresholdPercent: number;
   timezone: string;
   llmOnAnomaly: 'never' | 'fail_only' | 'fail_or_threshold';

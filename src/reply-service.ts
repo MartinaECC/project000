@@ -36,6 +36,13 @@ export class DwsReplyService implements ReplyService {
     await this.#send(['--users', userIds.join(',')], title, markdown);
   }
 
+  async sendToGroup(conversationId: string, title: string, markdown: string): Promise<void> {
+    if (!conversationId) {
+      throw new Error('DingTalk group conversationId is required for scheduled bot messages.');
+    }
+    await this.#send(['--group', conversationId], title, markdown);
+  }
+
   async #send(targetArgs: string[], title: string, text: string): Promise<void> {
     await this.#runner(this.#bin, [
       'chat',

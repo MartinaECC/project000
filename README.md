@@ -7,6 +7,7 @@
 - **钉钉智能机器人底座**：支持 DingTalk Stream 模式接入、消息解析、白名单、幂等处理、LLM 对话和回复。
 - **群聊总结助手雏形**：识别“总结今天群聊”“总结本周群消息”等意图，通过 DWS 读取群消息并交给 LLM 总结。
 - **退款率报告能力**：从 DataFinder 查询收入和退款数据，生成退款率报告，并在异常时调用 LLM 做摘要。
+- **钉钉图表播报能力**：通过互动卡片发送 Markdown 或图片表格报表，当前样板见 [钉钉图表播报产品文档](docs/products/dingtalk-chart-broadcast.md)。
 - **月度客户复盘能力**：按自然月生成收入、退款、续费、加购、投诉等指标的复盘草稿。
 - **腾讯文档 OpenAPI skill**：通过官方 OpenAPI 处理授权、文件、表格、文档和智能表相关操作。
 - **协作文档体系**：记录岗位任务、助手路线图、协作流程、成果台账、周/月复盘。
@@ -19,6 +20,7 @@ test/                        # Node.js 自动化测试
 scripts/                     # DataFinder、月度复盘、PDF 抽取等自动化脚本
 skills/                      # 可复用 Codex skill
 docs/                        # 项目说明、路线图、协作记录
+docs/products/               # 面向产品和运营协作的能力说明文档
 ai-monthly-review-site/      # AI 月度复盘展示页
 ```
 

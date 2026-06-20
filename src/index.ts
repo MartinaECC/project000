@@ -1,5 +1,6 @@
 import { BotService } from './bot-service.ts';
 import { loadConfig } from './config.ts';
+import { DingTalkInteractiveCardSender } from './dingtalk-card-service.ts';
 import { loadEnvFile } from './env-file.ts';
 import { logger } from './logger.ts';
 import { OpenAiCompatibleLlmAgent } from './llm-agent.ts';
@@ -28,8 +29,11 @@ logger.info('config.loaded', {
   refundReport: {
     enabled: config.refundReport?.enabled ?? false,
     userCount: config.refundReport?.userIds.length ?? 0,
+    hasGroupConversationId: Boolean(config.refundReport?.groupConversationId),
+    cardTemplateId: config.refundReport?.cardTemplateId,
     thresholdPercent: config.refundReport?.thresholdPercent,
     timezone: config.refundReport?.timezone,
+    renderMode: config.refundReport?.renderMode,
     llmOnAnomaly: config.refundReport?.llmOnAnomaly
   },
   llm: {
@@ -43,23 +47,34 @@ const tools = new DwsToolRegistry(config.dwsBin, undefined, config.groupSummaryL
 const llm = new OpenAiCompatibleLlmAgent(config.llm);
 
 if (config.refundReport?.enabled) {
-  if (!config.dingtalkBotId) {
-    logger.warn('refund_report.disabled', { reason: 'missing DINGTALK_BOT_ID' });
+  if (!config.dingtalkClientId || !config.dingtalkClientSecret) {
+    logger.warn('refund_report.disabled', { reason: 'missing DINGTALK_CLIENT_ID or DINGTALK_CLIENT_SECRET' });
   } else if (config.refundReport.userIds.length === 0) {
     logger.warn('refund_report.disabled', { reason: 'missing REFUND_REPORT_USER_IDS' });
   } else {
     startHourlyRefundReport({
       source: new PythonRefundReportSource(),
-      sender: new DwsReplyService(config.dwsBin, config.dingtalkBotId, undefined, 'single'),
+      sender: new DingTalkInteractiveCardSender({
+        clientId: config.dingtalkClientId,
+        clientSecret: config.dingtalkClientSecret,
+        robotCode: config.dingtalkBotId,
+        cardTemplateId: config.refundReport.cardTemplateId,
+        callbackRouteKey: config.refundReport.cardCallbackRouteKey,
+        apiBaseUrl: config.refundReport.cardApiBaseUrl
+      }),
       userIds: config.refundReport.userIds,
       thresholdPercent: config.refundReport.thresholdPercent,
+      timezone: config.refundReport.timezone,
+      renderMode: config.refundReport.renderMode,
       llm,
       llmOnAnomaly: config.refundReport.llmOnAnomaly
     });
     logger.info('refund_report.started', {
       userCount: config.refundReport.userIds.length,
+      cardTemplateId: config.refundReport.cardTemplateId,
       thresholdPercent: config.refundReport.thresholdPercent,
-      timezone: config.refundReport.timezone
+      timezone: config.refundReport.timezone,
+      renderMode: config.refundReport.renderMode
     });
   }
 }
