@@ -1,0 +1,17 @@
+node_modules/
+npm-debug.log*
+package-lock.tmp
+
+.env
+.env.*
+!.env.example
+
+tmp/
+*.log
+*.png
+*.jpg
+*.jpeg
+
+*.pyc
+__pycache__/
+
