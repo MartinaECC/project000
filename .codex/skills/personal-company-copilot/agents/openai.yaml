@@ -1,0 +1,4 @@
+interface:
+  display_name: "Personal Company Copilot"
+  short_description: "Advise and execute across company functions."
+  default_prompt: "Use $personal-company-copilot to assess this company issue and turn it into next actions."
