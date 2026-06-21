@@ -7,6 +7,11 @@ description: Create and maintain DingTalk enterprise internal apps and robots. U
 
 Use this skill for DingTalk enterprise internal application and robot development, especially Stream-mode robot message/event subscription setup, robot alert delivery, and interactive-card communication.
 
+For DingTalk CLI, MCP Square, OpenClaw, or Agent onboarding/deployment questions, first read
+[references/dingtalk-cli-mcp-openclaw-agent.md](references/dingtalk-cli-mcp-openclaw-agent.md).
+It captures the official DingTalk documentation map, installation patterns, MCP/OpenClaw routing,
+and local Windows host caveats learned from live setup.
+
 ## Core Workflow
 
 1. Clarify the target app and robot.
