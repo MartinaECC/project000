@@ -1,0 +1,4 @@
+﻿interface:
+  display_name: "运营月复盘火山数据源"
+  short_description: "用火山 DataFinder 生成企业自然月运营复盘初稿"
+  default_prompt: "Use $operation-monthly-review-datafinder to draft a natural-month enterprise operations review from Volcano DataFinder data."

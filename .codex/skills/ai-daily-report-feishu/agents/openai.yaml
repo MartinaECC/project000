@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI 日报写入飞书"
+  short_description: "总结当天 Codex 工作并写入飞书日报与 Base"
+  default_prompt: "Use $ai-daily-report-feishu to summarize today's Codex work, write the AI daily report into Feishu, and backfill the parent Base record."

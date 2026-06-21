@@ -93,63 +93,6 @@ test('computes current and baseline report periods using top-of-hour cutoff', ()
       end: new Date('2026-06-19T21:00:00+08:00')
     }
   });
-
-  assert.deepEqual(computeRefundReportPeriods(new Date('2026-06-21T09:07:00+08:00'), 'Asia/Shanghai'), {
-    current: {
-      start: new Date('2026-06-21T00:00:00+08:00'),
-      end: new Date('2026-06-21T09:00:00+08:00')
-    },
-    baseline: {
-      start: new Date('2026-06-20T00:00:00+08:00'),
-      end: new Date('2026-06-20T09:00:00+08:00')
-    }
-  });
-
-  assert.deepEqual(computeRefundReportPeriods(new Date('2026-06-21T23:59:00+08:00'), 'Asia/Shanghai'), {
-    current: {
-      start: new Date('2026-06-21T00:00:00+08:00'),
-      end: new Date('2026-06-21T23:00:00+08:00')
-    },
-    baseline: {
-      start: new Date('2026-06-20T00:00:00+08:00'),
-      end: new Date('2026-06-20T23:00:00+08:00')
-    }
-  });
-});
-
-test('computes midnight report periods as yesterday full day compared with previous full day', () => {
-  assert.deepEqual(computeRefundReportPeriods(new Date('2026-06-21T00:02:27+08:00'), 'Asia/Shanghai'), {
-    current: {
-      start: new Date('2026-06-20T00:00:00+08:00'),
-      end: new Date('2026-06-21T00:00:00+08:00')
-    },
-    baseline: {
-      start: new Date('2026-06-19T00:00:00+08:00'),
-      end: new Date('2026-06-20T00:00:00+08:00')
-    }
-  });
-
-  assert.deepEqual(computeRefundReportPeriods(new Date('2026-06-21T00:00:00+08:00'), 'Asia/Shanghai'), {
-    current: {
-      start: new Date('2026-06-20T00:00:00+08:00'),
-      end: new Date('2026-06-21T00:00:00+08:00')
-    },
-    baseline: {
-      start: new Date('2026-06-19T00:00:00+08:00'),
-      end: new Date('2026-06-20T00:00:00+08:00')
-    }
-  });
-
-  assert.deepEqual(computeRefundReportPeriods(new Date('2026-06-21T01:00:00+08:00'), 'Asia/Shanghai'), {
-    current: {
-      start: new Date('2026-06-21T00:00:00+08:00'),
-      end: new Date('2026-06-21T01:00:00+08:00')
-    },
-    baseline: {
-      start: new Date('2026-06-20T00:00:00+08:00'),
-      end: new Date('2026-06-20T01:00:00+08:00')
-    }
-  });
 });
 
 test('formats refund report markdown with overview, company sections, and anomalies', () => {

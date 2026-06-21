@@ -1,0 +1,396 @@
+- generic [ref=e4]:
+  - generic [ref=e5]:
+    - generic:
+      - generic [ref=e10]: 
+      - generic [ref=e12]:
+        - generic [ref=e14]:
+          - generic [ref=e16]: 欢迎使用企业账号
+          - generic [ref=e17]: 企业账号支持登录后用于办公、沟通和协同。加强了办公数据的确权和信息安全，能帮助你更高效地管理团队协作、数据权限与业务流程
+        - generic [ref=e18]:
+          - generic [ref=e19]: 
+          - generic [ref=e20]: 我已阅读并同意以上须知及 服务协议、隐私政策、企业账号使用须知
+        - generic [ref=e21]:
+          - generic [ref=e22] [cursor=pointer]: 取消
+          - generic [ref=e23]: 确定
+      - generic [ref=e26]:
+        - generic [ref=e27]: 欢迎使用
+        - generic [ref=e28]: 绑定手机号码，与同事随时保持高效沟通
+        - generic [ref=e29]:
+          - generic [ref=e32]:
+            - text: "+86"
+            - generic [ref=e33]: 
+          - textbox "请输入手机号码" [ref=e35]
+        - generic [ref=e36]: 下一步
+      - generic [ref=e39]:
+        - generic [ref=e40]: 欢迎使用
+        - generic [ref=e41]: 绑定邮箱，与同事随时保持高效沟通
+        - textbox "请输入邮箱" [ref=e44]
+        - generic [ref=e45]: 下一步
+      - generic [ref=e48]:
+        - generic [ref=e49]: 请设置密码
+        - generic [ref=e50]:
+          - textbox "请输入密码" [ref=e52]
+          - generic [ref=e53] [cursor=pointer]: 
+        - generic [ref=e54]: 确定
+      - generic [ref=e56]:
+        - img [ref=e58] [cursor=pointer]
+        - generic [ref=e64] [cursor=pointer]: 立即登录
+      - generic [ref=e69]:
+        - generic [ref=e70]: 想要访问你的钉钉账号
+        - generic [ref=e74]: 这样即可让
+        - generic [ref=e76]: 请你阅读并同意遵守授权协议
+        - generic [ref=e77]:
+          - generic [ref=e78]: 拒绝
+          - generic [ref=e79]: 同意
+      - generic [ref=e84]:
+        - generic [ref=e86]:
+          - generic [ref=e87]: 该账号不是管理员
+          - generic [ref=e88]: 仅支持管理员登录，未找到该账号担任管理员的组织，你可选择：
+          - generic [ref=e89]:
+            - text: 1、联系组织管理员为你添加管理权限
+            - text: 2、直接创建新组织，成为管理员
+            - text: 3、更换账号重新登录
+        - generic [ref=e90] [cursor=pointer]: 重新登录
+        - generic [ref=e91] [cursor=pointer]: 创建企业/组织/团队
+      - generic [ref=e94]:
+        - generic [ref=e95] [cursor=pointer]:
+          - generic [ref=e96]: 
+          - text: 返回
+        - generic [ref=e97]: 你的手机号码现在能接收短信吗?
+        - generic [ref=e98]:
+          - generic [ref=e99] [cursor=pointer]: 不能
+          - generic [ref=e100] [cursor=pointer]: 能
+      - generic [ref=e103]:
+        - img [ref=e104]
+        - generic [ref=e105] [cursor=pointer]: 确定
+      - generic [ref=e108]:
+        - generic [ref=e109] [cursor=pointer]:
+          - generic [ref=e110]: 
+          - text: 返回
+        - generic [ref=e111]: 找回账号密码
+        - textbox "请输入登录名" [ref=e114]
+        - generic [ref=e115]: 确定
+        - generic [ref=e117] [cursor=pointer]: 忘记登录名
+      - generic [ref=e118]:
+        - generic [ref=e122]: 请在下方验证方式中任选一种方式验证你的身份
+        - generic [ref=e124] [cursor=pointer]: 切换登录名
+      - generic [ref=e125]:
+        - generic [ref=e127]:
+          - generic [ref=e129]: 企业账号登录
+          - generic [ref=e130]: 请输入组织代码跳转到公司的登录页面
+          - textbox "请输入组织代码" [ref=e133]
+          - generic [ref=e134] [cursor=pointer]: 如何获取组织代码?
+          - generic [ref=e136]:
+            - generic [ref=e137]: 下一步
+            - generic [ref=e141] [cursor=pointer]: 记住组织代码
+        - generic [ref=e146] [cursor=pointer]:
+          - text: 简体中文
+          - generic [ref=e147]: 
+      - generic [ref=e148]:
+        - generic [ref=e150]:
+          - generic [ref=e151]:
+            - generic [ref=e154]: 登录钉钉
+            - generic [ref=e155]: 继续使用钉钉卡片编辑器
+          - text:  
+          - generic [ref=e157]:
+            - generic [ref=e158]:
+              - generic [ref=e161]:
+                - text: "+86"
+                - generic [ref=e162]: 
+              - textbox "请输入手机号码" [ref=e164]
+            - text: 
+            - generic [ref=e165]: 下一步
+            - generic [ref=e167] [cursor=pointer]:
+              - generic [ref=e168]: 
+              - text: 自动登录
+        - generic [ref=e170] [cursor=pointer]: 注册账号
+      - generic [ref=e171]:
+        - generic [ref=e173]:
+          - generic [ref=e175]:
+            - generic [ref=e177]: 通过 LINE 登录
+            - generic [ref=e179]: 通过 Google 登录
+          - generic [ref=e181]: 或者
+          - generic [ref=e182]:
+            - img [ref=e183]
+            - generic [ref=e185]: 通过邮箱登录
+        - generic [ref=e187]: 继续即表示你同意服务条款、隐私条款
+      - generic [ref=e188]:
+        - generic [ref=e192]:
+          - generic [ref=e195]: 使用钉钉扫码
+          - generic [ref=e196]: 继续使用钉钉卡片编辑器
+          - generic [ref=e202] [cursor=pointer]:
+            - generic [ref=e203]: 
+            - text: 自动登录
+        - generic [ref=e204]:
+          - generic [ref=e205] [cursor=pointer]: 企业账号
+          - generic [ref=e206] [cursor=pointer]: 注册账号
+      - generic [ref=e208]:
+        - img [ref=e209]
+        - generic [ref=e210] [cursor=pointer]: 登录
+        - generic [ref=e211] [cursor=pointer]: 取消登录
+      - generic [ref=e213]:
+        - img [ref=e214]
+        - generic [ref=e215] [cursor=pointer]: 登录
+        - generic [ref=e216] [cursor=pointer]: 取消登录
+      - generic [ref=e219]:
+        - generic [ref=e220] [cursor=pointer]:
+          - generic [ref=e221]: 
+          - text: 返回
+        - generic [ref=e222]: 注册账号
+        - generic [ref=e225]:
+          - generic [ref=e228]:
+            - text: "+86"
+            - generic [ref=e229]: 
+          - textbox "请输入手机号码" [ref=e231]
+        - generic [ref=e232]: 确定
+      - generic [ref=e234]:
+        - generic [ref=e235] [cursor=pointer]:
+          - generic [ref=e236]: 
+          - text: 返回
+        - generic [ref=e237]: 注册账号
+        - generic [ref=e238]: 密码至少 8 个字符，不能全是字母或数字
+        - generic [ref=e239]:
+          - generic [ref=e240]: 姓名
+          - textbox "请输入姓名" [ref=e243]
+        - generic [ref=e244]:
+          - generic [ref=e245]: 密码
+          - generic [ref=e246]:
+            - textbox "请输入密码" [ref=e248]
+            - generic [ref=e249] [cursor=pointer]: 
+        - generic [ref=e250]:
+          - generic [ref=e251]: 确认密码
+          - generic [ref=e252]:
+            - textbox "请再次输入密码" [ref=e254]
+            - generic [ref=e255] [cursor=pointer]: 
+        - generic [ref=e256]: 确定
+        - generic [ref=e257]:
+          - generic [ref=e258]: 
+          - generic [ref=e259]:
+            - generic [ref=e260]: 我已阅读并同意
+            - generic [ref=e261] [cursor=pointer]: 服务协议
+            - generic [ref=e262] [cursor=pointer]: 隐私政策
+      - generic [ref=e263]:
+        - generic [ref=e267]:
+          - generic [ref=e270]: 使用企业账号登录
+          - textbox "请输入登录名" [ref=e273]
+          - generic [ref=e274]:
+            - textbox "请输入密码" [ref=e276]
+            - generic [ref=e277] [cursor=pointer]: 
+            - generic [ref=e278] [cursor=pointer]: 忘记密码
+          - generic [ref=e279]: 登录
+          - generic [ref=e281] [cursor=pointer]:
+            - generic [ref=e282]: 
+            - text: 自动登录
+        - generic [ref=e286] [cursor=pointer]:
+          - text: 简体中文
+          - generic [ref=e287]: 
+      - generic [ref=e290]:
+        - generic [ref=e291]: 验证手机号码
+        - generic [ref=e292]: 已向发送验证码，请查收并输入验证码。 收不到验证码？
+        - textbox [ref=e295]
+        - generic [ref=e306]: 00:59 后 重发验证码 或 通过其他途径验证
+      - generic [ref=e307]:
+        - generic [ref=e309]:
+          - generic [ref=e312]:
+            - text: 你将使用下方账号登录
+            - generic [ref=e313]: 
+          - generic [ref=e314]: 点击头像以授权使用
+        - generic [ref=e319]:
+          - generic [ref=e320]: 或
+          - generic [ref=e321] [cursor=pointer]: 切换其他账号登录
+      - generic [ref=e322]:
+        - generic [ref=e324]:
+          - generic [ref=e327]:
+            - text: 你将使用下方账号登录
+            - generic [ref=e328]: 
+          - generic [ref=e329]: 点击头像以授权使用
+        - generic [ref=e334]:
+          - generic [ref=e335]: 或
+          - generic [ref=e336] [cursor=pointer]: 切换其他账号登录
+      - generic [ref=e337]:
+        - generic [ref=e341]:
+          - generic [ref=e342]: 请用家长手机钉钉扫码
+          - generic [ref=e343]:
+            - generic [ref=e344]: 请使用家长钉钉账号的“扫一扫”功能
+            - generic [ref=e345]: 功能扫描下方二维码
+          - generic [ref=e347] [cursor=pointer]: 
+          - generic [ref=e349]:
+            - text: 用学生账号密码登录
+            - generic [ref=e350]: 
+        - generic [ref=e351] [cursor=pointer]: 取消
+      - generic [ref=e354]: 选择要登录的账号
+      - generic [ref=e355]:
+        - generic [ref=e359]:
+          - generic [ref=e362]: 使用企业账号登录
+          - textbox "请输入登录名" [ref=e365]
+          - generic [ref=e366]: 下一步
+          - generic [ref=e368] [cursor=pointer]:
+            - generic [ref=e369]: 
+            - text: 自动登录
+        - generic [ref=e373] [cursor=pointer]:
+          - text: 简体中文
+          - generic [ref=e374]: 
+      - generic [ref=e375]:
+        - generic [ref=e379]: 因为组织安全策略要求，请在下方验证方式中任选两种方式验证你的身份
+        - generic [ref=e381] [cursor=pointer]: 切换登录名
+      - generic [ref=e386]:
+        - generic [ref=e389]: 使用钉钉扫码
+        - generic [ref=e391] [cursor=pointer]: 
+      - generic [ref=e398]:
+        - generic [ref=e399]: 使用企业账号登录
+        - generic [ref=e400]: 当前登录名：
+        - generic [ref=e401]:
+          - textbox "请输入密码" [ref=e403]
+          - generic [ref=e404] [cursor=pointer]: 
+          - generic [ref=e405] [cursor=pointer]: 忘记密码
+        - generic [ref=e406]: 登录
+      - generic [ref=e410]:
+        - generic [ref=e411]: 请填写邮箱完成绑定
+        - generic [ref=e412]: 你的账号暂未绑定邮箱，请输入邮箱后绑定
+        - textbox "请输入邮箱" [ref=e415]
+        - generic [ref=e416]: 下一步
+      - generic [ref=e417]:
+        - generic [ref=e419]:
+          - generic [ref=e425]: "2"
+          - generic [ref=e426]: 企业账号
+          - generic [ref=e427]: 请输入用户名和密码
+          - textbox "请输入登录名" [ref=e430]
+          - generic [ref=e431]:
+            - textbox "请输入密码" [ref=e433]
+            - generic [ref=e434] [cursor=pointer]: 
+            - generic [ref=e435] [cursor=pointer]: 忘记密码
+          - generic [ref=e437] [cursor=pointer]:
+            - generic [ref=e438]: 
+            - text: 自动登录
+          - generic [ref=e441]: 继续
+        - generic [ref=e445] [cursor=pointer]:
+          - text: 简体中文
+          - generic [ref=e446]: 
+      - generic [ref=e447]:
+        - generic [ref=e449]:
+          - generic [ref=e450]:
+            - img "DingTalk" [ref=e452]
+            - img [ref=e454] [cursor=pointer]
+          - generic [ref=e456]: 登录DingDing
+          - generic [ref=e457]:
+            - generic [ref=e458]:
+              - generic [ref=e459] [cursor=pointer]: 邮箱
+              - generic [ref=e460] [cursor=pointer]: 手机
+            - textbox "请输入邮箱" [ref=e463]
+            - generic [ref=e464]: 下一步
+            - generic [ref=e465] [cursor=pointer]:
+              - generic [ref=e466]: 
+              - generic [ref=e467]: 继续即表示你同意服务条款和隐私条款
+          - generic [ref=e470]: 更多登录方式
+          - generic [ref=e472] [cursor=pointer]: 企业账号
+          - generic [ref=e473]:
+            - img "LINE" [ref=e475] [cursor=pointer]
+            - img "Google" [ref=e477] [cursor=pointer]
+          - generic [ref=e478]:
+            - generic [ref=e480]: 还没有账号？立即注册
+            - generic [ref=e483] [cursor=pointer]:
+              - text: 简体中文
+              - generic [ref=e484]: 
+        - generic:
+          - generic:
+            - generic: 
+          - generic:
+            - generic: 扫码登录
+            - generic: 请使用DingDing手机端扫描二维码
+            - generic:
+              - generic:
+                - generic: 刷新二维码
+      - generic [ref=e485]:
+        - generic [ref=e487]:
+          - generic [ref=e488]: 企业账号
+          - generic [ref=e489]: 请输入组织代码以登录
+          - textbox "组织代码" [ref=e493]
+          - generic [ref=e494] [cursor=pointer]: 我不知道我的组织代码是什么
+          - generic [ref=e496]: 下一步
+        - generic [ref=e500] [cursor=pointer]:
+          - text: 简体中文
+          - generic [ref=e501]: 
+        - generic:
+          - generic:
+            - generic:
+              - generic: 
+      - generic [ref=e504]:
+        - generic [ref=e505]: 输入邮箱验证码
+        - generic [ref=e506]:
+          - text: 请输入发送至
+          - text: 的6位验证码，有效期15分钟。如未收到，请重新获取。
+        - generic [ref=e508]: 59秒后重新发送
+      - generic [ref=e510]:
+        - generic [ref=e512]:
+          - img [ref=e514] [cursor=pointer]
+          - generic [ref=e516]: 你想如何使用DingDing？
+          - generic [ref=e517]: 我们将为你推荐个性化的功能和资源。
+          - generic [ref=e518]:
+            - generic [ref=e519] [cursor=pointer]:
+              - img [ref=e521]
+              - generic [ref=e523]: 公司/团队使用
+              - img [ref=e525]
+            - generic [ref=e527] [cursor=pointer]:
+              - img [ref=e529]
+              - generic [ref=e531]: 个人使用
+        - generic [ref=e533] [cursor=pointer]: 开始使用
+      - generic [ref=e534]:
+        - generic [ref=e536]:
+          - img [ref=e538] [cursor=pointer]
+          - generic [ref=e540]: 创建你的组织
+          - generic [ref=e541]:
+            - generic [ref=e542]: 你的个人信息
+            - generic [ref=e543]:
+              - generic [ref=e544]:
+                - generic: 名*
+                - textbox [ref=e545]
+              - generic [ref=e546]:
+                - generic: 姓*
+                - textbox [ref=e547]
+            - generic [ref=e548]:
+              - generic: 职位
+              - img [ref=e554] [cursor=pointer]:
+                - img [ref=e555]
+          - generic [ref=e557]:
+            - generic [ref=e558]: 你的组织
+            - generic [ref=e559]:
+              - generic: 公司名称*
+              - textbox [ref=e560]
+            - generic [ref=e561]:
+              - generic: 公司规模
+              - img [ref=e567] [cursor=pointer]:
+                - img [ref=e568]
+            - generic:
+              - generic: 地区*
+        - generic [ref=e571] [cursor=pointer]: 免费创建
+      - generic [ref=e572]:
+        - generic [ref=e574]:
+          - img [ref=e576] [cursor=pointer]
+          - generic [ref=e578]: 我们该怎么称呼你？
+          - generic [ref=e579]:
+            - generic [ref=e580]: 你的个人信息
+            - generic [ref=e581]:
+              - generic [ref=e582]:
+                - generic: 名*
+                - textbox [ref=e583]
+              - generic [ref=e584]:
+                - generic: 姓*
+                - textbox [ref=e585]
+            - generic:
+              - generic: 地区*
+        - generic [ref=e587] [cursor=pointer]: 免费创建
+      - generic [ref=e589]:
+        - generic [ref=e590]:
+          - generic [ref=e591]: 选择要登录的组织
+          - generic [ref=e592]: 已关联以下组织，请选择一个进行登录。
+        - generic [ref=e595]: 下一步
+      - generic [ref=e596]:
+        - tablist [ref=e598]:
+          - tab "账号登录" [ref=e600] [cursor=pointer]
+          - tab "扫码登录" [selected] [ref=e601] [cursor=pointer]
+        - generic [ref=e602] [cursor=pointer]:
+          - generic [ref=e603]: 简体中文
+          - img [ref=e604]
+  - generic [ref=e606]:
+    - generic [ref=e607]: © 2014-2026 钉钉公司 版权所有
+    - generic [ref=e608]: 隐私政策服务协议法律声明

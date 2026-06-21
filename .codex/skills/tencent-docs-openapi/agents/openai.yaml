@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tencent Docs OpenAPI"
+  short_description: "Connect to Tencent Docs OpenAPI safely."
+  default_prompt: "Use Tencent Docs OpenAPI to authenticate, inspect capabilities, and call document, sheet, smartsheet, and drive APIs without browser automation."

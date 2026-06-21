@@ -32,6 +32,14 @@ print(json.dumps({name: {key: value.isoformat() for key, value in period.items()
     baseline: {
       start: '2026-06-19T00:00:00+08:00',
       end: '2026-06-20T00:00:00+08:00'
+    },
+    previousFullDay: {
+      start: '2026-06-19T00:00:00+08:00',
+      end: '2026-06-20T00:00:00+08:00'
+    },
+    yesterdayFullDay: {
+      start: '2026-06-20T00:00:00+08:00',
+      end: '2026-06-21T00:00:00+08:00'
     }
   });
 });
@@ -63,6 +71,14 @@ print(json.dumps({name: {key: value.isoformat() for key, value in period.items()
     baseline: {
       start: '2026-06-20T00:00:00+08:00',
       end: '2026-06-20T09:00:00+08:00'
+    },
+    previousFullDay: {
+      start: '2026-06-19T00:00:00+08:00',
+      end: '2026-06-20T00:00:00+08:00'
+    },
+    yesterdayFullDay: {
+      start: '2026-06-20T00:00:00+08:00',
+      end: '2026-06-21T00:00:00+08:00'
     }
   });
 });
@@ -116,6 +132,57 @@ print(json.dumps([body["periods"][0]["granularity"] for body in client.bodies]))
   const { stdout } = await execFileAsync('python', ['-c', code], { encoding: 'utf8' });
 
   assert.deepEqual(JSON.parse(stdout), ['hour', 'day']);
+});
+
+test('DataFinder refund script adds cycle=0 filter for c0 income queries', async () => {
+  const code = String.raw`
+import importlib.util
+import json
+import sys
+import types
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
+sys.modules["rangersdk"] = types.SimpleNamespace(RangersClient=object)
+spec = importlib.util.spec_from_file_location("datafinder_refund_report", "scripts/datafinder_refund_report.py")
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+
+class Response:
+    def json(self):
+        return {"data": []}
+
+class Client:
+    def __init__(self):
+        self.bodies = []
+    def data_finder(self, path, method, body):
+        self.bodies.append(json.loads(body))
+        return Response()
+
+tz = ZoneInfo("Asia/Shanghai")
+client = Client()
+module.load_period_data(
+    client,
+    "123",
+    {
+        "start": datetime(2026, 6, 20, 0, 0, 0, tzinfo=tz),
+        "end": datetime(2026, 6, 20, 9, 0, 0, tzinfo=tz),
+    },
+    "Asia/Shanghai",
+)
+filters = [body["content"]["queries"][0][0]["filters"] for body in client.bodies]
+print(json.dumps(filters))
+`;
+
+  const { stdout } = await execFileAsync('python', ['-c', code], { encoding: 'utf8' });
+  const filters = JSON.parse(stdout);
+
+  assert.equal(filters.length, 3);
+  assert.deepEqual(filters[0], []);
+  assert.equal(filters[1][0].expression.conditions[0].property_name, 'cycle');
+  assert.equal(filters[1][0].expression.conditions[0].property_operation, 'eq');
+  assert.deepEqual(filters[1][0].expression.conditions[0].property_values, [0]);
+  assert.deepEqual(filters[2], []);
 });
 
 test('DataFinder refund script sums hourly bucket counts from response data arrays', async () => {

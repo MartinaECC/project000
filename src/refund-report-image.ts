@@ -29,8 +29,7 @@ const HEADER_HEIGHT = 154;
 const TABLE_TOP = 188;
 const ROW_HEIGHT = 92;
 const FONT_FAMILY = 'Microsoft YaHei, Arial, sans-serif';
-const CURRENT_DAY_METHODOLOGY_NOTE = '口径说明：数据统计范围为今日 00:00 至当前整点；括号内依次为昨日同整点值、环比变化，退费率另展示百分点差异（pp）。';
-const MIDNIGHT_METHODOLOGY_NOTE = '口径说明：数据统计范围为昨日全天；括号内依次为前日全天值、环比变化，退费率另展示百分点差异（pp）。';
+const METHODOLOGY_NOTE = '口径说明：数据统计范围为今日 00:00 至当前整点；括号内依次为昨日同整点值、环比变化，退费率另展示百分点差异（pp）。';
 const TABLE_HEADER_FILL = '#B5C6EA';
 const TABLE_HEADER_TEXT_FILL = '#111827';
 
@@ -163,7 +162,7 @@ export function buildRefundReportTableSvg(
 <rect width="100%" height="100%" fill="#ffffff"/>
 ${text('退费率播报', PADDING_X, 54, { size: 34, weight: 800, fill: '#111827' })}
 ${text(`时间: ${formatDateTime(generatedAt, timezone)}`, PADDING_X, 98, { size: 24, weight: 600, fill: '#374151' })}
-${text(fitText(methodologyNote(generatedAt, timezone), TABLE_WIDTH, 12), PADDING_X, 133, { size: 21, weight: 500, fill: '#4b5563' })}
+${text(fitText(METHODOLOGY_NOTE, TABLE_WIDTH, 12), PADDING_X, 133, { size: 21, weight: 500, fill: '#4b5563' })}
 <rect x="${PADDING_X}" y="${HEADER_HEIGHT}" width="${TABLE_WIDTH}" height="1" fill="#d1d5db"/>
 ${headerCells}
 ${rowsSvg}
@@ -279,22 +278,6 @@ function formatRate(value: number | null): string {
 }
 
 function formatDateTime(date: Date, timezone: string): string {
-  const parts = getDateTimeParts(date, timezone);
-  return `${parts.year}-${parts.month}-${parts.day} ${parts.hour}:${parts.minute}:${parts.second}`;
-}
-
-function methodologyNote(date: Date, timezone: string): string {
-  return getDateTimeParts(date, timezone).hour === '00' ? MIDNIGHT_METHODOLOGY_NOTE : CURRENT_DAY_METHODOLOGY_NOTE;
-}
-
-function getDateTimeParts(date: Date, timezone: string): {
-  year: string;
-  month: string;
-  day: string;
-  hour: string;
-  minute: string;
-  second: string;
-} {
   const parts = new Intl.DateTimeFormat('zh-CN', {
     timeZone: timezone,
     year: 'numeric',
@@ -306,14 +289,7 @@ function getDateTimeParts(date: Date, timezone: string): {
     hour12: false
   }).formatToParts(date);
   const pick = (type: string) => parts.find((part) => part.type === type)?.value ?? '';
-  return {
-    year: pick('year'),
-    month: pick('month'),
-    day: pick('day'),
-    hour: pick('hour'),
-    minute: pick('minute'),
-    second: pick('second')
-  };
+  return `${pick('year')}-${pick('month')}-${pick('day')} ${pick('hour')}:${pick('minute')}:${pick('second')}`;
 }
 
 function roundMoney(value: number): number {

@@ -1,0 +1,1088 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - img "钉钉开放平台" [ref=e8] [cursor=pointer]
+        - generic [ref=e10]:
+          - generic [ref=e12] [cursor=pointer]: 应用中心
+          - generic [ref=e14] [cursor=pointer]: 开发者文档
+          - generic [ref=e18] [cursor=pointer]: 开发助手
+        - generic [ref=e22]:
+          - img [ref=e24]:
+            - img [ref=e25]
+          - textbox "你可以输入文档关键词、开发问题、requestld、错误码" [ref=e27]
+      - generic [ref=e28]:
+        - button "开发者后台" [ref=e30] [cursor=pointer]:
+          - generic [ref=e31]: 开发者后台
+        - link "登录" [ref=e33] [cursor=pointer]:
+          - /url: https://login.dingtalk.com/oauth2/auth?redirect_uri=https%3A%2F%2Fopen.dingtalk.com%2Fdingtalk_sso_call_back%3Fcontinue%3Dhttps%3A%2F%2Fopen.dingtalk.com%2Fdocument%2Fdevelopment%2Fdingtalk-cli-performing-tasks-within&response_type=code&client_id=dingbakuoyxavyp5ruxw&scope=openid+corpid
+          - text: 登录
+          - img [ref=e34]:
+            - img [ref=e35]
+    - generic [ref=e37]:
+      - generic [ref=e38]:
+        - generic [ref=e39] [cursor=pointer]: 文档中心
+        - generic [ref=e40]: ｜
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - combobox [ref=e45]
+            - generic "应用开发" [ref=e46]
+          - generic:
+            - img:
+              - img
+      - generic [ref=e48]:
+        - generic [ref=e49] [cursor=pointer]: 开发指南
+        - generic [ref=e50] [cursor=pointer]: 服务端API
+        - generic [ref=e51] [cursor=pointer]: 客户端JSAPI
+        - generic [ref=e52] [cursor=pointer]: 事件订阅
+        - generic [ref=e53] [cursor=pointer]: 钉钉CLI
+      - generic [ref=e54]:
+        - button "平台服务" [ref=e55] [cursor=pointer]:
+          - generic [ref=e57]: 平台服务
+        - button "开发工具" [ref=e58] [cursor=pointer]:
+          - generic [ref=e60]: 开发工具
+    - generic [ref=e62]:
+      - generic [ref=e64]:
+        - generic [ref=e67]:
+          - img [ref=e69]:
+            - img [ref=e70]
+          - textbox "搜索目录" [ref=e72]
+        - generic [ref=e75]:
+          - tree:
+            - textbox
+          - generic [ref=e79]:
+            - generic [ref=e80]:
+              - img [ref=e82] [cursor=pointer]
+              - generic [ref=e87] [cursor=pointer]: 钉钉CLI
+            - generic [ref=e88]:
+              - img [ref=e92]
+              - generic [ref=e97] [cursor=pointer]: DingTalk CLI — 让 AI 真正帮你在钉钉里干活
+            - generic [ref=e98]:
+              - img [ref=e100] [cursor=pointer]
+              - generic [ref=e105] [cursor=pointer]: 钉钉MCP
+            - generic [ref=e106]:
+              - img [ref=e108] [cursor=pointer]
+              - generic [ref=e113] [cursor=pointer]: Agent接入钉钉
+            - generic [ref=e114]:
+              - img [ref=e116] [cursor=pointer]
+              - generic [ref=e121] [cursor=pointer]: Agent解决方案
+            - generic [ref=e122]:
+              - img [ref=e124] [cursor=pointer]
+              - generic [ref=e129] [cursor=pointer]: OpenClaw
+      - img [ref=e133] [cursor=pointer]:
+        - img [ref=e134]
+      - main [ref=e137]:
+        - generic [ref=e138]:
+          - generic [ref=e140]:
+            - generic [ref=e141]:
+              - button "复制页面" [ref=e143]:
+                - img [ref=e144]:
+                  - img [ref=e145]
+                - generic [ref=e147]: 复制页面
+              - generic [ref=e148]:
+                - main [ref=e150]:
+                  - heading "DingTalk CLI — 让 AI 真正帮你在钉钉里干活" [level=1] [ref=e151]
+                  - paragraph [ref=e152]:
+                    - generic [ref=e153]: 更新于 2026-04-24
+                  - generic [ref=e154]:
+                    - generic [ref=e155]:
+                      - heading "背景" [level=2] [ref=e156]
+                      - paragraph [ref=e157]:
+                        - text: 强大的 AI 推理能力若缺乏工具操作接口，将无法在钉钉内实现闭环。
+                        - generic [ref=e158]: DingTalk Workspace CLI (dws)
+                        - text: 作为连接 AI Agent 与钉钉生态的核心基础设施，旨在解决这一集成壁垒。
+                      - paragraph [ref=e159]: dws 将钉钉全链路产品能力（包括 AI 表格、日历、通讯录、群聊、审批等）封装为标准化命令行接口。在用户授权与预览确认机制的保障下，Agent 可安全访问并操作个人数据（如消息、日程、文档），实现跨应用的自动化工作流。
+                      - paragraph [ref=e160]:
+                        - text: DingTalk CLI 现已开源，现在就让你的 AI 拥有行动力：👉 获取代码：
+                        - link "GitHub 开源仓库" [ref=e161] [cursor=pointer]:
+                          - /url: https://github.com/DingTalk-Real-AI/dingtalk-workspace-cli
+                          - text: GitHub 开源仓库
+                          - img [ref=e162]:
+                            - img [ref=e163]
+                      - generic [ref=e165]:
+                        - heading "CLI许愿墙" [level=3] [ref=e166]
+                        - paragraph [ref=e167]:
+                          - text: 你是否在终端敲完命令后，还得手动切换到钉钉发通知？是否希望自动化流程能直接联动钉钉——自动发消息、建待办、拉群聊？想让钉钉 CLI 支持什么新能力？在
+                          - link "钉钉CLI许愿墙" [ref=e168] [cursor=pointer]:
+                            - /url: https://docs.dingtalk.com/notable/share/form/v01eLbnj1bw1ELb0laN_dv19yqvsgs3oebp3pcjys_1qX0QQ0?source=link
+                            - text: 钉钉CLI许愿墙
+                            - img [ref=e169]:
+                              - img [ref=e170]
+                          - text: 许个愿吧！
+                        - paragraph [ref=e172]: 我们会定期整理大家的建议，评估并同步采纳与排期进展。
+                      - generic [ref=e173]:
+                        - heading "快速入群" [level=3] [ref=e174]
+                        - paragraph [ref=e175]: 使用钉钉扫描下方二维码，加入dws开源沟通群：
+                        - paragraph [ref=e176]:
+                          - img [ref=e179]
+                    - generic [ref=e180]:
+                      - heading "一键安装" [level=2] [ref=e181]
+                      - generic [ref=e185]:
+                        - strong [ref=e186]: 说明
+                        - paragraph [ref=e187]:
+                          - text: 需要 Go 1.25+。使用
+                          - code [ref=e188]: make package
+                          - text: 可交叉编译全平台产物（macOS / Linux / Windows × amd64 / arm64）。
+                      - generic [ref=e189]:
+                        - heading "方式一：脚本安装（推荐）" [level=3] [ref=e190]
+                        - paragraph [ref=e191]: macOS / Linux：
+                        - generic [ref=e192]:
+                          - code [ref=e195]:
+                            - generic [ref=e196]:
+                              - generic [ref=e201]: "1"
+                              - generic [ref=e206]: curl -fsSL https://raw.githubusercontent.com/DingTalk-Real-AI/dingtalk-workspace-cli/main/scripts/install.sh | sh
+                              - textbox "Editor content;Press Alt+F1 for Accessibility Options." [ref=e209]: curl -fsSL https://raw.githubusercontent.com/DingTalk-Real-AI/dingtalk-workspace-cli/main/scripts/install.sh | sh
+                          - img [ref=e210] [cursor=pointer]:
+                            - img [ref=e211]
+                          - img [ref=e213] [cursor=pointer]:
+                            - img [ref=e214]
+                        - paragraph [ref=e216]: Windows（PowerShell）：
+                        - generic [ref=e217]:
+                          - code [ref=e220]:
+                            - generic [ref=e221]:
+                              - generic [ref=e226]: "1"
+                              - generic [ref=e231]: irm https://raw.githubusercontent.com/DingTalk-Real-AI/dingtalk-workspace-cli/main/scripts/install.ps1 | iex
+                              - textbox "Editor content;Press Alt+F1 for Accessibility Options." [ref=e234]: irm https://raw.githubusercontent.com/DingTalk-Real-AI/dingtalk-workspace-cli/main/scripts/install.ps1 | iex
+                          - img [ref=e235] [cursor=pointer]:
+                            - img [ref=e236]
+                          - img [ref=e238] [cursor=pointer]:
+                            - img [ref=e239]
+                      - generic [ref=e241]:
+                        - heading "方式二：通过 Agent 自动安装" [level=3] [ref=e242]
+                        - paragraph [ref=e243]: 将以下指令直接发送给你的 AI 工具（如 Cursor、Claude Code、TRAE），让它帮你完成安装：
+                        - generic [ref=e244]:
+                          - code [ref=e247]:
+                            - generic [ref=e248]:
+                              - generic [ref=e253]: "1"
+                              - generic [ref=e258]: 帮我安装钉钉 CLI：https://github.com/DingTalk-Real-AI/dingtalk-workspace-cli
+                              - textbox "Editor content;Press Alt+F1 for Accessibility Options." [ref=e259]: 帮我安装钉钉 CLI：https://github.com/DingTalk-Real-AI/dingtalk-workspace-cli
+                          - img [ref=e260] [cursor=pointer]:
+                            - img [ref=e261]
+                          - img [ref=e263] [cursor=pointer]:
+                            - img [ref=e264]
+                      - generic [ref=e266]:
+                        - heading "方式三：npm 安装" [level=3] [ref=e267]
+                        - generic [ref=e268]:
+                          - code [ref=e271]:
+                            - generic [ref=e272]:
+                              - generic [ref=e274]:
+                                - generic [ref=e277]: "1"
+                                - generic [ref=e279]: "2"
+                              - generic [ref=e285]: npm install -g dingtalk-workspace-cli
+                              - textbox "Editor content;Press Alt+F1 for Accessibility Options." [ref=e287]: npm install -g dingtalk-workspace-cli
+                          - img [ref=e288] [cursor=pointer]:
+                            - img [ref=e289]
+                          - img [ref=e291] [cursor=pointer]:
+                            - img [ref=e292]
+                      - generic [ref=e294]:
+                        - heading "方式四：从源码构建" [level=3] [ref=e295]
+                        - generic [ref=e296]:
+                          - code [ref=e299]:
+                            - generic [ref=e300]:
+                              - generic [ref=e302]:
+                                - generic [ref=e305]: "1"
+                                - generic [ref=e307]: "2"
+                                - generic [ref=e309]: "3"
+                                - generic [ref=e311]: "4"
+                              - generic [ref=e317]:
+                                - generic [ref=e319]: git clone https://github.com/DingTalk-Real-AI/dingtalk-workspace-cli.git
+                                - generic [ref=e321]: cd dingtalk-workspace-cli
+                                - generic [ref=e323]: "go build -o dws ./cmd # build to current directory"
+                                - generic [ref=e325]: "cp dws ~/.local/bin/ # install to PATH"
+                              - textbox "Editor content;Press Alt+F1 for Accessibility Options." [ref=e326]: "git clone https://github.com/DingTalk-Real-AI/dingtalk-workspace-cli.git cd dingtalk-workspace-cli go build -o dws ./cmd # build to current directory cp dws ~/.local/bin/ # install to PATH"
+                          - img [ref=e327] [cursor=pointer]:
+                            - img [ref=e328]
+                          - img [ref=e330] [cursor=pointer]:
+                            - img [ref=e331]
+                    - generic [ref=e333]:
+                      - heading "自升级" [level=2] [ref=e334]
+                      - paragraph [ref=e335]:
+                        - text: dws 内置自升级能力，更新直接从
+                        - link "GitHub Releases" [ref=e336] [cursor=pointer]:
+                          - /url: https://github.com/DingTalk-Real-AI/dingtalk-workspace-cli/releases
+                          - text: GitHub Releases
+                          - img [ref=e337]:
+                            - img [ref=e338]
+                        - text: 拉取，支持 SHA256 完整性校验和自动备份：
+                      - generic [ref=e340]:
+                        - code [ref=e343]:
+                          - generic [ref=e344]:
+                            - generic [ref=e346]:
+                              - generic [ref=e349]: "1"
+                              - generic [ref=e351]: "2"
+                              - generic [ref=e353]: "3"
+                              - generic [ref=e355]: "4"
+                              - generic [ref=e357]: "5"
+                              - generic [ref=e359]: "6"
+                            - generic [ref=e367]:
+                              - generic [ref=e369]: "dws upgrade # 交互式升级到最新版本"
+                              - generic [ref=e371]: "dws upgrade --check # 仅检查是否有新版本"
+                              - generic [ref=e373]: "dws upgrade --list # 列出所有可用版本"
+                              - generic [ref=e375]: "dws upgrade --version v1.0.7 # 升级到指定版本"
+                              - generic [ref=e377]: "dws upgrade --rollback # 回滚到上一个版本"
+                              - generic [ref=e379]: "dws upgrade -y # 跳过确认提示"
+                            - textbox "Editor content;Press Alt+F1 for Accessibility Options." [ref=e380]: "dws upgrade # 交互式升级到最新版本 dws upgrade --check # 仅检查是否有新版本 dws upgrade --list # 列出所有可用版本 dws upgrade --version v1.0.7 # 升级到指定版本 dws upgrade --rollback # 回滚到上一个版本 dws upgrade -y # 跳过确认提示"
+                        - img [ref=e381] [cursor=pointer]:
+                          - img [ref=e382]
+                        - img [ref=e384] [cursor=pointer]:
+                          - img [ref=e385]
+                      - paragraph [ref=e387]: 升级采用两阶段原子流程确保一致性：先下载并校验全部文件（任何步骤失败即中止，不影响现有安装），再统一替换二进制文件和技能包。每次升级前自动创建备份，可随时回滚。
+                      - paragraph [ref=e388]: 升级过程遵循两阶段原子流程，以确保一致性：
+                      - list [ref=e389]:
+                        - listitem [ref=e390]:
+                          - paragraph [ref=e391]:
+                            - generic [ref=e392]: 准备阶段
+                            - text: ——将平台特定的二进制文件和技能包下载到临时目录，验证 SHA256 校验和，并提取/验证所有文件。如果任何步骤失败，升级将中止，而不会修改现有安装。
+                        - listitem [ref=e393]:
+                          - paragraph [ref=e394]:
+                            - generic [ref=e395]: 应用
+                            - text: ——只有在所有准备工作都成功之后，二进制文件才会被替换，技能包才会被安装到所有检测到的代理目录（
+                            - code [ref=e396]: ~/.agents/skills/dws
+                            - text: ，，，等）。
+                            - code [ref=e397]: ~/.claude/skills/dws
+                            - code [ref=e398]: ~/.cursor/skills/dws
+                      - paragraph [ref=e399]:
+                        - text: 每次升级前都会自动创建当前版本的备份。
+                        - code [ref=e400]: dws upgrade --rollback
+                        - text: 如有需要，可使用该备份恢复到之前的版本。
+                      - table [ref=e402]:
+                        - rowgroup [ref=e405]:
+                          - row "命令 命令说明" [ref=e406]:
+                            - cell "命令" [ref=e407]:
+                              - paragraph [ref=e408]:
+                                - generic [ref=e409]: 命令
+                            - cell "命令说明" [ref=e410]:
+                              - paragraph [ref=e411]:
+                                - generic [ref=e412]: 命令说明
+                          - row "--check 无需安装即可检查更新。" [ref=e413]:
+                            - cell "--check" [ref=e414]:
+                              - paragraph [ref=e415]:
+                                - code [ref=e416]: "--check"
+                            - cell "无需安装即可检查更新。" [ref=e417]:
+                              - paragraph [ref=e418]: 无需安装即可检查更新。
+                          - row "--list 列出所有可用版本及其更新日志。" [ref=e419]:
+                            - cell "--list" [ref=e420]:
+                              - paragraph [ref=e421]:
+                                - code [ref=e422]: "--list"
+                            - cell "列出所有可用版本及其更新日志。" [ref=e423]:
+                              - paragraph [ref=e424]: 列出所有可用版本及其更新日志。
+                          - row "--version 升级到特定版本（例如 v1.0.7 ）。" [ref=e425]:
+                            - cell "--version" [ref=e426]:
+                              - paragraph [ref=e427]:
+                                - code [ref=e428]: "--version"
+                            - cell "升级到特定版本（例如 v1.0.7 ）。" [ref=e429]:
+                              - paragraph [ref=e430]:
+                                - text: 升级到特定版本（例如
+                                - code [ref=e431]: v1.0.7
+                                - text: ）。
+                          - row "--rollback 回滚到之前的备份版本。" [ref=e432]:
+                            - cell "--rollback" [ref=e433]:
+                              - paragraph [ref=e434]:
+                                - code [ref=e435]: "--rollback"
+                            - cell "回滚到之前的备份版本。" [ref=e436]:
+                              - paragraph [ref=e437]: 回滚到之前的备份版本。
+                          - row "--force 即使已是最新版本，也必须强制重新安装。" [ref=e438]:
+                            - cell "--force" [ref=e439]:
+                              - paragraph [ref=e440]:
+                                - code [ref=e441]: "--force"
+                            - cell "即使已是最新版本，也必须强制重新安装。" [ref=e442]:
+                              - paragraph [ref=e443]: 即使已是最新版本，也必须强制重新安装。
+                          - row "--skip-skills 跳过技能包更新。" [ref=e444]:
+                            - cell "--skip-skills" [ref=e445]:
+                              - paragraph [ref=e446]:
+                                - code [ref=e447]: "--skip-skills"
+                            - cell "跳过技能包更新。" [ref=e448]:
+                              - paragraph [ref=e449]: 跳过技能包更新。
+                          - row "-y 跳过确认提示。" [ref=e450]:
+                            - cell "-y" [ref=e451]:
+                              - paragraph [ref=e452]:
+                                - code [ref=e453]: "-y"
+                            - cell "跳过确认提示。" [ref=e454]:
+                              - paragraph [ref=e455]: 跳过确认提示。
+                    - generic [ref=e456]:
+                      - heading "使用CLI" [level=2] [ref=e457]
+                      - generic [ref=e458]:
+                        - heading "用户启用 CLI" [level=3] [ref=e459]:
+                          - generic [ref=e460]: 用户启用 CLI
+                        - paragraph [ref=e461]: AI 可以访问你的个人日历、消息和文档，并代替你执行操作。这需要一次性的用户授权——运行以下命令，浏览器会自动打开，选择组织并完成授权即可：
+                        - generic [ref=e462]:
+                          - code [ref=e465]:
+                            - generic [ref=e466]:
+                              - generic [ref=e468]:
+                                - generic [ref=e471]: "1"
+                                - generic [ref=e473]: "2"
+                              - generic [ref=e479]: dws auth login
+                              - textbox "Editor content;Press Alt+F1 for Accessibility Options." [ref=e481]: dws auth login
+                          - img [ref=e482] [cursor=pointer]:
+                            - img [ref=e483]
+                          - img [ref=e485] [cursor=pointer]:
+                            - img [ref=e486]
+                        - paragraph [ref=e488]: 对于无图形界面环境（Docker、SSH、CI），使用设备码模式：
+                        - generic [ref=e489]:
+                          - code [ref=e492]:
+                            - generic [ref=e493]:
+                              - generic [ref=e495]:
+                                - generic [ref=e498]: "1"
+                                - generic [ref=e500]: "2"
+                              - generic [ref=e506]: dws auth login --device
+                              - textbox "Editor content;Press Alt+F1 for Accessibility Options." [ref=e508]: dws auth login --device
+                          - img [ref=e509] [cursor=pointer]:
+                            - img [ref=e510]
+                          - img [ref=e512] [cursor=pointer]:
+                            - img [ref=e513]
+                        - generic [ref=e518]:
+                          - strong [ref=e519]: 说明
+                          - paragraph [ref=e520]:
+                            - text: 如果你的组织尚未开启 CLI 访问权限，系统会提示你向管理员发送申请。管理员一键审批后，重新运行
+                            - code [ref=e521]: dws auth login
+                            - text: 即可。
+                      - generic [ref=e522]:
+                        - heading "管理员：为组织开启 CLI 访问" [level=3] [ref=e523]
+                        - paragraph [ref=e524]:
+                          - text: 前往
+                          - link "开发者平台" [ref=e525] [cursor=pointer]:
+                            - /url: https://open-dev.dingtalk.com/
+                            - text: 开发者平台
+                            - img [ref=e526]:
+                              - img [ref=e527]
+                          - text: → 更多→ 基本信息→ CLI 访问管理 → 开启。
+                        - paragraph [ref=e529]:
+                          - img [ref=e532]
+                      - generic [ref=e533]:
+                        - heading "自定义应用模式（CI/CD、ISV 集成）" [level=3] [ref=e534]
+                        - paragraph [ref=e535]: 面向企业管控场景，创建企业内部应用：
+                        - list [ref=e536]:
+                          - listitem [ref=e537]:
+                            - paragraph [ref=e538]:
+                              - text: 进入
+                              - link "开放平台" [ref=e539] [cursor=pointer]:
+                                - /url: https://open-dev.dingtalk.com/fe/app#/corp/app
+                                - text: 开放平台
+                                - img [ref=e540]:
+                                  - img [ref=e541]
+                              - text: ，在应用开发下面，点击创建应用，填写应用的基本信息后，点击保存完成应用的创建。
+                            - paragraph [ref=e543]:
+                              - img [ref=e546]
+                          - listitem [ref=e547]:
+                            - paragraph [ref=e548]:
+                              - text: 进入创建的应用详情页，在安全设置模块中，填写重定向URL：
+                              - code [ref=e549]: http://127.0.0.1,https://login.dingtalk.com
+                            - paragraph [ref=e550]:
+                              - img [ref=e553]
+                          - listitem [ref=e554]:
+                            - paragraph [ref=e555]: 进入版本管理与发布模块，点击创建新版本按钮后，填写版本信息完成应用的发布。
+                            - paragraph [ref=e556]:
+                              - img [ref=e559]
+                          - listitem [ref=e560]:
+                            - paragraph [ref=e561]: 执行以下命令，完成登录：
+                            - generic [ref=e565]:
+                              - strong [ref=e566]: 说明
+                              - paragraph [ref=e567]: 首次登录后凭证安全持久化（Keychain），后续运行自动刷新 Token。
+                            - generic [ref=e568]:
+                              - code [ref=e571]:
+                                - generic [ref=e572]:
+                                  - generic [ref=e577]: "1"
+                                  - generic [ref=e582]: dws auth login --client-id <your-app-key> --client-secret <your-app-secret>
+                                  - textbox "Editor content;Press Alt+F1 for Accessibility Options." [ref=e583]: dws auth login --client-id <your-app-key> --client-secret <your-app-secret>
+                              - img [ref=e584] [cursor=pointer]:
+                                - img [ref=e585]
+                              - img [ref=e587] [cursor=pointer]:
+                                - img [ref=e588]
+                    - generic [ref=e590]:
+                      - heading "使用场景" [level=2] [ref=e591]
+                      - generic [ref=e592]:
+                        - heading "🗂️ 会议纪要 — 自动提取待办并执行" [level=3] [ref=e593]
+                        - paragraph [ref=e594]: 你在会议里随口说了一句"那个文档我稍后发给你"，散会就忘了。现在，AI 直接从钉钉听记中识别出这条待办，帮你发文档、排后续跟进。你只需要确认，剩下的它来处理。
+                        - paragraph [ref=e595]: 说了要发文件？AI 帮你发。需要安排复盘会？AI 查日历、拟邀请，你审核通过就行。
+                        - paragraph [ref=e596]: 进阶玩法—语音触发：你可以设置触发词（比如"钉钉钉钉"），在会议中说"钉钉钉钉，帮我把这个方案整理成文档发给老板"。会后 AI 自动从听记转录中识别你的指令，提取为高优待办并执行。你不需要记住自己说了什么，AI 替你记。
+                        - table [ref=e598]:
+                          - rowgroup [ref=e601]:
+                            - row "用户指令 AI 执行" [ref=e602]:
+                              - cell "用户指令" [ref=e603]:
+                                - paragraph [ref=e604]: 用户指令
+                              - cell "AI 执行" [ref=e605]:
+                                - paragraph [ref=e606]: AI 执行
+                            - row "读一下这份听记，把里面的待办提取出来，直接帮我处理。执行前先给我看方案。 AI 解析听记内容，识别出待办事项（发送文档、约复盘会、更新表格），逐一展示执行计划，获得确认后依次完成：通过机器人发送文档到群聊、查询参会人日历找空闲时段创建日程、在 AI 表格中更新项目状态。" [ref=e607]:
+                              - cell "读一下这份听记，把里面的待办提取出来，直接帮我处理。执行前先给我看方案。" [ref=e608]:
+                                - paragraph [ref=e609]: 读一下这份听记，把里面的待办提取出来，直接帮我处理。执行前先给我看方案。
+                              - cell "AI 解析听记内容，识别出待办事项（发送文档、约复盘会、更新表格），逐一展示执行计划，获得确认后依次完成：通过机器人发送文档到群聊、查询参会人日历找空闲时段创建日程、在 AI 表格中更新项目状态。" [ref=e610]:
+                                - paragraph [ref=e611]: AI 解析听记内容，识别出待办事项（发送文档、约复盘会、更新表格），逐一展示执行计划，获得确认后依次完成：通过机器人发送文档到群聊、查询参会人日历找空闲时段创建日程、在 AI 表格中更新项目状态。
+                      - generic [ref=e612]:
+                        - heading "📊 AI 表格 — 数据管理全自动化" [level=3] [ref=e613]
+                        - paragraph [ref=e614]: AI 表格是钉钉 CLI 覆盖最深的产品域，提供 20 条命令，支持表格/数据表/字段/记录的完整 CRUD 操作。你可以让 AI 从 CSV 批量导入数据、按条件筛选记录、批量更新字段、甚至搭建自动化看板。
+                        - table [ref=e616]:
+                          - rowgroup [ref=e619]:
+                            - row "用户指令 AI 执行" [ref=e620]:
+                              - cell "用户指令" [ref=e621]:
+                                - paragraph [ref=e622]: 用户指令
+                              - cell "AI 执行" [ref=e623]:
+                                - paragraph [ref=e624]: AI 执行
+                            - row "把这份 CSV 里的客户数据导入到 AI 表格，自动建表并设好字段类型。 AI 读取 CSV 结构，创建 AI 表格和数据表，逐一添加字段（文本/数字/日期/选项），然后批量导入全部记录。完成后返回表格链接。" [ref=e625]:
+                              - cell "把这份 CSV 里的客户数据导入到 AI 表格，自动建表并设好字段类型。" [ref=e626]:
+                                - paragraph [ref=e627]: 把这份 CSV 里的客户数据导入到 AI 表格，自动建表并设好字段类型。
+                              - cell "AI 读取 CSV 结构，创建 AI 表格和数据表，逐一添加字段（文本/数字/日期/选项），然后批量导入全部记录。完成后返回表格链接。" [ref=e628]:
+                                - paragraph [ref=e629]: AI 读取 CSV 结构，创建 AI 表格和数据表，逐一添加字段（文本/数字/日期/选项），然后批量导入全部记录。完成后返回表格链接。
+                            - row "帮我查一下项目跟踪表里所有\"逾期\"状态的记录，汇总发到项目群。 AI 查询 AI 表格中状态为\"逾期\"的记录，格式化为摘要列表，通过机器人发送到指定群聊。" [ref=e630]:
+                              - cell "帮我查一下项目跟踪表里所有\"逾期\"状态的记录，汇总发到项目群。" [ref=e631]:
+                                - paragraph [ref=e632]: 帮我查一下项目跟踪表里所有"逾期"状态的记录，汇总发到项目群。
+                              - cell "AI 查询 AI 表格中状态为\"逾期\"的记录，格式化为摘要列表，通过机器人发送到指定群聊。" [ref=e633]:
+                                - paragraph [ref=e634]: AI 查询 AI 表格中状态为"逾期"的记录，格式化为摘要列表，通过机器人发送到指定群聊。
+                      - generic [ref=e635]:
+                        - heading "📅 日历 — 智能排会议" [level=3] [ref=e636]
+                        - paragraph [ref=e637]: 约一个多人会议，通常意味着手动翻日历找共同空闲时间，来回沟通 20 分钟。如果团队分布在不同时区，手动算时差更是头疼。
+                        - paragraph [ref=e638]: 现在，只需告诉 AI"帮我和这个群的人下周约个会"。AI 自动拉取群成员、查询每个人的日历空闲、考虑所有时区，推荐几个"所有人都在合理工作时间内"的选项。你选一个，会议就约好了。
+                        - table [ref=e640]:
+                          - rowgroup [ref=e643]:
+                            - row "用户指令 AI 执行" [ref=e644]:
+                              - cell "用户指令" [ref=e645]:
+                                - paragraph [ref=e646]: 用户指令
+                              - cell "AI 执行" [ref=e647]:
+                                - paragraph [ref=e648]: AI 执行
+                            - row "帮我查一下项目组所有人的日历，找下周一个小时的空闲时间开讨论会。 AI 查询群成员列表，批量查询每人的闲忙状态，推荐最优时间段，创建日程并添加参与者。如果需要会议室，自动查询可用会议室并预定。" [ref=e649]:
+                              - cell "帮我查一下项目组所有人的日历，找下周一个小时的空闲时间开讨论会。" [ref=e650]:
+                                - paragraph [ref=e651]: 帮我查一下项目组所有人的日历，找下周一个小时的空闲时间开讨论会。
+                              - cell "AI 查询群成员列表，批量查询每人的闲忙状态，推荐最优时间段，创建日程并添加参与者。如果需要会议室，自动查询可用会议室并预定。" [ref=e652]:
+                                - paragraph [ref=e653]: AI 查询群成员列表，批量查询每人的闲忙状态，推荐最优时间段，创建日程并添加参与者。如果需要会议室，自动查询可用会议室并预定。
+                            - row "帮我看看我这周的日程安排。 AI 拉取本周日历事件，按天分组展示，标注会议类型和参与人数。" [ref=e654]:
+                              - cell "帮我看看我这周的日程安排。" [ref=e655]:
+                                - paragraph [ref=e656]: 帮我看看我这周的日程安排。
+                              - cell "AI 拉取本周日历事件，按天分组展示，标注会议类型和参与人数。" [ref=e657]:
+                                - paragraph [ref=e658]: AI 拉取本周日历事件，按天分组展示，标注会议类型和参与人数。
+                        - paragraph [ref=e659]: 进阶玩法—会议效率分析：让 AI 拉取你过去两周的日历数据，自动给每个会议打标签（1:1 / 项目同步 / 团队例会 / 个人事务），写入 AI 表格并生成看板。饼图看占比、柱状图看趋势——一眼看出哪些会议该砍。
+                        - table [ref=e661]:
+                          - rowgroup [ref=e664]:
+                            - row "用户指令 AI 执行" [ref=e665]:
+                              - cell "用户指令" [ref=e666]:
+                                - paragraph [ref=e667]: 用户指令
+                              - cell "AI 执行" [ref=e668]:
+                                - paragraph [ref=e669]: AI 执行
+                            - row "拉取我过去两周的日历，给每个事件分类打标签，写入 AI 表格，创建看板。我想看时间都花哪了。 AI 读取日历事件，按类型分类，写入 AI 表格，汇总各类别时长占比。" [ref=e670]:
+                              - cell "拉取我过去两周的日历，给每个事件分类打标签，写入 AI 表格，创建看板。我想看时间都花哪了。" [ref=e671]:
+                                - paragraph [ref=e672]: 拉取我过去两周的日历，给每个事件分类打标签，写入 AI 表格，创建看板。我想看时间都花哪了。
+                              - cell "AI 读取日历事件，按类型分类，写入 AI 表格，汇总各类别时长占比。" [ref=e673]:
+                                - paragraph [ref=e674]: AI 读取日历事件，按类型分类，写入 AI 表格，汇总各类别时长占比。
+                      - generic [ref=e675]:
+                        - heading "🤖 群聊与机器人 — 消息自动化中枢" [level=3] [ref=e676]
+                        - paragraph [ref=e677]: 钉钉 CLI 提供 10 条群聊命令，覆盖群的全生命周期管理：搜索群、建群、群成员管理、改群名，以及机器人群发、单聊、消息撤回、Webhook 通知。
+                        - table [ref=e679]:
+                          - rowgroup [ref=e682]:
+                            - row "用户指令 AI 执行" [ref=e683]:
+                              - cell "用户指令" [ref=e684]:
+                                - paragraph [ref=e685]: 用户指令
+                              - cell "AI 执行" [ref=e686]:
+                                - paragraph [ref=e687]: AI 执行
+                            - row "帮我建一个\"Q2 冲刺\"项目群，把产品、设计、研发的核心成员拉进来。 AI 通过通讯录搜索相关同事，创建群聊，批量添加成员，设置群名称。" [ref=e688]:
+                              - cell "帮我建一个\"Q2 冲刺\"项目群，把产品、设计、研发的核心成员拉进来。" [ref=e689]:
+                                - paragraph [ref=e690]: 帮我建一个"Q2 冲刺"项目群，把产品、设计、研发的核心成员拉进来。
+                              - cell "AI 通过通讯录搜索相关同事，创建群聊，批量添加成员，设置群名称。" [ref=e691]:
+                                - paragraph [ref=e692]: AI 通过通讯录搜索相关同事，创建群聊，批量添加成员，设置群名称。
+                            - row "每天早上 9 点把昨天的考勤异常汇总发到 HR 群。 AI 查询考勤记录，筛选异常数据，格式化为摘要，通过机器人定时发送到指定群。" [ref=e693]:
+                              - cell "每天早上 9 点把昨天的考勤异常汇总发到 HR 群。" [ref=e694]:
+                                - paragraph [ref=e695]: 每天早上 9 点把昨天的考勤异常汇总发到 HR 群。
+                              - cell "AI 查询考勤记录，筛选异常数据，格式化为摘要，通过机器人定时发送到指定群。" [ref=e696]:
+                                - paragraph [ref=e697]: AI 查询考勤记录，筛选异常数据，格式化为摘要，通过机器人定时发送到指定群。
+                      - generic [ref=e698]:
+                        - heading "✅ 待办 — 任务不再遗漏" [level=3] [ref=e699]
+                        - paragraph [ref=e700]: 你知道自己有一堆事要做，但散落在聊天记录、会议纪要、邮件里，根本理不清。现在让 AI 帮你统一管理：批量创建待办、设置优先级和截止时间、每日汇总未完成事项、扫描逾期任务。
+                        - table [ref=e702]:
+                          - rowgroup [ref=e705]:
+                            - row "用户指令 AI 执行" [ref=e706]:
+                              - cell "用户指令" [ref=e707]:
+                                - paragraph [ref=e708]: 用户指令
+                              - cell "AI 执行" [ref=e709]:
+                                - paragraph [ref=e710]: AI 执行
+                            - row "帮我把这份任务清单批量创建为钉钉待办，设好优先级和截止时间。 AI 解析任务列表，逐条创建待办，设置执行人、优先级（紧急/高/中/低）和截止日期。" [ref=e711]:
+                              - cell "帮我把这份任务清单批量创建为钉钉待办，设好优先级和截止时间。" [ref=e712]:
+                                - paragraph [ref=e713]: 帮我把这份任务清单批量创建为钉钉待办，设好优先级和截止时间。
+                              - cell "AI 解析任务列表，逐条创建待办，设置执行人、优先级（紧急/高/中/低）和截止日期。" [ref=e714]:
+                                - paragraph [ref=e715]: AI 解析任务列表，逐条创建待办，设置执行人、优先级（紧急/高/中/低）和截止日期。
+                            - row "帮我看看有哪些逾期的待办。 AI 查询所有待办，筛选已逾期未完成的任务，按逾期天数排序展示。" [ref=e716]:
+                              - cell "帮我看看有哪些逾期的待办。" [ref=e717]:
+                                - paragraph [ref=e718]: 帮我看看有哪些逾期的待办。
+                              - cell "AI 查询所有待办，筛选已逾期未完成的任务，按逾期天数排序展示。" [ref=e719]:
+                                - paragraph [ref=e720]: AI 查询所有待办，筛选已逾期未完成的任务，按逾期天数排序展示。
+                      - generic [ref=e721]:
+                        - heading "📝 审批 — 流程自动化" [level=3] [ref=e722]
+                        - paragraph [ref=e723]: 请假、报销、出差申请——这些重复性流程现在可以让 AI 代劳。AI 能发起审批实例、查询审批进度、处理待审批任务。
+                        - table [ref=e725]:
+                          - rowgroup [ref=e728]:
+                            - row "用户指令 AI 执行" [ref=e729]:
+                              - cell "用户指令" [ref=e730]:
+                                - paragraph [ref=e731]: 用户指令
+                              - cell "AI 执行" [ref=e732]:
+                                - paragraph [ref=e733]: AI 执行
+                            - row "帮我提交一个下周一到周三的年假申请。 AI 查询年假审批模板，填充日期和理由，发起审批实例。" [ref=e734]:
+                              - cell "帮我提交一个下周一到周三的年假申请。" [ref=e735]:
+                                - paragraph [ref=e736]: 帮我提交一个下周一到周三的年假申请。
+                              - cell "AI 查询年假审批模板，填充日期和理由，发起审批实例。" [ref=e737]:
+                                - paragraph [ref=e738]: AI 查询年假审批模板，填充日期和理由，发起审批实例。
+                            - row "查一下我发起的报销审批到哪一步了。 AI 查询你发起的审批实例列表，筛选报销类型，展示当前审批节点和状态。" [ref=e739]:
+                              - cell "查一下我发起的报销审批到哪一步了。" [ref=e740]:
+                                - paragraph [ref=e741]: 查一下我发起的报销审批到哪一步了。
+                              - cell "AI 查询你发起的审批实例列表，筛选报销类型，展示当前审批节点和状态。" [ref=e742]:
+                                - paragraph [ref=e743]: AI 查询你发起的审批实例列表，筛选报销类型，展示当前审批节点和状态。
+                      - generic [ref=e744]:
+                        - heading "📋 日志 — 日报周报一键提交" [level=3] [ref=e745]
+                        - paragraph [ref=e746]: 每周五下午写周报是不是最痛苦的事？现在让 AI 帮你：它可以查询你本周的日历事件、待办完成情况、群聊关键讨论，自动整理成周报模板并提交。
+                        - table [ref=e748]:
+                          - rowgroup [ref=e751]:
+                            - row "用户指令 AI 执行" [ref=e752]:
+                              - cell "用户指令" [ref=e753]:
+                                - paragraph [ref=e754]: 用户指令
+                              - cell "AI 执行" [ref=e755]:
+                                - paragraph [ref=e756]: AI 执行
+                            - row "帮我根据本周的工作内容写一份周报并提交。 AI 汇总本周日历事件和已完成待办，按照钉钉日志模板格式整理内容，创建并提交周报。" [ref=e757]:
+                              - cell "帮我根据本周的工作内容写一份周报并提交。" [ref=e758]:
+                                - paragraph [ref=e759]: 帮我根据本周的工作内容写一份周报并提交。
+                              - cell "AI 汇总本周日历事件和已完成待办，按照钉钉日志模板格式整理内容，创建并提交周报。" [ref=e760]:
+                                - paragraph [ref=e761]: AI 汇总本周日历事件和已完成待办，按照钉钉日志模板格式整理内容，创建并提交周报。
+                            - row "帮我看看今天收到了哪些日报。 AI 查询今日收件箱中的日志，展示发送人、标题和关键内容摘要。" [ref=e762]:
+                              - cell "帮我看看今天收到了哪些日报。" [ref=e763]:
+                                - paragraph [ref=e764]: 帮我看看今天收到了哪些日报。
+                              - cell "AI 查询今日收件箱中的日志，展示发送人、标题和关键内容摘要。" [ref=e765]:
+                                - paragraph [ref=e766]: AI 查询今日收件箱中的日志，展示发送人、标题和关键内容摘要。
+                    - generic [ref=e767]:
+                      - heading "钉钉CLI能力覆盖" [level=2] [ref=e768]
+                      - paragraph [ref=e769]: DingTalk CLI 覆盖 13 个产品共 159 条命令。
+                      - table [ref=e771]:
+                        - rowgroup [ref=e777]:
+                          - row "服务 命令 命令数 子命令示例 描述" [ref=e778]:
+                            - cell "服务" [ref=e779]:
+                              - paragraph [ref=e780]:
+                                - generic [ref=e781]: 服务
+                            - cell "命令" [ref=e782]:
+                              - paragraph [ref=e783]:
+                                - generic [ref=e784]: 命令
+                            - cell "命令数" [ref=e785]:
+                              - paragraph [ref=e786]:
+                                - generic [ref=e787]: 命令数
+                            - cell "子命令示例" [ref=e788]:
+                              - paragraph [ref=e789]:
+                                - generic [ref=e790]: 子命令示例
+                            - cell "描述" [ref=e791]:
+                              - paragraph [ref=e792]:
+                                - generic [ref=e793]: 描述
+                          - row "通讯录 contact 6 user dept 按姓名/手机号搜索、批量查询、部门树、当前用户信息" [ref=e794]:
+                            - cell "通讯录" [ref=e795]:
+                              - paragraph [ref=e796]: 通讯录
+                            - cell "contact" [ref=e797]:
+                              - paragraph [ref=e798]:
+                                - code [ref=e799]: contact
+                            - cell "6" [ref=e800]:
+                              - paragraph [ref=e801]: "6"
+                            - cell "user dept" [ref=e802]:
+                              - paragraph [ref=e803]:
+                                - code [ref=e804]: user
+                                - code [ref=e805]: dept
+                            - cell "按姓名/手机号搜索、批量查询、部门树、当前用户信息" [ref=e806]:
+                              - paragraph [ref=e807]: 按姓名/手机号搜索、批量查询、部门树、当前用户信息
+                          - row "群聊 chat （别名 im ） 23 message group bot conversation-info search search-common list-top-conversations 消息（发送 / 列表 / list-all / 按发送者 / @我 / 关注 / 未读 / 话题回复 / 搜索）、群增删改 + 成员管理（含 add-bot ）、机器人身份消息（ send-by-bot / recall-by-bot / send-by-webhook ）、会话信息查询、共同群聊" [ref=e808]:
+                            - cell "群聊" [ref=e809]:
+                              - paragraph [ref=e810]: 群聊
+                            - cell "chat （别名 im ）" [ref=e811]:
+                              - paragraph [ref=e812]:
+                                - code [ref=e813]: chat
+                                - text: （别名
+                                - code [ref=e814]: im
+                                - text: ）
+                            - cell "23" [ref=e815]:
+                              - paragraph [ref=e816]: "23"
+                            - cell "message group bot conversation-info search search-common list-top-conversations" [ref=e817]:
+                              - paragraph [ref=e818]:
+                                - code [ref=e819]: message
+                                - code [ref=e820]: group
+                                - code [ref=e821]: bot
+                                - code [ref=e822]: conversation-info
+                                - code [ref=e823]: search
+                                - code [ref=e824]: search-common
+                                - code [ref=e825]: list-top-conversations
+                            - cell "消息（发送 / 列表 / list-all / 按发送者 / @我 / 关注 / 未读 / 话题回复 / 搜索）、群增删改 + 成员管理（含 add-bot ）、机器人身份消息（ send-by-bot / recall-by-bot / send-by-webhook ）、会话信息查询、共同群聊" [ref=e826]:
+                              - paragraph [ref=e827]:
+                                - text: 消息（发送 / 列表 / list-all / 按发送者 / @我 / 关注 / 未读 / 话题回复 / 搜索）、群增删改 + 成员管理（含
+                                - code [ref=e828]: add-bot
+                                - text: ）、机器人身份消息（
+                                - code [ref=e829]: send-by-bot
+                                - text: /
+                                - code [ref=e830]: recall-by-bot
+                                - text: /
+                                - code [ref=e831]: send-by-webhook
+                                - text: ）、会话信息查询、共同群聊
+                          - row "日历 calendar 14 event room participant busy 日程 CRUD + 建议时间 + 附件、会议室预订、闲忙查询、参与者管理" [ref=e832]:
+                            - cell "日历" [ref=e833]:
+                              - paragraph [ref=e834]: 日历
+                            - cell "calendar" [ref=e835]:
+                              - paragraph [ref=e836]:
+                                - code [ref=e837]: calendar
+                            - cell "14" [ref=e838]:
+                              - paragraph [ref=e839]: "14"
+                            - cell "event room participant busy" [ref=e840]:
+                              - paragraph [ref=e841]:
+                                - code [ref=e842]: event
+                                - code [ref=e843]: room
+                                - code [ref=e844]: participant
+                                - code [ref=e845]: busy
+                            - cell "日程 CRUD + 建议时间 + 附件、会议室预订、闲忙查询、参与者管理" [ref=e846]:
+                              - paragraph [ref=e847]: 日程 CRUD + 建议时间 + 附件、会议室预订、闲忙查询、参与者管理
+                          - row "待办 todo 6 task 创建、列表、修改、完成、详情、删除" [ref=e848]:
+                            - cell "待办" [ref=e849]:
+                              - paragraph [ref=e850]: 待办
+                            - cell "todo" [ref=e851]:
+                              - paragraph [ref=e852]:
+                                - code [ref=e853]: todo
+                            - cell "6" [ref=e854]:
+                              - paragraph [ref=e855]: "6"
+                            - cell "task" [ref=e856]:
+                              - paragraph [ref=e857]:
+                                - code [ref=e858]: task
+                            - cell "创建、列表、修改、完成、详情、删除" [ref=e859]:
+                              - paragraph [ref=e860]: 创建、列表、修改、完成、详情、删除
+                          - row "审批 oa 9 approval 同意 / 拒绝 / 撤销、待我审批 / 我发起的、流程列表、操作记录" [ref=e861]:
+                            - cell "审批" [ref=e862]:
+                              - paragraph [ref=e863]: 审批
+                            - cell "oa" [ref=e864]:
+                              - paragraph [ref=e865]:
+                                - code [ref=e866]: oa
+                            - cell "9" [ref=e867]:
+                              - paragraph [ref=e868]: "9"
+                            - cell "approval" [ref=e869]:
+                              - paragraph [ref=e870]:
+                                - code [ref=e871]: approval
+                            - cell "同意 / 拒绝 / 撤销、待我审批 / 我发起的、流程列表、操作记录" [ref=e872]:
+                              - paragraph [ref=e873]: 同意 / 拒绝 / 撤销、待我审批 / 我发起的、流程列表、操作记录
+                          - row "考勤 attendance 4 record shift summary rules 打卡记录、排班查询、考勤摘要、考勤组规则" [ref=e874]:
+                            - cell "考勤" [ref=e875]:
+                              - paragraph [ref=e876]: 考勤
+                            - cell "attendance" [ref=e877]:
+                              - paragraph [ref=e878]:
+                                - code [ref=e879]: attendance
+                            - cell "4" [ref=e880]:
+                              - paragraph [ref=e881]: "4"
+                            - cell "record shift summary rules" [ref=e882]:
+                              - paragraph [ref=e883]:
+                                - code [ref=e884]: record
+                                - code [ref=e885]: shift
+                                - code [ref=e886]: summary
+                                - code [ref=e887]: rules
+                            - cell "打卡记录、排班查询、考勤摘要、考勤组规则" [ref=e888]:
+                              - paragraph [ref=e889]: 打卡记录、排班查询、考勤摘要、考勤组规则
+                          - row "DING ding 2 message 发送 / 撤回 DING 消息" [ref=e890]:
+                            - cell "DING" [ref=e891]:
+                              - paragraph [ref=e892]: DING
+                            - cell "ding" [ref=e893]:
+                              - paragraph [ref=e894]:
+                                - code [ref=e895]: ding
+                            - cell "2" [ref=e896]:
+                              - paragraph [ref=e897]: "2"
+                            - cell "message" [ref=e898]:
+                              - paragraph [ref=e899]:
+                                - code [ref=e900]: message
+                            - cell "发送 / 撤回 DING 消息" [ref=e901]:
+                              - paragraph [ref=e902]: 发送 / 撤回 DING 消息
+                          - row "日志 report 7 create list detail template stats sent 创建日志、收发列表、模板、详情、统计" [ref=e903]:
+                            - cell "日志" [ref=e904]:
+                              - paragraph [ref=e905]: 日志
+                            - cell "report" [ref=e906]:
+                              - paragraph [ref=e907]:
+                                - code [ref=e908]: report
+                            - cell "7" [ref=e909]:
+                              - paragraph [ref=e910]: "7"
+                            - cell "create list detail template stats sent" [ref=e911]:
+                              - paragraph [ref=e912]:
+                                - code [ref=e913]: create
+                                - code [ref=e914]: list
+                                - code [ref=e915]: detail
+                                - code [ref=e916]: template
+                                - code [ref=e917]: stats
+                                - code [ref=e918]: sent
+                            - cell "创建日志、收发列表、模板、详情、统计" [ref=e919]:
+                              - paragraph [ref=e920]: 创建日志、收发列表、模板、详情、统计
+                          - row "AI 表格 aitable 41 base table record field view dashboard chart import export attachment template Base / 数据表 / 记录 / 字段 / 视图 全量 CRUD；图表 + 仪表盘（含分享配置）；数据导入导出；附件；模板" [ref=e921]:
+                            - cell "AI 表格" [ref=e922]:
+                              - paragraph [ref=e923]: AI 表格
+                            - cell "aitable" [ref=e924]:
+                              - paragraph [ref=e925]:
+                                - code [ref=e926]: aitable
+                            - cell "41" [ref=e927]:
+                              - paragraph [ref=e928]: "41"
+                            - cell "base table record field view dashboard chart import export attachment template" [ref=e929]:
+                              - paragraph [ref=e930]:
+                                - code [ref=e931]: base
+                                - code [ref=e932]: table
+                                - code [ref=e933]: record
+                                - code [ref=e934]: field
+                                - code [ref=e935]: view
+                                - code [ref=e936]: dashboard
+                                - code [ref=e937]: chart
+                                - code [ref=e938]: import
+                                - code [ref=e939]: export
+                                - code [ref=e940]: attachment
+                                - code [ref=e941]: template
+                            - cell "Base / 数据表 / 记录 / 字段 / 视图 全量 CRUD；图表 + 仪表盘（含分享配置）；数据导入导出；附件；模板" [ref=e942]:
+                              - paragraph [ref=e943]: Base / 数据表 / 记录 / 字段 / 视图 全量 CRUD；图表 + 仪表盘（含分享配置）；数据导入导出；附件；模板
+                          - row "文档 doc 21 search list info read create update upload download copy move rename file folder block comment 搜索 / 读写文档、文件与文件夹创建、块级编辑、评论（list / create / reply / create-inline）、上传 / 下载" [ref=e944]:
+                            - cell "文档" [ref=e945]:
+                              - paragraph [ref=e946]: 文档
+                            - cell "doc" [ref=e947]:
+                              - paragraph [ref=e948]:
+                                - code [ref=e949]: doc
+                            - cell "21" [ref=e950]:
+                              - paragraph [ref=e951]: "21"
+                            - cell "search list info read create update upload download copy move rename file folder block comment" [ref=e952]:
+                              - paragraph [ref=e953]:
+                                - code [ref=e954]: search
+                                - code [ref=e955]: list
+                                - code [ref=e956]: info
+                                - code [ref=e957]: read
+                                - code [ref=e958]: create
+                                - code [ref=e959]: update
+                                - code [ref=e960]: upload
+                                - code [ref=e961]: download
+                                - code [ref=e962]: copy
+                                - code [ref=e963]: move
+                                - code [ref=e964]: rename
+                                - code [ref=e965]: file
+                                - code [ref=e966]: folder
+                                - code [ref=e967]: block
+                                - code [ref=e968]: comment
+                            - cell "搜索 / 读写文档、文件与文件夹创建、块级编辑、评论（list / create / reply / create-inline）、上传 / 下载" [ref=e969]:
+                              - paragraph [ref=e970]: 搜索 / 读写文档、文件与文件夹创建、块级编辑、评论（list / create / reply / create-inline）、上传 / 下载
+                          - row "钉盘 drive 6 list info download mkdir upload-info commit 钉盘文件操作：列表、详情、下载、创建文件夹、两阶段上传" [ref=e971]:
+                            - cell "钉盘" [ref=e972]:
+                              - paragraph [ref=e973]: 钉盘
+                            - cell "drive" [ref=e974]:
+                              - paragraph [ref=e975]:
+                                - code [ref=e976]: drive
+                            - cell "6" [ref=e977]:
+                              - paragraph [ref=e978]: "6"
+                            - cell "list info download mkdir upload-info commit" [ref=e979]:
+                              - paragraph [ref=e980]:
+                                - code [ref=e981]: list
+                                - code [ref=e982]: info
+                                - code [ref=e983]: download
+                                - code [ref=e984]: mkdir
+                                - code [ref=e985]: upload-info
+                                - code [ref=e986]: commit
+                            - cell "钉盘文件操作：列表、详情、下载、创建文件夹、两阶段上传" [ref=e987]:
+                              - paragraph [ref=e988]: 钉盘文件操作：列表、详情、下载、创建文件夹、两阶段上传
+                          - row "AI 听记 minutes 19 list get update mind-graph speaker hot-word upload 听记列表（我创建 / 共享给我）、详情（info / summary / keywords / transcription / todos / batch）、标题/摘要更新、思维导图、发言人替换、热词、上传会话" [ref=e989]:
+                            - cell "AI 听记" [ref=e990]:
+                              - paragraph [ref=e991]: AI 听记
+                            - cell "minutes" [ref=e992]:
+                              - paragraph [ref=e993]:
+                                - code [ref=e994]: minutes
+                            - cell "19" [ref=e995]:
+                              - paragraph [ref=e996]: "19"
+                            - cell "list get update mind-graph speaker hot-word upload" [ref=e997]:
+                              - paragraph [ref=e998]:
+                                - code [ref=e999]: list
+                                - code [ref=e1000]: get
+                                - code [ref=e1001]: update
+                                - code [ref=e1002]: mind-graph
+                                - code [ref=e1003]: speaker
+                                - code [ref=e1004]: hot-word
+                                - code [ref=e1005]: upload
+                            - cell "听记列表（我创建 / 共享给我）、详情（info / summary / keywords / transcription / todos / batch）、标题/摘要更新、思维导图、发言人替换、热词、上传会话" [ref=e1006]:
+                              - paragraph [ref=e1007]: 听记列表（我创建 / 共享给我）、详情（info / summary / keywords / transcription / todos / batch）、标题/摘要更新、思维导图、发言人替换、热词、上传会话
+                          - row "开发者文档 devdoc 1 article 搜索钉钉开放平台文档" [ref=e1008]:
+                            - cell "开发者文档" [ref=e1009]:
+                              - paragraph [ref=e1010]: 开发者文档
+                            - cell "devdoc" [ref=e1011]:
+                              - paragraph [ref=e1012]:
+                                - code [ref=e1013]: devdoc
+                            - cell "1" [ref=e1014]:
+                              - paragraph [ref=e1015]: "1"
+                            - cell "article" [ref=e1016]:
+                              - paragraph [ref=e1017]:
+                                - code [ref=e1018]: article
+                            - cell "搜索钉钉开放平台文档" [ref=e1019]:
+                              - paragraph [ref=e1020]: 搜索钉钉开放平台文档
+                      - blockquote [ref=e1021]:
+                        - text: 运行
+                        - code [ref=e1022]: dws --help
+                        - text: 查看顶层命令树，或
+                        - code [ref=e1023]: dws<service> --help
+                        - text: 查看子命令。
+                    - generic [ref=e1024]:
+                      - heading "安全设计" [level=2] [ref=e1025]
+                      - paragraph [ref=e1026]:
+                        - code [ref=e1027]: dws
+                        - text: 将安全性视为架构中的首要考量，而非事后考虑。
+                        - generic [ref=e1028]: 凭证绝不写入磁盘，令牌绝不离开受信任域，权限绝不超出授权范围，操作绝不逃过审计
+                        - text: ——每一次 API 调用都必须经过钉钉开放平台的认证和审计链，绝无例外。
+                      - generic [ref=e1029]:
+                        - heading "面向开发者" [level=3] [ref=e1030]
+                        - table [ref=e1032]:
+                          - rowgroup [ref=e1035]:
+                            - row "机制 细节" [ref=e1036]:
+                              - cell "机制" [ref=e1037]:
+                                - paragraph [ref=e1038]: 机制
+                              - cell "细节" [ref=e1039]:
+                                - paragraph [ref=e1040]: 细节
+                            - row "加密令牌存储 采用PBKDF2 + AES-256-GCM加密，密钥由设备物理 MAC 地址生成；跨平台 Keychain/DPAPI 集成提供额外保护——令牌无法在其他设备上解密。" [ref=e1041]:
+                              - cell "加密令牌存储" [ref=e1042]:
+                                - paragraph [ref=e1043]: 加密令牌存储
+                              - cell "采用PBKDF2 + AES-256-GCM加密，密钥由设备物理 MAC 地址生成；跨平台 Keychain/DPAPI 集成提供额外保护——令牌无法在其他设备上解密。" [ref=e1044]:
+                                - paragraph [ref=e1045]: 采用PBKDF2 + AES-256-GCM加密，密钥由设备物理 MAC 地址生成；跨平台 Keychain/DPAPI 集成提供额外保护——令牌无法在其他设备上解密。
+                            - row "输入安全 路径遍历保护（符号链接解析 + 工作目录包含）、CRLF 注入阻止、Unicode 视觉欺骗过滤——防止 AI 代理被恶意指令欺骗" [ref=e1046]:
+                              - cell "输入安全" [ref=e1047]:
+                                - paragraph [ref=e1048]:
+                                  - generic [ref=e1049]: 输入安全
+                              - cell "路径遍历保护（符号链接解析 + 工作目录包含）、CRLF 注入阻止、Unicode 视觉欺骗过滤——防止 AI 代理被恶意指令欺骗" [ref=e1050]:
+                                - paragraph [ref=e1051]: 路径遍历保护（符号链接解析 + 工作目录包含）、CRLF 注入阻止、Unicode 视觉欺骗过滤——防止 AI 代理被恶意指令欺骗
+                            - row "域名允许列表 DWS_TRUSTED_DOMAINS 默认情况下 *.dingtalk.com ；持有者令牌永远不会发送到非允许列表域。" [ref=e1052]:
+                              - cell "域名允许列表" [ref=e1053]:
+                                - paragraph [ref=e1054]: 域名允许列表
+                              - cell "DWS_TRUSTED_DOMAINS 默认情况下 *.dingtalk.com ；持有者令牌永远不会发送到非允许列表域。" [ref=e1055]:
+                                - paragraph [ref=e1056]:
+                                  - code [ref=e1057]: DWS_TRUSTED_DOMAINS
+                                  - text: 默认情况下
+                                  - code [ref=e1058]: "*.dingtalk.com"
+                                  - text: ；持有者令牌永远不会发送到非允许列表域。
+                            - row "强制使用HTTPS 所有请求都需要 TLS 加密；开发期间仅允许通过 HTTP 进行环回通信。" [ref=e1059]:
+                              - cell "强制使用HTTPS" [ref=e1060]:
+                                - paragraph [ref=e1061]:
+                                  - generic [ref=e1062]: 强制使用HTTPS
+                              - cell "所有请求都需要 TLS 加密；开发期间仅允许通过 HTTP 进行环回通信。" [ref=e1063]:
+                                - paragraph [ref=e1064]: 所有请求都需要 TLS 加密；开发期间仅允许通过 HTTP 进行环回通信。
+                            - row "试运行预览 --dry-run 显示调用参数而不执行，防止意外修改。" [ref=e1065]:
+                              - cell "试运行预览" [ref=e1066]:
+                                - paragraph [ref=e1067]: 试运行预览
+                              - cell "--dry-run 显示调用参数而不执行，防止意外修改。" [ref=e1068]:
+                                - paragraph [ref=e1069]:
+                                  - code [ref=e1070]: "--dry-run"
+                                  - text: 显示调用参数而不执行，防止意外修改。
+                            - row "零凭证持久性 客户端 ID/密钥仅保存在内存中，绝不会写入配置文件或日志。" [ref=e1071]:
+                              - cell "零凭证持久性" [ref=e1072]:
+                                - paragraph [ref=e1073]:
+                                  - generic [ref=e1074]: 零凭证持久性
+                              - cell "客户端 ID/密钥仅保存在内存中，绝不会写入配置文件或日志。" [ref=e1075]:
+                                - paragraph [ref=e1076]: 客户端 ID/密钥仅保存在内存中，绝不会写入配置文件或日志。
+                      - generic [ref=e1077]:
+                        - heading "面向企业管理员" [level=3] [ref=e1078]
+                        - table [ref=e1080]:
+                          - rowgroup [ref=e1083]:
+                            - row "机制 细节" [ref=e1084]:
+                              - cell "机制" [ref=e1085]:
+                                - paragraph [ref=e1086]: 机制
+                              - cell "细节" [ref=e1087]:
+                                - paragraph [ref=e1088]: 细节
+                            - row "OAuth 设备流程认证 用户必须通过管理员授权的钉钉应用程序进行身份验证。" [ref=e1089]:
+                              - cell "OAuth 设备流程认证" [ref=e1090]:
+                                - paragraph [ref=e1091]: OAuth 设备流程认证
+                              - cell "用户必须通过管理员授权的钉钉应用程序进行身份验证。" [ref=e1092]:
+                                - paragraph [ref=e1093]: 用户必须通过管理员授权的钉钉应用程序进行身份验证。
+                            - row "最小权限范围 CLI 只能调用应用程序被授予的 API——无法提升权限" [ref=e1094]:
+                              - cell "最小权限范围" [ref=e1095]:
+                                - paragraph [ref=e1096]:
+                                  - generic [ref=e1097]: 最小权限范围
+                              - cell "CLI 只能调用应用程序被授予的 API——无法提升权限" [ref=e1098]:
+                                - paragraph [ref=e1099]: CLI 只能调用应用程序被授予的 API——无法提升权限
+                            - row "允许列表门控 共同创建阶段需要管理员确认；计划推出自助审批功能。" [ref=e1100]:
+                              - cell "允许列表门控" [ref=e1101]:
+                                - paragraph [ref=e1102]: 允许列表门控
+                              - cell "共同创建阶段需要管理员确认；计划推出自助审批功能。" [ref=e1103]:
+                                - paragraph [ref=e1104]: 共同创建阶段需要管理员确认；计划推出自助审批功能。
+                            - row "全链审计 所有数据读写操作都通过钉钉开放平台API进行——企业管理员可以实时追踪完整的通话记录；任何异常操作都无法隐藏。" [ref=e1105]:
+                              - cell "全链审计" [ref=e1106]:
+                                - paragraph [ref=e1107]:
+                                  - generic [ref=e1108]: 全链审计
+                              - cell "所有数据读写操作都通过钉钉开放平台API进行——企业管理员可以实时追踪完整的通话记录；任何异常操作都无法隐藏。" [ref=e1109]:
+                                - paragraph [ref=e1110]: 所有数据读写操作都通过钉钉开放平台API进行——企业管理员可以实时追踪完整的通话记录；任何异常操作都无法隐藏。
+                      - generic [ref=e1111]:
+                        - heading "对于独立软件开发商 (ISV)" [level=3] [ref=e1112]
+                        - table [ref=e1114]:
+                          - rowgroup [ref=e1117]:
+                            - row "机制 细节" [ref=e1118]:
+                              - cell "机制" [ref=e1119]:
+                                - paragraph [ref=e1120]: 机制
+                              - cell "细节" [ref=e1121]:
+                                - paragraph [ref=e1122]: 细节
+                            - row "租户数据隔离 在已授权的应用身份下运行；无法跨租户访问" [ref=e1123]:
+                              - cell "租户数据隔离" [ref=e1124]:
+                                - paragraph [ref=e1125]: 租户数据隔离
+                              - cell "在已授权的应用身份下运行；无法跨租户访问" [ref=e1126]:
+                                - paragraph [ref=e1127]: 在已授权的应用身份下运行；无法跨租户访问
+                            - row "技能沙盒 代理技能是 Markdown 文档（ SKILL.md ）——仅包含提示描述，不包含任意代码执行。" [ref=e1128]:
+                              - cell "技能沙盒" [ref=e1129]:
+                                - paragraph [ref=e1130]:
+                                  - generic [ref=e1131]: 技能沙盒
+                              - cell "代理技能是 Markdown 文档（ SKILL.md ）——仅包含提示描述，不包含任意代码执行。" [ref=e1132]:
+                                - paragraph [ref=e1133]:
+                                  - text: 代理技能是 Markdown 文档（
+                                  - code [ref=e1134]: SKILL.md
+                                  - text: ）——仅包含提示描述，不包含任意代码执行。
+                            - row "零盲点 ISV-dws技能编排过程中的每一次API调用都强制通过钉钉开放平台认证——完整的调用链可追溯，没有任何绕过路径。" [ref=e1135]:
+                              - cell "零盲点" [ref=e1136]:
+                                - paragraph [ref=e1137]: 零盲点
+                              - cell "ISV-dws技能编排过程中的每一次API调用都强制通过钉钉开放平台认证——完整的调用链可追溯，没有任何绕过路径。" [ref=e1138]:
+                                - paragraph [ref=e1139]: ISV-dws技能编排过程中的每一次API调用都强制通过钉钉开放平台认证——完整的调用链可追溯，没有任何绕过路径。
+                    - generic [ref=e1140]:
+                      - heading "常用命令速查" [level=2] [ref=e1141]
+                      - table [ref=e1143]:
+                        - rowgroup [ref=e1146]:
+                          - row "目标 命令" [ref=e1147]:
+                            - cell "目标" [ref=e1148]:
+                              - paragraph [ref=e1149]: 目标
+                            - cell "命令" [ref=e1150]:
+                              - paragraph [ref=e1151]: 命令
+                          - row "登录授权 dws auth login" [ref=e1152]:
+                            - cell "登录授权" [ref=e1153]:
+                              - paragraph [ref=e1154]: 登录授权
+                            - cell "dws auth login" [ref=e1155]:
+                              - paragraph [ref=e1156]:
+                                - code [ref=e1157]: dws auth login
+                          - row "设备码登录（无界面环境） dws auth login --device" [ref=e1158]:
+                            - cell "设备码登录（无界面环境）" [ref=e1159]:
+                              - paragraph [ref=e1160]: 设备码登录（无界面环境）
+                            - cell "dws auth login --device" [ref=e1161]:
+                              - paragraph [ref=e1162]:
+                                - code [ref=e1163]: dws auth login --device
+                          - row "查看当前登录状态 dws auth status" [ref=e1164]:
+                            - cell "查看当前登录状态" [ref=e1165]:
+                              - paragraph [ref=e1166]: 查看当前登录状态
+                            - cell "dws auth status" [ref=e1167]:
+                              - paragraph [ref=e1168]:
+                                - code [ref=e1169]: dws auth status
+                          - row "搜索同事 dws contact user search --keyword \"关键词\"" [ref=e1170]:
+                            - cell "搜索同事" [ref=e1171]:
+                              - paragraph [ref=e1172]: 搜索同事
+                            - cell "dws contact user search --keyword \"关键词\"" [ref=e1173]:
+                              - paragraph [ref=e1174]:
+                                - code [ref=e1175]: dws contact user search --keyword "关键词"
+                          - row "查看日历事件 dws calendar event list" [ref=e1176]:
+                            - cell "查看日历事件" [ref=e1177]:
+                              - paragraph [ref=e1178]: 查看日历事件
+                            - cell "dws calendar event list" [ref=e1179]:
+                              - paragraph [ref=e1180]:
+                                - code [ref=e1181]: dws calendar event list
+                          - row "创建待办 dws todo task create --title \"标题\" --executors \"<user_id>\"" [ref=e1182]:
+                            - cell "创建待办" [ref=e1183]:
+                              - paragraph [ref=e1184]: 创建待办
+                            - cell "dws todo task create --title \"标题\" --executors \"<user_id>\"" [ref=e1185]:
+                              - paragraph [ref=e1186]:
+                                - code [ref=e1187]: dws todo task create --title "标题" --executors "<user_id>"
+                          - row "预览操作（不执行） dws <command> --dry-run" [ref=e1188]:
+                            - cell "预览操作（不执行）" [ref=e1189]:
+                              - paragraph [ref=e1190]: 预览操作（不执行）
+                            - cell "dws <command> --dry-run" [ref=e1191]:
+                              - paragraph [ref=e1192]:
+                                - code [ref=e1193]: dws <command> --dry-run
+                          - row "查看所有可用命令 dws --help" [ref=e1194]:
+                            - cell "查看所有可用命令" [ref=e1195]:
+                              - paragraph [ref=e1196]: 查看所有可用命令
+                            - cell "dws --help" [ref=e1197]:
+                              - paragraph [ref=e1198]:
+                                - code [ref=e1199]: dws --help
+                          - row "查看子命令 dws <product> --help" [ref=e1200]:
+                            - cell "查看子命令" [ref=e1201]:
+                              - paragraph [ref=e1202]: 查看子命令
+                            - cell "dws <product> --help" [ref=e1203]:
+                              - paragraph [ref=e1204]:
+                                - code [ref=e1205]: dws <product> --help
+                          - row "查看 API Schema dws schema" [ref=e1206]:
+                            - cell "查看 API Schema" [ref=e1207]:
+                              - paragraph [ref=e1208]: 查看 API Schema
+                            - cell "dws schema" [ref=e1209]:
+                              - paragraph [ref=e1210]:
+                                - code [ref=e1211]: dws schema
+                          - row "升级到最新版本 dws upgrade" [ref=e1212]:
+                            - cell "升级到最新版本" [ref=e1213]:
+                              - paragraph [ref=e1214]: 升级到最新版本
+                            - cell "dws upgrade" [ref=e1215]:
+                              - paragraph [ref=e1216]:
+                                - code [ref=e1217]: dws upgrade
+                      - separator [ref=e1218]
+                    - generic [ref=e1219]:
+                      - heading "常见问题" [level=2] [ref=e1220]
+                      - generic [ref=e1221]:
+                        - heading "安装后提示\"command not found\"？" [level=3] [ref=e1222]
+                        - paragraph [ref=e1223]:
+                          - text: 确保 CLI 安装目录已添加到系统 PATH。使用脚本安装的用户，重新打开终端窗口即可。macOS 用户如遇"无法打开，因为 Apple 无法检查其是否包含恶意软件"，运行：
+                          - code [ref=e1224]: xattr -d com.apple.quarantine /path/to/dws
+                      - generic [ref=e1225]:
+                        - heading "组织未开启 CLI 访问怎么办？" [level=3] [ref=e1226]
+                        - paragraph [ref=e1227]:
+                          - text: 登录时选择组织后，点击"立即申请"通知管理员。管理员收到申请卡片后一键审批，审批通过后重新运行
+                          - code [ref=e1228]: dws auth login
+                          - text: 。
+                      - generic [ref=e1229]:
+                        - heading "企业管理员如何管控权限？" [level=3] [ref=e1230]
+                        - paragraph [ref=e1231]: CLI 本质上是通过钉钉应用调用开放平台 API。应用管理仍遵循企业现有的安全和访问控制策略。管理员可在开发者后台的"CLI 访问管理"中开启或关闭。
+                      - generic [ref=e1232]:
+                        - heading "如何在自动化任务或 AI 工作流中使用？" [level=3] [ref=e1233]
+                        - paragraph [ref=e1234]:
+                          - text: 在本地完成一次配置和授权后，即可将 CLI 集成到你的脚本或 AI Agent 平台中复用。所有命令支持
+                          - code [ref=e1235]: "--yes"
+                          - text: 跳过交互确认，
+                          - code [ref=e1236]: "--format json"
+                          - text: 输出结构化数据。
+                      - generic [ref=e1237]:
+                        - heading "调用 API 时提示\"权限不足\"？" [level=3] [ref=e1238]
+                        - paragraph [ref=e1239]:
+                          - text: 根据错误信息中提示的缺失权限，在开发者后台为应用授予对应权限。使用
+                          - code [ref=e1240]: dws auth login --device
+                          - text: 重新授权以刷新权限范围。
+                - generic [ref=e1241]:
+                  - generic [ref=e1242]:
+                    - generic [ref=e1243]: 遇到其他问题？
+                    - generic [ref=e1244]: 问问
+                    - img "AI" [ref=e1245]
+                    - generic [ref=e1246]: 钉钉开发助手
+                  - generic [ref=e1247]:
+                    - generic [ref=e1248] [cursor=pointer]:
+                      - generic [ref=e1249]: 如何调用该API
+                      - img ">" [ref=e1250]
+                      - img ">" [ref=e1251]
+                    - generic [ref=e1252] [cursor=pointer]:
+                      - generic [ref=e1253]: 必填参数有哪些
+                      - img ">" [ref=e1254]
+                      - img ">" [ref=e1255]
+                    - generic [ref=e1256] [cursor=pointer]:
+                      - generic [ref=e1257]: NoSuchKey错误原因
+                      - img ">" [ref=e1258]
+                      - img ">" [ref=e1259]
+                    - generic [ref=e1260] [cursor=pointer]:
+                      - generic [ref=e1261]: API调用最佳实践
+                      - img ">" [ref=e1262]
+                      - img ">" [ref=e1263]
+              - link "下一篇：概述 right" [ref=e1265] [cursor=pointer]:
+                - /url: /document/development/event-subscription-overview
+                - text: 下一篇：概述
+                - img "right" [ref=e1266]:
+                  - img [ref=e1267]
+            - generic [ref=e1270]:
+              - generic [ref=e1271]: 本页内容
+              - generic [ref=e1273]:
+                - link "背景" [ref=e1275] [cursor=pointer]:
+                  - /url: "#6ce485705a2zk"
+                - link "一键安装" [ref=e1277] [cursor=pointer]:
+                  - /url: "#3403838ffajd7"
+                - link "自升级" [ref=e1279] [cursor=pointer]:
+                  - /url: "#4a05a6928d5p4"
+                - link "使用CLI" [ref=e1281] [cursor=pointer]:
+                  - /url: "#95c6210f24dvo"
+                - link "使用场景" [ref=e1283] [cursor=pointer]:
+                  - /url: "#fd214955fbdz0"
+                - link "钉钉CLI能力覆盖" [ref=e1285] [cursor=pointer]:
+                  - /url: "#0b71245571hjd"
+                - link "安全设计" [ref=e1287] [cursor=pointer]:
+                  - /url: "#db824b7b9dijc"
+                - link "常用命令速查" [ref=e1289] [cursor=pointer]:
+                  - /url: "#0e47f45c3b6qr"
+                - link "常见问题" [ref=e1291] [cursor=pointer]:
+                  - /url: "#9cbfef7acalfw"
+          - generic [ref=e1293]:
+            - img "鼠标选中内容，AI智能解释" [ref=e1294]
+            - generic [ref=e1295]: 鼠标选中内容，AI智能解释
+            - generic [ref=e1296]: 选中存在疑惑的内容，即可快速唤起AI解释反馈
+            - button "好的，知道了" [ref=e1298]:
+              - generic [ref=e1299]: 好的，知道了
+          - button "文档反馈" [ref=e1301] [cursor=pointer]
+          - generic [ref=e1303] [cursor=pointer]:
+            - img "开发助手" [ref=e1304]
+            - generic [ref=e1306]: 开发助手
+  - generic [ref=e1307]:
+    - alert
+    - alert
+    - complementary
+    - complementary

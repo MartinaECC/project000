@@ -1,0 +1,4 @@
+interface:
+  display_name: "WeRead Book Summary"
+  short_description: "Read WeRead books via Chrome and summarize"
+  default_prompt: "Use $weread-book-summary to read this WeRead book link with my Chrome login and summarize it."

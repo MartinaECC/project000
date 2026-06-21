@@ -74,12 +74,6 @@ def report_periods(timezone_name: str) -> dict[str, dict[str, datetime]]:
     now = parse_now(tz)
     current_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
     current_end = now.replace(minute=0, second=0, microsecond=0)
-    if now.hour == 0:
-        previous_day_start = current_start - timedelta(days=1)
-        return {
-            "current": {"start": previous_day_start, "end": current_start},
-            "baseline": {"start": current_start - timedelta(days=2), "end": previous_day_start},
-        }
     return {
         "current": {"start": current_start, "end": current_end},
         "baseline": {"start": current_start - timedelta(days=1), "end": current_end - timedelta(days=1)},
@@ -115,8 +109,6 @@ def load_period_data(client: Any, app_id: str, period: dict[str, datetime], time
             "refundBadRows": refund["bad_rows"],
             "incomeTruncated": income["is_truncated"],
             "refundTruncated": refund["is_truncated"],
-            "incomeGranularity": income["granularity"],
-            "refundGranularity": refund["granularity"],
         },
     }
 
@@ -142,14 +134,13 @@ def query_amount_groups(
         "event_indicator": "events",
         "measure_info": {},
     }
-    granularity = period_granularity(start, end)
     body = {
         "version": 3,
         "app_ids": [int(app_id)],
         "use_app_cloud_id": True,
         "periods": [
             {
-                "granularity": granularity,
+                "granularity": "day",
                 "type": "range",
                 "range": [int(start.timestamp()), int(end.timestamp())],
                 "timezone": timezone_name,
@@ -168,21 +159,7 @@ def query_amount_groups(
     response = client.data_finder("/openapi/v1/analysis", method="POST", body=json.dumps(body))
     payload = response.json()
     groups, bad_rows, row_count, is_truncated = extract_groups(payload)
-    return {"groups": groups, "bad_rows": bad_rows, "row_count": row_count, "is_truncated": is_truncated, "granularity": granularity}
-
-
-def period_granularity(start: datetime, end: datetime) -> str:
-    duration = end - start
-    is_full_day_window = (
-        duration == timedelta(days=1)
-        and start.hour == 0
-        and start.minute == 0
-        and start.second == 0
-        and end.hour == 0
-        and end.minute == 0
-        and end.second == 0
-    )
-    return "day" if is_full_day_window else "hour"
+    return {"groups": groups, "bad_rows": bad_rows, "row_count": row_count, "is_truncated": is_truncated}
 
 
 def extract_groups(payload: dict[str, Any]) -> tuple[list[dict[str, Any]], list[dict[str, Any]], int, bool]:
@@ -251,17 +228,13 @@ def first_non_empty(*values: Any) -> Any:
 def extract_count(row: dict[str, Any]) -> float | None:
     data = row.get("data")
     if isinstance(data, list) and data:
-        total = 0.0
-        found = False
-        for value in data:
-            if value is None:
-                continue
-            try:
-                total += float(value)
-                found = True
-            except (TypeError, ValueError):
-                return None
-        return total if found else None
+        value = data[0]
+        if isinstance(value, (int, float)):
+            return float(value)
+        try:
+            return float(value)
+        except (TypeError, ValueError):
+            return None
     for key in ("value", "count"):
         value = row.get(key)
         if isinstance(value, (int, float)):

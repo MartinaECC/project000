@@ -1,0 +1,487 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - img "钉钉开放平台" [ref=e8] [cursor=pointer]
+        - generic [ref=e10]:
+          - generic [ref=e12] [cursor=pointer]: 应用中心
+          - generic [ref=e14] [cursor=pointer]: 开发者文档
+          - generic [ref=e18] [cursor=pointer]: 开发助手
+        - generic [ref=e22]:
+          - img [ref=e24]:
+            - img [ref=e25]
+          - textbox "你可以输入文档关键词、开发问题、requestld、错误码" [ref=e27]
+      - generic [ref=e28]:
+        - button "开发者后台" [ref=e30] [cursor=pointer]:
+          - generic [ref=e31]: 开发者后台
+        - link "登录" [ref=e33] [cursor=pointer]:
+          - /url: https://login.dingtalk.com/oauth2/auth?redirect_uri=https%3A%2F%2Fopen.dingtalk.com%2Fdingtalk_sso_call_back%3Fcontinue%3Dhttps%3A%2F%2Fopen.dingtalk.com%2Fdocument%2Fdingstart%2Fbasic-concepts-beta&response_type=code&client_id=dingbakuoyxavyp5ruxw&scope=openid+corpid
+          - text: 登录
+          - img [ref=e34]:
+            - img [ref=e35]
+    - generic [ref=e37]:
+      - generic [ref=e38]:
+        - generic [ref=e39] [cursor=pointer]: 文档中心
+        - generic [ref=e40]: ｜
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - combobox [ref=e45]
+            - generic "应用开发" [ref=e46]
+          - generic:
+            - img:
+              - img
+      - generic [ref=e48]:
+        - generic [ref=e49] [cursor=pointer]: 开发指南
+        - generic [ref=e50] [cursor=pointer]: 服务端API
+        - generic [ref=e51] [cursor=pointer]: 客户端JSAPI
+        - generic [ref=e52] [cursor=pointer]: 事件订阅
+        - generic [ref=e53] [cursor=pointer]: 钉钉CLI
+      - generic [ref=e54]:
+        - button "平台服务" [ref=e55] [cursor=pointer]:
+          - generic [ref=e57]: 平台服务
+        - button "开发工具" [ref=e58] [cursor=pointer]:
+          - generic [ref=e60]: 开发工具
+    - generic [ref=e62]:
+      - generic [ref=e64]:
+        - generic [ref=e67]:
+          - img [ref=e69]:
+            - img [ref=e70]
+          - textbox "搜索目录" [ref=e72]
+        - generic [ref=e75]:
+          - tree:
+            - textbox
+          - generic [ref=e79]:
+            - generic [ref=e80]:
+              - img [ref=e82] [cursor=pointer]
+              - generic [ref=e87] [cursor=pointer]: 平台简介
+            - generic [ref=e88]:
+              - img [ref=e92]
+              - generic [ref=e97] [cursor=pointer]: 基础概念
+            - generic [ref=e98]:
+              - img [ref=e102]
+              - generic [ref=e107] [cursor=pointer]: 应用类型与能力说明
+            - generic [ref=e108]:
+              - img [ref=e110] [cursor=pointer]
+              - generic [ref=e115] [cursor=pointer]: 开发指南
+            - generic [ref=e116]:
+              - img [ref=e118] [cursor=pointer]
+              - generic [ref=e123] [cursor=pointer]: 开发小程序应用
+            - generic [ref=e124]:
+              - img [ref=e126] [cursor=pointer]
+              - generic [ref=e131] [cursor=pointer]: 开发网页应用
+            - generic [ref=e132]:
+              - img [ref=e134] [cursor=pointer]
+              - generic [ref=e139] [cursor=pointer]: 开发酷应用
+            - generic [ref=e140]:
+              - img [ref=e142] [cursor=pointer]
+              - generic [ref=e147] [cursor=pointer]: 开发机器人应用
+            - generic [ref=e148]:
+              - img [ref=e150] [cursor=pointer]
+              - generic [ref=e155] [cursor=pointer]: 接入移动客户端
+      - img [ref=e159] [cursor=pointer]:
+        - img [ref=e160]
+      - main [ref=e163]:
+        - generic [ref=e164]:
+          - generic [ref=e166]:
+            - generic [ref=e167]:
+              - generic [ref=e168]:
+                - generic [ref=e169]:
+                  - text: 平台简介
+                  - img [ref=e171]:
+                    - img [ref=e172]
+                - generic [ref=e174]: 基础概念
+              - button "复制页面" [ref=e176]:
+                - img [ref=e177]:
+                  - img [ref=e178]
+                - generic [ref=e180]: 复制页面
+              - generic [ref=e181]:
+                - main [ref=e183]:
+                  - heading "基础概念" [level=1] [ref=e184]
+                  - paragraph [ref=e185]:
+                    - generic [ref=e186]: 更新于 2026-05-06
+                    - text: 文档是钉钉开放平台的
+                    - generic [ref=e187]: 开发基础概念
+                    - text: 指南，主要面向初次接触钉钉开发的开发者，旨在帮助理解核心术语、身份标识及权限体系。
+                  - generic [ref=e188]:
+                    - generic [ref=e189]:
+                      - heading "关键开发后台" [level=2] [ref=e190]:
+                        - generic [ref=e191]: 关键开发后台
+                      - paragraph [ref=e192]: 文档明确了三个主要的操作平台，开发者需根据角色区分使用：
+                      - generic [ref=e193]:
+                        - heading "开发者后台" [level=3] [ref=e194]:
+                          - generic [ref=e195]: 开发者后台
+                        - paragraph [ref=e196]:
+                          - link "钉钉开发者后台" [ref=e197] [cursor=pointer]:
+                            - /url: https://open-dev.dingtalk.com/#/index
+                            - text: 钉钉开发者后台
+                            - img [ref=e198]:
+                              - img [ref=e199]
+                          - text: 是管理应用开发的服务平台。开发者可以配置应用信息，查看应用运行情况等。
+                        - generic [ref=e204]:
+                          - strong [ref=e205]: 重要
+                          - paragraph [ref=e206]:
+                            - text: 只有企业管理员和授予了开发者权限和工作台管理权限的子管理员可访问开发者后台。子管理员权限可以在
+                            - link "钉钉企业管理后台" [ref=e207] [cursor=pointer]:
+                              - /url: https://oa.dingtalk.com/
+                              - text: 钉钉企业管理后台
+                              - img [ref=e208]:
+                                - img [ref=e209]
+                            - text: 配置。
+                      - generic [ref=e211]:
+                        - heading "企业管理后台" [level=3] [ref=e212]:
+                          - generic [ref=e213]: 企业管理后台
+                        - paragraph [ref=e214]:
+                          - link "钉钉企业管理后台" [ref=e215] [cursor=pointer]:
+                            - /url: https://oa.dingtalk.com/
+                            - text: 钉钉企业管理后台
+                            - img [ref=e216]:
+                              - img [ref=e217]
+                          - text: 是企业管理员用于管理组织架构、成员权限、工作台配置的核心平台。通过该后台，管理员可完成通讯录导入、审批流程设置、子管理员授权等操作。
+                      - generic [ref=e219]:
+                        - heading "合作伙伴平台" [level=3] [ref=e220]
+                        - paragraph [ref=e221]:
+                          - link "钉钉合作伙伴平台" [ref=e222] [cursor=pointer]:
+                            - /url: https://partner.dingtalk.com/
+                            - text: 钉钉合作伙伴平台
+                            - img [ref=e223]:
+                              - img [ref=e224]
+                          - text: 是面向服务商的统一管理平台，提供技术对接、部署实施、服务等全链路服务。当前涵盖产品方案商、部署服务商和培训服务商三类角色。
+                    - generic [ref=e226]:
+                      - heading "核心身份标识（ID体系）" [level=2] [ref=e227]
+                      - paragraph [ref=e228]: 在钉钉开发中，区分“谁”和“哪个应用”至关重要。文档中定义了以下关键ID：
+                      - generic [ref=e229]:
+                        - heading "CorpId" [level=3] [ref=e230]:
+                          - generic [ref=e231]: CorpId
+                        - paragraph [ref=e232]: 代表钉钉中的一个企业组织的唯一标识。调用绝大多数企业级API时，必须配合此ID进行身份验证。
+                        - paragraph [ref=e233]:
+                          - text: 查看路径：登录
+                          - link "钉钉开发者后台" [ref=e234] [cursor=pointer]:
+                            - /url: http://open-dev.dingtalk.com/
+                            - text: 钉钉开发者后台
+                            - img [ref=e235]:
+                              - img [ref=e236]
+                          - text: ，在首页下查看企业的
+                          - code [ref=e238]: CorpId
+                          - text: 。
+                        - paragraph [ref=e239]:
+                          - img [ref=e242]
+                      - generic [ref=e243]:
+                        - heading "UserId" [level=3] [ref=e244]:
+                          - generic [ref=e245]: UserId
+                        - paragraph [ref=e246]: 代表企业内的具体员工的唯一标识。用于发送消息、查询档案、审批等接口，不可更改。
+                        - paragraph [ref=e247]:
+                          - text: 查看路径：登录
+                          - link "钉钉管理后台" [ref=e248] [cursor=pointer]:
+                            - /url: http://oa.dingtalk.com/
+                            - text: 钉钉管理后台
+                            - img [ref=e249]:
+                              - img [ref=e250]
+                          - text: ，在通讯录 > 成员管理页面，单击员工姓名可查看员工的
+                          - code [ref=e252]: UserId
+                          - text: 。
+                        - paragraph [ref=e253]:
+                          - img [ref=e256]
+                      - generic [ref=e257]:
+                        - heading "UnionId" [level=3] [ref=e258]:
+                          - generic [ref=e259]: UnionId
+                        - paragraph [ref=e260]: 用户跨应用统一标识，同一用户在同一个开放平台账号下的所有应用中拥有相同的UnionId，用于跨应用数据打通。
+                        - paragraph [ref=e261]:
+                          - text: 查看路径：通过用户的userId调用
+                          - link "查询用户详情" [ref=e262] [cursor=pointer]:
+                            - /url: /document/development/query-user-details#
+                          - text: 接口获取
+                          - code [ref=e263]: unionid
+                          - text: 参数值。
+                      - generic [ref=e264]:
+                        - heading "Unified App ID" [level=3] [ref=e265]:
+                          - generic [ref=e266]: Unified App ID
+                        - paragraph [ref=e267]: 钉钉为所有类型应用分配的全局唯一ID，旨在简化跨系统对接，逐步替代旧的AgentId/AppId体系。
+                        - paragraph [ref=e268]:
+                          - generic [ref=e269]: 查看路径
+                          - text: ：登录
+                          - link "钉钉开发者后台" [ref=e270] [cursor=pointer]:
+                            - /url: http://open-dev.dingtalk.com/
+                            - text: 钉钉开发者后台
+                            - img [ref=e271]:
+                              - img [ref=e272]
+                          - text: ，进入应用详情后，在凭证与基础信息中查看。
+                        - paragraph [ref=e274]:
+                          - img [ref=e277]
+                      - generic [ref=e278]:
+                        - heading "AgentId" [level=3] [ref=e279]:
+                          - generic [ref=e280]: AgentId
+                        - paragraph [ref=e281]: 企业内部应用（如H5、小程序）的能力标识。主要用于工作台管理API（如设置首页）。
+                        - paragraph [ref=e282]: 查看路径：
+                        - list [ref=e283]:
+                          - listitem [ref=e284]:
+                            - paragraph [ref=e285]: 企业内部应用网页应用AgentId
+                            - paragraph [ref=e286]:
+                              - img [ref=e289]
+                          - listitem [ref=e290]:
+                            - paragraph [ref=e291]: 企业内部应用小程序AgentId
+                            - paragraph [ref=e292]:
+                              - img [ref=e295]
+                      - generic [ref=e296]:
+                        - heading "MiniAppId" [level=3] [ref=e297]:
+                          - generic [ref=e298]: MiniAppId
+                        - paragraph [ref=e299]: 钉钉小程序的唯一身份标识，用于发布、调试及权限配置。
+                        - paragraph [ref=e300]:
+                          - text: 查看路径：登录
+                          - link "钉钉开发者后台" [ref=e301] [cursor=pointer]:
+                            - /url: http://open-dev.dingtalk.com/
+                            - text: 钉钉开发者后台
+                            - img [ref=e302]:
+                              - img [ref=e303]
+                          - text: ，在应用开发页面，单击已创建的应用，然后单击应用信息查看MiniAppId。
+                        - list [ref=e305]:
+                          - listitem [ref=e306]:
+                            - paragraph [ref=e307]: 企业内部应用/第三方企业应用
+                            - paragraph [ref=e308]:
+                              - img [ref=e311]
+                          - listitem [ref=e312]:
+                            - paragraph [ref=e313]:
+                              - text: 第三方个人应用
+                              - img [ref=e316]
+                    - generic [ref=e317]:
+                      - heading "安全凭证与权限 (Auth体系)" [level=2] [ref=e318]:
+                        - generic [ref=e319]: 安全凭证与权限 (Auth体系)
+                      - paragraph [ref=e320]: 这部分是开发中最容易出错的地方，涉及API调用的鉴权和免登录逻辑。
+                      - generic [ref=e321]:
+                        - heading "Client ID/Client Secret" [level=3] [ref=e322]
+                        - list [ref=e323]:
+                          - listitem [ref=e324]:
+                            - paragraph [ref=e325]: 定义：应用的身份凭证对（类似用户名和密码）。
+                          - listitem [ref=e326]:
+                            - paragraph [ref=e327]:
+                              - text: 用途：用于获取
+                              - code [ref=e328]: access_token
+                              - text: ，企业内部应用和第三方应用均使用此机制。
+                          - listitem [ref=e329]:
+                            - paragraph [ref=e330]:
+                              - text: 注意：
+                              - code [ref=e331]: Client Secret
+                              - text: 属于私密密钥，必须妥善保管，不可泄露。
+                          - listitem [ref=e332]:
+                            - paragraph [ref=e333]:
+                              - text: 获取：在
+                              - link "钉钉开发者后台" [ref=e334] [cursor=pointer]:
+                                - /url: http://open-dev.dingtalk.com/
+                                - text: 钉钉开发者后台
+                                - img [ref=e335]:
+                                  - img [ref=e336]
+                              - text: 创建企业内部应用或第三方企业应用后，系统会自动生成一对 Client ID和 Client Secret。
+                            - generic [ref=e341]:
+                              - strong [ref=e342]: 说明
+                              - paragraph [ref=e343]: 如果企业内部应用授权给服务商开发，服务商需要根据CustomKey和CustomSecret获取授权。
+                            - paragraph [ref=e344]:
+                              - img [ref=e347]
+                      - generic [ref=e348]:
+                        - heading "access_token" [level=3] [ref=e349]
+                        - list [ref=e350]:
+                          - listitem [ref=e351]:
+                            - paragraph [ref=e352]:
+                              - generic [ref=e353]: 定义
+                              - text: ：调用 OpenAPI 的“门票”。
+                          - listitem [ref=e354]:
+                            - paragraph [ref=e355]:
+                              - generic [ref=e356]: 用途
+                              - text: ：每次调用受保护接口时，必须携带此凭据以验证合法性。
+                          - listitem [ref=e357]:
+                            - paragraph [ref=e358]:
+                              - generic [ref=e359]: 注意
+                              - text: ：有效期通常为 7200 秒（2小时），有效期内重复获取会自动续期。
+                          - listitem [ref=e360]:
+                            - paragraph [ref=e361]:
+                              - generic [ref=e362]: 获取：
+                            - list [ref=e363]:
+                              - listitem [ref=e364]:
+                                - paragraph [ref=e365]:
+                                  - text: 企业内部应用，通过
+                                  - link "获取企业内部应用的accessToken" [ref=e366] [cursor=pointer]:
+                                    - /url: /document/development/obtain-the-access-token-of-an-internal-app#
+                                  - text: 接口获取access_token。
+                              - listitem [ref=e367]:
+                                - paragraph [ref=e368]:
+                                  - text: 第三方企业应用，通过
+                                  - link "获取第三方应用授权企业的accessToken" [ref=e369] [cursor=pointer]:
+                                    - /url: /document/development/obtain-the-access-token-of-the-authorized-enterprise-1#
+                                  - text: 接口获取access_token。
+                          - listitem [ref=e370]:
+                            - paragraph [ref=e371]: 差异：
+                            - list [ref=e372]:
+                              - listitem [ref=e373]:
+                                - paragraph [ref=e374]:
+                                  - text: 企业内部应用的
+                                  - code [ref=e375]: access_token
+                                  - text: 具备该应用所申请的所有权限。
+                              - listitem [ref=e376]:
+                                - paragraph [ref=e377]:
+                                  - text: 第三方应用的
+                                  - code [ref=e378]: access_token
+                                  - text: 权限受限于企业授权范围。
+                      - generic [ref=e379]:
+                        - heading "authCode" [level=3] [ref=e380]
+                        - paragraph [ref=e381]: 定义：用于用户身份认证的关键凭证。
+                        - paragraph [ref=e382]:
+                          - text: 用途：用于换取用户身份信息（如
+                          - code [ref=e383]: userid
+                          - text: ）。
+                        - paragraph [ref=e384]: 注意：有效期仅为 5 分钟，使用一次后即失效且不可重复使用。
+                        - paragraph [ref=e385]:
+                          - text: 获取：通过调用
+                          - link "getAuthCode" [ref=e386] [cursor=pointer]:
+                            - /url: /document/development/jsapi-get-auth-code#
+                          - text: 、
+                          - link "requestAuthCode" [ref=e387] [cursor=pointer]:
+                            - /url: /document/development/jsapi-request-auth-code#
+                          - text: 等接口获取，详细使用可参考
+                          - link "身份验证（免登）" [ref=e388] [cursor=pointer]:
+                            - /url: /document/development/sso-overview#
+                          - text: 。
+                      - generic [ref=e389]:
+                        - heading "jsapi_ticket" [level=3] [ref=e390]
+                        - paragraph [ref=e391]: 定义：用于生成前端 JS API 的签名。
+                        - paragraph [ref=e392]: 用途：H5微应用需要安全调用钉钉提供的各类 JSAPI 能力（如获取用户信息、发起聊天、调用原生组件等）。
+                        - paragraph [ref=e393]:
+                          - generic [ref=e394]: 注意
+                          - text: ：有效期设为 2 小时，过期或参数不一致，将导致"jsapi ticket 读取失败”或“签名校验失败”等错误。
+                        - paragraph [ref=e395]:
+                          - text: 获取：使用
+                          - code [ref=e396]: access_token
+                          - text: 调用
+                          - link "获取jsapiTicket" [ref=e397] [cursor=pointer]:
+                            - /url: /document/development/create-a-jsapi-ticket#
+                          - text: 接口获取。
+                      - generic [ref=e398]:
+                        - heading "SSOSecret" [level=3] [ref=e399]
+                        - list [ref=e400]:
+                          - listitem [ref=e401]:
+                            - paragraph [ref=e402]:
+                              - generic [ref=e403]: 定义
+                              - text: ：配合
+                              - code [ref=e404]: CorpId
+                              - text: 使用的密钥。
+                          - listitem [ref=e405]:
+                            - paragraph [ref=e406]:
+                              - generic [ref=e407]: 用途
+                              - text: ：主要用于获取微应用后台免登所需的
+                              - code [ref=e408]: access_token
+                              - text: ，实现管理员从钉钉后台单点登录到第三方管理系统，无需重复输入账号密码
+                          - listitem [ref=e409]:
+                            - paragraph [ref=e410]: 场景：常用于企业SaaS系统的后台集成，提升运维效率与安全性。
+                          - listitem [ref=e411]:
+                            - paragraph [ref=e412]:
+                              - text: 获取：登录
+                              - link "钉钉开发者后台" [ref=e413] [cursor=pointer]:
+                                - /url: https://open-dev.dingtalk.com/#/
+                                - text: 钉钉开发者后台
+                                - img [ref=e414]:
+                                  - img [ref=e415]
+                              - text: "> 基本信息 > 开发信息（旧版），找到企业自用账号信息 > 点击查看SSOSecret。"
+                              - img [ref=e419]
+                    - generic [ref=e420]:
+                      - heading "快速上手" [level=2] [ref=e421]:
+                        - generic [ref=e422]: 快速上手
+                      - paragraph [ref=e423]:
+                        - text: 以下伪代码展示如何使用
+                        - code [ref=e424]: CorpId
+                        - text: 和
+                        - code [ref=e425]: access_token
+                        - text: 发起一次最简单的 API 调用，验证环境配置是否正确：
+                      - generic [ref=e426]:
+                        - code [ref=e429]:
+                          - generic [ref=e430]:
+                            - generic [ref=e435]: "1"
+                            - generic [ref=e440]: GET https://oapi.dingtalk.com/topapi/v2/user/get?access_token=ACCESS_TOKEN&userid=USERID
+                            - textbox "Editor content;Press Alt+F1 for Accessibility Options." [ref=e443]: GET https://oapi.dingtalk.com/topapi/v2/user/get?access_token=ACCESS_TOKEN&userid=USERID
+                        - img [ref=e444] [cursor=pointer]:
+                          - img [ref=e445]
+                        - img [ref=e447] [cursor=pointer]:
+                          - img [ref=e448]
+                      - paragraph [ref=e450]: 步骤说明：
+                      - list [ref=e451]:
+                        - listitem [ref=e452]:
+                          - paragraph [ref=e453]:
+                            - generic [ref=e454]: 获取凭证
+                            - text: ：使用
+                            - code [ref=e455]: Client ID
+                            - text: 和
+                            - code [ref=e456]: Client Secret
+                            - text: 调用接口获取
+                            - code [ref=e457]: access_token
+                            - text: 。
+                        - listitem [ref=e458]:
+                          - paragraph [ref=e459]:
+                            - generic [ref=e460]: 准备参数
+                            - text: ：在管理后台找到任意成员的
+                            - code [ref=e461]: UserId
+                            - text: 。
+                        - listitem [ref=e462]:
+                          - paragraph [ref=e463]:
+                            - generic [ref=e464]: 替换参数
+                            - text: ：构造上述请求，替换
+                            - code [ref=e465]: ACCESS_TOKEN
+                            - text: 和
+                            - code [ref=e466]: USERID
+                            - text: 。
+                        - listitem [ref=e467]:
+                          - paragraph [ref=e468]:
+                            - generic [ref=e469]: 发起测试
+                            - text: ：若返回
+                            - code [ref=e470]: "\"errcode\": 0, \"errmsg\": \"ok\""
+                            - text: ，则表示配置成功，可继续后续开发。
+                      - blockquote [ref=e471]: 提示：实际开发中请使用 HTTPS 并做好错误处理与重试机制。
+                - generic [ref=e472]:
+                  - generic [ref=e473]:
+                    - generic [ref=e474]: 遇到其他问题？
+                    - generic [ref=e475]: 问问
+                    - img "AI" [ref=e476]
+                    - generic [ref=e477]: 钉钉开发助手
+                  - generic [ref=e478]:
+                    - generic [ref=e479] [cursor=pointer]:
+                      - generic [ref=e480]: 如何获取并使用access_token调用钉钉开放平台OpenAPI？
+                      - img ">" [ref=e481]
+                      - img ">" [ref=e482]
+                    - generic [ref=e483] [cursor=pointer]:
+                      - generic [ref=e484]: CorpId、UserId、UnionId的定义、作用及在钉钉管理后台的查看路径是什么？
+                      - img ">" [ref=e485]
+                      - img ">" [ref=e486]
+                    - generic [ref=e487] [cursor=pointer]:
+                      - generic [ref=e488]: 调用钉钉OpenAPI时鉴权失败的常见原因及排查方法有哪些？
+                      - img ">" [ref=e489]
+                      - img ">" [ref=e490]
+                    - generic [ref=e491] [cursor=pointer]:
+                      - generic [ref=e492]: 企业内部应用与第三方应用的AppKey/AppSecret等凭证应如何安全存储与管理？
+                      - img ">" [ref=e493]
+                      - img ">" [ref=e494]
+              - link "下一篇：应用类型与能力说明 right" [ref=e496] [cursor=pointer]:
+                - /url: /document/dingstart/application-type-introduction
+                - text: 下一篇：应用类型与能力说明
+                - img "right" [ref=e497]:
+                  - img [ref=e498]
+            - generic [ref=e501]:
+              - generic [ref=e502]: 本页内容
+              - generic [ref=e504]:
+                - link "关键开发后台" [ref=e506] [cursor=pointer]:
+                  - /url: "#2f591fec00mff"
+                - link "核心身份标识（ID体系）" [ref=e508] [cursor=pointer]:
+                  - /url: "#14c32c8797bex"
+                - link "安全凭证与权限 (Auth体系)" [ref=e510] [cursor=pointer]:
+                  - /url: "#0c921e272057g"
+                - link "快速上手" [ref=e512] [cursor=pointer]:
+                  - /url: "#e114e0f23fexf"
+          - generic [ref=e514]:
+            - img "鼠标选中内容，AI智能解释" [ref=e515]
+            - generic [ref=e516]: 鼠标选中内容，AI智能解释
+            - generic [ref=e517]: 选中存在疑惑的内容，即可快速唤起AI解释反馈
+            - button "好的，知道了" [ref=e519]:
+              - generic [ref=e520]: 好的，知道了
+          - button "文档反馈" [ref=e522] [cursor=pointer]
+          - generic [ref=e524] [cursor=pointer]:
+            - img "开发助手" [ref=e525]
+            - generic [ref=e527]: 开发助手
+  - generic [ref=e528]:
+    - alert
+    - alert
+    - complementary
+    - complementary

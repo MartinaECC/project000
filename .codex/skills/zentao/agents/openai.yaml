@@ -1,0 +1,4 @@
+interface:
+  display_name: "ZenTao"
+  short_description: "Use internal ZenTao APIs."
+  default_prompt: "Use $zentao to list product plans from ZenTao."
