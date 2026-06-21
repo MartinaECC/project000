@@ -156,12 +156,31 @@ For DingTalk card image tables, use this visual style unless the user gives a ne
 - Use the table header fill `#B5C6EA` with dark header text `#111827`.
 - Use a white page background, zebra body rows `#ffffff` / `#f7f7f8`, and a light blue total row `#eef6ff`.
 - Use conditional cell backgrounds only where useful: light red for concerning increases, light green for notable decreases, and light yellow for zero-payment-with-refund rows.
-- Place a concise methodology line inside the image, between title/time and the table: `口径说明：数据统计范围为今日 00:00 至当前整点；括号内依次为昨日同整点值、环比变化，退费率另展示百分点差异（pp）。`
-- For refund-rate image tables, include columns in this order: `企业名称 | 退费率 | 退费后金额 | 支付金额 | 支付数 | 退费金额 | 退费数`.
+- Place a concise methodology line inside the image, between title/time and the table. For normal hourly reports use `口径说明：数据统计范围为今日 00:00 至当前整点；括号内依次为昨日同整点值、环比变化，退费率另展示百分点差异（pp）。`; for the midnight-hour special window use wording that says yesterday full day is compared with the previous full day.
+- For refund-rate image tables, include columns in this order: `企业名称 | 退费率 | 退费后金额 | 支付金额 | 支付数 | c0收入 | 退费金额 | 退费数`.
 - Calculate `退费后金额` as `支付金额 - 退费金额`, show current value plus yesterday same-hour value and relative change like other amount metrics, and sort company rows by current `退费后金额` descending while keeping the total row first.
-- Format metric cells as two lines: current value on the first line, then the comparison in parentheses on the second line.
-- Keep comparison text compact: `当前值（昨日值，环比变化）`; for rates, include pp difference: `17.04%（21.36%，-20.21% / -4.32pp）`.
+- Format metric cells as three lines when full-day references are available: current value on the first line, yesterday same-hour comparison in parentheses on the second line, and `前日 ...｜昨日 ...` full-day reference on the third line.
+- Keep comparison text compact: line 2 should be `（昨日值，环比变化）`; for rates, include pp difference such as `（21.36%，-20.21% / -4.32pp）`. Line 3 full-day references should be `前日 ...｜昨日 ...` with no comparison calculation.
 - Add SVG `clipPath` around table cell text so long values cannot draw into adjacent columns.
+
+## DataFinder Report Metric Rules
+
+Use these rules for DingTalk report broadcasts backed by Volcano Engine DataFinder:
+
+- For amount totals shown as DataFinder `合计值`, do not group by `amount` and then calculate `amount * events`. That approximation can drift from the DataFinder UI.
+- Query amount totals with `event_indicator: "measure"` and `measure_info: { "measure_type": "sum", "property_name": "amount", "property_type": "event_param" }`.
+- Group amount-total queries only by the business dimension needed in the report, normally the virtual company field `$_vp_alis_name`.
+- Query event counts separately with `event_indicator: "events"` grouped by the same business dimension.
+- For `c0收入`, use the same `measure sum(amount)` amount-total query on `order_suc_back`, with `cycle = 0` as an event filter.
+- For same-hour comparisons, always compare matching partial-day windows. Example: if the current window is `2026-06-21 00:00-09:00`, the baseline window is `2026-06-20 00:00-09:00`, not the full previous day.
+- For the midnight hour (`00:00-00:59`), use yesterday full day as current and the day before yesterday full day as baseline.
+- Non-full-day windows should use `hour` granularity and sum all returned hour buckets.
+- Full-day reference windows should use `day` granularity, but the DataFinder request range must stay on the same calendar day. For example, query June 19 full day as `range=[2026-06-19 00:00, 2026-06-19 00:00]`, not `range=[2026-06-19 00:00, 2026-06-20 00:00]`; the latter can return June 19 plus June 20.
+- Log the actual DataFinder windows and metric mode before sending a card. For amount totals, include a field such as `amountMetric: "measure_sum_amount"`.
+
+Known optimization point:
+
+- Small differences can still appear between a live DataFinder API query and a screenshot/export from the DataFinder UI, even after switching to `measure sum(amount)`. Treat the current implementation as basically accurate, but leave a future optimization item to compare the exact UI query payload, cache behavior, and any hidden UI filters when strict cent-level parity is required.
 
 ## Permission Checklist
 

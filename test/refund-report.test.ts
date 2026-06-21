@@ -38,22 +38,22 @@ const unusedLlm: LlmAgent = {
   }
 };
 
-test('aggregates amount groups using amount multiplied by event count', () => {
+test('aggregates amount groups using DataFinder measure values directly', () => {
   const totals = aggregateAmountGroups([
-    { company: '宜信', amount: '29.9', count: 2 },
+    { company: '宜信', amount: '59.8', count: 2 },
     { company: '宜信', amount: 88, count: 1 },
     { company: '融呗', amount: '10', count: 3 }
   ]);
 
   assert.deepEqual(totals, {
     宜信: 147.8,
-    融呗: 30
+    融呗: 10
   });
 });
 
 test('aggregates count groups by company', () => {
   const totals = aggregateCountGroups([
-    { company: '宜信', amount: '29.9', count: 2 },
+    { company: '宜信', amount: '59.8', count: 2 },
     { company: '宜信', amount: 88, count: 1 },
     { company: '融呗', amount: '10', count: 3 }
   ]);
@@ -73,10 +73,10 @@ test('builds rows with counts, filters zero amount companies, and sorts by refun
   );
 
   assert.deepEqual(rows, [
-    { company: '宜信', incomeAmount: 100, refundAmount: 25, incomeCount: 5, refundCount: 2, refundRate: 25 },
-    { company: '同额低率', incomeAmount: 200, refundAmount: 25, incomeCount: 8, refundCount: 4, refundRate: 12.5 },
-    { company: '奇富数科', incomeAmount: 200, refundAmount: 20, incomeCount: 10, refundCount: 3, refundRate: 10 },
-    { company: '融呗', incomeAmount: 0, refundAmount: 10, incomeCount: 0, refundCount: 1, refundRate: null }
+    { company: '宜信', incomeAmount: 100, refundAmount: 25, incomeCount: 5, refundCount: 2, c0IncomeAmount: 0, refundRate: 25 },
+    { company: '同额低率', incomeAmount: 200, refundAmount: 25, incomeCount: 8, refundCount: 4, c0IncomeAmount: 0, refundRate: 12.5 },
+    { company: '奇富数科', incomeAmount: 200, refundAmount: 20, incomeCount: 10, refundCount: 3, c0IncomeAmount: 0, refundRate: 10 },
+    { company: '融呗', incomeAmount: 0, refundAmount: 10, incomeCount: 0, refundCount: 1, c0IncomeAmount: 0, refundRate: null }
   ]);
 });
 
@@ -91,6 +91,14 @@ test('computes current and baseline report periods using top-of-hour cutoff', ()
     baseline: {
       start: new Date('2026-06-19T00:00:00+08:00'),
       end: new Date('2026-06-19T21:00:00+08:00')
+    },
+    previousFullDay: {
+      start: new Date('2026-06-18T00:00:00+08:00'),
+      end: new Date('2026-06-19T00:00:00+08:00')
+    },
+    yesterdayFullDay: {
+      start: new Date('2026-06-19T00:00:00+08:00'),
+      end: new Date('2026-06-20T00:00:00+08:00')
     }
   });
 });

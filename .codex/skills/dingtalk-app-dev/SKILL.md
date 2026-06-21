@@ -53,6 +53,8 @@ Quick rules:
 - Treat card template IDs carefully: the normal robot card path usually uses `StandardCard`; a card-builder URL UUID is not automatically a sendable OpenAPI `cardTemplateId`.
 - Put formatted body content inside a card `contents` item with `type: "markdown"`; a plain `type: "text"` item displays Markdown syntax as text.
 - For card typography and spacing, use DingTalk markdown design tokens such as `sizeToken=common_h1_text_style__font_size` and visible spacer lines such as `&nbsp;`; plain heading markers, numeric `font size=...`, and empty lines may not render as intended.
+- For DataFinder-backed amount totals such as payment amount, refund amount, or `c0收入`, use the report metric rules in the interactive-card reference. Amount `合计值` should use `event_indicator: "measure"` with `measure_info.measure_type: "sum"`, not `amount * events` recomputation.
+- For DingTalk product documents, preserve old versions before editing the current document. Keep the current product document as the latest version entry point, and store immutable snapshots under a version directory such as `docs/products/dingtalk-chart-broadcast-versions/v1.0.1.md`. Add new snapshots; do not overwrite historical version documents.
 - Validate with a small real card first, then send the full report or alert.
 
 ## Important Stream Setup Note

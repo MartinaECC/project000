@@ -21,16 +21,44 @@ export type RefundReportRow = {
   refundAmount: number;
   incomeCount: number;
   refundCount: number;
+  c0IncomeAmount: number;
   refundRate: number | null;
 };
 
 export type RefundReportDiagnostics = {
   incomeRows: number;
+  incomeAmountRows?: number;
+  incomeCountRows?: number;
+  c0IncomeRows?: number;
+  c0IncomeAmountRows?: number;
   refundRows: number;
+  refundAmountRows?: number;
+  refundCountRows?: number;
   incomeBadRows: unknown[];
+  incomeAmountBadRows?: unknown[];
+  incomeCountBadRows?: unknown[];
+  c0IncomeBadRows?: unknown[];
+  c0IncomeAmountBadRows?: unknown[];
   refundBadRows: unknown[];
+  refundAmountBadRows?: unknown[];
+  refundCountBadRows?: unknown[];
   incomeTruncated: boolean;
+  incomeAmountTruncated?: boolean;
+  incomeCountTruncated?: boolean;
+  c0IncomeTruncated?: boolean;
+  c0IncomeAmountTruncated?: boolean;
   refundTruncated: boolean;
+  refundAmountTruncated?: boolean;
+  refundCountTruncated?: boolean;
+  incomeGranularity?: string;
+  incomeAmountGranularity?: string;
+  incomeCountGranularity?: string;
+  c0IncomeGranularity?: string;
+  c0IncomeAmountGranularity?: string;
+  refundGranularity?: string;
+  refundAmountGranularity?: string;
+  refundCountGranularity?: string;
+  amountMetric?: string;
 };
 
 export type RefundReportData = {
@@ -38,11 +66,18 @@ export type RefundReportData = {
   diagnostics: RefundReportDiagnostics;
   baselineRows?: RefundReportRow[];
   baselineDiagnostics?: RefundReportDiagnostics;
+  previousFullDayRows?: RefundReportRow[];
+  previousFullDayDiagnostics?: RefundReportDiagnostics;
+  yesterdayFullDayRows?: RefundReportRow[];
+  yesterdayFullDayDiagnostics?: RefundReportDiagnostics;
+  periods?: RefundReportPeriods;
 };
 
 export type RefundReportPeriods = {
   current: { start: Date; end: Date };
   baseline: { start: Date; end: Date };
+  previousFullDay?: { start: Date; end: Date };
+  yesterdayFullDay?: { start: Date; end: Date };
 };
 
 export type RefundReportSource = {
@@ -65,12 +100,11 @@ export type RefundReportConfig = {
 export function aggregateAmountGroups(groups: AmountGroup[]): Record<string, number> {
   const totals: Record<string, number> = {};
   for (const group of groups) {
-    const amount = Number(group.amount);
-    const count = Number(group.count);
-    if (!group.company || !Number.isFinite(amount) || !Number.isFinite(count)) {
+    const value = Number(group.amount);
+    if (!group.company || !Number.isFinite(value)) {
       continue;
     }
-    totals[group.company] = roundMoney((totals[group.company] ?? 0) + amount * count);
+    totals[group.company] = roundMoney((totals[group.company] ?? 0) + value);
   }
   return totals;
 }
@@ -91,7 +125,8 @@ export function buildRefundReportRows(
   incomeByCompany: Record<string, number>,
   refundByCompany: Record<string, number>,
   incomeCountByCompany: Record<string, number> = {},
-  refundCountByCompany: Record<string, number> = {}
+  refundCountByCompany: Record<string, number> = {},
+  c0IncomeByCompany: Record<string, number> = {}
 ): RefundReportRow[] {
   return [...new Set([...Object.keys(incomeByCompany), ...Object.keys(refundByCompany)])]
     .map((company) => {
@@ -103,6 +138,7 @@ export function buildRefundReportRows(
         refundAmount,
         incomeCount: roundCount(incomeCountByCompany[company] ?? 0),
         refundCount: roundCount(refundCountByCompany[company] ?? 0),
+        c0IncomeAmount: roundMoney(c0IncomeByCompany[company] ?? 0),
         refundRate: incomeAmount > 0 ? (refundAmount / incomeAmount) * 100 : null
       };
     })
@@ -163,12 +199,26 @@ export function computeRefundReportPeriods(now = new Date(), timezone = DEFAULT_
   const parts = getDateTimeParts(now, timezone);
   const currentStart = zonedDate(parts.year, parts.month, parts.day, 0, timezone);
   const currentEnd = zonedDate(parts.year, parts.month, parts.day, parts.hour, timezone);
+  const previousFullDayStart = new Date(currentStart.getTime() - 2 * 24 * 60 * 60 * 1000);
+  const previousFullDayEnd = new Date(currentStart.getTime() - 24 * 60 * 60 * 1000);
+  const yesterdayFullDayStart = previousFullDayEnd;
+  const yesterdayFullDayEnd = currentStart;
+  if (parts.hour === '00') {
+    return {
+      current: { start: yesterdayFullDayStart, end: yesterdayFullDayEnd },
+      baseline: { start: previousFullDayStart, end: previousFullDayEnd },
+      previousFullDay: { start: previousFullDayStart, end: previousFullDayEnd },
+      yesterdayFullDay: { start: yesterdayFullDayStart, end: yesterdayFullDayEnd }
+    };
+  }
   return {
     current: { start: currentStart, end: currentEnd },
     baseline: {
       start: new Date(currentStart.getTime() - 24 * 60 * 60 * 1000),
       end: new Date(currentEnd.getTime() - 24 * 60 * 60 * 1000)
-    }
+    },
+    previousFullDay: { start: previousFullDayStart, end: previousFullDayEnd },
+    yesterdayFullDay: { start: yesterdayFullDayStart, end: yesterdayFullDayEnd }
   };
 }
 
@@ -210,6 +260,16 @@ export class PythonRefundReportSource implements RefundReportSource {
       diagnostics?: RefundReportDiagnostics;
       baselineRows?: RefundReportRow[];
       baselineDiagnostics?: RefundReportDiagnostics;
+      previousFullDayRows?: RefundReportRow[];
+      previousFullDayDiagnostics?: RefundReportDiagnostics;
+      yesterdayFullDayRows?: RefundReportRow[];
+      yesterdayFullDayDiagnostics?: RefundReportDiagnostics;
+      periods?: {
+        current?: { start?: string; end?: string };
+        baseline?: { start?: string; end?: string };
+        previousFullDay?: { start?: string; end?: string };
+        yesterdayFullDay?: { start?: string; end?: string };
+      };
     };
     if (!Array.isArray(parsed.rows) || !parsed.diagnostics) {
       throw new Error('Invalid refund report JSON from DataFinder script.');
@@ -218,7 +278,12 @@ export class PythonRefundReportSource implements RefundReportSource {
       rows: normalizeRows(parsed.rows),
       diagnostics: parsed.diagnostics,
       baselineRows: Array.isArray(parsed.baselineRows) ? normalizeRows(parsed.baselineRows) : undefined,
-      baselineDiagnostics: parsed.baselineDiagnostics
+      baselineDiagnostics: parsed.baselineDiagnostics,
+      previousFullDayRows: Array.isArray(parsed.previousFullDayRows) ? normalizeRows(parsed.previousFullDayRows) : undefined,
+      previousFullDayDiagnostics: parsed.previousFullDayDiagnostics,
+      yesterdayFullDayRows: Array.isArray(parsed.yesterdayFullDayRows) ? normalizeRows(parsed.yesterdayFullDayRows) : undefined,
+      yesterdayFullDayDiagnostics: parsed.yesterdayFullDayDiagnostics,
+      periods: parseRefundReportPeriods(parsed.periods)
     };
   }
 }
@@ -238,6 +303,8 @@ export async function sendRefundReportOnce(options: {
   let anomalySummary: string | undefined;
   const generatedAt = options.now ?? new Date();
   const timezone = options.timezone ?? DEFAULT_TIMEZONE;
+  const expectedPeriods = computeRefundReportPeriods(generatedAt, timezone);
+  logger.info('refund_report.periods.expected', formatPeriodLog(expectedPeriods, timezone));
 
   try {
     data = await options.source.load(generatedAt);
@@ -250,6 +317,27 @@ export async function sendRefundReportOnce(options: {
     );
     throw error;
   }
+
+  logger.info('refund_report.periods.actual', {
+    ...formatPeriodLog(data.periods ?? expectedPeriods, timezone),
+    amountMetric: data.diagnostics.amountMetric,
+    currentIncomeGranularity: data.diagnostics.incomeGranularity,
+    currentIncomeAmountGranularity: data.diagnostics.incomeAmountGranularity,
+    currentIncomeCountGranularity: data.diagnostics.incomeCountGranularity,
+    currentC0IncomeGranularity: data.diagnostics.c0IncomeGranularity,
+    currentRefundGranularity: data.diagnostics.refundGranularity,
+    currentRefundAmountGranularity: data.diagnostics.refundAmountGranularity,
+    currentRefundCountGranularity: data.diagnostics.refundCountGranularity,
+    baselineIncomeGranularity: data.baselineDiagnostics?.incomeGranularity,
+    baselineIncomeAmountGranularity: data.baselineDiagnostics?.incomeAmountGranularity,
+    baselineIncomeCountGranularity: data.baselineDiagnostics?.incomeCountGranularity,
+    baselineC0IncomeGranularity: data.baselineDiagnostics?.c0IncomeGranularity,
+    baselineRefundGranularity: data.baselineDiagnostics?.refundGranularity,
+    baselineRefundAmountGranularity: data.baselineDiagnostics?.refundAmountGranularity,
+    baselineRefundCountGranularity: data.baselineDiagnostics?.refundCountGranularity,
+    previousFullDayIncomeGranularity: data.previousFullDayDiagnostics?.incomeGranularity,
+    yesterdayFullDayIncomeGranularity: data.yesterdayFullDayDiagnostics?.incomeGranularity
+  });
 
   if (options.llmOnAnomaly === 'fail_or_threshold' && hasRefundReportAnomaly(data, options.thresholdPercent)) {
     anomalySummary = await maybeSummarize(
@@ -282,6 +370,8 @@ export async function sendRefundReportOnce(options: {
       }
       const image = await renderRefundReportTablePng(data.rows, generatedAt, {
         baselineRows: data.baselineRows,
+        previousFullDayRows: data.previousFullDayRows,
+        yesterdayFullDayRows: data.yesterdayFullDayRows,
         thresholdPercent: options.thresholdPercent,
         timezone
       });
@@ -417,11 +507,13 @@ function summarizeRows(rows: RefundReportRow[]): Omit<RefundReportRow, 'company'
   const refundAmount = roundMoney(rows.reduce((sum, row) => sum + row.refundAmount, 0));
   const incomeCount = roundCount(rows.reduce((sum, row) => sum + row.incomeCount, 0));
   const refundCount = roundCount(rows.reduce((sum, row) => sum + row.refundCount, 0));
+  const c0IncomeAmount = roundMoney(rows.reduce((sum, row) => sum + (row.c0IncomeAmount ?? 0), 0));
   return {
     incomeAmount,
     refundAmount,
     incomeCount,
     refundCount,
+    c0IncomeAmount,
     refundRate: incomeAmount > 0 ? (refundAmount / incomeAmount) * 100 : null
   };
 }
@@ -561,8 +653,47 @@ function normalizeRows(rows: RefundReportRow[]): RefundReportRow[] {
     refundAmount: roundMoney(row.refundAmount),
     incomeCount: roundCount(row.incomeCount ?? 0),
     refundCount: roundCount(row.refundCount ?? 0),
+    c0IncomeAmount: roundMoney(row.c0IncomeAmount ?? 0),
     refundRate: row.refundRate
   }));
+}
+
+function parseRefundReportPeriods(periods: {
+  current?: { start?: string; end?: string };
+  baseline?: { start?: string; end?: string };
+  previousFullDay?: { start?: string; end?: string };
+  yesterdayFullDay?: { start?: string; end?: string };
+} | undefined): RefundReportPeriods | undefined {
+  if (!periods?.current?.start || !periods.current.end || !periods.baseline?.start || !periods.baseline.end) {
+    return undefined;
+  }
+  return {
+    current: { start: new Date(periods.current.start), end: new Date(periods.current.end) },
+    baseline: { start: new Date(periods.baseline.start), end: new Date(periods.baseline.end) },
+    previousFullDay:
+      periods.previousFullDay?.start && periods.previousFullDay.end
+        ? { start: new Date(periods.previousFullDay.start), end: new Date(periods.previousFullDay.end) }
+        : undefined,
+    yesterdayFullDay:
+      periods.yesterdayFullDay?.start && periods.yesterdayFullDay.end
+        ? { start: new Date(periods.yesterdayFullDay.start), end: new Date(periods.yesterdayFullDay.end) }
+        : undefined
+  };
+}
+
+function formatPeriodLog(periods: RefundReportPeriods, timezone: string): Record<string, string> {
+  return {
+    windowMode: getDateTimeParts(periods.current.end, timezone).hour === '00' ? 'midnight_full_day' : 'same_hour',
+    timezone,
+    currentStart: formatDateTime(periods.current.start, timezone),
+    currentEnd: formatDateTime(periods.current.end, timezone),
+    baselineStart: formatDateTime(periods.baseline.start, timezone),
+    baselineEnd: formatDateTime(periods.baseline.end, timezone),
+    previousFullDayStart: periods.previousFullDay ? formatDateTime(periods.previousFullDay.start, timezone) : '',
+    previousFullDayEnd: periods.previousFullDay ? formatDateTime(periods.previousFullDay.end, timezone) : '',
+    yesterdayFullDayStart: periods.yesterdayFullDay ? formatDateTime(periods.yesterdayFullDay.start, timezone) : '',
+    yesterdayFullDayEnd: periods.yesterdayFullDay ? formatDateTime(periods.yesterdayFullDay.end, timezone) : ''
+  };
 }
 
 function formatMoney(value: number): string {
@@ -601,11 +732,12 @@ function getDateTimeParts(date: Date, timezone: string): {
     hour12: false
   }).formatToParts(date);
   const pick = (type: string) => parts.find((part) => part.type === type)?.value ?? '';
+  const hour = pick('hour') === '24' ? '00' : pick('hour');
   return {
     year: pick('year'),
     month: pick('month'),
     day: pick('day'),
-    hour: pick('hour'),
+    hour,
     minute: pick('minute'),
     second: pick('second')
   };
