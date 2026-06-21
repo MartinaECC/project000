@@ -38,3 +38,11 @@
 - 失败处理方式
 - 验证方法
 - 上线和推广说明
+
+## 专项规划
+
+- [运营负责人 AI 助手规划 v0.1](ops-leader-ai-assistant-plan.md)
+- [运营负责人 AI 日报模板](ops-ai-daily-report-template.md)
+- [运营负责人 AI 助手调研清单](ops-ai-discovery-questions.md)
+- [运营负责人 AI 助手 5 天试点计划](ops-ai-5-day-pilot.md)
+- [运营负责人 AI 信息入口规则](ops-ai-intake-rules.md)

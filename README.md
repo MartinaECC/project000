@@ -1,5 +1,7 @@
 # project000
 
+Skill 管理总览：[docs/skills/README.md](docs/skills/README.md)
+
 `project000` 是一个面向团队工作的 AI 助手项目。当前阶段先沉淀可复用的工作流、自动化脚本和协作流程，再逐步从真实岗位和高频低风险任务中孵化具体助手。
 
 ## 当前包含的能力
