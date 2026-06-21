@@ -31,17 +31,21 @@ Require or infer:
 
 ## Body structure
 
-Write the report body with exactly two sections:
+Write the report body with exactly three sections:
 
 1. `概述`
-2. `明细`
+2. `复盘和下一步行动`
+3. `明细`
 
 Formatting rules:
 
 - Keep the document title in the Feishu document title, not duplicated again in the body.
 - Use simple XML with `<h2>` and flat `<ul><li>...</li></ul>` blocks.
+- Insert one blank paragraph (`<p></p>`) between top-level sections so Feishu displays visible spacing between modules.
 - `概述` should be short and management-facing.
-- `明细` should contain the fuller breakdown of the day's work grouped by topic.
+- `复盘和下一步行动` should explain what advanced the organization-efficiency goal, Codex's judgment, next recommended actions, and what requires human confirmation.
+- `明细` should contain a concise breakdown of completed work grouped by topic.
+- Local KnowledgeBase links should be clickable in Obsidian: use relative Markdown links for files inside `E:\KnowledgeBase`, `file:///E:/...` links for external local files, and `[title](https://...)` links for Feishu/DingTalk/GitHub URLs.
 - Prefer `docs +update --command overwrite` for this report flow because the daily report is a whole-document snapshot.
 
 ## Base backfill contract
@@ -70,8 +74,8 @@ Implications:
 1. Resolve the parent node and identify whether it is wiki/doc/base-backed.
 2. Locate the same-day child document by exact title.
 3. Reuse-and-overwrite if found; otherwise create the child doc.
-4. Write the body with `概述` and `明细`.
-5. Read the document back to confirm both sections exist and the body is not empty.
+4. Write the body with `概述`, `复盘和下一步行动`, and `明细`.
+5. Read the document back to confirm all three sections exist and the body is not empty.
 6. Backfill the Base record with date and link.
 7. Read the Base rows back to confirm the record exists and note whether the link text was normalized.
 
