@@ -78,6 +78,16 @@ Selection rules:
 - Keep both code paths available behind configuration such as `REFUND_REPORT_RENDER_MODE=markdown|image`.
 - Do not silently downgrade from image to markdown on image generation or upload failure. Log the failure and send a clear failure card or alert, then switch configuration deliberately if rollback is needed.
 
+## Product Versioning
+
+Treat DingTalk application/reporting capability versions as product versions, independent from the Node package version in `package.json`.
+
+- `v1.0.0` is the baseline DingTalk chart-broadcast capability: interactive cards, image tables, Markdown/image mode switch, refund-rate report, midnight full-day rule, and same-hour comparison rule.
+- Use `v1.0.x` for backward-compatible improvements such as format, fields, data definitions, sorting, anomaly rules, docs, and skill updates.
+- Use `v1.x.0` when adding a complete new report type, new data source, new robot scenario, or single-chat/group-chat delivery expansion.
+- Use `v2.0.0` for breaking changes such as replacing the card sending path, deprecating core config, or changing core data definitions.
+- Record product releases in `docs/products/dingtalk-app-changelog.md`; keep stable reusable lessons in this skill, not every release note.
+
 ## Scheduled Cloud Jobs
 
 For cloud-hosted scheduled report broadcasts, prefer a scheduler-owned one-shot job instead of starting the long-running Stream service:
@@ -156,7 +166,9 @@ For DingTalk card image tables, use this visual style unless the user gives a ne
 - Use the table header fill `#B5C6EA` with dark header text `#111827`.
 - Use a white page background, zebra body rows `#ffffff` / `#f7f7f8`, and a light blue total row `#eef6ff`.
 - Use conditional cell backgrounds only where useful: light red for concerning increases, light green for notable decreases, and light yellow for zero-payment-with-refund rows.
-- Place a concise methodology line inside the image, between title/time and the table: `口径说明：数据统计范围为今日 00:00 至当前整点；括号内依次为昨日同整点值、环比变化，退费率另展示百分点差异（pp）。`
+- Place a concise methodology line inside the image, between title/time and the table. For non-midnight windows use `口径说明：数据统计范围为今日 00:00 至当前整点；括号内依次为昨日同整点值、环比变化，退费率另展示百分点差异（pp）。`; for the `00:00:00` to `00:59:59` special window use `口径说明：数据统计范围为昨日全天；括号内依次为前日全天值、环比变化，退费率另展示百分点差异（pp）。`
+- For refund-rate reports triggered during `00:00:00` to `00:59:59`, query yesterday full day and compare with the previous full day. For all other times, query current day from `00:00` to the current top of hour and compare with yesterday's same-hour window. Do not query a same-day `00:00-00:00` empty window.
+- Treat hourly or partial-day comparison as a general reporting rule, not only a refund-rate rule. When the user asks for "分时对比", "截止当前整点", or a same-hour period-over-period report, compare the current query window with the comparison period's matching hour window. Example: today's `00:00-09:00` income should compare with yesterday's `00:00-09:00` income, not yesterday's full day. For DataFinder, use `granularity: "hour"` for non-full-day windows and sum the completed hourly buckets; reserve `granularity: "day"` for full-day windows.
 - For refund-rate image tables, include columns in this order: `企业名称 | 退费率 | 退费后金额 | 支付金额 | 支付数 | 退费金额 | 退费数`.
 - Calculate `退费后金额` as `支付金额 - 退费金额`, show current value plus yesterday same-hour value and relative change like other amount metrics, and sort company rows by current `退费后金额` descending while keeping the total row first.
 - Format metric cells as two lines: current value on the first line, then the comparison in parentheses on the second line.

@@ -31,6 +31,8 @@ export type RefundReportDiagnostics = {
   refundBadRows: unknown[];
   incomeTruncated: boolean;
   refundTruncated: boolean;
+  incomeGranularity?: string;
+  refundGranularity?: string;
 };
 
 export type RefundReportData = {
@@ -38,6 +40,7 @@ export type RefundReportData = {
   diagnostics: RefundReportDiagnostics;
   baselineRows?: RefundReportRow[];
   baselineDiagnostics?: RefundReportDiagnostics;
+  periods?: RefundReportPeriods;
 };
 
 export type RefundReportPeriods = {
@@ -163,6 +166,16 @@ export function computeRefundReportPeriods(now = new Date(), timezone = DEFAULT_
   const parts = getDateTimeParts(now, timezone);
   const currentStart = zonedDate(parts.year, parts.month, parts.day, 0, timezone);
   const currentEnd = zonedDate(parts.year, parts.month, parts.day, parts.hour, timezone);
+  if (parts.hour === '00') {
+    const previousDayStart = new Date(currentStart.getTime() - 24 * 60 * 60 * 1000);
+    return {
+      current: { start: previousDayStart, end: currentStart },
+      baseline: {
+        start: new Date(currentStart.getTime() - 2 * 24 * 60 * 60 * 1000),
+        end: previousDayStart
+      }
+    };
+  }
   return {
     current: { start: currentStart, end: currentEnd },
     baseline: {
@@ -210,6 +223,10 @@ export class PythonRefundReportSource implements RefundReportSource {
       diagnostics?: RefundReportDiagnostics;
       baselineRows?: RefundReportRow[];
       baselineDiagnostics?: RefundReportDiagnostics;
+      periods?: {
+        current?: { start?: string; end?: string };
+        baseline?: { start?: string; end?: string };
+      };
     };
     if (!Array.isArray(parsed.rows) || !parsed.diagnostics) {
       throw new Error('Invalid refund report JSON from DataFinder script.');
@@ -218,7 +235,8 @@ export class PythonRefundReportSource implements RefundReportSource {
       rows: normalizeRows(parsed.rows),
       diagnostics: parsed.diagnostics,
       baselineRows: Array.isArray(parsed.baselineRows) ? normalizeRows(parsed.baselineRows) : undefined,
-      baselineDiagnostics: parsed.baselineDiagnostics
+      baselineDiagnostics: parsed.baselineDiagnostics,
+      periods: parseRefundReportPeriods(parsed.periods)
     };
   }
 }
@@ -238,6 +256,8 @@ export async function sendRefundReportOnce(options: {
   let anomalySummary: string | undefined;
   const generatedAt = options.now ?? new Date();
   const timezone = options.timezone ?? DEFAULT_TIMEZONE;
+  const expectedPeriods = computeRefundReportPeriods(generatedAt, timezone);
+  logger.info('refund_report.periods.expected', formatPeriodLog(expectedPeriods, timezone));
 
   try {
     data = await options.source.load(generatedAt);
@@ -250,6 +270,14 @@ export async function sendRefundReportOnce(options: {
     );
     throw error;
   }
+
+  logger.info('refund_report.periods.actual', {
+    ...formatPeriodLog(data.periods ?? expectedPeriods, timezone),
+    currentIncomeGranularity: data.diagnostics.incomeGranularity,
+    currentRefundGranularity: data.diagnostics.refundGranularity,
+    baselineIncomeGranularity: data.baselineDiagnostics?.incomeGranularity,
+    baselineRefundGranularity: data.baselineDiagnostics?.refundGranularity
+  });
 
   if (options.llmOnAnomaly === 'fail_or_threshold' && hasRefundReportAnomaly(data, options.thresholdPercent)) {
     anomalySummary = await maybeSummarize(
@@ -565,6 +593,47 @@ function normalizeRows(rows: RefundReportRow[]): RefundReportRow[] {
   }));
 }
 
+function parseRefundReportPeriods(
+  periods:
+    | {
+        current?: { start?: string; end?: string };
+        baseline?: { start?: string; end?: string };
+      }
+    | undefined
+): RefundReportPeriods | undefined {
+  const currentStart = periods?.current?.start ? new Date(periods.current.start) : undefined;
+  const currentEnd = periods?.current?.end ? new Date(periods.current.end) : undefined;
+  const baselineStart = periods?.baseline?.start ? new Date(periods.baseline.start) : undefined;
+  const baselineEnd = periods?.baseline?.end ? new Date(periods.baseline.end) : undefined;
+  if (!currentStart || !currentEnd || !baselineStart || !baselineEnd) {
+    return undefined;
+  }
+  if ([currentStart, currentEnd, baselineStart, baselineEnd].some((date) => Number.isNaN(date.getTime()))) {
+    return undefined;
+  }
+  return {
+    current: { start: currentStart, end: currentEnd },
+    baseline: { start: baselineStart, end: baselineEnd }
+  };
+}
+
+function formatPeriodLog(periods: RefundReportPeriods, timezone: string): Record<string, string> {
+  return {
+    windowMode: refundReportWindowMode(periods),
+    timezone,
+    currentStart: formatDateTime(periods.current.start, timezone),
+    currentEnd: formatDateTime(periods.current.end, timezone),
+    baselineStart: formatDateTime(periods.baseline.start, timezone),
+    baselineEnd: formatDateTime(periods.baseline.end, timezone)
+  };
+}
+
+function refundReportWindowMode(periods: RefundReportPeriods): 'midnight_full_day' | 'same_hour' {
+  const currentMs = periods.current.end.getTime() - periods.current.start.getTime();
+  const baselineMs = periods.baseline.end.getTime() - periods.baseline.start.getTime();
+  return currentMs === 24 * 60 * 60 * 1000 && baselineMs === 24 * 60 * 60 * 1000 ? 'midnight_full_day' : 'same_hour';
+}
+
 function formatMoney(value: number): string {
   return value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
@@ -601,11 +670,12 @@ function getDateTimeParts(date: Date, timezone: string): {
     hour12: false
   }).formatToParts(date);
   const pick = (type: string) => parts.find((part) => part.type === type)?.value ?? '';
+  const hour = pick('hour') === '24' ? '00' : pick('hour');
   return {
     year: pick('year'),
     month: pick('month'),
     day: pick('day'),
-    hour: pick('hour'),
+    hour,
     minute: pick('minute'),
     second: pick('second')
   };

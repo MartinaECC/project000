@@ -78,6 +78,15 @@ test('SVG contains report title, time, and table labels', () => {
   assert.match(svg, /企业名称/);
 });
 
+test('SVG uses yesterday full-day methodology note during the midnight hour', () => {
+  const table = buildRefundReportImageTable(rows, { baselineRows, thresholdPercent: 10 });
+  const svg = buildRefundReportTableSvg(table, new Date('2026-06-21T00:02:27+08:00'));
+
+  assert.match(svg, /时间: 2026-06-21 00:02:27/);
+  assert.match(svg, /口径说明：数据统计范围为昨日全天；括号内依次为前日全天值、环比变化，退费率另展示百分点差异（pp）。/);
+  assert.doesNotMatch(svg, /数据统计范围为今日 00:00 至当前整点/);
+});
+
 test('SVG places methodology note before the table header', () => {
   const table = buildRefundReportImageTable(rows, { baselineRows, thresholdPercent: 10 });
   const svg = buildRefundReportTableSvg(table, new Date('2026-06-20T22:00:00+08:00'));
