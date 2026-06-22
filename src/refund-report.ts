@@ -1,6 +1,6 @@
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
-import type { RefundReportCardSender } from './dingtalk-card-service.ts';
+import type { RefundReportCardSender, RefundReportDeliveryTarget } from './dingtalk-card-service.ts';
 import { errorFields, logger } from './logger.ts';
 import { renderRefundReportTablePng } from './refund-report-image.ts';
 import type { LlmAgent } from './types.ts';
@@ -86,6 +86,7 @@ export type RefundReportSource = {
 
 export type RefundReportConfig = {
   enabled: boolean;
+  deliveryTarget: 'single' | 'group' | 'both';
   userIds: string[];
   groupConversationId?: string;
   cardTemplateId?: string;
@@ -291,7 +292,7 @@ export class PythonRefundReportSource implements RefundReportSource {
 export async function sendRefundReportOnce(options: {
   source: RefundReportSource;
   sender: RefundReportCardSender;
-  userIds: string[];
+  targets: RefundReportDeliveryTarget[];
   thresholdPercent: number;
   timezone?: string;
   renderMode?: RefundReportConfig['renderMode'];
@@ -311,7 +312,7 @@ export async function sendRefundReportOnce(options: {
   } catch (error) {
     anomalySummary = await maybeSummarize(options.llm, options.llmOnAnomaly, '退费率播报数据查询失败', String(error));
     await options.sender.sendRefundReportCard(
-      options.userIds,
+      options.targets,
       '退费率播报失败',
       formatFailureMarkdown('退费率播报失败', generatedAt, anomalySummary, error, timezone)
     );
@@ -376,12 +377,12 @@ export async function sendRefundReportOnce(options: {
         timezone
       });
       const markdown = formatRefundReportImageCardMarkdown(generatedAt, timezone);
-      await options.sender.sendRefundReportImageCard(options.userIds, '退费率播报', markdown, image);
+      await options.sender.sendRefundReportImageCard(options.targets, '退费率播报', markdown, image);
       return;
     } catch (error) {
       logger.error('refund_report.image_send_failed', errorFields(error));
       await options.sender.sendRefundReportCard(
-        options.userIds,
+        options.targets,
         '退费率播报失败',
         formatFailureMarkdown('退费率播报失败', generatedAt, anomalySummary, error, timezone)
       );
@@ -390,13 +391,13 @@ export async function sendRefundReportOnce(options: {
   }
 
   const markdown = formatRefundReportMarkdown(data.rows, generatedAt, markdownOptions);
-  await options.sender.sendRefundReportCard(options.userIds, '退费率播报', markdown);
+  await options.sender.sendRefundReportCard(options.targets, '退费率播报', markdown);
 }
 
 export function startHourlyRefundReport(options: {
   source: RefundReportSource;
   sender: RefundReportCardSender;
-  userIds: string[];
+  targets: RefundReportDeliveryTarget[];
   thresholdPercent: number;
   timezone?: string;
   renderMode?: RefundReportConfig['renderMode'];

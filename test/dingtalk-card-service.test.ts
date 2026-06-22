@@ -11,7 +11,7 @@ const markdown = '# \u9000\u8d39\u7387\u64ad\u62a5\n\n#### \u5b9c\u4fe1\n\u9000\
 
 test('builds StandardCard body with complete markdown content', () => {
   const body = buildRefundReportCardBody({
-    userId: 'user-1',
+    target: { type: 'single', userId: 'user-1' },
     title,
     markdown,
     cardBizId: 'track-1',
@@ -23,12 +23,32 @@ test('builds StandardCard body with complete markdown content', () => {
   assert.equal(body.cardTemplateId, 'StandardCard');
   assert.equal(body.cardBizId, 'track-1');
   assert.equal(body.singleChatReceiver, JSON.stringify({ userId: 'user-1' }));
+  assert.equal(body.openConversationId, undefined);
   assert.equal(body.robotCode, 'robot-1');
 
   const cardData = JSON.parse(String(body.cardData));
   assert.deepEqual(cardData, buildStandardCardData(title, markdown));
   assert.equal(cardData.contents[0].type, 'markdown');
   assert.equal(cardData.contents[0].text, markdown);
+});
+
+test('builds StandardCard body for a group conversation target', () => {
+  const body = buildRefundReportCardBody({
+    target: { type: 'group', openConversationId: 'cid-1' },
+    title,
+    markdown,
+    cardBizId: 'track-1',
+    cardTemplateId: 'StandardCard',
+    callbackRouteKey: 'refund-report',
+    robotCode: 'robot-1'
+  });
+
+  assert.equal(body.cardTemplateId, 'StandardCard');
+  assert.equal(body.cardBizId, 'track-1');
+  assert.equal(body.openConversationId, 'cid-1');
+  assert.equal(body.singleChatReceiver, undefined);
+  assert.equal(body.robotCode, 'robot-1');
+  assert.equal(JSON.parse(String(body.cardData)).contents[0].text, markdown);
 });
 
 test('DingTalk interactive card sender posts access token and robot card requests', async () => {
@@ -52,7 +72,7 @@ test('DingTalk interactive card sender posts access token and robot card request
     fetchImpl
   );
 
-  await sender.sendRefundReportCard(['user-1'], title, markdown);
+  await sender.sendRefundReportCard([{ type: 'single', userId: 'user-1' }], title, markdown);
 
   assert.equal(requests.length, 2);
   assert.equal(requests[0].url, 'https://api.example.test/v1.0/oauth2/accessToken');
@@ -66,7 +86,72 @@ test('DingTalk interactive card sender posts access token and robot card request
   assert.equal(body.cardTemplateId, 'StandardCard');
   assert.equal(body.robotCode, 'robot-1');
   assert.equal(body.singleChatReceiver, JSON.stringify({ userId: 'user-1' }));
+  assert.equal(body.openConversationId, undefined);
   assert.equal(JSON.parse(body.cardData).contents[0].text, markdown);
+});
+
+test('DingTalk interactive card sender posts group conversation card requests', async () => {
+  const requests: Array<{ url: string; init: RequestInit }> = [];
+  const fetchImpl: typeof fetch = async (url, init) => {
+    requests.push({ url: String(url), init: init ?? {} });
+    if (String(url).endsWith('/v1.0/oauth2/accessToken')) {
+      return new Response(JSON.stringify({ accessToken: 'token-1', expireIn: 7200 }), { status: 200 });
+    }
+    return new Response(JSON.stringify({ processQueryKey: 'process-1' }), { status: 200 });
+  };
+  const sender = new DingTalkInteractiveCardSender(
+    {
+      clientId: 'client-1',
+      clientSecret: 'secret-1',
+      robotCode: 'robot-1',
+      cardTemplateId: 'StandardCard',
+      apiBaseUrl: 'https://api.example.test/'
+    },
+    fetchImpl
+  );
+
+  await sender.sendRefundReportCard([{ type: 'group', openConversationId: 'cid-1' }], title, markdown);
+
+  assert.equal(requests.length, 2);
+  const body = JSON.parse(String(requests[1].init.body));
+  assert.equal(body.openConversationId, 'cid-1');
+  assert.equal(body.singleChatReceiver, undefined);
+  assert.equal(JSON.parse(body.cardData).contents[0].text, markdown);
+});
+
+test('DingTalk interactive card sender can send to group and single targets', async () => {
+  const bodies: Array<Record<string, unknown>> = [];
+  const fetchImpl: typeof fetch = async (url, init) => {
+    if (String(url).endsWith('/v1.0/oauth2/accessToken')) {
+      return new Response(JSON.stringify({ accessToken: 'token-1', expireIn: 7200 }), { status: 200 });
+    }
+    bodies.push(JSON.parse(String(init?.body)));
+    return new Response(JSON.stringify({ processQueryKey: 'process-1' }), { status: 200 });
+  };
+  const sender = new DingTalkInteractiveCardSender(
+    {
+      clientId: 'client-1',
+      clientSecret: 'secret-1',
+      robotCode: 'robot-1',
+      cardTemplateId: 'StandardCard',
+      apiBaseUrl: 'https://api.example.test/'
+    },
+    fetchImpl
+  );
+
+  await sender.sendRefundReportCard(
+    [
+      { type: 'group', openConversationId: 'cid-1' },
+      { type: 'single', userId: 'user-1' }
+    ],
+    title,
+    markdown
+  );
+
+  assert.equal(bodies.length, 2);
+  assert.equal(bodies[0].openConversationId, 'cid-1');
+  assert.equal(bodies[1].singleChatReceiver, JSON.stringify({ userId: 'user-1' }));
+  assert.notEqual(bodies[0].cardBizId, bodies[1].cardBizId);
 });
 
 test('DingTalk interactive card sender uploads image and embeds it in card markdown', async () => {
@@ -92,12 +177,13 @@ test('DingTalk interactive card sender uploads image and embeds it in card markd
     fetchImpl
   );
 
-  await sender.sendRefundReportImageCard(['user-1'], title, markdown, Buffer.from('png'));
+  await sender.sendRefundReportImageCard([{ type: 'group', openConversationId: 'cid-1' }], title, markdown, Buffer.from('png'));
 
   assert.equal(requests.length, 3);
   assert.equal(requests[1].url, 'https://api.example.test/media/upload?access_token=token-1&type=image');
   assert.ok(requests[1].init.body instanceof FormData);
   const body = JSON.parse(String(requests[2].init.body));
+  assert.equal(body.openConversationId, 'cid-1');
   const cardMarkdown = JSON.parse(body.cardData).contents[0].text;
   assert.match(cardMarkdown, /!\[退费率播报\]\(@media-1\)/);
 });
@@ -125,7 +211,7 @@ test('DingTalk image card sender sends only image markdown when text body is emp
     fetchImpl
   );
 
-  await sender.sendRefundReportImageCard(['user-1'], title, '', Buffer.from('png'));
+  await sender.sendRefundReportImageCard([{ type: 'single', userId: 'user-1' }], title, '', Buffer.from('png'));
 
   const body = JSON.parse(String(requests[2].init.body));
   assert.equal(JSON.parse(body.cardData).contents[0].text, '![退费率播报](@media-1)');
@@ -150,7 +236,7 @@ test('DingTalk image card sender fails clearly when image upload fails', async (
   );
 
   await assert.rejects(
-    () => sender.sendRefundReportImageCard(['user-1'], title, markdown, Buffer.from('png')),
+    () => sender.sendRefundReportImageCard([{ type: 'single', userId: 'user-1' }], title, markdown, Buffer.from('png')),
     /DingTalk media upload failed: 400 bad upload/
   );
   assert.equal(requests.length, 2);
@@ -173,7 +259,7 @@ test('DingTalk interactive card sender does not fall back to text on card failur
   );
 
   await assert.rejects(
-    () => sender.sendRefundReportCard(['user-1'], title, markdown),
+    () => sender.sendRefundReportCard([{ type: 'single', userId: 'user-1' }], title, markdown),
     /DingTalk interactive card send failed: 400 bad card request/
   );
 });

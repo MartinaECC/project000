@@ -7,6 +7,8 @@ description: Generate a daily summary of today's Codex work and write it into a 
 
 Use this skill when the user wants a daily summary of work done with Codex, written into Feishu, with the link backfilled into an upper-level Base.
 
+This skill now depends on the shared reporting conventions in [`E:\Workspace_codex\project000\.codex\skills\automation-reporting\SKILL.md`](E:\Workspace_codex\project000\.codex\skills\automation-reporting\SKILL.md). Apply that skill first whenever the task includes local writeback, Feishu writeback, or both.
+
 ## Inputs
 
 Require or infer:
@@ -29,6 +31,17 @@ Require or infer:
 - If the parent node is a `bitable`, treat it as the report index. Still create or reuse the child doc under the same wiki parent node, then backfill the Base entry.
 - Prefer user identity: `--as user`.
 
+## Shared reporting and encoding rules
+
+- Never pipe Chinese XML or JSON directly from default PowerShell stdin into `lark-cli`.
+- Always route Feishu writes through [`E:\Workspace_codex\project000\scripts\automation\feishu-write-wrapper.ps1`](E:\Workspace_codex\project000\scripts\automation\feishu-write-wrapper.ps1).
+- The wrapper is responsible for:
+  - forcing UTF-8 without BOM for payload files
+  - logging the encoding context and payload preview
+  - respecting [`E:\Workspace_codex\project000\scripts\automation\reporting-config.json`](E:\Workspace_codex\project000\scripts\automation\reporting-config.json)
+- If `feishu_write_enabled = false`, continue generating the report and writing local artifacts, but skip all Feishu doc/Base writes.
+- If the task is local-only, do not call `lark-cli docs ...` or `lark-cli base ...`.
+
 ## Body structure
 
 Write the report body with exactly three sections:
@@ -37,9 +50,19 @@ Write the report body with exactly three sections:
 2. `复盘和下一步行动`
 3. `明细`
 
+`复盘和下一步行动` rules:
+
+- Always include `建议：...`, `判断：...`, and `待确认：...`.
+- Keep only 1-3 most important organization-efficiency actions per day.
+- Prefer reusable, promotable, and verifiable actions such as customer risk summaries, group-chat action items, operation reviews, install/deploy scripts, KnowledgeBase templates, and team collaboration workflows.
+- Put routine completion details in `明细`, not in the judgment section.
+- If the boundary or conclusion is uncertain, write it as `待确认`.
+
 Formatting rules:
 
 - Keep the document title in the Feishu document title, not duplicated again in the body.
+- For local KnowledgeBase Markdown, keep the title at the top, put `概述`, `复盘和下一步行动`, and `明细` immediately after it, and move date/report metadata plus related-document indexes to the very end of the file.
+- Do not add a fourth `##` section for metadata in local Markdown.
 - Use simple XML with `<h2>` and flat `<ul><li>...</li></ul>` blocks.
 - Insert one blank paragraph (`<p></p>`) between top-level sections so Feishu displays visible spacing between modules.
 - `概述` should be short and management-facing.
@@ -71,13 +94,14 @@ Implications:
 
 ## Suggested execution order
 
-1. Resolve the parent node and identify whether it is wiki/doc/base-backed.
-2. Locate the same-day child document by exact title.
-3. Reuse-and-overwrite if found; otherwise create the child doc.
-4. Write the body with `概述`, `复盘和下一步行动`, and `明细`.
-5. Read the document back to confirm all three sections exist and the body is not empty.
-6. Backfill the Base record with date and link.
-7. Read the Base rows back to confirm the record exists and note whether the link text was normalized.
+1. Apply the shared reporting skill and decide the target mode: `local-only`, `feishu-only`, or `dual-write`.
+2. Resolve the parent node and identify whether it is wiki/doc/base-backed.
+3. Locate the same-day child document by exact title.
+4. Reuse-and-overwrite if found; otherwise create the child doc.
+5. Write the body with `概述`, `复盘和下一步行动`, and `明细`.
+6. Read the document back to confirm all three sections exist and the body is not empty.
+7. Backfill the Base record with date and link.
+8. Read the Base rows back to confirm the record exists and note whether the link text was normalized.
 
 ## Response expectations
 
@@ -87,3 +111,4 @@ Report back:
 - Whether the document was reused or newly created.
 - Whether the Base row was inserted or skipped as duplicate.
 - Whether the Base link cell preserved custom link text or was normalized to raw URL.
+- Whether Feishu writes ran or were skipped by config.

@@ -1,0 +1,222 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="2500" viewBox="0 0 1440 2500">
+  <defs>
+    <linearGradient id="hero" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F2A3A"/>
+      <stop offset="52%" stop-color="#13435A"/>
+      <stop offset="100%" stop-color="#245047"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#32C7A7"/>
+      <stop offset="52%" stop-color="#4F8DF7"/>
+      <stop offset="100%" stop-color="#F2B84B"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0A1820" flood-opacity="0.16"/>
+    </filter>
+    <style>
+      .bg { fill: #F5F7F8; }
+      .hero-title { font: 800 68px "Microsoft YaHei", "PingFang SC", sans-serif; fill: #FFFFFF; letter-spacing: 0; }
+      .hero-sub { font: 400 30px "Microsoft YaHei", "PingFang SC", sans-serif; fill: #CFE7EA; letter-spacing: 0; }
+      .hero-note { font: 500 26px "Microsoft YaHei", "PingFang SC", sans-serif; fill: #FFFFFF; letter-spacing: 0; }
+      .section-title { font: 800 34px "Microsoft YaHei", "PingFang SC", sans-serif; fill: #142A33; letter-spacing: 0; }
+      .section-kicker { font: 700 20px "Microsoft YaHei", "PingFang SC", sans-serif; fill: #317B77; letter-spacing: 0; }
+      .body { font: 400 25px "Microsoft YaHei", "PingFang SC", sans-serif; fill: #31444B; letter-spacing: 0; }
+      .body-strong { font: 700 25px "Microsoft YaHei", "PingFang SC", sans-serif; fill: #142A33; letter-spacing: 0; }
+      .small { font: 400 21px "Microsoft YaHei", "PingFang SC", sans-serif; fill: #53676E; letter-spacing: 0; }
+      .small-strong { font: 700 21px "Microsoft YaHei", "PingFang SC", sans-serif; fill: #18313B; letter-spacing: 0; }
+      .label { font: 800 22px "Microsoft YaHei", "PingFang SC", sans-serif; fill: #FFFFFF; letter-spacing: 0; }
+      .num { font: 900 38px "Microsoft YaHei", "PingFang SC", sans-serif; fill: #FFFFFF; letter-spacing: 0; }
+      .card { fill: #FFFFFF; stroke: #DDE7E8; stroke-width: 1.5; filter: url(#shadow); }
+      .soft { fill: #EAF4F3; }
+      .line { stroke: #C6D6D8; stroke-width: 2; }
+      .teal { fill: #19A68C; }
+      .blue { fill: #3E7AE8; }
+      .gold { fill: #DFA43B; }
+      .coral { fill: #DD6B55; }
+      .ink { fill: #142A33; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1440" height="2500"/>
+  <rect x="0" y="0" width="1440" height="420" fill="url(#hero)"/>
+  <rect x="90" y="72" width="154" height="42" rx="21" fill="#FFFFFF" opacity="0.15"/>
+  <text x="118" y="101" class="label">AI 提效复盘</text>
+  <text x="90" y="190" class="hero-title">从退费率播报开始</text>
+  <text x="90" y="265" class="hero-title">运营团队 AI 提效第一轮落地</text>
+  <text x="92" y="326" class="hero-sub">6 月 19-21 日工作总结：从工具链验证到业务样板跑通</text>
+  <rect x="90" y="360" width="760" height="4" rx="2" fill="url(#accent)"/>
+  <text x="980" y="102" class="hero-note">不是讲 AI 概念</text>
+  <text x="980" y="142" class="hero-note">而是复盘一个真实工作流</text>
+  <text x="980" y="182" class="hero-note">如何变得可跑、可查、可迭代</text>
+
+  <g transform="translate(80 470)">
+    <rect class="card" x="0" y="0" width="1280" height="250" rx="28"/>
+    <text x="42" y="58" class="section-kicker">核心判断</text>
+    <text x="42" y="106" class="section-title">AI 提效的第一阶段，不追求全自动决策</text>
+    <text x="42" y="158" class="body">先让 AI 承担“收集、整理、生成、提醒、初步分析”，人继续负责判断、确认和行动。</text>
+    <g transform="translate(42 188)">
+      <rect x="0" y="0" width="160" height="36" rx="18" fill="#E6F4F2"/>
+      <text x="28" y="25" class="small-strong">真实任务</text>
+      <rect x="188" y="0" width="160" height="36" rx="18" fill="#E9F0FC"/>
+      <text x="216" y="25" class="small-strong">重复高频</text>
+      <rect x="376" y="0" width="160" height="36" rx="18" fill="#FDF1D8"/>
+      <text x="404" y="25" class="small-strong">可检查</text>
+      <rect x="564" y="0" width="190" height="36" rx="18" fill="#F8E8E3"/>
+      <text x="592" y="25" class="small-strong">低风险切入</text>
+    </g>
+  </g>
+
+  <g transform="translate(80 770)">
+    <text x="0" y="0" class="section-kicker">落地框架</text>
+    <text x="0" y="46" class="section-title">先盘工作，再选工具，最后固化成团队能力</text>
+    <line x1="104" y1="128" x2="1176" y2="128" class="line"/>
+    <g transform="translate(0 88)">
+      <circle cx="104" cy="40" r="40" class="teal"/>
+      <text x="82" y="54" class="num">1</text>
+      <text x="38" y="115" class="body-strong">先盘工作</text>
+      <text x="20" y="153" class="small">重复 / 高频 / 可标准化</text>
+    </g>
+    <g transform="translate(270 88)">
+      <circle cx="104" cy="40" r="40" class="blue"/>
+      <text x="82" y="54" class="num">2</text>
+      <text x="38" y="115" class="body-strong">再选工具</text>
+      <text x="10" y="153" class="small">连接数据源、文档、IM</text>
+    </g>
+    <g transform="translate(540 88)">
+      <circle cx="104" cy="40" r="40" class="gold"/>
+      <text x="82" y="54" class="num">3</text>
+      <text x="38" y="115" class="body-strong">重新分工</text>
+      <text x="10" y="153" class="small">AI 做处理，人做判断</text>
+    </g>
+    <g transform="translate(810 88)">
+      <circle cx="104" cy="40" r="40" class="coral"/>
+      <text x="82" y="54" class="num">4</text>
+      <text x="38" y="115" class="body-strong">稳定流程</text>
+      <text x="6" y="153" class="small">口径、格式、异常处理</text>
+    </g>
+    <g transform="translate(1080 88)">
+      <circle cx="104" cy="40" r="40" fill="#5E6B75"/>
+      <text x="82" y="54" class="num">5</text>
+      <text x="38" y="115" class="body-strong">形成能力</text>
+      <text x="8" y="153" class="small">从样板扩展到机制</text>
+    </g>
+  </g>
+
+  <g transform="translate(80 1065)">
+    <text x="0" y="0" class="section-kicker">三天路线</text>
+    <text x="0" y="46" class="section-title">从工具链验证，到退费率播报可复用</text>
+    <g transform="translate(0 84)">
+      <rect class="card" x="0" y="0" width="400" height="245" rx="24"/>
+      <rect x="0" y="0" width="400" height="68" rx="24" fill="#19A68C"/>
+      <text x="30" y="44" class="label">6 月 19 日｜验证链路</text>
+      <text x="30" y="112" class="body-strong">DingTalk / Feishu / DataFinder / Codex</text>
+      <text x="30" y="154" class="small">读取数据、生成报表、推送消息、写入文档</text>
+      <text x="30" y="192" class="small">暴露口径、展示、调用稳定性问题</text>
+    </g>
+    <g transform="translate(440 84)">
+      <rect class="card" x="0" y="0" width="400" height="245" rx="24"/>
+      <rect x="0" y="0" width="400" height="68" rx="24" fill="#3E7AE8"/>
+      <text x="30" y="44" class="label">6 月 20 日｜补齐能力</text>
+      <text x="30" y="112" class="body-strong">DingTalk OpenClaw / Gateway</text>
+      <text x="30" y="154" class="small">验证机器人、网关、插件、健康检查</text>
+      <text x="30" y="192" class="small">为卡片和自动化播报打基础</text>
+    </g>
+    <g transform="translate(880 84)">
+      <rect class="card" x="0" y="0" width="400" height="245" rx="24"/>
+      <rect x="0" y="0" width="400" height="68" rx="24" fill="#DFA43B"/>
+      <text x="30" y="44" class="label">6 月 21 日｜样板沉淀</text>
+      <text x="30" y="112" class="body-strong">退费率播报进入可复用版本</text>
+      <text x="30" y="154" class="small">修正分时 / 全天对比口径</text>
+      <text x="30" y="192" class="small">补充青龙调度、版本文档、Skill</text>
+    </g>
+  </g>
+
+  <g transform="translate(80 1460)">
+    <rect class="card" x="0" y="0" width="1280" height="360" rx="28"/>
+    <text x="42" y="58" class="section-kicker">样板案例</text>
+    <text x="42" y="106" class="section-title">退费率播报：不是一条消息，而是一条业务链路</text>
+    <g transform="translate(42 150)">
+      <rect x="0" y="0" width="176" height="74" rx="18" fill="#E6F4F2"/>
+      <text x="39" y="31" class="small-strong">DataFinder</text>
+      <text x="37" y="59" class="small">支付 / 退费</text>
+      <path d="M184 37 L238 37" stroke="#91A8AE" stroke-width="3"/>
+      <path d="M238 37 L226 28 M238 37 L226 46" stroke="#91A8AE" stroke-width="3" fill="none"/>
+      <rect x="248" y="0" width="176" height="74" rx="18" fill="#E9F0FC"/>
+      <text x="285" y="31" class="small-strong">企业聚合</text>
+      <text x="288" y="59" class="small">维度清晰</text>
+      <path d="M432 37 L486 37" stroke="#91A8AE" stroke-width="3"/>
+      <path d="M486 37 L474 28 M486 37 L474 46" stroke="#91A8AE" stroke-width="3" fill="none"/>
+      <rect x="496" y="0" width="176" height="74" rx="18" fill="#FDF1D8"/>
+      <text x="533" y="31" class="small-strong">指标计算</text>
+      <text x="518" y="59" class="small">退费率 / 金额</text>
+      <path d="M680 37 L734 37" stroke="#91A8AE" stroke-width="3"/>
+      <path d="M734 37 L722 28 M734 37 L722 46" stroke="#91A8AE" stroke-width="3" fill="none"/>
+      <rect x="744" y="0" width="176" height="74" rx="18" fill="#F8E8E3"/>
+      <text x="781" y="31" class="small-strong">对比参考</text>
+      <text x="760" y="59" class="small">昨日同分时 / 全天</text>
+      <path d="M928 37 L982 37" stroke="#91A8AE" stroke-width="3"/>
+      <path d="M982 37 L970 28 M982 37 L970 46" stroke="#91A8AE" stroke-width="3" fill="none"/>
+      <rect x="992" y="0" width="176" height="74" rx="18" fill="#E9ECEF"/>
+      <text x="1029" y="31" class="small-strong">钉钉播报</text>
+      <text x="1036" y="59" class="small">推送 / 查阅</text>
+    </g>
+    <text x="42" y="286" class="body">真正有价值的是：AI 开始进入数据、格式、播报、文档、验证这一整条业务链路。</text>
+  </g>
+
+  <g transform="translate(80 1875)">
+    <text x="0" y="0" class="section-kicker">关键发现</text>
+    <text x="0" y="46" class="section-title">问题不只在模型，更在数据、工具和流程细节</text>
+    <g transform="translate(0 84)">
+      <rect class="card" x="0" y="0" width="244" height="190" rx="22"/>
+      <circle cx="36" cy="42" r="14" class="teal"/>
+      <text x="62" y="50" class="body-strong">数据口径</text>
+      <text x="28" y="96" class="small">PV、事件数、金额</text>
+      <text x="28" y="128" class="small">不能混用，金额</text>
+      <text x="28" y="160" class="small">必须正确聚合</text>
+    </g>
+    <g transform="translate(259 84)">
+      <rect class="card" x="0" y="0" width="244" height="190" rx="22"/>
+      <circle cx="36" cy="42" r="14" class="blue"/>
+      <text x="62" y="50" class="body-strong">真实展示</text>
+      <text x="28" y="96" class="small">API 返回成功</text>
+      <text x="28" y="128" class="small">不代表客户端</text>
+      <text x="28" y="160" class="small">展示正确</text>
+    </g>
+    <g transform="translate(518 84)">
+      <rect class="card" x="0" y="0" width="244" height="190" rx="22"/>
+      <circle cx="36" cy="42" r="14" class="gold"/>
+      <text x="62" y="50" class="body-strong">时间窗口</text>
+      <text x="28" y="96" class="small">0 点播报不能</text>
+      <text x="28" y="128" class="small">查询空窗口，需</text>
+      <text x="28" y="160" class="small">特殊处理</text>
+    </g>
+    <g transform="translate(777 84)">
+      <rect class="card" x="0" y="0" width="244" height="190" rx="22"/>
+      <circle cx="36" cy="42" r="14" class="coral"/>
+      <text x="62" y="50" class="body-strong">阅读格式</text>
+      <text x="28" y="96" class="small">长表格、多行</text>
+      <text x="28" y="128" class="small">Markdown 不一定</text>
+      <text x="28" y="160" class="small">适合钉钉</text>
+    </g>
+    <g transform="translate(1036 84)">
+      <rect class="card" x="0" y="0" width="244" height="190" rx="22"/>
+      <circle cx="36" cy="42" r="14" fill="#5E6B75"/>
+      <text x="62" y="50" class="body-strong">稳定运维</text>
+      <text x="28" y="96" class="small">安装、网关、权限</text>
+      <text x="28" y="128" class="small">调度、日志都要</text>
+      <text x="28" y="160" class="small">纳入验证</text>
+    </g>
+  </g>
+
+  <g transform="translate(80 2205)">
+    <rect x="0" y="0" width="1280" height="210" rx="28" fill="#142A33"/>
+    <text x="42" y="58" class="section-kicker" fill="#82D9C8">下一步</text>
+    <text x="42" y="106" class="section-title" fill="#FFFFFF">从一个样板，扩展到团队日常工作机制</text>
+    <text x="42" y="158" class="hero-note">梳理高频任务 · 优化数据准确性 · 固定工作流和格式 · 扩展到日报、周报、客户风险提醒、运营复盘</text>
+  </g>
+
+  <g transform="translate(80 2445)">
+    <text x="0" y="0" class="small-strong">判断标准：</text>
+    <text x="110" y="0" class="small">少重复整理、更快看见异常、格式更稳定、保留人工确认、能复用到下一个任务。</text>
+  </g>
+</svg>

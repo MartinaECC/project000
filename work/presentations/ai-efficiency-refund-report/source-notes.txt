@@ -1,0 +1,1 @@
+Deck created from the user-provided 10-slide draft. Default template inspection was attempted but blocked by missing unzip -Z1 support in this Windows runtime, so the deck was generated from scratch with artifact-tool.

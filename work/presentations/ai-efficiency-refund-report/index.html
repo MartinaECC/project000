@@ -1,0 +1,1028 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>从退费率播报开始：运营团队 AI 提效落地复盘</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #eef3f7;
+      --paper: #fbfcfe;
+      --ink: #102033;
+      --muted: #5c6878;
+      --line: #d6e0ea;
+      --teal: #08757e;
+      --blue: #285fcc;
+      --green: #2f7d45;
+      --amber: #c56c18;
+      --red: #b23232;
+      --shadow: 0 20px 60px rgba(24, 42, 62, .16);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, #f7fafc 0%, var(--bg) 62%, #e7eef5 100%);
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+    }
+
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 272px minmax(0, 1fr);
+    }
+
+    .sidebar {
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      border-right: 1px solid var(--line);
+      background: rgba(251, 252, 254, .88);
+      backdrop-filter: blur(14px);
+      padding: 18px 14px;
+      overflow: auto;
+    }
+
+    .deck-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 6px 16px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 12px;
+    }
+
+    .mark {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 800;
+      flex: 0 0 auto;
+    }
+
+    .deck-label strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.25;
+    }
+
+    .deck-label span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .thumbs {
+      display: grid;
+      gap: 8px;
+    }
+
+    .thumb {
+      width: 100%;
+      text-align: left;
+      border: 1px solid transparent;
+      background: transparent;
+      border-radius: var(--radius);
+      padding: 8px;
+      display: grid;
+      grid-template-columns: 30px minmax(0, 1fr);
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .thumb:hover { background: #f2f6fa; }
+    .thumb[aria-current="true"] {
+      background: #e8f5f6;
+      border-color: #b8dde1;
+    }
+
+    .thumb .no {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--teal);
+    }
+
+    .thumb b {
+      display: block;
+      font-size: 13px;
+      line-height: 1.25;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .thumb small {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 3px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .main {
+      min-width: 0;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      min-height: 100vh;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 22px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, .74);
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .progress-wrap {
+      min-width: 160px;
+      flex: 1;
+      max-width: 480px;
+    }
+
+    .progress-text {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+
+    .progress {
+      height: 6px;
+      border-radius: 99px;
+      background: #dfe8f1;
+      overflow: hidden;
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 10%;
+      background: linear-gradient(90deg, var(--teal), var(--blue));
+      transition: width .2s ease;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .icon-btn,
+    .text-btn {
+      border: 1px solid var(--line);
+      background: #fff;
+      height: 36px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      display: inline-grid;
+      place-items: center;
+      box-shadow: 0 1px 0 rgba(16, 32, 51, .04);
+    }
+
+    .icon-btn {
+      width: 38px;
+      font-size: 18px;
+    }
+
+    .text-btn {
+      padding: 0 12px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .icon-btn:hover,
+    .text-btn:hover {
+      border-color: #b7c7d7;
+      background: #f8fbfd;
+    }
+
+    .stage {
+      padding: 28px;
+      display: grid;
+      align-items: center;
+      justify-items: center;
+      min-height: 0;
+    }
+
+    .slide {
+      display: none;
+      width: min(100%, calc((100vh - 150px) * 16 / 9));
+      aspect-ratio: 16 / 9;
+      background: var(--paper);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(126, 145, 165, .25);
+    }
+
+    .slide.is-active { display: block; }
+
+    .slide-inner {
+      position: absolute;
+      inset: 0;
+      padding: 6.8% 6.4%;
+    }
+
+    .kicker {
+      color: var(--teal);
+      font-size: clamp(11px, 1.1vw, 15px);
+      font-weight: 800;
+      letter-spacing: 0;
+      margin-bottom: 1.1%;
+    }
+
+    .page-no {
+      position: absolute;
+      top: 4.7%;
+      right: 5.6%;
+      color: var(--muted);
+      font-size: clamp(11px, 1.1vw, 15px);
+      font-weight: 800;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(34px, 5vw, 64px);
+      line-height: 1.12;
+      letter-spacing: 0;
+      max-width: 76%;
+    }
+
+    h2 {
+      font-size: clamp(24px, 3.3vw, 42px);
+      line-height: 1.15;
+      letter-spacing: 0;
+      padding-bottom: 2.1%;
+      border-bottom: 1px solid var(--line);
+      max-width: 88%;
+    }
+
+    .lead {
+      font-size: clamp(18px, 2.1vw, 28px);
+      line-height: 1.3;
+      font-weight: 800;
+      margin-top: 2.8%;
+      max-width: 88%;
+    }
+
+    .body-grid {
+      display: grid;
+      gap: 2.8%;
+      margin-top: 3.2%;
+    }
+
+    .two-col { grid-template-columns: minmax(0, 1fr) minmax(280px, .64fr); }
+    .three-col { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .two-by-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: clamp(9px, 1.2vw, 18px);
+    }
+
+    li {
+      position: relative;
+      padding-left: 1.55em;
+      font-size: clamp(15px, 1.75vw, 24px);
+      line-height: 1.35;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .56em;
+      width: .48em;
+      height: .48em;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    .callout {
+      border-radius: var(--radius);
+      background: #edf8f8;
+      border: 1px solid #c3e1e2;
+      border-left: 7px solid var(--teal);
+      padding: 6.5% 6.2%;
+      font-size: clamp(17px, 2vw, 25px);
+      line-height: 1.45;
+      font-weight: 800;
+      color: #12304a;
+      align-self: start;
+    }
+
+    .callout.amber { border-left-color: var(--amber); background: #fff6ea; border-color: #ead7bd; }
+    .callout.green { border-left-color: var(--green); background: #eef8f0; border-color: #c8dfce; }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      padding: 6.5%;
+      min-height: 100%;
+    }
+
+    .card h3 {
+      font-size: clamp(18px, 2.1vw, 28px);
+      line-height: 1.18;
+      margin-bottom: 9%;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: clamp(13px, 1.35vw, 17px);
+      line-height: 1.42;
+    }
+
+    .card ul {
+      gap: clamp(7px, 1vw, 13px);
+    }
+
+    .card li {
+      font-size: clamp(12px, 1.35vw, 17px);
+      padding-left: 1.35em;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1.5%;
+      margin-top: 5.1%;
+    }
+
+    .step-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 11% 9%;
+      min-height: 136px;
+      position: relative;
+    }
+
+    .step-card b {
+      color: var(--teal);
+      font-size: clamp(12px, 1.3vw, 17px);
+    }
+
+    .step-card h3 {
+      font-size: clamp(15px, 1.8vw, 23px);
+      line-height: 1.18;
+      margin: 10% 0 9%;
+    }
+
+    .step-card p {
+      color: var(--muted);
+      font-size: clamp(11px, 1.2vw, 15px);
+      line-height: 1.38;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 3.5%;
+      margin-top: 4.2%;
+    }
+
+    .day strong {
+      color: var(--teal);
+      font-size: clamp(14px, 1.5vw, 19px);
+    }
+
+    .day .card {
+      margin-top: 3.4%;
+      padding: 8%;
+      min-height: 270px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 1.6%;
+      align-items: center;
+      margin-top: 5.2%;
+    }
+
+    .flow-node {
+      min-height: 88px;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: var(--radius);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 8%;
+      font-size: clamp(13px, 1.55vw, 20px);
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .issue-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 2.4%;
+      margin-top: 4.3%;
+    }
+
+    .issue {
+      grid-column: span 2;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 6.3%;
+      min-height: 128px;
+    }
+
+    .issue:nth-child(4),
+    .issue:nth-child(5) {
+      grid-column: span 3;
+    }
+
+    .issue h3 {
+      color: var(--teal);
+      font-size: clamp(16px, 1.9vw, 24px);
+      margin-bottom: 4.5%;
+    }
+
+    .issue p {
+      color: var(--muted);
+      font-size: clamp(12px, 1.35vw, 17px);
+      line-height: 1.42;
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 5.5%;
+      margin-top: 4%;
+    }
+
+    .number-list {
+      display: grid;
+      gap: clamp(13px, 1.8vw, 23px);
+    }
+
+    .number-item {
+      display: grid;
+      grid-template-columns: clamp(30px, 3.2vw, 38px) minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+      font-size: clamp(16px, 1.9vw, 24px);
+      font-weight: 700;
+    }
+
+    .badge {
+      width: clamp(30px, 3.2vw, 38px);
+      height: clamp(30px, 3.2vw, 38px);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--teal);
+      color: #fff;
+      font-size: clamp(12px, 1.3vw, 16px);
+      font-weight: 900;
+    }
+
+    .plan-card {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 5.2%;
+      min-height: 124px;
+    }
+
+    .plan-card b {
+      color: var(--teal);
+      font-size: clamp(12px, 1.2vw, 16px);
+    }
+
+    .plan-card h3 {
+      font-size: clamp(17px, 1.9vw, 24px);
+      margin: 1.5% 0 3%;
+    }
+
+    .plan-card p {
+      color: var(--muted);
+      font-size: clamp(12px, 1.25vw, 16px);
+      line-height: 1.42;
+    }
+
+    .bottom-line {
+      position: absolute;
+      left: 6.4%;
+      right: 6.4%;
+      bottom: 5.2%;
+      padding-top: 1.5%;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: clamp(12px, 1.35vw, 17px);
+    }
+
+    .title-slide {
+      background:
+        linear-gradient(115deg, rgba(10, 31, 51, .98) 0%, rgba(8, 117, 126, .95) 100%),
+        radial-gradient(circle at 80% 18%, rgba(255, 255, 255, .34), transparent 26%);
+      color: #fff;
+    }
+
+    .title-slide .slide-inner {
+      padding: 10.6% 6.6%;
+    }
+
+    .title-slide h1 {
+      max-width: 72%;
+      margin-bottom: 1.8%;
+    }
+
+    .title-slide .subtitle {
+      font-size: clamp(21px, 2.8vw, 36px);
+      line-height: 1.25;
+      color: #e3faf8;
+      font-weight: 800;
+      margin-bottom: 3.7%;
+      max-width: 76%;
+    }
+
+    .title-slide .meta {
+      font-size: clamp(15px, 1.75vw, 23px);
+      color: #edf7f9;
+      margin-bottom: 8%;
+    }
+
+    .keyword-box {
+      display: inline-block;
+      border: 1px solid rgba(255, 255, 255, .28);
+      background: rgba(255, 255, 255, .11);
+      border-radius: var(--radius);
+      padding: 1.9% 2.4%;
+      font-size: clamp(14px, 1.7vw, 22px);
+      font-weight: 800;
+    }
+
+    .footer {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+      padding: 14px 22px;
+      border-top: 1px solid var(--line);
+      background: rgba(255, 255, 255, .72);
+    }
+
+    .notes {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+      max-width: 980px;
+    }
+
+    .notes b {
+      color: var(--ink);
+      margin-right: 6px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .mobile-menu {
+      display: none;
+    }
+
+    @media (max-width: 920px) {
+      .app { grid-template-columns: 1fr; }
+      .sidebar {
+        display: none;
+        position: fixed;
+        z-index: 20;
+        width: min(86vw, 330px);
+        box-shadow: 0 24px 60px rgba(16, 32, 51, .22);
+      }
+      .sidebar.is-open { display: block; }
+      .mobile-menu { display: inline-grid; }
+      .stage { padding: 18px 12px; align-items: start; }
+      .slide { width: 100%; }
+      .footer { grid-template-columns: 1fr; }
+      .nav { justify-content: space-between; }
+      .topbar { padding: 12px; }
+      .progress-wrap { max-width: none; }
+    }
+
+    @media (max-width: 680px) {
+      .slide {
+        aspect-ratio: auto;
+        min-height: 72vh;
+      }
+      .slide-inner {
+        position: relative;
+        inset: auto;
+        padding: 24px;
+      }
+      h1, h2, .lead { max-width: none; }
+      .page-no { top: 18px; right: 22px; }
+      .two-col,
+      .three-col,
+      .two-by-two,
+      .steps,
+      .timeline,
+      .flow,
+      .issue-grid,
+      .method-grid {
+        grid-template-columns: 1fr;
+      }
+      .issue,
+      .issue:nth-child(4),
+      .issue:nth-child(5) {
+        grid-column: auto;
+      }
+      .bottom-line {
+        position: static;
+        margin-top: 22px;
+      }
+      .card, .step-card, .day .card { min-height: auto; }
+      .flow-node { min-height: 70px; }
+      .actions .text-btn { display: none; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .app { display: block; }
+      .sidebar, .topbar, .footer { display: none; }
+      .stage { display: block; padding: 0; }
+      .slide {
+        display: block !important;
+        width: 100vw;
+        height: 100vh;
+        aspect-ratio: auto;
+        box-shadow: none;
+        border: 0;
+        border-radius: 0;
+        break-after: page;
+      }
+      .slide-inner { position: absolute; inset: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar" aria-label="页面目录">
+      <div class="deck-label">
+        <div class="mark">AI</div>
+        <div>
+          <strong>AI 提效落地复盘</strong>
+          <span>退费率播报样板</span>
+        </div>
+      </div>
+      <nav class="thumbs" id="thumbs"></nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn mobile-menu" id="menuBtn" title="打开目录" aria-label="打开目录">☰</button>
+        <div class="progress-wrap" aria-label="演示进度">
+          <div class="progress-text">
+            <span id="pageText">第 1 / 10 页</span>
+            <span>6 月 19-21 日工作总结</span>
+          </div>
+          <div class="progress"><span id="progressBar"></span></div>
+        </div>
+        <div class="actions">
+          <button class="icon-btn" id="prevBtn" title="上一页" aria-label="上一页">‹</button>
+          <button class="icon-btn" id="nextBtn" title="下一页" aria-label="下一页">›</button>
+          <button class="text-btn" id="noteBtn" aria-pressed="true">备注</button>
+          <button class="text-btn" id="printBtn">打印/PDF</button>
+          <button class="text-btn" id="shareBtn">复制链接</button>
+        </div>
+      </header>
+
+      <section class="stage" aria-live="polite">
+        <article class="slide title-slide is-active" data-title="标题页" data-note="这次分享不讲 AI 概念，而是复盘一次真实落地：如何参考《管理者如何带团队用 AI》的思路，从退费率播报切入，把 AI 提效推进到可跑、可查、可迭代的工作流。">
+          <div class="slide-inner">
+            <h1>从退费率播报开始</h1>
+            <p class="subtitle">运营团队 AI 提效第一轮落地复盘</p>
+            <p class="meta">6 月 19-21 日工作总结｜从工具链验证到业务样板跑通</p>
+            <div class="keyword-box">真实任务 / 数据口径 / 钉钉播报 / 工作流沉淀</div>
+            <div class="bottom-line" style="border-color: rgba(255,255,255,.28); color: #dff7f6;">内部分享草稿</div>
+          </div>
+        </article>
+
+        <article class="slide" data-title="为什么现在要做 AI 提效" data-note="运营、数据策略、运维都有大量重复的信息处理工作。第一阶段不追求 AI 替人决策，而是先把低风险、可检查的工作交给 AI：收集、整理、生成初稿、提醒和初步分析。">
+          <div class="slide-inner">
+            <div class="kicker">运营团队 AI 提效落地复盘</div>
+            <div class="page-no">02</div>
+            <h2>为什么现在要做 AI 提效</h2>
+            <p class="lead">重点不是先买工具，而是先找到真实、高频、可检查的工作。</p>
+            <div class="body-grid two-col">
+              <ul>
+                <li>运营数据定期查看、汇总、播报</li>
+                <li>客户 / 项目沟通信息整理</li>
+                <li>日报、周报、复盘材料生成</li>
+                <li>异常数据初步识别和提醒</li>
+                <li>跨工具信息搬运、格式整理、文档沉淀</li>
+              </ul>
+              <div class="callout amber">第一阶段不追求全自动决策。<br>让 AI 先承担收集、整理、生成、提醒和初步分析；人继续负责判断、确认和行动。</div>
+            </div>
+            <div class="bottom-line">把 AI 放进真实岗位工作，而不是停留在抽象能力演示。</div>
+          </div>
+        </article>
+
+        <article class="slide" data-title="参考框架：先盘工作，再买工具" data-note="这轮落地借用了书里的框架：先盘工作、再选工具、重新分工、让流程稳定，最后形成团队能力。退费率播报就是按这个路径挑出来的第一个样板。">
+          <div class="slide-inner">
+            <div class="kicker">运营团队 AI 提效落地复盘</div>
+            <div class="page-no">03</div>
+            <h2>参考框架：先盘工作，再买工具</h2>
+            <p class="lead">这几天基本按《管理者如何带团队用 AI》的思路，把任务、工具和分工重新串起来。</p>
+            <div class="steps">
+              <div class="step-card"><b>01</b><h3>先盘工作</h3><p>找出重复、高频、可标准化任务</p></div>
+              <div class="step-card"><b>02</b><h3>再选工具</h3><p>连接数据源、文档、IM、自动化工具</p></div>
+              <div class="step-card"><b>03</b><h3>重新分工</h3><p>AI 做信息处理和初稿，人做判断</p></div>
+              <div class="step-card"><b>04</b><h3>让它稳定</h3><p>固化流程、口径、格式、异常处理</p></div>
+              <div class="step-card"><b>05</b><h3>形成能力</h3><p>从单个样板扩展到团队机制</p></div>
+            </div>
+            <div class="callout" style="margin-top: 5%;">这次不是从大模型能力清单出发，而是从退费率播报这个真实场景反推流程和工具。</div>
+          </div>
+        </article>
+
+        <article class="slide" data-title="三天工作路线" data-note="这三天不是零散尝试，而是一条推进线：19 号验证工具链和数据链路，20 号补齐钉钉 OpenClaw、Gateway 和机器人能力，21 号把退费率播报推进到可复用版本，并开始沉淀版本文档、调度和 Skill。">
+          <div class="slide-inner">
+            <div class="kicker">运营团队 AI 提效落地复盘</div>
+            <div class="page-no">04</div>
+            <h2>三天工作路线</h2>
+            <div class="timeline">
+              <section class="day"><strong>6 月 19 日</strong><div class="card"><h3>验证工具链和数据链路</h3><ul><li>验证 DingTalk / DWS、Feishu、DataFinder、Codex 协作路径</li><li>尝试读取数据、生成报表、推送消息、写入文档</li><li>暴露出数据口径、消息展示、工具调用稳定性等问题</li></ul></div></section>
+              <section class="day"><strong style="color: var(--amber);">6 月 20 日</strong><div class="card"><h3>补齐钉钉和 OpenClaw 能力</h3><ul><li>安装和修复 DingTalk OpenClaw / Gateway</li><li>验证机器人、网关、插件、健康检查</li><li>为后续钉钉卡片和自动化播报打基础</li></ul></div></section>
+              <section class="day"><strong style="color: var(--blue);">6 月 21 日</strong><div class="card"><h3>退费率播报进入可复用版本</h3><ul><li>完善退费率播报字段和展示格式</li><li>修正分时 / 全天对比口径</li><li>补充青龙调度、版本文档、Skill 沉淀</li></ul></div></section>
+            </div>
+            <div class="bottom-line">三天路线从“工具能不能用”，推进到“业务流程能不能稳定复用”。</div>
+          </div>
+        </article>
+
+        <article class="slide" data-title="样板案例：退费率播报" data-note="退费率播报表面上是一条钉钉消息，实际包含取数、聚合、计算、对比、格式生成、机器人推送和经验沉淀。它的意义是把 AI 放进完整业务链路，而不是只停留在文本生成。">
+          <div class="slide-inner">
+            <div class="kicker">运营团队 AI 提效落地复盘</div>
+            <div class="page-no">05</div>
+            <h2>样板案例：退费率播报</h2>
+            <p class="lead">退费率播报是第一轮样板：表面是一条消息，背后是一条可验证的工作流。</p>
+            <div class="flow">
+              <div class="flow-node">DataFinder<br>取数</div>
+              <div class="flow-node">企业维度<br>聚合</div>
+              <div class="flow-node">指标计算<br>与对比</div>
+              <div class="flow-node">钉钉格式<br>生成</div>
+              <div class="flow-node">机器人<br>推送</div>
+              <div class="flow-node">文档 / Skill<br>沉淀</div>
+            </div>
+            <div class="body-grid" style="margin-top: 5%;">
+              <ul>
+                <li>计算退费率、退费金额、支付金额、退费后金额等指标</li>
+                <li>对比昨日同分时、前日 / 昨日全天参考值</li>
+                <li>把数据、格式、播报、文档、验证连接成一条业务链路</li>
+              </ul>
+            </div>
+            <div class="bottom-line">价值不在于 AI 生成了文字，而在于它进入了数据、口径、播报、验证和沉淀的完整链路。</div>
+          </div>
+        </article>
+
+        <article class="slide" data-title="过程中发现的关键问题" data-note="这次最大的收获是，真正落地时问题往往不是模型能力，而是数据口径、展示效果、时间窗口、格式稳定性和工具链稳定性。AI 提效不是让 AI 想一下就结束，而是把真实业务里的坑跑出来、修掉、固化。">
+          <div class="slide-inner">
+            <div class="kicker">运营团队 AI 提效落地复盘</div>
+            <div class="page-no">06</div>
+            <h2>过程中发现的关键问题</h2>
+            <div class="issue-grid">
+              <section class="issue"><h3 style="color: var(--red);">数据口径</h3><p>最开始容易把 PV、事件数、金额合计混在一起，需要明确金额字段必须按正确方式聚合。</p></section>
+              <section class="issue"><h3>展示问题</h3><p>DingTalk API 返回成功，不代表客户端展示正确；需要看真实消息效果。</p></section>
+              <section class="issue"><h3>时间窗口</h3><p>0 点播报不能查 00:00-00:00 空窗口，需要特殊处理为昨日全天对比前日全天。</p></section>
+              <section class="issue"><h3>格式问题</h3><p>长表格、多行 Markdown 在钉钉里不一定稳定，需要改成更适合阅读的卡片 / 图片表格。</p></section>
+              <section class="issue"><h3>稳定性问题</h3><p>工具链安装、网关、权限、调度、日志都要纳入验证。</p></section>
+            </div>
+            <div class="bottom-line">落地难点往往不在模型本身，而在数据口径、工具稳定性和流程边界。</div>
+          </div>
+        </article>
+
+        <article class="slide" data-title="这次形成的初步方法" data-note="这次可以提炼成一个方法：先选真实、高频、低风险任务；明确输入来源和输出格式；跑通最小样板；做口径校验和展示验证；最后沉淀文档和 Skill，让下一次不是重新开始。">
+          <div class="slide-inner">
+            <div class="kicker">运营团队 AI 提效落地复盘</div>
+            <div class="page-no">07</div>
+            <h2>这次形成的初步方法</h2>
+            <p class="lead">第一轮验证后，可以把“单次试验”整理成团队可复制的方法。</p>
+            <div class="method-grid">
+              <div class="number-list">
+                <div class="number-item"><span class="badge">1</span><span>选一个真实、高频、低风险任务</span></div>
+                <div class="number-item"><span class="badge">2</span><span>明确输入来源：数据、文档、消息在哪里</span></div>
+                <div class="number-item"><span class="badge">3</span><span>明确输出格式：给谁看、频率和字段</span></div>
+                <div class="number-item"><span class="badge">4</span><span>跑通最小样板：能查、能生成、能发、能看</span></div>
+              </div>
+              <div class="number-list">
+                <div class="number-item"><span class="badge" style="background: var(--blue);">5</span><span>做口径校验：确认准确性和边界情况</span></div>
+                <div class="number-item"><span class="badge" style="background: var(--blue);">6</span><span>做展示验证：确认接收方真的看得懂</span></div>
+                <div class="number-item"><span class="badge" style="background: var(--blue);">7</span><span>沉淀文档和 Skill：下一次不是重新来过</span></div>
+                <div class="number-item"><span class="badge" style="background: var(--blue);">8</span><span>持续迭代：根据团队反馈优化流程</span></div>
+              </div>
+            </div>
+            <div class="bottom-line">核心不是多做几个尝试，而是让每次尝试都能沉淀成下一次的起点。</div>
+          </div>
+        </article>
+
+        <article class="slide" data-title="对不同角色的价值" data-note="对运营组长，它减少重复查数和播报，把精力释放到判断和跟进；对数据和策略组长，它推动指标口径标准化；对运维，它把机器人、调度、服务、日志和健康检查纳入可维护链路。">
+          <div class="slide-inner">
+            <div class="kicker">运营团队 AI 提效落地复盘</div>
+            <div class="page-no">08</div>
+            <h2>对不同角色的价值</h2>
+            <div class="body-grid three-col">
+              <section class="card" style="border-top: 8px solid var(--teal);"><h3>对运营组长</h3><ul><li>减少重复查数、整理、播报时间</li><li>更快看到异常企业和异常指标</li><li>把精力放在判断原因和推动动作上</li></ul></section>
+              <section class="card" style="border-top: 8px solid var(--blue);"><h3>对数据和策略组长</h3><ul><li>推动指标口径标准化</li><li>减少“数据看起来有了，但口径不稳”的问题</li><li>让策略分析从临时取数变成可复用模板</li></ul></section>
+              <section class="card" style="border-top: 8px solid var(--amber);"><h3>对运维</h3><ul><li>明确机器人、调度、服务、日志、健康检查责任边界</li><li>将播报从手工动作变成可维护任务</li><li>提前暴露权限、网关、客户端展示等稳定性问题</li></ul></section>
+            </div>
+            <div class="bottom-line">这不是单点工具实验，而是运营、数据策略、运维一起维护的工作机制。</div>
+          </div>
+        </article>
+
+        <article class="slide" data-title="下一步计划" data-note="下一步重点不是增加零散尝试，而是四件事：梳理任务，优化数据源准确性，明确工作流和格式，持续迭代并让 AI 融入团队日常。">
+          <div class="slide-inner">
+            <div class="kicker">运营团队 AI 提效落地复盘</div>
+            <div class="page-no">09</div>
+            <h2>下一步计划</h2>
+            <p class="lead">接下来减少零散尝试，围绕任务、数据源、工作流和输出格式持续迭代。</p>
+            <div class="body-grid two-by-two">
+              <section class="plan-card"><b>01</b><h3>梳理任务</h3><p>盘点运营、数据策略、运维各自高频重复任务，按频率、风险、输入清晰度、输出清晰度排序。</p></section>
+              <section class="plan-card"><b>02</b><h3>优化数据源准确性</h3><p>明确每个指标的数据来源、统计口径、时间窗口、异常边界，避免 AI 放大错误数据。</p></section>
+              <section class="plan-card"><b>03</b><h3>明确工作流和格式</h3><p>固定触发方式、执行步骤、人工确认点、输出模板、失败处理方式。</p></section>
+              <section class="plan-card"><b>04</b><h3>持续迭代和团队融入</h3><p>先从退费率播报样板开始，再扩展到日报、周报、客户风险提醒、运营复盘等场景。</p></section>
+            </div>
+          </div>
+        </article>
+
+        <article class="slide" data-title="结尾：AI 提效的判断标准" data-note="判断 AI 有没有真正提效，不看接入了多少工具，而看团队工作方式有没有变得更稳：重复整理是否减少，信息是否更快被看见，输出是否更稳定，人的判断是否保留，经验是否能复用到下一个任务。">
+          <div class="slide-inner">
+            <div class="kicker">运营团队 AI 提效落地复盘</div>
+            <div class="page-no">10</div>
+            <h2>结尾：AI 提效的判断标准</h2>
+            <div class="body-grid two-col">
+              <ul>
+                <li>是否减少了重复整理时间</li>
+                <li>是否让数据和信息更快被看见</li>
+                <li>是否让输出格式更稳定</li>
+                <li>是否保留了人的判断和确认</li>
+                <li>是否能被复用到下一个任务</li>
+                <li>是否沉淀成团队可继承的方法</li>
+              </ul>
+              <div class="callout green">退费率播报只是起点。<br>真正的目标，是让 AI 从个人尝试变成团队工作流的一部分。</div>
+            </div>
+            <div class="bottom-line">让团队更快发现问题、更稳处理问题，并把每次复盘变成下一轮效率提升。</div>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer">
+        <div class="notes" id="notes"><b>口播：</b><span></span></div>
+        <div class="nav">
+          <button class="text-btn" id="firstBtn">首页</button>
+          <button class="text-btn" id="lastBtn">末页</button>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const thumbs = document.getElementById("thumbs");
+    const pageText = document.getElementById("pageText");
+    const progressBar = document.getElementById("progressBar");
+    const notes = document.getElementById("notes");
+    const notesText = notes.querySelector("span");
+    const sidebar = document.getElementById("sidebar");
+    let current = 0;
+    let notesVisible = true;
+
+    function subtitleFor(index) {
+      const map = [
+        "工作总结",
+        "问题定义",
+        "落地框架",
+        "三天路线",
+        "样板案例",
+        "关键问题",
+        "复制方法",
+        "角色价值",
+        "下一步",
+        "判断标准"
+      ];
+      return map[index] || "";
+    }
+
+    function buildThumbs() {
+      thumbs.innerHTML = "";
+      slides.forEach((slide, index) => {
+        const button = document.createElement("button");
+        button.className = "thumb";
+        button.type = "button";
+        button.innerHTML = `<span class="no">${String(index + 1).padStart(2, "0")}</span><span><b>${slide.dataset.title}</b><small>${subtitleFor(index)}</small></span>`;
+        button.addEventListener("click", () => {
+          go(index);
+          sidebar.classList.remove("is-open");
+        });
+        thumbs.appendChild(button);
+      });
+    }
+
+    function go(index) {
+      current = Math.max(0, Math.min(slides.length - 1, index));
+      slides.forEach((slide, i) => slide.classList.toggle("is-active", i === current));
+      Array.from(thumbs.children).forEach((thumb, i) => {
+        thumb.setAttribute("aria-current", String(i === current));
+      });
+      pageText.textContent = `第 ${current + 1} / ${slides.length} 页`;
+      progressBar.style.width = `${((current + 1) / slides.length) * 100}%`;
+      notesText.textContent = slides[current].dataset.note || "";
+      location.hash = `slide-${current + 1}`;
+    }
+
+    function copyLink() {
+      const url = `${location.href.split("#")[0]}#slide-${current + 1}`;
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(url).then(() => {
+          document.getElementById("shareBtn").textContent = "已复制";
+          setTimeout(() => document.getElementById("shareBtn").textContent = "复制链接", 1200);
+        });
+      } else {
+        prompt("复制当前页链接", url);
+      }
+    }
+
+    document.getElementById("prevBtn").addEventListener("click", () => go(current - 1));
+    document.getElementById("nextBtn").addEventListener("click", () => go(current + 1));
+    document.getElementById("firstBtn").addEventListener("click", () => go(0));
+    document.getElementById("lastBtn").addEventListener("click", () => go(slides.length - 1));
+    document.getElementById("printBtn").addEventListener("click", () => window.print());
+    document.getElementById("shareBtn").addEventListener("click", copyLink);
+    document.getElementById("menuBtn").addEventListener("click", () => sidebar.classList.toggle("is-open"));
+    document.getElementById("noteBtn").addEventListener("click", (event) => {
+      notesVisible = !notesVisible;
+      notes.style.display = notesVisible ? "" : "none";
+      event.currentTarget.setAttribute("aria-pressed", String(notesVisible));
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight" || event.key === "PageDown" || event.key === " ") {
+        event.preventDefault();
+        go(current + 1);
+      }
+      if (event.key === "ArrowLeft" || event.key === "PageUp") {
+        event.preventDefault();
+        go(current - 1);
+      }
+      if (event.key === "Home") go(0);
+      if (event.key === "End") go(slides.length - 1);
+      if (event.key === "Escape") sidebar.classList.remove("is-open");
+    });
+
+    buildThumbs();
+    const initial = Number((location.hash.match(/slide-(\d+)/) || [])[1]);
+    go(Number.isFinite(initial) && initial > 0 ? initial - 1 : 0);
+  </script>
+</body>
+</html>

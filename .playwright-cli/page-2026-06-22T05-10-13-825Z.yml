@@ -1,0 +1,308 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]: 运营团队 AI 提效落地复盘
+  - main [ref=e5]:
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - heading "从退费率播报开始" [level=1] [ref=e9]
+        - paragraph [ref=e10]: 运营团队 AI 提效的第一轮落地复盘
+        - paragraph [ref=e11]: 6 月 19-21 日工作总结｜工具链验证与业务样板落地
+        - generic [ref=e12]:
+          - generic [ref=e13]: 真实任务
+          - generic [ref=e14]: 数据口径
+          - generic [ref=e15]: 钉钉播报
+          - generic [ref=e16]: 工作流沉淀
+      - generic [ref=e17]: 内部分享材料
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - generic [ref=e21]: 运营团队 AI 提效落地复盘
+        - generic [ref=e22]: "01"
+      - heading "痛点：高重复耗时任务" [level=2] [ref=e23]
+      - paragraph [ref=e25]: 工作中存在一些大量消耗时间、重复性，但又比较标准化的内容
+      - list [ref=e26]:
+        - listitem [ref=e27]: 数据跟进耗时多：日报、周报、复盘等占用时间多
+        - listitem [ref=e28]: 项目跟进工作耗时多：客服支持，查订单，定位bug跟进消耗大量时间
+        - listitem [ref=e29]: 问题发现滞后：需求配置上线之后，对数据和用户反馈跟进不及时，对于是否存在异常反应慢，发现问题之后跟进也比较慢
+        - listitem [ref=e30]: 销售支持响应不足：上述任务消耗大量时间后，对销售支持，例如询问客户配置、排期、数据、方案设计等不够快
+        - listitem [ref=e31]: 需求完成速度不足：已经发现的用户、客户需求点，梳理需求、开发demo的速度不够快，往往ppt已经出去了，但是需求还一直没时间写
+      - generic [ref=e32]: 让 AI 进入真实岗位流程，而非停留在能力演示。
+    - generic [ref=e34]:
+      - generic [ref=e35]:
+        - generic [ref=e36]: 运营团队 AI 提效落地复盘
+        - generic [ref=e37]: "01"
+      - heading "AI 提效项目：根据痛点选择试点项目" [level=2] [ref=e38]
+      - paragraph [ref=e40]: 优先选择真实、重复、低风险的岗位任务作为 AI 试点
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - list [ref=e43]:
+            - listitem [ref=e44]: 数据播报、监控与预警：定时播报、条件触发、上线后数据跟进
+            - listitem [ref=e45]: 信息整理：客户舆情与用户反馈的收集、播报和预警
+            - listitem [ref=e46]: 汇报初稿：日报、周报、复盘材料生成初稿
+            - listitem [ref=e47]: 需求/异常跟进：工单创建与进度追踪
+            - listitem [ref=e48]: 文档整理：跨工具信息搬运、格式整理、文档沉淀
+          - generic [ref=e49]: 销售/运营助手：在钉钉、飞书或企业微信中调用助手，查询客户基础信息、配置情况与数据表现，并生成售前/售后方案初稿
+        - complementary [ref=e50]: 第一阶段不追求全自动决策。AI 负责收集、整理、生成、提醒和分析；人负责判断、确认与执行
+      - generic [ref=e51]: 让 AI 进入真实岗位流程，而非停留在能力演示。
+    - generic [ref=e53]:
+      - generic [ref=e54]:
+        - generic [ref=e55]: 运营团队 AI 提效落地复盘
+        - generic [ref=e56]: "02"
+      - heading "选择场景：退费率播报" [level=2] [ref=e57]
+      - heading "落地思路" [level=3] [ref=e59]
+      - generic [ref=e60]:
+        - generic [ref=e61]:
+          - generic [ref=e62]: "01"
+          - heading "梳理任务" [level=3] [ref=e63]
+          - paragraph [ref=e64]: 识别重复、高频、可标准化任务
+        - generic [ref=e66]:
+          - generic [ref=e67]: "02"
+          - heading "匹配工具" [level=3] [ref=e68]
+          - paragraph [ref=e69]: 连接数据源、文档、IM、自动化工具
+        - generic [ref=e71]:
+          - generic [ref=e72]: "03"
+          - heading "明确分工" [level=3] [ref=e73]
+          - paragraph [ref=e74]: AI 负责处理与初稿，人负责判断
+        - generic [ref=e76]:
+          - generic [ref=e77]: "04"
+          - heading "稳定运行" [level=3] [ref=e78]
+          - paragraph [ref=e79]: 固化流程、口径、格式、异常处理
+        - generic [ref=e81]:
+          - generic [ref=e82]: "05"
+          - heading "形成能力" [level=3] [ref=e83]
+          - paragraph [ref=e84]: 从单个样板扩展到团队机制
+      - generic [ref=e85]: 本次先明确真实业务场景，再围绕退费率播报推进 AI 落地。
+    - generic [ref=e87]:
+      - generic [ref=e88]:
+        - generic [ref=e89]: 运营团队 AI 提效落地复盘
+        - generic [ref=e90]: "03"
+      - heading "样板案例：退费率播报" [level=2] [ref=e91]
+      - paragraph [ref=e93]: 由 AI 生成分析脚本，并打通钉钉自动化播报/预警；当前采用本地部署方式
+      - generic [ref=e94]:
+        - figure "钉钉自动播报" [ref=e96]:
+          - img "钉钉自动播报" [ref=e97]
+          - generic [ref=e98]: 钉钉自动播报
+        - figure "播报明细表格" [ref=e100]:
+          - img "播报明细表格" [ref=e101]
+          - generic [ref=e102]: 播报明细表格
+    - generic [ref=e104]:
+      - generic [ref=e105]:
+        - generic [ref=e106]: 运营团队 AI 提效落地复盘
+        - generic [ref=e107]: "04"
+      - heading "实现工作路线" [level=2] [ref=e108]
+      - generic [ref=e110]:
+        - article [ref=e111]:
+          - generic [ref=e112]: 6 月 19 日
+          - heading "验证工具链和数据链路" [level=3] [ref=e113]
+          - list [ref=e114]:
+            - listitem [ref=e115]: 验证 DingTalk / Feishu / DataFinder / Codex 协作路径
+            - listitem [ref=e116]: 完成取数、报表生成、消息推送与文档写入验证
+            - listitem [ref=e117]: 识别数据口径、展示效果与工具稳定性问题
+        - article [ref=e118]:
+          - generic [ref=e119]: 6 月 20 日
+          - heading "补齐钉钉自动化能力" [level=3] [ref=e120]
+          - list [ref=e121]:
+            - listitem [ref=e122]: 安装和修复 DingTalk OpenClaw / Gateway
+            - listitem [ref=e123]: 验证机器人、网关、插件、健康检查
+            - listitem [ref=e124]: 为钉钉卡片与自动化播报奠定基础
+        - article [ref=e125]:
+          - generic [ref=e126]: 6 月 21 日
+          - heading "沉淀可复用播报版本" [level=3] [ref=e127]
+          - list [ref=e128]:
+            - listitem [ref=e129]: 完善字段和展示格式
+            - listitem [ref=e130]: 修正分时 / 全天对比口径
+            - listitem [ref=e131]: 补充青龙调度开关（暂未启用）、版本文档与 Skill 沉淀
+      - generic [ref=e132]: 推进重点从可用性验证转向稳定复用。
+    - generic [ref=e134]:
+      - generic [ref=e135]:
+        - generic [ref=e136]: 运营团队 AI 提效落地复盘
+        - generic [ref=e137]: "05"
+      - heading "样板案例：退费率播报" [level=2] [ref=e138]
+      - paragraph [ref=e140]: 该场景不是单次消息推送，而是一条完整的业务工作流。
+      - generic [ref=e141]:
+        - generic [ref=e142]:
+          - generic [ref=e143]: "1"
+          - generic [ref=e144]: DataFinder取数
+        - generic [ref=e146]:
+          - generic [ref=e147]: "2"
+          - generic [ref=e148]: 企业维度聚合
+        - generic [ref=e150]:
+          - generic [ref=e151]: "3"
+          - generic [ref=e152]: 指标计算与对比
+        - generic [ref=e154]:
+          - generic [ref=e155]: "4"
+          - generic [ref=e156]: 钉钉格式生成
+        - generic [ref=e158]:
+          - generic [ref=e159]: "5"
+          - generic [ref=e160]: 机器人推送
+        - generic [ref=e162]:
+          - generic [ref=e163]: "6"
+          - generic [ref=e164]: 文档/Skill沉淀
+      - list [ref=e165]:
+        - listitem [ref=e166]: 计算退费率、退费金额、支付金额、退费后金额等指标
+        - listitem [ref=e167]: 对比昨日同分时，以及前日 / 昨日全天参考值
+        - listitem [ref=e168]: 将数据、格式、播报、文档与验证串联为闭环
+      - generic [ref=e169]: 核心价值在于让 AI 嵌入真实业务链路。
+    - generic [ref=e171]:
+      - generic [ref=e172]:
+        - generic [ref=e173]: 运营团队 AI 提效落地复盘
+        - generic [ref=e174]: "06"
+      - heading "样板扩展：基于退费率播报验证更多功能" [level=2] [ref=e175]
+      - generic [ref=e177]:
+        - article [ref=e178]:
+          - heading "智能助手" [level=3] [ref=e179]
+          - paragraph [ref=e180]: 钉钉内直接提问下一步接入 Agent，支持销售/运营助手场景
+          - figure "智能助手" [ref=e181]:
+            - img "智能助手" [ref=e182]
+            - generic [ref=e183]: 智能助手
+        - article [ref=e184]:
+          - heading "自动日报/周报" [level=3] [ref=e185]
+          - paragraph [ref=e186]: 自动抓取钉钉群聊与台账，生成内部汇报
+          - paragraph [ref=e187]: 客户项目沟通与产运周报（AI 生成）
+          - figure "客户项目沟通与产运周报（AI 生成）" [ref=e188]:
+            - img "客户项目沟通与产运周报（AI 生成）" [ref=e189]
+            - generic [ref=e190]: 客户项目沟通与产运周报（AI 生成）
+    - generic [ref=e192]:
+      - generic [ref=e193]:
+        - generic [ref=e194]: 运营团队 AI 提效落地复盘
+        - generic [ref=e195]: "07"
+      - heading "样板扩展：基于退费率播报验证更多功能" [level=2] [ref=e196]
+      - generic [ref=e198]:
+        - article [ref=e199]:
+          - heading "自动复盘初稿" [level=3] [ref=e200]
+          - paragraph [ref=e201]: 生成客户复盘文档初稿
+          - paragraph [ref=e202]: 奇富 2026 年 5 月运营复盘
+          - figure "奇富 2026 年 5 月运营复盘" [ref=e203]:
+            - img "奇富 2026 年 5 月运营复盘" [ref=e204]
+            - generic [ref=e205]: 奇富 2026 年 5 月运营复盘
+        - article [ref=e206]:
+          - heading "接入禅道，实现工单与任务自动跟进" [level=3] [ref=e207]
+          - paragraph [ref=e208]: 核查禅道进度，跟进 Bug 与需求状态
+          - figure "核查禅道进度，跟进 Bug 与需求状态" [ref=e209]:
+            - img "核查禅道进度，跟进 Bug 与需求状态" [ref=e210]
+            - generic [ref=e211]: 核查禅道进度，跟进 Bug 与需求状态
+    - generic [ref=e213]:
+      - generic [ref=e214]:
+        - generic [ref=e215]: 运营团队 AI 提效落地复盘
+        - generic [ref=e216]: "08"
+      - heading "整体思路" [level=2] [ref=e217]
+      - generic [ref=e219]:
+        - generic [ref=e220]:
+          - heading "输入与输出" [level=3] [ref=e221]
+          - generic [ref=e222]: 钉钉、飞书、企业微信均支持 MCP 接入
+          - generic [ref=e223]: 数据库：收集与清洗
+          - generic [ref=e224]: 飞书知识库鉴云数仓（生产库、爬虫数据）外部数据源（客服、外网等）
+        - generic [ref=e225]:
+          - heading "应用层：Agent / Workflow" [level=3] [ref=e226]
+          - paragraph [ref=e227]: 播报/监控/预警汇报文档初稿智能助手信息爬取、清洗、整理
+        - list [ref=e229]:
+          - listitem [ref=e230]: 数据播报、监控和预警
+          - listitem [ref=e231]: 舆情、合作伙伴需求、用户反馈播报
+          - listitem [ref=e232]: 汇报初稿
+          - listitem [ref=e233]: 需求/异常跟进
+          - listitem [ref=e234]: 文档整理与自动化清洗
+          - listitem [ref=e235]: 销售/运营智能助手
+    - generic [ref=e237]:
+      - generic [ref=e238]:
+        - generic [ref=e239]: 运营团队 AI 提效落地复盘
+        - generic [ref=e240]: "09"
+      - heading "本次沉淀的初步方法" [level=2] [ref=e241]
+      - paragraph [ref=e243]: AI 工作流可按 8 个步骤从设想到落地。
+      - generic [ref=e244]:
+        - generic [ref=e245]:
+          - generic [ref=e246]:
+            - generic [ref=e247]: "1"
+            - heading "选真实、高频、低风险任务" [level=3] [ref=e248]
+            - paragraph
+          - generic [ref=e249]:
+            - generic [ref=e250]: "2"
+            - heading "明确输入来源" [level=3] [ref=e251]
+            - paragraph
+          - generic [ref=e252]:
+            - generic [ref=e253]: "3"
+            - heading "明确输出格式" [level=3] [ref=e254]
+            - paragraph
+          - generic [ref=e255]:
+            - generic [ref=e256]: "4"
+            - heading "跑通最小样板" [level=3] [ref=e257]
+            - paragraph
+        - generic [ref=e258]:
+          - generic [ref=e259]:
+            - generic [ref=e260]: "1"
+            - heading "做口径校验" [level=3] [ref=e261]
+            - paragraph
+          - generic [ref=e262]:
+            - generic [ref=e263]: "2"
+            - heading "做展示验证" [level=3] [ref=e264]
+            - paragraph
+          - generic [ref=e265]:
+            - generic [ref=e266]: "3"
+            - heading "沉淀文档和 Skill" [level=3] [ref=e267]
+            - paragraph
+          - generic [ref=e268]:
+            - generic [ref=e269]: "4"
+            - heading "根据反馈持续迭代" [level=3] [ref=e270]
+            - paragraph
+      - generic [ref=e271]: 核心是从单点尝试沉淀为可复用闭环。
+    - generic [ref=e273]:
+      - generic [ref=e274]:
+        - generic [ref=e275]: 运营团队 AI 提效落地复盘
+        - generic [ref=e276]: "10"
+      - heading "下一步行动：梳理任务、明确目标、启动建设" [level=2] [ref=e277]
+      - generic [ref=e279]:
+        - article [ref=e280]:
+          - heading "运营" [level=3] [ref=e281]
+          - list [ref=e282]:
+            - listitem [ref=e283]: 梳理岗位任务清单，本周选择 1-2 个高频、低风险任务
+            - listitem [ref=e284]: 梳理工作流并助手化，明确人机协作边界与 AI 验收标准
+            - listitem [ref=e285]: 知识库建设（飞书、本地）
+            - listitem [ref=e286]: 每周复盘 AI 对工作效能的提升效果与风险点，并持续迭代
+        - article [ref=e287]:
+          - heading "数据" [level=3] [ref=e288]
+          - list [ref=e289]:
+            - listitem [ref=e290]: 基建：数据收集、清洗、知识库管理等
+            - listitem [ref=e291]: 接口：安全、稳定、高效地供 AI 使用
+            - listitem [ref=e292]: 持续沉淀分析模板
+        - article [ref=e293]:
+          - heading "运维/数仓" [level=3] [ref=e294]
+          - list [ref=e295]:
+            - listitem [ref=e296]: 自动化、安全边界
+      - generic [ref=e297]: 不是单点工具实验，而是运营、数据策略、运维的协同机制。
+    - generic [ref=e299]:
+      - generic [ref=e300]:
+        - generic [ref=e301]: 运营团队 AI 提效落地复盘
+        - generic [ref=e302]: "11"
+      - heading "下一步计划：整体推进框架" [level=2] [ref=e303]
+      - paragraph [ref=e305]: 下一阶段聚焦任务、数据源、工作流与输出格式的持续迭代。
+      - generic [ref=e306]:
+        - generic [ref=e307]:
+          - generic [ref=e308]: "01"
+          - heading "梳理任务" [level=3] [ref=e309]
+          - paragraph [ref=e310]: 盘点运营、数据策略、运维高频重复任务，按频率、风险、输入和输出清晰度排序。
+        - generic [ref=e311]:
+          - generic [ref=e312]: "02"
+          - heading "提升数据源准确性" [level=3] [ref=e313]
+          - paragraph [ref=e314]: 明确每个指标的数据来源、统计口径、时间窗口、异常边界，避免 AI 放大错误数据。
+        - generic [ref=e315]:
+          - generic [ref=e316]: "03"
+          - heading "明确工作流和格式" [level=3] [ref=e317]
+          - paragraph [ref=e318]: 固定触发方式、执行步骤、人工确认点、输出模板、失败处理方式。
+        - generic [ref=e319]:
+          - generic [ref=e320]: "04"
+          - heading "持续迭代与团队融入" [level=3] [ref=e321]
+          - paragraph [ref=e322]: 从退费率播报样板扩展到日报、周报、客户风险提醒和运营复盘等场景。
+    - generic [ref=e324]:
+      - generic [ref=e325]:
+        - generic [ref=e326]: 运营团队 AI 提效落地复盘
+        - generic [ref=e327]: "12"
+      - heading "下一步计划：AI 协作验收标准" [level=2] [ref=e328]
+      - generic [ref=e330]:
+        - list [ref=e331]:
+          - listitem [ref=e332]: 是否减少重复整理时间
+          - listitem [ref=e333]: 是否提升数据与信息的可见速度
+          - listitem [ref=e334]: 是否让输出格式更稳定
+          - listitem [ref=e335]: 是否保留人工判断与确认环节
+          - listitem [ref=e336]: 是否能被复用到下一个任务
+          - listitem [ref=e337]: 是否沉淀成团队可继承的方法
+        - complementary [ref=e338]: 退费率播报只是起点。真正目标是让 AI 从个人尝试转化为团队工作流能力。
+      - generic [ref=e339]: 帮助运营与数据策略团队更快发现问题、更稳处理问题，并更高效完成复盘。
+  - contentinfo [ref=e340]: 本地核对版｜基于《AI运营助手效果汇报.pptx》按 PPT 版式网页化整理

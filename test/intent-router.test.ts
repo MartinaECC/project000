@@ -37,3 +37,54 @@ test('routes this week group summary requests', () => {
 test('routes normal chat requests as unknown', () => {
   assert.deepEqual(routeIntent('\u4f60\u662f\u8c01'), { type: 'unknown' });
 });
+
+test('routes tagged intake messages', () => {
+  assert.deepEqual(routeIntent('[\u5f85\u529e] \u660e\u5929\u8ddf\u8fdb EcoCC \u767d\u540d\u5355'), {
+    type: 'capture_intake',
+    itemType: '\u5f85\u529e',
+    label: '\u5f85\u529e',
+    text: '\u660e\u5929\u8ddf\u8fdb EcoCC \u767d\u540d\u5355',
+    rawText: '[\u5f85\u529e] \u660e\u5929\u8ddf\u8fdb EcoCC \u767d\u540d\u5355'
+  });
+  assert.deepEqual(routeIntent('\uff3b\u8fdb\u5ea6\uff3d EcoCC Stream \u5df2\u8fde\u901a'), {
+    type: 'capture_intake',
+    itemType: '\u8fdb\u5ea6',
+    label: '\u8fdb\u5ea6',
+    text: 'EcoCC Stream \u5df2\u8fde\u901a',
+    rawText: '\uff3b\u8fdb\u5ea6\uff3d EcoCC Stream \u5df2\u8fde\u901a'
+  });
+});
+
+test('does not route unsupported labels as intake', () => {
+  assert.deepEqual(routeIntent('[\u968f\u624b\u8bb0] \u666e\u901a\u804a\u5929'), { type: 'unknown' });
+});
+
+test('routes recent todo list requests', () => {
+  assert.deepEqual(routeIntent('\u628a\u6700\u8fd1\u7684\u5f85\u529e\u6574\u7406\u51fa\u6765\u53d1\u7ed9\u6211'), {
+    type: 'list_recent_todos',
+    days: 7,
+    limit: 10
+  });
+  assert.deepEqual(routeIntent('\u6211\u6709\u54ea\u4e9b\u5f85\u529e'), {
+    type: 'list_recent_todos',
+    days: 7,
+    limit: 10
+  });
+});
+
+test('routes natural-language todo capture requests', () => {
+  assert.deepEqual(routeIntent('\u8bb0\u4e2a\u5f85\u529e \u660e\u5929\u8ddf\u8fdb EcoCC \u4f53\u9a8c'), {
+    type: 'capture_intake',
+    itemType: '\u5f85\u529e',
+    label: '\u5f85\u529e',
+    text: '\u660e\u5929\u8ddf\u8fdb EcoCC \u4f53\u9a8c',
+    rawText: '\u8bb0\u4e2a\u5f85\u529e \u660e\u5929\u8ddf\u8fdb EcoCC \u4f53\u9a8c'
+  });
+  assert.deepEqual(routeIntent('\u63d0\u9192\u6211\u4e0b\u5348\u770b\u5ba2\u6237\u65b9\u6848'), {
+    type: 'capture_intake',
+    itemType: '\u5f85\u529e',
+    label: '\u5f85\u529e',
+    text: '\u4e0b\u5348\u770b\u5ba2\u6237\u65b9\u6848',
+    rawText: '\u63d0\u9192\u6211\u4e0b\u5348\u770b\u5ba2\u6237\u65b9\u6848'
+  });
+});

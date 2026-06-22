@@ -16,6 +16,7 @@ For a robot single-chat or group notification that needs formatted content:
    - Use `robotCode` from the app robot code, usually the same configured value as `DINGTALK_BOT_ID`.
    - Use a unique `cardBizId` per new card message.
    - For single chat, set `singleChatReceiver` to a JSON string such as `{"userId":"096..."}`.
+   - For group chat, set `openConversationId` to the confirmed DingTalk group `openConversationId`. Do not use the group name or ordinary group number as a replacement.
    - Set `cardData` to a JSON string containing the full card layout.
 3. Put report body content into a Markdown-capable card component:
    - Use `contents: [{ "type": "markdown", "text": "...", "id": "..." }]`.
@@ -77,6 +78,8 @@ Selection rules:
 - If the user explicitly chooses Markdown text or chart/image mode, follow that choice.
 - Keep both code paths available behind configuration such as `REFUND_REPORT_RENDER_MODE=markdown|image`.
 - Do not silently downgrade from image to markdown on image generation or upload failure. Log the failure and send a clear failure card or alert, then switch configuration deliberately if rollback is needed.
+- Treat delivery target as an explicit product option when a report may move between single chat and group chat. For this project, use `REFUND_REPORT_DELIVERY_TARGET=single|group|both`.
+- For refund-rate broadcasts, the validated group-chat sample target is the DingTalk group named `AI助手组`. Do not hard-code its conversation ID in documentation or skills; resolve and confirm `openConversationId` from configuration or DWS when needed.
 
 ## Scheduled Cloud Jobs
 
@@ -212,12 +215,22 @@ After enabling permissions, retry with a fresh access token if possible.
    - Assert the URL is `/v1.0/im/v1.0/robot/interactiveCards/send`.
    - Assert `cardTemplateId` is `StandardCard`.
    - Assert `singleChatReceiver` is a JSON string.
+   - For group delivery, assert `openConversationId` is present and `singleChatReceiver` is absent.
    - Assert `JSON.parse(cardData).contents[0].type` is `markdown`.
    - Assert the full body text is present.
 2. Send a small real card to the intended robot single chat.
 3. Confirm the DingTalk client renders the body, not only the title.
 4. Send the full alert/report.
 5. Restart the long-running bot service and confirm logs show the new card path enabled.
+
+For switching a scheduled report from single chat to group chat:
+
+1. Use DWS to search the group by name, for example `dws chat search --keyword "AI助手组" --format json`.
+2. Ask the user to confirm the selected group and its `openConversationId`.
+3. Set `REFUND_REPORT_DELIVERY_TARGET=group` and `REFUND_REPORT_GROUP_CONVERSATION_ID=<confirmed openConversationId>`.
+4. Send a small real card to the group before sending the full report.
+5. Send one full report manually and confirm the card renders correctly.
+6. Restart the long-running service, then verify logs show `deliveryTarget: "group"`, `groupCount: 1`, and `singleUserCount: 0`.
 
 ## Project Defaults
 
@@ -227,6 +240,8 @@ In this project, prefer these environment names:
 - `DINGTALK_CLIENT_SECRET`: app secret/client secret.
 - `DINGTALK_BOT_ID`: robot code used for sending.
 - `REFUND_REPORT_USER_IDS`: comma-separated encrypted DingTalk user IDs for single-chat report delivery.
+- `REFUND_REPORT_DELIVERY_TARGET`: `single`, `group`, or `both`; default to `single` for backward compatibility.
+- `REFUND_REPORT_GROUP_CONVERSATION_ID`: DingTalk group `openConversationId` for group report delivery. It may fall back to `DINGTALK_DEFAULT_GROUP_CONVERSATION_ID` in the project config.
 - `REFUND_REPORT_CARD_TEMPLATE_ID`: default to `StandardCard`.
 - `DINGTALK_API_BASE_URL`: default to `https://api.dingtalk.com`.
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "PPT 转公网网页"
+  short_description: "严格按源 PPT 顺序和配图位置生成并发布公网网页"
+  default_prompt: "Use $ppt-to-public-web to convert this PPT into a public website while preserving slide order and image placement."

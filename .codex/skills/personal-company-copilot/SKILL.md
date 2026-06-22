@@ -17,6 +17,7 @@ When the request touches company strategy, operations, customer risk, team manag
 - `E:\KnowledgeBase\10-Projects\运营负责人 AI 协作驾驶舱.md`
 - `E:\KnowledgeBase\20-Areas\客户风险雷达.md`
 - `E:\KnowledgeBase\20-Areas\AI 团队协作机制.md`
+- `E:\KnowledgeBase\20-Areas\工作约束与限制\README.md` and `系统设计约束清单.md`
 - `E:\KnowledgeBase\60-Decisions\` for prior decisions when the task involves tradeoffs or long-term direction
 
 Do not copy raw customer chats, sensitive contracts, tokens, QR codes, secrets, or unredacted customer data into local files. Store only desensitized summaries, methods, indexes, decisions, and reviews.

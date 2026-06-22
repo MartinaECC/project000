@@ -23,6 +23,7 @@ EMPTY=
 test('loads refund report configuration from env', () => {
   const config = loadConfig({
     REFUND_REPORT_ENABLED: 'true',
+    REFUND_REPORT_DELIVERY_TARGET: 'both',
     REFUND_REPORT_USER_IDS: 'user-1,user-2',
     REFUND_REPORT_GROUP_CONVERSATION_ID: 'cid-1',
     REFUND_REPORT_CARD_TEMPLATE_ID: 'template-1',
@@ -36,6 +37,7 @@ test('loads refund report configuration from env', () => {
 
   assert.deepEqual(config.refundReport, {
     enabled: true,
+    deliveryTarget: 'both',
     userIds: ['user-1', 'user-2'],
     groupConversationId: 'cid-1',
     cardTemplateId: 'template-1',
@@ -46,4 +48,25 @@ test('loads refund report configuration from env', () => {
     timezone: 'Asia/Shanghai',
     llmOnAnomaly: 'fail_or_threshold'
   });
+});
+
+test('loads intake configuration from env without enabling refund report', () => {
+  const config = loadConfig({
+    APP_ROLE: 'ecocc_intake',
+    INTAKE_ENABLED: 'true',
+    INTAKE_STORAGE_DIR: 'E:\\KnowledgeBase\\00-Inbox\\DingTalk',
+    INTAKE_MODE: 'tagged',
+    REFUND_REPORT_ENABLED: 'false',
+    PORT: '3003'
+  });
+
+  assert.equal(config.port, 3003);
+  assert.equal(config.appRole, 'ecocc_intake');
+  assert.deepEqual(config.intake, {
+    enabled: true,
+    storageDir: 'E:\\KnowledgeBase\\00-Inbox\\DingTalk',
+    mode: 'tagged',
+    appRole: 'ecocc_intake'
+  });
+  assert.equal(config.refundReport?.enabled, false);
 });

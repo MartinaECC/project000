@@ -1,6 +1,6 @@
 # 钉钉图表播报产品文档
 
-当前产品版本：`v1.0.1`
+当前产品版本：`v1.0.3`
 
 历史版本快照目录：[dingtalk-chart-broadcast-versions](dingtalk-chart-broadcast-versions/)
 
@@ -68,6 +68,8 @@
 - 当前机器人：小灰龙-运营助手。
 - 当前默认发送方式：钉钉互动卡片 `StandardCard`。
 - 当前默认展示模式：图片表格。
+- 当前发送目标支持单聊、群聊或双发；群聊使用钉钉群 `openConversationId`，不是群名或普通群号。
+- 当前线上状态：退费率播报已切到 `AI助手组` 群聊；`.env` 中单聊用户配置保留，但 `REFUND_REPORT_DELIVERY_TARGET=group` 时不会使用。
 
 ### 3.2 数据口径
 
@@ -208,6 +210,8 @@
 - 模板：`StandardCard`
 - 正文组件：`contents[].type = "markdown"`
 - 机器人：使用 `DINGTALK_BOT_ID` 对应 robot code。
+- 单聊目标：请求体使用 `singleChatReceiver`。
+- 群聊目标：请求体使用 `openConversationId`。
 
 图片模式下：
 
@@ -234,7 +238,9 @@
 DINGTALK_CLIENT_ID
 DINGTALK_CLIENT_SECRET
 DINGTALK_BOT_ID
+REFUND_REPORT_DELIVERY_TARGET=single|group|both
 REFUND_REPORT_USER_IDS
+REFUND_REPORT_GROUP_CONVERSATION_ID
 REFUND_REPORT_CARD_TEMPLATE_ID=StandardCard
 REFUND_REPORT_RENDER_MODE=markdown|image
 REFUND_REPORT_THRESHOLD_PERCENT=10
@@ -244,6 +250,14 @@ REFUND_REPORT_THRESHOLD_PERCENT=10
 
 - `REFUND_REPORT_RENDER_MODE=image`：发送图片表格卡片，适合长报表和多人阅读。
 - `REFUND_REPORT_RENDER_MODE=markdown`：发送 Markdown 卡片，适合快速回退或短报表。
+
+发送目标：
+
+- `REFUND_REPORT_DELIVERY_TARGET=single`：发送到 `REFUND_REPORT_USER_IDS` 配置的单聊用户，默认兼容旧行为。
+- `REFUND_REPORT_DELIVERY_TARGET=group`：发送到 `REFUND_REPORT_GROUP_CONVERSATION_ID`；未配置时回退 `DINGTALK_DEFAULT_GROUP_CONVERSATION_ID`。
+- `REFUND_REPORT_DELIVERY_TARGET=both`：同时发送群聊和单聊，要求用户 ID 与群 ID 都存在。
+- 查询群 `openConversationId` 推荐使用 `dws chat search --keyword "群名关键词" --format json`，从候选群里人工确认目标群。
+- 真实启用群聊前必须先发送小测试卡片确认群可达，再发送完整报表，并重启本地常驻服务让整点调度加载新配置。
 
 ## 7. 青龙任务部署
 
@@ -288,6 +302,7 @@ DINGTALK_CLIENT_ID
 DINGTALK_CLIENT_SECRET
 DINGTALK_BOT_ID
 REFUND_REPORT_USER_IDS
+REFUND_REPORT_GROUP_CONVERSATION_ID
 DATAFINDER_APP_ID
 DATAFINDER_ACCESS_KEY
 DATAFINDER_SECRET_KEY
@@ -297,6 +312,7 @@ DATAFINDER_SECRET_KEY
 
 ```text
 REFUND_REPORT_RENDER_MODE=image
+REFUND_REPORT_DELIVERY_TARGET=group
 REFUND_REPORT_CARD_TEMPLATE_ID=StandardCard
 REFUND_REPORT_TIMEZONE=Asia/Shanghai
 REFUND_REPORT_THRESHOLD_PERCENT=10
@@ -324,6 +340,9 @@ DINGTALK_API_BASE_URL=https://api.dingtalk.com
 功能验收：
 
 - 卡片能在钉钉客户端完整显示标题、时间和图片。
+- 群聊模式下，卡片请求体使用 `openConversationId`，且不包含 `singleChatReceiver`。
+- `both` 模式下，群聊和单聊都能收到同一内容，且每条卡片的 `cardBizId` 唯一。
+- 当前样板群聊已完成真实验证：小测试卡片和完整退费率图片播报均已发送到 `AI助手组`。
 - 图片表格包含 `退费后金额` 列，位置在 `退费率` 后、`支付金额` 前。
 - 图片表格包含 `c0收入` 列，位置在 `支付数` 后、`退费金额` 前。
 - `退费后金额 = 支付金额 - 退费金额`。

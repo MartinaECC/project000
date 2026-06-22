@@ -1,0 +1,4 @@
+interface:
+  display_name: "自动化汇报通用规范"
+  short_description: "统一日报周报月报的本地/飞书写入、编码安全与校验规则"
+  default_prompt: "Use $automation-reporting to decide local-only, feishu-only, or dual-write mode, apply UTF-8-safe Feishu write rules, and verify recurring report outputs."

@@ -2,7 +2,7 @@ import { InMemoryApprovalStore } from './approval-store.ts';
 import { InMemoryIdempotencyStore } from './idempotency-store.ts';
 import { routeIntent } from './intent-router.ts';
 import { errorFields, logger } from './logger.ts';
-import type { BotConfig, BotEvent, HandleResult, LlmAgent, ReplyService, ToolRegistry } from './types.ts';
+import type { BotConfig, BotEvent, HandleResult, IntakeStore, LlmAgent, ReplyService, ToolRegistry } from './types.ts';
 
 export class BotService {
   readonly #config: BotConfig;
@@ -11,6 +11,7 @@ export class BotService {
   readonly #reply: ReplyService;
   readonly #approvals: InMemoryApprovalStore;
   readonly #idempotency: InMemoryIdempotencyStore;
+  readonly #intakeStore?: IntakeStore;
 
   constructor(
     config: BotConfig,
@@ -18,7 +19,8 @@ export class BotService {
     llm: LlmAgent,
     reply: ReplyService,
     approvals = new InMemoryApprovalStore(),
-    idempotency = new InMemoryIdempotencyStore()
+    idempotency = new InMemoryIdempotencyStore(),
+    intakeStore?: IntakeStore
   ) {
     this.#config = config;
     this.#tools = tools;
@@ -26,6 +28,7 @@ export class BotService {
     this.#reply = reply;
     this.#approvals = approvals;
     this.#idempotency = idempotency;
+    this.#intakeStore = intakeStore;
   }
 
   async handleEvent(event: BotEvent): Promise<HandleResult> {
@@ -51,6 +54,14 @@ export class BotService {
       return this.#summarizeAllGroups(event, intent.range);
     }
 
+    if (intent.type === 'capture_intake' && this.#config.intake?.enabled) {
+      return this.#captureIntake(event, intent);
+    }
+
+    if (intent.type === 'list_recent_todos' && this.#config.intake?.enabled) {
+      return this.#listRecentTodos(event, intent.days, intent.limit);
+    }
+
     logger.info('bot.chat.started', {
       ...eventLogFields(event),
       textLength: event.text.length
@@ -69,6 +80,84 @@ export class BotService {
 
   async confirmLatest(event: BotEvent): Promise<HandleResult> {
     return this.handleEvent(event);
+  }
+
+  async #captureIntake(
+    event: BotEvent,
+    intent: Extract<ReturnType<typeof routeIntent>, { type: 'capture_intake' }>
+  ): Promise<HandleResult> {
+    if (!this.#intakeStore) {
+      logger.warn('intake.capture.disabled', {
+        ...eventLogFields(event),
+        reason: 'missing_intake_store',
+        intakeType: intent.itemType
+      });
+      await this.#reply.sendText(event, '收集失败：信息收集服务未启用。');
+      return { status: 'handled' };
+    }
+
+    try {
+      const record = await this.#intakeStore.append({
+        appRole: this.#config.intake?.appRole ?? this.#config.appRole ?? 'ecocc_intake',
+        type: intent.itemType,
+        conversationId: event.conversationId,
+        senderId: event.senderId,
+        messageId: event.messageId,
+        text: intent.text || intent.rawText,
+        rawText: intent.rawText
+      });
+      logger.info('intake.capture.saved', {
+        ...eventLogFields(event),
+        id: record.id,
+        intakeType: record.type,
+        textLength: record.text.length
+      });
+      const suffix = record.type === '风险' ? '，已标记需人工确认' : '';
+      await this.#reply.sendText(event, `已收集：${record.type} ${record.id}${suffix}`);
+      logger.info('bot.reply.sent', eventLogFields(event));
+      return { status: 'handled' };
+    } catch (error) {
+      logger.error('intake.capture.failed', {
+        ...eventLogFields(event),
+        intakeType: intent.itemType,
+        ...errorFields(error)
+      });
+      await this.#reply.sendText(event, `收集失败：${error instanceof Error ? error.message : String(error)}`);
+      return { status: 'handled' };
+    }
+  }
+
+  async #listRecentTodos(event: BotEvent, days: number, limit: number): Promise<HandleResult> {
+    if (!this.#intakeStore) {
+      logger.warn('intake.todo_list.disabled', {
+        ...eventLogFields(event),
+        reason: 'missing_intake_store'
+      });
+      await this.#reply.sendText(event, '待办整理失败：信息收集服务未启用。');
+      return { status: 'handled' };
+    }
+
+    try {
+      const todos = await this.#intakeStore.listRecent({ type: '待办', days, limit });
+      logger.info('intake.todo_list.loaded', {
+        ...eventLogFields(event),
+        days,
+        limit,
+        itemCount: todos.length
+      });
+      await this.#reply.sendText(event, formatTodoList(todos, days));
+      logger.info('bot.reply.sent', eventLogFields(event));
+      return { status: 'handled' };
+    } catch (error) {
+      logger.error('intake.todo_list.failed', {
+        ...eventLogFields(event),
+        days,
+        limit,
+        ...errorFields(error)
+      });
+      await this.#reply.sendText(event, `待办整理失败：${error instanceof Error ? error.message : String(error)}`);
+      return { status: 'handled' };
+    }
   }
 
   async #summarizeAllGroups(event: BotEvent, range: 'today' | 'this_week'): Promise<HandleResult> {
@@ -118,6 +207,36 @@ export class BotService {
       !this.#config.allowedUserIds?.length || this.#config.allowedUserIds.includes(event.senderId);
     return conversationAllowed && userAllowed;
   }
+}
+
+function formatTodoList(todos: Awaited<ReturnType<IntakeStore['listRecent']>>, days: number): string {
+  if (todos.length === 0) {
+    return `最近 ${days} 天没有收集到待办。`;
+  }
+
+  const lines = todos.map((todo, index) => {
+    const date = formatDateTime(todo.createdAt);
+    return `${index + 1}. ${todo.text}（${todo.id}，${date}）`;
+  });
+  return [`最近 ${days} 天待办：`, ...lines].join('\n');
+}
+
+function formatDateTime(iso: string): string {
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) {
+    return iso;
+  }
+
+  const parts = new Intl.DateTimeFormat('zh-CN', {
+    timeZone: 'Asia/Shanghai',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  }).formatToParts(date);
+  const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return `${values.month}-${values.day} ${values.hour}:${values.minute}`;
 }
 
 function eventLogFields(event: BotEvent): Record<string, unknown> {

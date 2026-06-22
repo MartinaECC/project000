@@ -1,5 +1,6 @@
 import type { ReplyMode } from './reply-service.ts';
 import type { BotConfig } from './types.ts';
+import type { RefundReportDeliveryMode } from './dingtalk-card-service.ts';
 
 export type AppConfig = BotConfig & {
   port: number;
@@ -28,12 +29,20 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): AppConfig {
     allowedConversationIds: splitCsv(env.DINGTALK_ALLOWED_CONVERSATION_IDS),
     allowedUserIds: splitCsv(env.DINGTALK_ALLOWED_USER_IDS),
     defaultGroupConversationId: blankToUndefined(env.DINGTALK_DEFAULT_GROUP_CONVERSATION_ID),
+    appRole: blankToUndefined(env.APP_ROLE),
+    intake: {
+      enabled: env.INTAKE_ENABLED === 'true',
+      storageDir: blankToUndefined(env.INTAKE_STORAGE_DIR) ?? 'E:\\KnowledgeBase\\00-Inbox\\DingTalk',
+      mode: 'tagged',
+      appRole: blankToUndefined(env.APP_ROLE) ?? 'ecocc_intake'
+    },
     groupSummaryLimits: {
       today: numberEnv(env.DINGTALK_GROUP_SUMMARY_LIMIT_TODAY, 50),
       this_week: numberEnv(env.DINGTALK_GROUP_SUMMARY_LIMIT_WEEK, 100)
     },
     refundReport: {
       enabled: env.REFUND_REPORT_ENABLED === 'true',
+      deliveryTarget: parseRefundReportDeliveryTarget(env.REFUND_REPORT_DELIVERY_TARGET),
       userIds: splitCsv(env.REFUND_REPORT_USER_IDS),
       groupConversationId:
         blankToUndefined(env.REFUND_REPORT_GROUP_CONVERSATION_ID) ??
@@ -70,6 +79,10 @@ function parseRefundReportLlmPolicy(value: string | undefined): 'never' | 'fail_
 
 function parseRefundReportRenderMode(value: string | undefined): 'markdown' | 'image' {
   return value === 'image' ? 'image' : 'markdown';
+}
+
+function parseRefundReportDeliveryTarget(value: string | undefined): RefundReportDeliveryMode {
+  return value === 'group' || value === 'both' ? value : 'single';
 }
 
 function splitCsv(value: string | undefined): string[] {

@@ -2,19 +2,26 @@ import { BotService } from './bot-service.ts';
 import { loadConfig } from './config.ts';
 import { DingTalkInteractiveCardSender } from './dingtalk-card-service.ts';
 import { loadEnvFile } from './env-file.ts';
+import { JsonlIntakeStore } from './intake-store.ts';
 import { logger } from './logger.ts';
 import { OpenAiCompatibleLlmAgent } from './llm-agent.ts';
 import { ConsoleReplyService, DwsReplyService } from './reply-service.ts';
+import {
+  buildRefundReportTargets,
+  describeRefundReportTargets,
+  validateRefundReportTargets
+} from './refund-report-targets.ts';
 import { PythonRefundReportSource, startHourlyRefundReport } from './refund-report.ts';
 import { createBotHttpServer } from './server.ts';
 import { startDingTalkStreamClient } from './stream-client.ts';
 import { StreamWebhookReplyService } from './stream-reply-service.ts';
 import { DwsToolRegistry } from './tool-registry.ts';
 
-loadEnvFile();
+loadEnvFile(envFilePath());
 
 const config = loadConfig();
 logger.info('config.loaded', {
+  appRole: config.appRole,
   mode: config.mode,
   port: config.port,
   dwsBin: config.dwsBin,
@@ -26,8 +33,15 @@ logger.info('config.loaded', {
   groupSummaryLimits: config.groupSummaryLimits,
   allowedConversationCount: config.allowedConversationIds.length,
   allowedUserCount: config.allowedUserIds?.length ?? 0,
+  intake: {
+    enabled: config.intake?.enabled ?? false,
+    storageDir: config.intake?.storageDir,
+    mode: config.intake?.mode,
+    appRole: config.intake?.appRole
+  },
   refundReport: {
     enabled: config.refundReport?.enabled ?? false,
+    deliveryTarget: config.refundReport?.deliveryTarget,
     userCount: config.refundReport?.userIds.length ?? 0,
     hasGroupConversationId: Boolean(config.refundReport?.groupConversationId),
     cardTemplateId: config.refundReport?.cardTemplateId,
@@ -45,12 +59,17 @@ logger.info('config.loaded', {
 
 const tools = new DwsToolRegistry(config.dwsBin, undefined, config.groupSummaryLimits);
 const llm = new OpenAiCompatibleLlmAgent(config.llm);
+const intakeStore = config.intake?.enabled ? new JsonlIntakeStore(config.intake.storageDir, config.intake.appRole) : undefined;
 
 if (config.refundReport?.enabled) {
+  const targetValidationError = validateRefundReportTargets(config.refundReport);
+  const refundReportTargets = buildRefundReportTargets(config.refundReport);
+  const targetSummary = describeRefundReportTargets(refundReportTargets);
+
   if (!config.dingtalkClientId || !config.dingtalkClientSecret) {
     logger.warn('refund_report.disabled', { reason: 'missing DINGTALK_CLIENT_ID or DINGTALK_CLIENT_SECRET' });
-  } else if (config.refundReport.userIds.length === 0) {
-    logger.warn('refund_report.disabled', { reason: 'missing REFUND_REPORT_USER_IDS' });
+  } else if (targetValidationError) {
+    logger.warn('refund_report.disabled', { reason: targetValidationError });
   } else {
     startHourlyRefundReport({
       source: new PythonRefundReportSource(),
@@ -62,7 +81,7 @@ if (config.refundReport?.enabled) {
         callbackRouteKey: config.refundReport.cardCallbackRouteKey,
         apiBaseUrl: config.refundReport.cardApiBaseUrl
       }),
-      userIds: config.refundReport.userIds,
+      targets: refundReportTargets,
       thresholdPercent: config.refundReport.thresholdPercent,
       timezone: config.refundReport.timezone,
       renderMode: config.refundReport.renderMode,
@@ -70,7 +89,8 @@ if (config.refundReport?.enabled) {
       llmOnAnomaly: config.refundReport.llmOnAnomaly
     });
     logger.info('refund_report.started', {
-      userCount: config.refundReport.userIds.length,
+      deliveryTarget: config.refundReport.deliveryTarget,
+      ...targetSummary,
       cardTemplateId: config.refundReport.cardTemplateId,
       thresholdPercent: config.refundReport.thresholdPercent,
       timezone: config.refundReport.timezone,
@@ -83,7 +103,7 @@ if (config.mode === 'http') {
   const replyService = config.dingtalkBotId
     ? new DwsReplyService(config.dwsBin, config.dingtalkBotId, undefined, config.dingtalkReplyMode)
     : new ConsoleReplyService();
-  const service = new BotService(config, tools, llm, replyService);
+  const service = new BotService(config, tools, llm, replyService, undefined, undefined, intakeStore);
 
   createBotHttpServer(service).listen(config.port, () => {
     logger.info('server.started', {
@@ -92,7 +112,7 @@ if (config.mode === 'http') {
   });
 } else {
   const streamReplyService = new StreamWebhookReplyService(async () => streamClient.getAccessToken());
-  const service = new BotService(config, tools, llm, streamReplyService);
+  const service = new BotService(config, tools, llm, streamReplyService, undefined, undefined, intakeStore);
 
   createBotHttpServer(service).listen(config.port, () => {
     logger.info('server.started', {
@@ -108,4 +128,18 @@ if (config.mode === 'http') {
     },
     service
   );
+}
+
+function envFilePath(): string {
+  const argIndex = process.argv.indexOf('--env-file');
+  if (argIndex !== -1 && process.argv[argIndex + 1]) {
+    return process.argv[argIndex + 1];
+  }
+
+  const inlineArg = process.argv.find((arg) => arg.startsWith('--env-file='));
+  if (inlineArg) {
+    return inlineArg.slice('--env-file='.length);
+  }
+
+  return process.env.DINGTALK_ENV_FILE ?? '.env';
 }

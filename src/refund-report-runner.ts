@@ -3,6 +3,11 @@ import type { RefundReportCardSender } from './dingtalk-card-service.ts';
 import { loadConfig } from './config.ts';
 import { loadEnvFile } from './env-file.ts';
 import { OpenAiCompatibleLlmAgent } from './llm-agent.ts';
+import {
+  buildRefundReportTargets,
+  describeRefundReportTargets,
+  validateRefundReportTargets
+} from './refund-report-targets.ts';
 import { PythonRefundReportSource, sendRefundReportOnce } from './refund-report.ts';
 import type { RefundReportSource } from './refund-report.ts';
 
@@ -26,9 +31,13 @@ export async function runRefundReportOnceFromEnv(options: RefundReportOnceOption
   requireValue(config.dingtalkClientId, 'DINGTALK_CLIENT_ID');
   requireValue(config.dingtalkClientSecret, 'DINGTALK_CLIENT_SECRET');
   requireValue(config.dingtalkBotId, 'DINGTALK_BOT_ID');
-  if (config.refundReport.userIds.length === 0) {
-    throw new Error('REFUND_REPORT_USER_IDS is required');
+  const targetValidationError = validateRefundReportTargets(config.refundReport);
+  if (targetValidationError) {
+    throw new Error(targetValidationError);
   }
+  const targets = buildRefundReportTargets(config.refundReport);
+  const targetSummary = describeRefundReportTargets(targets);
+
   if (!options.source) {
     requireValue(env.DATAFINDER_APP_ID, 'DATAFINDER_APP_ID');
     requireValue(env.DATAFINDER_ACCESS_KEY, 'DATAFINDER_ACCESS_KEY');
@@ -49,7 +58,7 @@ export async function runRefundReportOnceFromEnv(options: RefundReportOnceOption
   await sendRefundReportOnce({
     source: options.source ?? new PythonRefundReportSource(),
     sender,
-    userIds: config.refundReport.userIds,
+    targets,
     thresholdPercent: config.refundReport.thresholdPercent,
     timezone: config.refundReport.timezone,
     renderMode: config.refundReport.renderMode,
@@ -62,7 +71,8 @@ export async function runRefundReportOnceFromEnv(options: RefundReportOnceOption
     ok: true,
     event: 'refund_report.once.completed',
     renderMode: config.refundReport.renderMode,
-    userCount: config.refundReport.userIds.length,
+    deliveryTarget: config.refundReport.deliveryTarget,
+    ...targetSummary,
     timezone: config.refundReport.timezone,
     thresholdPercent: config.refundReport.thresholdPercent,
     generatedAt: generatedAt.toISOString()

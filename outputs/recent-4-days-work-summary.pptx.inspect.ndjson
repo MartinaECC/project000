@@ -1,0 +1,123 @@
+{"kind":"deck","id":"pr/6dizj8","name":"Deck"}
+{"kind":"layout","layoutId":"/ppt/slideMasters/slideMaster1.xml","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout1.xml","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/2x4nap4r","slide":1,"title":"经营协作复盘","textShapes":9}
+{"kind":"shape","id":"sh/nap4r65w","slide":1,"bbox":[0,0,1280,720]}
+{"kind":"shape","id":"sh/cvixczed","slide":1,"bbox":[760,0,520,720]}
+{"kind":"shape","id":"sh/5gbq1ory","slide":1,"bbox":[832,86,336,470]}
+{"kind":"textbox","id":"sh/udg7adsj","slide":1,"text":"经营协作复盘","textPreview":"经营协作复盘","textChars":6,"textLines":1,"bbox":[78,72,410,34]}
+{"kind":"textbox","id":"sh/nyd0z610","slide":1,"text":"最近4天工作总结","textPreview":"最近4天工作总结","textChars":8,"textLines":1,"bbox":[76,196,610,138]}
+{"kind":"textbox","id":"sh/cj6tovah","slide":1,"text":"AI 协作、自动化、知识库与工程效率 | 2026.06.19-06.22","textPreview":"AI 协作、自动化、知识库与工程效率 | 2026.06.19-06.22","textChars":37,"textLines":1,"bbox":[82,348,540,42]}
+{"kind":"textbox","id":"sh/54zidony","slide":1,"text":"沉淀工作流","textPreview":"沉淀工作流","textChars":5,"textLines":1,"bbox":[872,126,240,32]}
+{"kind":"textbox","id":"sh/u9knih4b","slide":1,"text":"2条","textPreview":"2条","textChars":2,"textLines":1,"bbox":[872,164,250,46]}
+{"kind":"shape","id":"sh/judg7ads","slide":1,"bbox":[872,218,246,0]}
+{"kind":"textbox","id":"sh/nyd0z610","slide":1,"text":"验证通过项","textPreview":"验证通过项","textChars":5,"textLines":1,"bbox":[872,254,240,32]}
+{"kind":"textbox","id":"sh/udg7adsj","slide":1,"text":"多项","textPreview":"多项","textChars":2,"textLines":1,"bbox":[872,292,250,46]}
+{"kind":"shape","id":"sh/54zidony","slide":1,"bbox":[872,346,246,0]}
+{"kind":"textbox","id":"sh/cj6tovah","slide":1,"text":"风险状态","textPreview":"风险状态","textChars":4,"textLines":1,"bbox":[872,382,240,32]}
+{"kind":"textbox","id":"sh/nap4r65w","slide":1,"text":"可控","textPreview":"可控","textChars":2,"textLines":1,"bbox":[872,420,250,46]}
+{"kind":"shape","id":"sh/upwb2hwf","slide":1,"bbox":[872,474,246,0]}
+{"kind":"notes","id":"nt/2x4nap4r","slide":1,"text":""}
+{"kind":"slide","id":"sl/pg3ex0nu","slide":2,"title":"经营协作复盘","textShapes":17}
+{"kind":"shape","id":"sh/yxobm58z","slide":2,"bbox":[0,0,1280,720]}
+{"kind":"textbox","id":"sh/5o7qpg3e","slide":2,"text":"经营协作复盘","textPreview":"经营协作复盘","textChars":6,"textLines":1,"bbox":[68,38,320,30]}
+{"kind":"shape","id":"sh/g3ex0nux","slide":2,"bbox":[48,46,10,10]}
+{"kind":"textbox","id":"sh/r65wjudg","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[1160,36,70,28]}
+{"kind":"textbox","id":"sh/ylc7u54z","slide":2,"text":"执行快照","textPreview":"执行快照","textChars":4,"textLines":1,"bbox":[64,88,770,58]}
+{"kind":"textbox","id":"sh/9cvixcze","slide":2,"text":"4天内从任务执行推进到可复用系统与长期知识基座。","textPreview":"4天内从任务执行推进到可复用系统与长期知识基座。","textChars":24,"textLines":1,"bbox":[66,146,720,38]}
+{"kind":"shape","id":"sh/gr2p8nqx","slide":2,"bbox":[64,666,1152,0]}
+{"kind":"textbox","id":"sh/rytsvu9k","slide":2,"text":"内部复盘 | 来源：本机 Codex memory / rollout summaries | 2026-06-22","textPreview":"内部复盘 | 来源：本机 Codex memory / rollout summaries | 2026-06-22","textChars":58,"textLines":1,"bbox":[64,674,520,24]}
+{"kind":"shape","id":"sh/yd0z6103","slide":2,"bbox":[72,238,492,132]}
+{"kind":"shape","id":"sh/wb2hwfyx","slide":2,"bbox":[72,238,8,132]}
+{"kind":"textbox","id":"sh/lwval87e","slide":2,"text":"工作流产品化","textPreview":"工作流产品化","textChars":6,"textLines":1,"bbox":[102,260,220,30]}
+{"kind":"textbox","id":"sh/e9cvixcz","slide":2,"text":"2条","textPreview":"2条","textChars":2,"textLines":1,"bbox":[102,296,188,44]}
+{"kind":"textbox","id":"sh/3q5o7qpg","slide":2,"text":"飞书日报 + 钉钉群聊推送","textPreview":"飞书日报 + 钉钉群聊推送","textChars":13,"textLines":1,"bbox":[316,294,190,48]}
+{"kind":"shape","id":"sh/w3m94fu1","slide":2,"bbox":[620,238,492,132]}
+{"kind":"shape","id":"sh/loj2t83i","slide":2,"bbox":[620,238,8,132]}
+{"kind":"textbox","id":"sh/ex0nuxc3","slide":2,"text":"知识库升级","textPreview":"知识库升级","textChars":5,"textLines":1,"bbox":[650,260,220,30]}
+{"kind":"textbox","id":"sh/3itgfmlk","slide":2,"text":"5份","textPreview":"5份","textChars":2,"textLines":1,"bbox":[650,296,188,44]}
+{"kind":"textbox","id":"sh/szqtcj6t","slide":2,"text":"合伙人原则 / 驾驶舱等","textPreview":"合伙人原则 / 驾驶舱等","textChars":12,"textLines":1,"bbox":[864,294,190,48]}
+{"kind":"shape","id":"sh/lkjm1cfa","slide":2,"bbox":[72,414,492,132]}
+{"kind":"shape","id":"sh/lc7u54zi","slide":2,"bbox":[72,414,8,132]}
+{"kind":"textbox","id":"sh/wra5gbq1","slide":2,"text":"工程资产入库","textPreview":"工程资产入库","textChars":6,"textLines":1,"bbox":[102,436,220,30]}
+{"kind":"textbox","id":"sh/36hcrmhk","slide":2,"text":"84测","textPreview":"84测","textChars":3,"textLines":1,"bbox":[102,472,188,44]}
+{"kind":"textbox","id":"sh/eloj2t83","slide":2,"text":"仓库中文化 + 自动化成果","textPreview":"仓库中文化 + 自动化成果","textChars":13,"textLines":1,"bbox":[316,470,190,48]}
+{"kind":"shape","id":"sh/l0rqd4vm","slide":2,"bbox":[620,414,492,132]}
+{"kind":"shape","id":"sh/wfyxobm5","slide":2,"bbox":[620,414,8,132]}
+{"kind":"textbox","id":"sh/7u54zido","slide":2,"text":"可观测能力","textPreview":"可观测能力","textChars":5,"textLines":1,"bbox":[650,436,220,30]}
+{"kind":"textbox","id":"sh/ed8bat47","slide":2,"text":"1站","textPreview":"1站","textChars":2,"textLines":1,"bbox":[650,472,188,44]}
+{"kind":"textbox","id":"sh/psfil0rq","slide":2,"text":"Codex 用量实时看板","textPreview":"Codex 用量实时看板","textChars":12,"textLines":1,"bbox":[864,470,190,48]}
+{"kind":"notes","id":"nt/pg3ex0nu","slide":2,"text":""}
+{"kind":"slide","id":"sl/s72x4nap","slide":3,"title":"经营协作复盘","textShapes":14}
+{"kind":"shape","id":"sh/vmtwra5g","slide":3,"bbox":[0,0,1280,720]}
+{"kind":"textbox","id":"sh/o7qpg3ex","slide":3,"text":"经营协作复盘","textPreview":"经营协作复盘","textChars":6,"textLines":1,"bbox":[68,38,320,30]}
+{"kind":"shape","id":"sh/dsji5sne","slide":3,"bbox":[48,46,10,10]}
+{"kind":"textbox","id":"sh/6dcbulwv","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1160,36,70,28]}
+{"kind":"textbox","id":"sh/vy90je9c","slide":3,"text":"4天推进节奏","textPreview":"4天推进节奏","textChars":6,"textLines":1,"bbox":[64,88,770,58]}
+{"kind":"textbox","id":"sh/oj2t83it","slide":3,"text":"主线：从单点执行、文档沉淀，推进到可监控、可复用的协作系统。","textPreview":"主线：从单点执行、文档沉淀，推进到可监控、可复用的协作系统。","textChars":30,"textLines":1,"bbox":[66,146,720,38]}
+{"kind":"shape","id":"sh/d4vmtwra","slide":3,"bbox":[64,666,1152,0]}
+{"kind":"textbox","id":"sh/6hcrmhk3","slide":3,"text":"内部复盘 | 不含虚构业务指标 | 仅写已验证成果","textPreview":"内部复盘 | 不含虚构业务指标 | 仅写已验证成果","textChars":25,"textLines":1,"bbox":[64,674,520,24]}
+{"kind":"shape","id":"sh/z25kb6xk","slide":3,"bbox":[76,232,720,330]}
+{"kind":"shape","id":"sh/vy90je9c","slide":3,"bbox":[126,286,616,0]}
+{"kind":"shape","id":"sh/6dcbulwv","slide":3,"bbox":[126,348,616,0]}
+{"kind":"shape","id":"sh/d4vmtwra","slide":3,"bbox":[126,410,616,0]}
+{"kind":"shape","id":"sh/oj2t83it","slide":3,"bbox":[126,472,616,0]}
+{"kind":"shape","id":"sh/vmtwra5g","slide":3,"bbox":[146,415.8,56,88.2]}
+{"kind":"textbox","id":"sh/61032lsz","slide":3,"text":"6/19","textPreview":"6/19","textChars":4,"textLines":1,"bbox":[138,514,72,26]}
+{"kind":"shape","id":"sh/dsji5sne","slide":3,"bbox":[240,386.4,56,117.6]}
+{"kind":"textbox","id":"sh/o7qpg3ex","slide":3,"text":"6/19","textPreview":"6/19","textChars":4,"textLines":1,"bbox":[232,514,72,26]}
+{"kind":"shape","id":"sh/vahoza1g","slide":3,"bbox":[334,399,56,105]}
+{"kind":"textbox","id":"sh/6tovahoz","slide":3,"text":"6/20","textPreview":"6/20","textChars":4,"textLines":1,"bbox":[326,514,72,26]}
+{"kind":"shape","id":"sh/epkzupwb","slide":3,"bbox":[428,361.2,56,142.8]}
+{"kind":"textbox","id":"sh/7adsji5s","slide":3,"text":"6/21","textPreview":"6/21","textChars":4,"textLines":1,"bbox":[420,514,72,26]}
+{"kind":"shape","id":"sh/wval87ed","slide":3,"bbox":[522,375.9,56,128.1]}
+{"kind":"textbox","id":"sh/pg3ex0nu","slide":3,"text":"6/21","textPreview":"6/21","textChars":4,"textLines":1,"bbox":[514,514,72,26]}
+{"kind":"shape","id":"sh/e1w7mp0b","slide":3,"bbox":[616,340.2,56,163.8]}
+{"kind":"textbox","id":"sh/7mp0bi9s","slide":3,"text":"6/22","textPreview":"6/22","textChars":4,"textLines":1,"bbox":[608,514,72,26]}
+{"kind":"shape","id":"sh/w7mp0bi9","slide":3,"bbox":[856,248,326,270]}
+{"kind":"textbox","id":"sh/psfil0rq","slide":3,"text":"系统化速度提升","textPreview":"系统化速度提升","textChars":7,"textLines":1,"bbox":[894,286,248,34]}
+{"kind":"textbox","id":"sh/ed8bat47","slide":3,"text":"5类成果形成闭环","textPreview":"5类成果形成闭环","textChars":8,"textLines":1,"bbox":[894,336,238,82]}
+{"kind":"textbox","id":"sh/7u54zido","slide":3,"text":"下一步：复盘机制产品化。","textPreview":"下一步：复盘机制产品化。","textChars":12,"textLines":1,"bbox":[894,440,224,46]}
+{"kind":"notes","id":"nt/s72x4nap","slide":3,"text":""}
+{"kind":"slide","id":"sl/val87ed8","slide":4,"title":"经营协作复盘","textShapes":21}
+{"kind":"shape","id":"sh/1gvy90je","slide":4,"bbox":[0,0,1280,720]}
+{"kind":"textbox","id":"sh/qtcj6tov","slide":4,"text":"经营协作复盘","textPreview":"经营协作复盘","textChars":6,"textLines":1,"bbox":[68,38,320,30]}
+{"kind":"shape","id":"sh/je9cvixc","slide":4,"bbox":[48,46,10,10]}
+{"kind":"textbox","id":"sh/87ed8bat","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1160,36,70,28]}
+{"kind":"textbox","id":"sh/xs72x4na","slide":4,"text":"风险、决策与负责人","textPreview":"风险、决策与负责人","textChars":9,"textLines":1,"bbox":[64,88,770,58]}
+{"kind":"textbox","id":"sh/q1orytsv","slide":4,"text":"把本轮复盘转化成下一轮持续动作。","textPreview":"把本轮复盘转化成下一轮持续动作。","textChars":16,"textLines":1,"bbox":[66,146,720,38]}
+{"kind":"shape","id":"sh/fmlkjm1c","slide":4,"bbox":[64,666,1152,0]}
+{"kind":"textbox","id":"sh/8jqh0fep","slide":4,"text":"内部复盘 | Owner 默认：我 + Codex","textPreview":"内部复盘 | Owner 默认：我 + Codex","textChars":25,"textLines":1,"bbox":[64,674,520,24]}
+{"kind":"shape","id":"sh/x4nap4r6","slide":4,"bbox":[76,232,430,46]}
+{"kind":"textbox","id":"sh/1w7mp0bi","slide":4,"text":"行动 / 决策","textPreview":"行动 / 决策","textChars":7,"textLines":1,"bbox":[86,240,410,30]}
+{"kind":"shape","id":"sh/8bat47y1","slide":4,"bbox":[506,232,210,46]}
+{"kind":"textbox","id":"sh/jqh0fepk","slide":4,"text":"负责人","textPreview":"负责人","textChars":3,"textLines":1,"bbox":[516,240,190,30]}
+{"kind":"shape","id":"sh/q5o7qpg3","slide":4,"bbox":[716,232,160,46]}
+{"kind":"textbox","id":"sh/18jqh0fe","slide":4,"text":"截止","textPreview":"截止","textChars":2,"textLines":1,"bbox":[726,240,140,30]}
+{"kind":"shape","id":"sh/8nqxs72x","slide":4,"bbox":[876,232,220,46]}
+{"kind":"textbox","id":"sh/j2t83itg","slide":4,"text":"状态","textPreview":"状态","textChars":2,"textLines":1,"bbox":[886,240,200,30]}
+{"kind":"shape","id":"sh/qh0fepkz","slide":4,"bbox":[76,278,430,74]}
+{"kind":"textbox","id":"sh/1cfa9w3m","slide":4,"text":"继续沉淀日报/月报复盘机制","textPreview":"继续沉淀日报/月报复盘机制","textChars":13,"textLines":1,"bbox":[86,294,410,42]}
+{"kind":"shape","id":"sh/crmhk3q5","slide":4,"bbox":[506,278,210,74]}
+{"kind":"textbox","id":"sh/sfil0rqd","slide":4,"text":"我 + Codex","textPreview":"我 + Codex","textChars":9,"textLines":1,"bbox":[516,294,190,42]}
+{"kind":"shape","id":"sh/h0fepkzu","slide":4,"bbox":[716,278,160,74]}
+{"kind":"textbox","id":"sh/a9w3m94f","slide":4,"text":"本周","textPreview":"本周","textChars":2,"textLines":1,"bbox":[726,294,140,42]}
+{"kind":"shape","id":"sh/zupwb2hw","slide":4,"bbox":[876,278,220,74]}
+{"kind":"textbox","id":"sh/orytsvu9","slide":4,"text":"进行中","textPreview":"进行中","textChars":3,"textLines":1,"bbox":[886,294,200,42]}
+{"kind":"shape","id":"sh/hcrmhk3q","slide":4,"bbox":[76,352,430,74]}
+{"kind":"textbox","id":"sh/al87ed8b","slide":4,"text":"自动化运行态定期复验","textPreview":"自动化运行态定期复验","textChars":10,"textLines":1,"bbox":[86,368,410,42]}
+{"kind":"shape","id":"sh/z61032ls","slide":4,"bbox":[506,352,210,74]}
+{"kind":"textbox","id":"sh/oza1gvy9","slide":4,"text":"我 + Codex","textPreview":"我 + Codex","textChars":9,"textLines":1,"bbox":[516,368,190,42]}
+{"kind":"shape","id":"sh/hk3q5o7q","slide":4,"bbox":[716,352,160,74]}
+{"kind":"textbox","id":"sh/7mp0bi9s","slide":4,"text":"6/24","textPreview":"6/24","textChars":4,"textLines":1,"bbox":[726,368,140,42]}
+{"kind":"shape","id":"sh/e1w7mp0b","slide":4,"bbox":[876,352,220,74]}
+{"kind":"textbox","id":"sh/psfil0rq","slide":4,"text":"待复查","textPreview":"待复查","textChars":3,"textLines":1,"bbox":[886,368,200,42]}
+{"kind":"shape","id":"sh/w7mp0bi9","slide":4,"bbox":[76,426,430,74]}
+{"kind":"textbox","id":"sh/7adsji5s","slide":4,"text":"经营驾驶舱下一轮扩展","textPreview":"经营驾驶舱下一轮扩展","textChars":10,"textLines":1,"bbox":[86,442,410,42]}
+{"kind":"shape","id":"sh/epkzupwb","slide":4,"bbox":[506,426,210,74]}
+{"kind":"textbox","id":"sh/pg3ex0nu","slide":4,"text":"我 + Codex","textPreview":"我 + Codex","textChars":9,"textLines":1,"bbox":[516,442,190,42]}
+{"kind":"shape","id":"sh/wval87ed","slide":4,"bbox":[716,426,160,74]}
+{"kind":"textbox","id":"sh/36hcrmhk","slide":4,"text":"6/30","textPreview":"6/30","textChars":4,"textLines":1,"bbox":[726,442,140,42]}
+{"kind":"shape","id":"sh/eloj2t83","slide":4,"bbox":[876,426,220,74]}
+{"kind":"textbox","id":"sh/yhgn29gr","slide":4,"text":"规划中","textPreview":"规划中","textChars":3,"textLines":1,"bbox":[886,442,200,42]}
+{"kind":"notes","id":"nt/val87ed8","slide":4,"text":""}

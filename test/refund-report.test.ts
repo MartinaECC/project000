@@ -305,7 +305,7 @@ test('detects diagnostics, zero-income refunds, and refund-rate relative change 
 });
 
 test('sends normal refund reports as one complete card without calling the LLM', async () => {
-  const sent: Array<{ users: string[]; title: string; markdown: string }> = [];
+  const sent: Array<{ targets: Array<{ type: string; userId?: string; openConversationId?: string }>; title: string; markdown: string }> = [];
 
   await sendRefundReportOnce({
     source: {
@@ -317,11 +317,11 @@ test('sends normal refund reports as one complete card without calling the LLM',
       }
     },
     sender: {
-      async sendRefundReportCard(users, title, markdown) {
-        sent.push({ users, title, markdown });
+      async sendRefundReportCard(targets, title, markdown) {
+        sent.push({ targets, title, markdown });
       }
     },
-    userIds: ['user-1'],
+    targets: [{ type: 'single', userId: 'user-1' }],
     thresholdPercent: 10,
     llmOnAnomaly: 'fail_or_threshold',
     llm: unusedLlm,
@@ -329,7 +329,7 @@ test('sends normal refund reports as one complete card without calling the LLM',
   });
 
   assert.equal(sent.length, 1);
-  assert.deepEqual(sent[0].users, ['user-1']);
+  assert.deepEqual(sent[0].targets, [{ type: 'single', userId: 'user-1' }]);
   assert.equal(sent[0].title, '退费率播报');
   assert.match(sent[0].markdown, /^<font sizeToken=common_h3_text_style__font_size>\*\*宜信\*\*<\/font>$/m);
   assert.match(sent[0].markdown, /退费率：1\.00%/);
@@ -349,11 +349,11 @@ test('summarizes refund-rate relative change reports with the LLM', async () => 
       }
     },
     sender: {
-      async sendRefundReportCard(_users, _title, markdown) {
+      async sendRefundReportCard(_targets, _title, markdown) {
         sent.push(markdown);
       }
     },
-    userIds: ['user-1'],
+    targets: [{ type: 'single', userId: 'user-1' }],
     thresholdPercent: 10,
     llmOnAnomaly: 'fail_or_threshold',
     llm: {
@@ -389,11 +389,11 @@ test('sends large refund reports as one complete card markdown body', async () =
       }
     },
     sender: {
-      async sendRefundReportCard(_users, title, markdown) {
+      async sendRefundReportCard(_targets, title, markdown) {
         sent.push(`${title}:${markdown}`);
       }
     },
-    userIds: ['user-1'],
+    targets: [{ type: 'single', userId: 'user-1' }],
     thresholdPercent: 20,
     llmOnAnomaly: 'never',
     now: new Date('2026-06-19T10:00:00+08:00')
@@ -406,7 +406,12 @@ test('sends large refund reports as one complete card markdown body', async () =
 });
 
 test('sends image mode refund reports with title and time but without duplicate text summary', async () => {
-  const sent: Array<{ users: string[]; title: string; markdown: string; image: Buffer }> = [];
+  const sent: Array<{
+    targets: Array<{ type: string; userId?: string; openConversationId?: string }>;
+    title: string;
+    markdown: string;
+    image: Buffer;
+  }> = [];
   const rows = [
     { company: '宜信', incomeAmount: 100, refundAmount: 10, incomeCount: 10, refundCount: 1, refundRate: 10 },
     { company: '奇富数科', incomeAmount: 100, refundAmount: 5, incomeCount: 8, refundCount: 1, refundRate: 5 }
@@ -426,11 +431,11 @@ test('sends image mode refund reports with title and time but without duplicate 
       async sendRefundReportCard() {
         throw new Error('markdown sender should not be called');
       },
-      async sendRefundReportImageCard(users, title, markdown, image) {
-        sent.push({ users, title, markdown, image });
+      async sendRefundReportImageCard(targets, title, markdown, image) {
+        sent.push({ targets, title, markdown, image });
       }
     },
-    userIds: ['user-1'],
+    targets: [{ type: 'group', openConversationId: 'cid-1' }],
     thresholdPercent: 10,
     renderMode: 'image',
     llmOnAnomaly: 'never',
@@ -438,7 +443,7 @@ test('sends image mode refund reports with title and time but without duplicate 
   });
 
   assert.equal(sent.length, 1);
-  assert.deepEqual(sent[0].users, ['user-1']);
+  assert.deepEqual(sent[0].targets, [{ type: 'group', openConversationId: 'cid-1' }]);
   assert.equal(sent[0].title, '退费率播报');
   assert.equal(sent[0].image.subarray(0, 8).toString('hex'), '89504e470d0a1a0a');
   assert.match(sent[0].markdown, /^<font sizeToken=common_h1_text_style__font_size>\*\*退费率播报\*\*<\/font>$/m);
@@ -448,8 +453,12 @@ test('sends image mode refund reports with title and time but without duplicate 
   assert.doesNotMatch(sent[0].markdown, /^<font sizeToken=common_h3_text_style__font_size>\*\*奇富数科\*\*<\/font>$/m);
 });
 
-test('image mode sends a failure card instead of silently falling back to markdown when image sending fails', async () => {
-  const failureCards: Array<{ title: string; markdown: string }> = [];
+test('image mode sends a failure card to the configured targets instead of silently falling back to markdown', async () => {
+  const failureCards: Array<{
+    targets: Array<{ type: string; userId?: string; openConversationId?: string }>;
+    title: string;
+    markdown: string;
+  }> = [];
 
   await assert.rejects(
     () =>
@@ -463,14 +472,14 @@ test('image mode sends a failure card instead of silently falling back to markdo
           }
         },
         sender: {
-          async sendRefundReportCard(_users, title, markdown) {
-            failureCards.push({ title, markdown });
+          async sendRefundReportCard(targets, title, markdown) {
+            failureCards.push({ targets, title, markdown });
           },
           async sendRefundReportImageCard() {
             throw new Error('upload failed');
           }
         },
-        userIds: ['user-1'],
+        targets: [{ type: 'group', openConversationId: 'cid-1' }],
         thresholdPercent: 10,
         renderMode: 'image',
         llmOnAnomaly: 'never',
@@ -480,6 +489,7 @@ test('image mode sends a failure card instead of silently falling back to markdo
   );
 
   assert.equal(failureCards.length, 1);
+  assert.deepEqual(failureCards[0].targets, [{ type: 'group', openConversationId: 'cid-1' }]);
   assert.equal(failureCards[0].title, '退费率播报失败');
   assert.match(failureCards[0].markdown, /upload failed/);
 });
@@ -497,7 +507,7 @@ test('schedules the first refund report for the next top of hour', () => {
         throw new Error('not invoked by fake timer');
       }
     },
-    userIds: ['user-1'],
+    targets: [{ type: 'single', userId: 'user-1' }],
     thresholdPercent: 20,
     llmOnAnomaly: 'never',
     now: () => new Date('2026-06-19T10:15:30.250+08:00'),

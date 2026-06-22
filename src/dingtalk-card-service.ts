@@ -12,9 +12,20 @@ export type DingTalkInteractiveCardConfig = {
   mediaApiBaseUrl?: string;
 };
 
+export type RefundReportDeliveryTarget =
+  | { type: 'single'; userId: string }
+  | { type: 'group'; openConversationId: string };
+
+export type RefundReportDeliveryMode = 'single' | 'group' | 'both';
+
 export type RefundReportCardSender = {
-  sendRefundReportCard(userIds: string[], title: string, markdown: string): Promise<void>;
-  sendRefundReportImageCard?(userIds: string[], title: string, markdown: string, image: Buffer): Promise<void>;
+  sendRefundReportCard(targets: RefundReportDeliveryTarget[], title: string, markdown: string): Promise<void>;
+  sendRefundReportImageCard?(
+    targets: RefundReportDeliveryTarget[],
+    title: string,
+    markdown: string,
+    image: Buffer
+  ): Promise<void>;
 };
 
 type AccessTokenResponse = {
@@ -38,9 +49,9 @@ export class DingTalkInteractiveCardSender implements RefundReportCardSender {
     this.#fetch = fetchImpl;
   }
 
-  async sendRefundReportCard(userIds: string[], title: string, markdown: string): Promise<void> {
-    if (userIds.length === 0) {
-      throw new Error('DingTalk userIds are required for refund report cards.');
+  async sendRefundReportCard(targets: RefundReportDeliveryTarget[], title: string, markdown: string): Promise<void> {
+    if (targets.length === 0) {
+      throw new Error('DingTalk delivery targets are required for refund report cards.');
     }
     if (!this.#config.cardTemplateId) {
       throw new Error('DingTalk cardTemplateId is required for refund report cards.');
@@ -49,15 +60,17 @@ export class DingTalkInteractiveCardSender implements RefundReportCardSender {
     const accessToken = await this.#getAccessToken();
 
     logger.info('dingtalk.card.send.started', {
-      userCount: userIds.length,
+      targetCount: targets.length,
+      singleUserCount: targets.filter((target) => target.type === 'single').length,
+      groupCount: targets.filter((target) => target.type === 'group').length,
       title,
       markdownLength: markdown.length
     });
 
-    for (const userId of userIds) {
-      const cardBizId = `refund-report-${Date.now()}-${userId}`;
+    for (const [index, target] of targets.entries()) {
+      const cardBizId = `refund-report-${Date.now()}-${index}-${targetKey(target)}`;
       const body = buildRefundReportCardBody({
-        userId,
+        target,
         title,
         markdown,
         cardBizId,
@@ -82,15 +95,22 @@ export class DingTalkInteractiveCardSender implements RefundReportCardSender {
     }
 
     logger.info('dingtalk.card.send.completed', {
-      userCount: userIds.length,
+      targetCount: targets.length,
+      singleUserCount: targets.filter((target) => target.type === 'single').length,
+      groupCount: targets.filter((target) => target.type === 'group').length,
       title
     });
   }
 
-  async sendRefundReportImageCard(userIds: string[], title: string, markdown: string, image: Buffer): Promise<void> {
+  async sendRefundReportImageCard(
+    targets: RefundReportDeliveryTarget[],
+    title: string,
+    markdown: string,
+    image: Buffer
+  ): Promise<void> {
     const imageRef = await this.uploadImage(image);
     const imageMarkdown = `![${title}](${imageRef})`;
-    await this.sendRefundReportCard(userIds, title, markdown.trim() ? `${markdown}\n\n${imageMarkdown}` : imageMarkdown);
+    await this.sendRefundReportCard(targets, title, markdown.trim() ? `${markdown}\n\n${imageMarkdown}` : imageMarkdown);
   }
 
   async uploadImage(image: Buffer, filename = 'refund-report.png'): Promise<string> {
@@ -157,7 +177,7 @@ export class DingTalkInteractiveCardSender implements RefundReportCardSender {
 }
 
 export function buildRefundReportCardBody(options: {
-  userId: string;
+  target: RefundReportDeliveryTarget;
   title: string;
   markdown: string;
   cardBizId: string;
@@ -165,9 +185,14 @@ export function buildRefundReportCardBody(options: {
   callbackRouteKey?: string;
   robotCode?: string;
 }): Record<string, unknown> {
+  const targetFields =
+    options.target.type === 'single'
+      ? { singleChatReceiver: JSON.stringify({ userId: options.target.userId }) }
+      : { openConversationId: options.target.openConversationId };
+
   return removeUndefined({
     cardTemplateId: options.cardTemplateId,
-    singleChatReceiver: JSON.stringify({ userId: options.userId }),
+    ...targetFields,
     cardBizId: options.cardBizId,
     callbackRouteKey: options.callbackRouteKey,
     robotCode: options.robotCode,
@@ -203,6 +228,10 @@ function removeUndefined(value: Record<string, unknown>): Record<string, unknown
 
 function trimTrailingSlash(value: string): string {
   return value.replace(/\/+$/u, '');
+}
+
+function targetKey(target: RefundReportDeliveryTarget): string {
+  return target.type === 'single' ? `u-${target.userId}` : `g-${target.openConversationId}`;
 }
 
 function deriveMediaApiBaseUrl(apiBaseUrl: string | undefined): string {

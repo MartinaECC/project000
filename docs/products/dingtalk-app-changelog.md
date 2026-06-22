@@ -10,6 +10,81 @@
 - 产品文档采用快照式版本管理：当前文档只维护最新版本，历史版本放入对应目录并只新增不覆盖，例如 `docs/products/dingtalk-chart-broadcast-versions/v1.0.1.md`。
 - 每次开始新版本规划或更新当前产品文档前，必须先确认上一版本快照已存在；如果不存在，先补齐快照再继续修改当前文档。
 
+## v1.0.3 - 2026-06-22
+
+### 新增能力
+
+- 群聊播报产品化确认版：退费率播报的发送目标能力正式沉淀为 `single`、`group`、`both` 三种模式。
+- 明确群聊互动卡片投递规则：群聊使用 `openConversationId`，单聊使用 `singleChatReceiver`。
+- 当前样板播报已从单聊切换为 `AI助手组` 群聊，单聊用户配置保留但在 `group` 模式下不使用。
+
+### 数据口径
+
+- 数据查询、图片表格、排序、全日参考和 DataFinder 统计口径均沿用 v1.0.1/v1.0.2。
+- 本版本只沉淀发送目标和群聊验证流程，不改报表计算逻辑。
+
+### 发送目标和触发方式
+
+- 当前运行配置为 `REFUND_REPORT_DELIVERY_TARGET=group`。
+- 群聊 ID 使用 `REFUND_REPORT_GROUP_CONVERSATION_ID`，未配置时可回退 `DINGTALK_DEFAULT_GROUP_CONVERSATION_ID`。
+- 群 ID 必须通过 DWS 或钉钉开放平台确认 `openConversationId`，不能使用群名或普通群号替代。
+- 本地常驻服务已重启，后续整点调度会按群聊目标推送。
+
+### 配置项变化
+
+- 未新增环境变量；沿用 v1.0.2 的 `REFUND_REPORT_DELIVERY_TARGET=single|group|both`。
+- 产品文档新增 v1.0.2 快照，当前文档升级到 v1.0.3。
+
+### 验证记录
+
+- 已确认目标群为 `AI助手组`。
+- 已真实发送群聊小测试卡片到 `AI助手组`。
+- 已真实发送一次截止当前整点的完整退费率图片播报到 `AI助手组`。
+- 已确认当前目标解析结果为 `targetCount=1`、`groupCount=1`、`singleUserCount=0`。
+- 已确认后台服务监听端口并加载 `group` 目标配置。
+
+### 已知问题
+
+- 青龙部署仍未正式启用；当前继续使用本地常驻服务整点推送。
+
+## v1.0.2 - 2026-06-22
+
+### 新增能力
+
+- 退费率播报支持按配置发送到钉钉群聊、单聊或同时双发。
+- 群聊互动卡片使用 `openConversationId` 投递，单聊继续使用 `singleChatReceiver`。
+- 图片模式和 Markdown 模式共用同一套发送目标配置；图片上传后复用同一个图片引用发送到目标。
+
+### 数据口径
+
+- 数据口径、图片列、排序、全日参考和 DataFinder 查询规则均沿用 v1.0.1。
+- 本版本只扩展发送目标，不改变退费率报表计算逻辑。
+
+### 发送目标和触发方式
+
+- 新增 `REFUND_REPORT_DELIVERY_TARGET=single|group|both`。
+- 默认 `single`，兼容既有单聊播报。
+- `group` 模式发送到 `REFUND_REPORT_GROUP_CONVERSATION_ID`；未配置时回退 `DINGTALK_DEFAULT_GROUP_CONVERSATION_ID`。
+- `both` 模式同时发送群聊和单聊，要求群 ID 与用户 ID 都存在。
+- 本地常驻服务和单次脚本共用同一套目标解析逻辑。
+
+### 配置项变化
+
+- `.env.example` 新增 `REFUND_REPORT_DELIVERY_TARGET=single`。
+- 群聊真实启用前需要人工确认目标群 `openConversationId`；群名和普通群号不能直接替代。本版本已确认目标群为 `AI助手组`。
+
+### 验证记录
+
+- 已用 DWS 只读查询并经用户确认目标群：`AI助手组`，成员数 3。
+- 已新增单元测试覆盖单聊请求体、群聊请求体、双发请求体、group 模式 runner 校验、图片模式群目标和失败卡片同目标发送。
+- 已运行 `D:\nodejs24\node.exe --test test\dingtalk-card-service.test.ts test\env-file.test.ts test\refund-report.test.ts test\refund-report-runner.test.ts`，通过 `33 pass / 0 fail`。
+- 已真实发送群聊小测试卡片到 `AI助手组`。
+- 已真实发送一次截止当前整点的完整退费率图片播报到 `AI助手组`。
+
+### 已知问题
+
+- 青龙部署仍未正式启用；当前继续使用本地常驻服务整点推送。
+
 ## v1.0.0 - 2026-06-21
 
 ### 新增能力

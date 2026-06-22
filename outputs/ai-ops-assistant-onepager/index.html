@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>运营团队 AI 提效落地复盘｜一图流总结</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E">
+  <style>
+    :root {
+      --ink: #071d37;
+      --muted: #49617d;
+      --teal: #008996;
+      --teal-deep: #006d80;
+      --red: #b9151b;
+      --line: #c9d9e9;
+      --soft: #eef7f8;
+      --paper: #f5f8fc;
+      --card: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: #e8f0f8; }
+    body {
+      width: 1080px;
+      min-height: 1920px;
+      font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+    }
+
+    .poster {
+      width: 1080px;
+      min-height: 1920px;
+      padding: 42px 56px 42px;
+      background:
+        linear-gradient(120deg, rgba(0,137,150,.08), transparent 34%),
+        radial-gradient(circle at 92% 8%, rgba(185,21,27,.08), transparent 24%),
+        var(--paper);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--teal);
+      font-size: 21px;
+      font-weight: 900;
+      margin-bottom: 24px;
+    }
+
+    .badge {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.68);
+      color: var(--muted);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 54px;
+      line-height: 1.08;
+      letter-spacing: 0;
+      font-weight: 900;
+    }
+
+    .subtitle {
+      margin: 16px 0 22px;
+      color: var(--muted);
+      font-size: 24px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .answer {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 22px;
+      align-items: stretch;
+      margin: 18px 0 26px;
+      border: 1px solid #9bd6dc;
+      border-left: 8px solid var(--teal);
+      border-radius: 8px;
+      background: var(--soft);
+      padding: 20px 24px;
+    }
+
+    .answer .label {
+      color: var(--teal);
+      font-size: 21px;
+      font-weight: 900;
+      line-height: 1.35;
+      border-right: 1px solid #afdce2;
+      padding-right: 18px;
+    }
+
+    .answer .text {
+      font-size: 25px;
+      line-height: 1.42;
+      font-weight: 900;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 22px 0 12px;
+      font-size: 25px;
+      font-weight: 900;
+    }
+
+    .section-title span {
+      width: 34px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--teal);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .metric-card,
+    .case-card,
+    .method-card,
+    .next-card {
+      background: rgba(255,255,255,.86);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 18px 44px rgba(18,55,86,.08);
+    }
+
+    .metric-card {
+      padding: 18px 16px;
+      min-height: 116px;
+    }
+
+    .metric-card b {
+      display: block;
+      color: var(--red);
+      font-size: 23px;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .metric-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.38;
+      font-weight: 700;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .flow-step {
+      min-height: 88px;
+      padding: 12px 8px;
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--teal);
+      border-radius: 8px;
+      background: #fff;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .flow-step em {
+      font-style: normal;
+      color: var(--teal);
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    .flow-step strong {
+      font-size: 15px;
+      line-height: 1.28;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .case-card {
+      padding: 18px;
+      min-height: 118px;
+    }
+
+    .case-card h3 {
+      margin: 0 0 10px;
+      font-size: 21px;
+      line-height: 1.25;
+      color: var(--ink);
+    }
+
+    .case-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.38;
+      font-weight: 700;
+    }
+
+    .architecture {
+      display: grid;
+      grid-template-columns: 1.05fr 70px 1fr;
+      gap: 14px;
+      align-items: center;
+      margin-top: 6px;
+    }
+
+    .stack {
+      display: grid;
+      gap: 10px;
+    }
+
+    .stack-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 13px 16px;
+    }
+
+    .stack-item h3 {
+      margin: 0 0 8px;
+      color: var(--red);
+      font-size: 18px;
+      line-height: 1.25;
+    }
+
+    .stack-item p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 14px;
+      line-height: 1.35;
+      font-weight: 600;
+    }
+
+    .arrow {
+      width: 0;
+      height: 0;
+      margin: auto;
+      border-top: 26px solid transparent;
+      border-bottom: 26px solid transparent;
+      border-left: 36px solid var(--teal-deep);
+    }
+
+    .output-card {
+      padding: 18px 22px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .output-card ul {
+      margin: 0;
+      padding-left: 24px;
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.48;
+      font-weight: 700;
+    }
+
+    .output-card li::marker { color: var(--teal); }
+
+    .method-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .method-card {
+      padding: 12px 12px;
+      min-height: 84px;
+      border-top: 5px solid var(--teal);
+    }
+
+    .method-card b {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--teal);
+      font-size: 16px;
+    }
+
+    .method-card p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.34;
+      font-weight: 800;
+    }
+
+    .next-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+
+    .next-card {
+      padding: 15px 14px;
+      min-height: 102px;
+    }
+
+    .next-card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      color: var(--ink);
+    }
+
+    .next-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.42;
+      font-weight: 700;
+    }
+
+    .footer {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+      font-size: 15px;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
+    .footer strong {
+      color: var(--ink);
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <main class="poster">
+    <div class="topline">
+      <div>运营团队 AI 提效落地复盘</div>
+      <div class="badge">老板版一图流</div>
+    </div>
+
+    <h1>从退费率播报开始<br>把 AI 放进真实业务流程</h1>
+    <p class="subtitle">6 月 19-21 日工作总结｜以退费率钉钉自动播报为样板，验证工具链、业务链路与团队复用方法。</p>
+
+    <section class="answer">
+      <div class="label">核心判断</div>
+      <div class="text">这不是单点工具演示，而是一次从真实高频任务切入、形成可复用 AI 工作流的落地验证。</div>
+    </section>
+
+    <section>
+      <div class="section-title"><span>01</span>本轮已经验证了什么</div>
+      <div class="grid-3">
+        <article class="metric-card">
+          <b>真实场景</b>
+          <p>选择退费率播报，避开空泛演示，直接进入运营日常高频任务。</p>
+        </article>
+        <article class="metric-card">
+          <b>稳定链路</b>
+          <p>打通 DataFinder、口径计算、钉钉推送、文档沉淀与人工确认。</p>
+        </article>
+        <article class="metric-card">
+          <b>可扩展样板</b>
+          <p>从播报扩展到助手、周报、复盘初稿、禅道进度跟进等任务。</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title"><span>02</span>样板案例：退费率钉钉自动播报</div>
+      <div class="flow">
+        <div class="flow-step"><em>1</em><strong>DataFinder<br>取数</strong></div>
+        <div class="flow-step"><em>2</em><strong>企业维度<br>聚合</strong></div>
+        <div class="flow-step"><em>3</em><strong>指标计算<br>与对比</strong></div>
+        <div class="flow-step"><em>4</em><strong>钉钉格式<br>生成</strong></div>
+        <div class="flow-step"><em>5</em><strong>机器人<br>自动推送</strong></div>
+        <div class="flow-step"><em>6</em><strong>文档与<br>方法沉淀</strong></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title"><span>03</span>扩展试点能力</div>
+      <div class="case-grid">
+        <article class="case-card">
+          <h3>钉钉对话助手</h3>
+          <p>在 IM 中直接提问，面向销售、运营助手场景，查询信息并生成方案初稿。</p>
+        </article>
+        <article class="case-card">
+          <h3>自动日报/周报</h3>
+          <p>自动抓取群聊与台账，生成内部汇报，减少重复整理。</p>
+        </article>
+        <article class="case-card">
+          <h3>对客自动复盘初稿</h3>
+          <p>基于已有数据和材料生成客户复盘文档初稿，提高汇报起稿速度。</p>
+        </article>
+        <article class="case-card">
+          <h3>禅道进度跟进</h3>
+          <p>核查需求与 Bug 状态，让异常、工单和任务进度更可见。</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title"><span>04</span>整体工作流思路</div>
+      <div class="architecture">
+        <div class="stack">
+          <div class="stack-item">
+            <h3>输入与输出</h3>
+            <p>钉钉、飞书、企业微信均支持 AI 接入</p>
+          </div>
+          <div class="stack-item">
+            <h3>应用层：Agent / Workflow</h3>
+            <p>播报、监控、预警、汇报初稿、智能助手、信息爬取与清洗</p>
+          </div>
+          <div class="stack-item">
+            <h3>数据库：收集与清洗</h3>
+            <p>飞书知识库、鉴云数仓、生产库、爬虫数据与外部数据源</p>
+          </div>
+        </div>
+        <div class="arrow"></div>
+        <div class="output-card">
+          <ul>
+            <li>数据播报、监控和预警</li>
+            <li>舆情、合作伙伴需求、用户反馈播报</li>
+            <li>汇报初稿</li>
+            <li>需求 / 异常跟进</li>
+            <li>文档整理与自动化清洗</li>
+            <li>销售 / 运营智能助手</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title"><span>05</span>沉淀的方法：8 步从试点到复用</div>
+      <div class="method-row">
+        <div class="method-card"><b>1-2</b><p>选真实高频低风险任务，明确输入来源</p></div>
+        <div class="method-card"><b>3-4</b><p>拆输出结构，选择合适工具链</p></div>
+        <div class="method-card"><b>5-6</b><p>做最小可用版本，沉淀提示词与脚本</p></div>
+        <div class="method-card"><b>7-8</b><p>接入业务流程，固化验收标准</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title"><span>06</span>下一步建议</div>
+      <div class="next-grid">
+        <article class="next-card">
+          <h3>继续跑通退费率播报</h3>
+          <p>稳定数据口径、播报格式、异常处理与人工确认机制。</p>
+        </article>
+        <article class="next-card">
+          <h3>复制到更多运营任务</h3>
+          <p>优先选择重复整理、信息追踪、汇报初稿类任务。</p>
+        </article>
+        <article class="next-card">
+          <h3>以业务验收为准</h3>
+          <p>看是否减少整理时间、提升可见速度、稳定输出，并可团队复用。</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>退费率播报只是起点，目标是让 AI 从个人尝试转化为团队工作流能力。</div>
+      <div>正式页面：ocn4u1j6s1bk.aiforce.cloud</div>
+    </footer>
+  </main>
+</body>
+</html>
+

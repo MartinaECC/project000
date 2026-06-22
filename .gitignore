@@ -5,6 +5,7 @@ package-lock.tmp
 .env
 .env.*
 !.env.example
+!.env.intake.example
 
 tmp/
 *.log

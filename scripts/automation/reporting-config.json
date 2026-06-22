@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "mode": "local-only",
+  "feishu_write_enabled": false,
+  "notes": "Manual switch. Keep false until UTF-8 dry-run and a dedicated Feishu test write both pass."
+}

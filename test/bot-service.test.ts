@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { BotService } from '../src/bot-service.ts';
-import type { BotEvent, LlmAgent, ReplyService, ToolRegistry } from '../src/types.ts';
+import type { BotEvent, IntakeRecord, IntakeStore, LlmAgent, ReplyService, ToolRegistry } from '../src/types.ts';
 
 function event(overrides: Partial<BotEvent> = {}): BotEvent {
   return {
@@ -64,6 +64,29 @@ function fakes() {
   };
 
   return { tools, llm, reply, replies, chatPrompts, groupSummaryInputs, toolCalls };
+}
+
+function intakeFake() {
+  const records: IntakeRecord[] = [];
+  const store: IntakeStore = {
+    async append(record) {
+      const saved: IntakeRecord = {
+        id: `#DT-20260622-${String(records.length + 1).padStart(3, '0')}`,
+        createdAt: '2026-06-22T10:00:00.000Z',
+        source: 'dingtalk',
+        status: '已收集',
+        ...record
+      };
+      records.push(saved);
+      return saved;
+    },
+    async listRecent(options) {
+      return records
+        .filter((record) => !options.type || record.type === options.type)
+        .slice(0, options.limit);
+    }
+  };
+  return { store, records };
 }
 
 test('denies events from conversations outside the allow list', async () => {
@@ -160,4 +183,189 @@ test('ignores duplicate message ids after the first all-group summary', async ()
   assert.deepEqual(toolCalls, ['searchAllGroupMessages:today']);
   assert.equal(groupSummaryInputs.length, 1);
   assert.equal(replies.length, 1);
+});
+
+test('captures tagged intake messages and replies with the record id', async () => {
+  const { tools, llm, reply, replies, chatPrompts, toolCalls } = fakes();
+  const { store, records } = intakeFake();
+  const service = new BotService(
+    {
+      allowedConversationIds: ['single-cid'],
+      appRole: 'ecocc_intake',
+      intake: {
+        enabled: true,
+        storageDir: 'unused',
+        mode: 'tagged',
+        appRole: 'ecocc_intake'
+      }
+    },
+    tools,
+    llm,
+    reply,
+    undefined,
+    undefined,
+    store
+  );
+
+  const result = await service.handleEvent(event({ text: '[\u8fdb\u5ea6] EcoCC \u5df2\u8fde\u901a Stream' }));
+
+  assert.equal(result.status, 'handled');
+  assert.deepEqual(chatPrompts, []);
+  assert.deepEqual(toolCalls, []);
+  assert.equal(records.length, 1);
+  assert.equal(records[0].type, '\u8fdb\u5ea6');
+  assert.equal(records[0].text, 'EcoCC \u5df2\u8fde\u901a Stream');
+  assert.equal(records[0].appRole, 'ecocc_intake');
+  assert.equal(replies[0], '\u5df2\u6536\u96c6\uff1a\u8fdb\u5ea6 #DT-20260622-001');
+});
+
+test('marks risk intake confirmations as requiring manual confirmation', async () => {
+  const { tools, llm, reply, replies } = fakes();
+  const { store } = intakeFake();
+  const service = new BotService(
+    {
+      allowedConversationIds: ['single-cid'],
+      intake: {
+        enabled: true,
+        storageDir: 'unused',
+        mode: 'tagged',
+        appRole: 'ecocc_intake'
+      }
+    },
+    tools,
+    llm,
+    reply,
+    undefined,
+    undefined,
+    store
+  );
+
+  await service.handleEvent(event({ text: '[\u98ce\u9669] \u4e0d\u8981\u81ea\u52a8\u7fa4\u53d1\u5ba2\u6237\u8bdd\u672f' }));
+
+  assert.equal(replies[0], '\u5df2\u6536\u96c6\uff1a\u98ce\u9669 #DT-20260622-001\uff0c\u5df2\u6807\u8bb0\u9700\u4eba\u5de5\u786e\u8ba4');
+});
+
+test('does not capture tagged messages when intake is disabled', async () => {
+  const { tools, llm, reply, replies, chatPrompts } = fakes();
+  const { store, records } = intakeFake();
+  const service = new BotService({ allowedConversationIds: ['single-cid'] }, tools, llm, reply, undefined, undefined, store);
+
+  const result = await service.handleEvent(event({ text: '[\u5f85\u529e] \u8ddf\u8fdb senderStaffId \u767d\u540d\u5355' }));
+
+  assert.equal(result.status, 'handled');
+  assert.deepEqual(records, []);
+  assert.deepEqual(chatPrompts, ['[\u5f85\u529e] \u8ddf\u8fdb senderStaffId \u767d\u540d\u5355']);
+  assert.equal(replies[0], 'LLM says: [\u5f85\u529e] \u8ddf\u8fdb senderStaffId \u767d\u540d\u5355');
+});
+
+test('does not write duplicate intake records for the same message id', async () => {
+  const { tools, llm, reply, replies } = fakes();
+  const { store, records } = intakeFake();
+  const service = new BotService(
+    {
+      allowedConversationIds: ['single-cid'],
+      intake: {
+        enabled: true,
+        storageDir: 'unused',
+        mode: 'tagged',
+        appRole: 'ecocc_intake'
+      }
+    },
+    tools,
+    llm,
+    reply,
+    undefined,
+    undefined,
+    store
+  );
+
+  assert.equal((await service.handleEvent(event({ text: '[\u5f85\u529e] \u660e\u5929\u518d\u6d4b\u8bd5' }))).status, 'handled');
+  assert.equal((await service.handleEvent(event({ text: '[\u5f85\u529e] \u660e\u5929\u518d\u6d4b\u8bd5' }))).status, 'duplicate');
+
+  assert.equal(records.length, 1);
+  assert.equal(replies.length, 1);
+});
+
+test('lists recent todo intake records without calling the LLM', async () => {
+  const { tools, llm, reply, replies, chatPrompts } = fakes();
+  const { store, records } = intakeFake();
+  records.push(
+    {
+      id: '#DT-20260622-001',
+      createdAt: '2026-06-22T09:00:00.000Z',
+      source: 'dingtalk',
+      appRole: 'ecocc_intake',
+      type: '\u5f85\u529e',
+      status: '\u5df2\u6536\u96c6',
+      conversationId: 'single-cid',
+      senderId: 'user-1',
+      messageId: 'todo-1',
+      text: '\u8ddf\u8fdb EcoCC \u767d\u540d\u5355',
+      rawText: '[\u5f85\u529e] \u8ddf\u8fdb EcoCC \u767d\u540d\u5355'
+    },
+    {
+      id: '#DT-20260622-002',
+      createdAt: '2026-06-22T10:00:00.000Z',
+      source: 'dingtalk',
+      appRole: 'ecocc_intake',
+      type: '\u8fdb\u5ea6',
+      status: '\u5df2\u6536\u96c6',
+      conversationId: 'single-cid',
+      senderId: 'user-1',
+      messageId: 'progress-1',
+      text: 'EcoCC \u5df2\u8fde\u901a',
+      rawText: '[\u8fdb\u5ea6] EcoCC \u5df2\u8fde\u901a'
+    }
+  );
+  const service = new BotService(
+    {
+      allowedConversationIds: ['single-cid'],
+      intake: {
+        enabled: true,
+        storageDir: 'unused',
+        mode: 'tagged',
+        appRole: 'ecocc_intake'
+      }
+    },
+    tools,
+    llm,
+    reply,
+    undefined,
+    undefined,
+    store
+  );
+
+  const result = await service.handleEvent(event({ text: '\u628a\u6700\u8fd1\u7684\u5f85\u529e\u6574\u7406\u51fa\u6765\u53d1\u7ed9\u6211' }));
+
+  assert.equal(result.status, 'handled');
+  assert.deepEqual(chatPrompts, []);
+  assert.match(replies[0], /^\u6700\u8fd1 7 \u5929\u5f85\u529e\uff1a/u);
+  assert.match(replies[0], /\u8ddf\u8fdb EcoCC \u767d\u540d\u5355/u);
+  assert.doesNotMatch(replies[0], /EcoCC \u5df2\u8fde\u901a/u);
+});
+
+test('replies clearly when there are no recent todos', async () => {
+  const { tools, llm, reply, replies } = fakes();
+  const { store } = intakeFake();
+  const service = new BotService(
+    {
+      allowedConversationIds: ['single-cid'],
+      intake: {
+        enabled: true,
+        storageDir: 'unused',
+        mode: 'tagged',
+        appRole: 'ecocc_intake'
+      }
+    },
+    tools,
+    llm,
+    reply,
+    undefined,
+    undefined,
+    store
+  );
+
+  await service.handleEvent(event({ text: '\u5f85\u529e\u6e05\u5355' }));
+
+  assert.equal(replies[0], '\u6700\u8fd1 7 \u5929\u6ca1\u6709\u6536\u96c6\u5230\u5f85\u529e\u3002');
 });

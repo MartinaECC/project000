@@ -1,0 +1,133 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]: 运营团队 AI 提效落地复盘
+    - generic [ref=e5]: 老板版一图流
+  - heading "从退费率播报开始 把 AI 放进真实业务流程" [level=1] [ref=e6]:
+    - text: 从退费率播报开始
+    - text: 把 AI 放进真实业务流程
+  - paragraph [ref=e7]: 6 月 19-21 日工作总结｜以退费率钉钉自动播报为样板，验证工具链、业务链路与团队复用方法。
+  - generic [ref=e8]:
+    - generic [ref=e9]: 核心判断
+    - generic [ref=e10]: 这不是单点工具演示，而是一次从真实高频任务切入、形成可复用 AI 工作流的落地验证。
+  - generic [ref=e11]:
+    - generic [ref=e12]:
+      - generic [ref=e13]: "01"
+      - text: 本轮已经验证了什么
+    - generic [ref=e14]:
+      - article [ref=e15]:
+        - generic [ref=e16]: 真实场景
+        - paragraph [ref=e17]: 选择退费率播报，避开空泛演示，直接进入运营日常高频任务。
+      - article [ref=e18]:
+        - generic [ref=e19]: 稳定链路
+        - paragraph [ref=e20]: 打通 DataFinder、口径计算、钉钉推送、文档沉淀与人工确认。
+      - article [ref=e21]:
+        - generic [ref=e22]: 可扩展样板
+        - paragraph [ref=e23]: 从播报扩展到助手、周报、复盘初稿、禅道进度跟进等任务。
+  - generic [ref=e24]:
+    - generic [ref=e25]:
+      - generic [ref=e26]: "02"
+      - text: 样板案例：退费率钉钉自动播报
+    - generic [ref=e27]:
+      - generic [ref=e28]:
+        - emphasis [ref=e29]: "1"
+        - strong [ref=e30]:
+          - text: DataFinder
+          - text: 取数
+      - generic [ref=e31]:
+        - emphasis [ref=e32]: "2"
+        - strong [ref=e33]:
+          - text: 企业维度
+          - text: 聚合
+      - generic [ref=e34]:
+        - emphasis [ref=e35]: "3"
+        - strong [ref=e36]:
+          - text: 指标计算
+          - text: 与对比
+      - generic [ref=e37]:
+        - emphasis [ref=e38]: "4"
+        - strong [ref=e39]:
+          - text: 钉钉格式
+          - text: 生成
+      - generic [ref=e40]:
+        - emphasis [ref=e41]: "5"
+        - strong [ref=e42]:
+          - text: 机器人
+          - text: 自动推送
+      - generic [ref=e43]:
+        - emphasis [ref=e44]: "6"
+        - strong [ref=e45]:
+          - text: 文档与
+          - text: 方法沉淀
+  - generic [ref=e46]:
+    - generic [ref=e47]:
+      - generic [ref=e48]: "03"
+      - text: 扩展试点能力
+    - generic [ref=e49]:
+      - article [ref=e50]:
+        - heading "钉钉对话助手" [level=3] [ref=e51]
+        - paragraph [ref=e52]: 在 IM 中直接提问，面向销售、运营助手场景，查询信息并生成方案初稿。
+      - article [ref=e53]:
+        - heading "自动日报/周报" [level=3] [ref=e54]
+        - paragraph [ref=e55]: 自动抓取群聊与台账，生成内部汇报，减少重复整理。
+      - article [ref=e56]:
+        - heading "对客自动复盘初稿" [level=3] [ref=e57]
+        - paragraph [ref=e58]: 基于已有数据和材料生成客户复盘文档初稿，提高汇报起稿速度。
+      - article [ref=e59]:
+        - heading "禅道进度跟进" [level=3] [ref=e60]
+        - paragraph [ref=e61]: 核查需求与 Bug 状态，让异常、工单和任务进度更可见。
+  - generic [ref=e62]:
+    - generic [ref=e63]:
+      - generic [ref=e64]: "04"
+      - text: 整体工作流思路
+    - generic [ref=e65]:
+      - generic [ref=e66]:
+        - generic [ref=e67]:
+          - heading "输入与输出" [level=3] [ref=e68]
+          - paragraph [ref=e69]: 钉钉、飞书、企业微信均支持 AI 接入
+        - generic [ref=e70]:
+          - heading "应用层：Agent / Workflow" [level=3] [ref=e71]
+          - paragraph [ref=e72]: 播报、监控、预警、汇报初稿、智能助手、信息爬取与清洗
+        - generic [ref=e73]:
+          - heading "数据库：收集与清洗" [level=3] [ref=e74]
+          - paragraph [ref=e75]: 飞书知识库、鉴云数仓、生产库、爬虫数据与外部数据源
+      - list [ref=e78]:
+        - listitem [ref=e79]: 数据播报、监控和预警
+        - listitem [ref=e80]: 舆情、合作伙伴需求、用户反馈播报
+        - listitem [ref=e81]: 汇报初稿
+        - listitem [ref=e82]: 需求 / 异常跟进
+        - listitem [ref=e83]: 文档整理与自动化清洗
+        - listitem [ref=e84]: 销售 / 运营智能助手
+  - generic [ref=e85]:
+    - generic [ref=e86]:
+      - generic [ref=e87]: "05"
+      - text: 沉淀的方法：8 步从试点到复用
+    - generic [ref=e88]:
+      - generic [ref=e89]:
+        - generic [ref=e90]: 1-2
+        - paragraph [ref=e91]: 选真实高频低风险任务，明确输入来源
+      - generic [ref=e92]:
+        - generic [ref=e93]: 3-4
+        - paragraph [ref=e94]: 拆输出结构，选择合适工具链
+      - generic [ref=e95]:
+        - generic [ref=e96]: 5-6
+        - paragraph [ref=e97]: 做最小可用版本，沉淀提示词与脚本
+      - generic [ref=e98]:
+        - generic [ref=e99]: 7-8
+        - paragraph [ref=e100]: 接入业务流程，固化验收标准
+  - generic [ref=e101]:
+    - generic [ref=e102]:
+      - generic [ref=e103]: "06"
+      - text: 下一步建议
+    - generic [ref=e104]:
+      - article [ref=e105]:
+        - heading "继续跑通退费率播报" [level=3] [ref=e106]
+        - paragraph [ref=e107]: 稳定数据口径、播报格式、异常处理与人工确认机制。
+      - article [ref=e108]:
+        - heading "复制到更多运营任务" [level=3] [ref=e109]
+        - paragraph [ref=e110]: 优先选择重复整理、信息追踪、汇报初稿类任务。
+      - article [ref=e111]:
+        - heading "以业务验收为准" [level=3] [ref=e112]
+        - paragraph [ref=e113]: 看是否减少整理时间、提升可见速度、稳定输出，并可团队复用。
+  - generic [ref=e114]:
+    - generic [ref=e115]: 退费率播报只是起点，目标是让 AI 从个人尝试转化为团队工作流能力。
+    - generic [ref=e116]: 正式页面：ocn4u1j6s1bk.aiforce.cloud
