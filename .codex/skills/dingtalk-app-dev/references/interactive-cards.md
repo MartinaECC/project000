@@ -100,6 +100,13 @@ command: bash /ql/data/scripts/project000/scripts/ql_refund_report.sh
 cron: 0 * * * *
 ```
 
+When QingLong becomes the production scheduler for a DingTalk report:
+
+- Stop or disable the overlapping local sender before declaring the cutover complete. For the refund-rate report, verify the local `3002` service is not listening.
+- Verify a real scheduled run at the next cron time, not only a manual QingLong run.
+- For image-table cards on Linux/QingLong, confirm Chinese fonts and fontconfig are available. A missing font setup can produce a PNG with table colors but unreadable or missing Chinese text.
+- If the host lacks system fonts, use a project-local `vendor/fonts/fonts.conf` and export `FONTCONFIG_FILE` before Node renders SVG to PNG.
+
 ## Typography And Spacing In Card Markdown
 
 For `StandardCard` markdown content, prefer DingTalk markdown variables and design tokens over generic Markdown headings or numeric HTML font sizes.

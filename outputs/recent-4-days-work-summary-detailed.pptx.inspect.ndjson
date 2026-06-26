@@ -1,0 +1,640 @@
+{"kind":"deck","id":"pr/papann","name":"Deck"}
+{"kind":"layout","layoutId":"1ed9dc7a-1637-4474-8e25-f2d14b44079c","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"87ddf653-d905-4fa6-976b-fbf8cbf6454f","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/8ybtxk","slide":1,"title":"经营协作复盘","textShapes":8}
+{"kind":"shape","id":"sh/at47y1kr","slide":1,"bbox":[0,0,1280,720]}
+{"kind":"shape","id":"sh/lkjm1cfa","slide":1,"bbox":[784,0,496,720]}
+{"kind":"shape","id":"sh/szqtcj6t","slide":1,"bbox":[860,94,292,420]}
+{"kind":"textbox","id":"sh/32lszqtc","slide":1,"text":"经营协作复盘","textPreview":"经营协作复盘","textChars":6,"textLines":1,"bbox":[82,76,420,32]}
+{"kind":"textbox","id":"sh/ahoza1gv","slide":1,"text":"最近4天\n工作总结","textPreview":"最近4天 | 工作总结","textChars":9,"textLines":2,"bbox":[78,178,610,160]}
+{"kind":"textbox","id":"sh/l87ed8ba","slide":1,"text":"2026.06.19 - 2026.06.22 | 全量细化版","textPreview":"2026.06.19 - 2026.06.22 | 全量细化版","textChars":31,"textLines":1,"bbox":[82,356,570,38]}
+{"kind":"textbox","id":"sh/sneloj2t","slide":1,"text":"从工具执行，走向可复用的公司经营协作系统","textPreview":"从工具执行，走向可复用的公司经营协作系统","textChars":20,"textLines":1,"bbox":[82,452,590,42]}
+{"kind":"textbox","id":"sh/3q5o7qpg","slide":1,"text":"旧版 4 页 PPT 保留，本版重新设计为 18 页留档复盘。","textPreview":"旧版 4 页 PPT 保留，本版重新设计为 18 页留档复盘。","textChars":31,"textLines":1,"bbox":[82,510,620,34]}
+{"kind":"textbox","id":"sh/e9cvixcz","slide":1,"text":"18页\n全量复盘","textPreview":"18页 | 全量复盘","textChars":8,"textLines":2,"bbox":[908,162,210,112]}
+{"kind":"textbox","id":"sh/87ed8bat","slide":1,"text":"业务复盘 / 自动化 / 知识库 / 工程资产 / 环境可观测","textPreview":"业务复盘 / 自动化 / 知识库 / 工程资产 / 环境可观测","textChars":31,"textLines":1,"bbox":[900,326,230,88]}
+{"kind":"shape","id":"sh/xs72x4na","slide":1,"bbox":[64,662,1152,1]}
+{"kind":"textbox","id":"sh/q1orytsv","slide":1,"text":"生成方式：@oai/artifact-tool | 数据来源：本机 rollout summaries，不额外联网","textPreview":"生成方式：@oai/artifact-tool | 数据来源：本机 rollout summaries，不额外联网","textChars":57,"textLines":1,"bbox":[64,674,880,24]}
+{"kind":"notes","id":"nt/8ybtxk","slide":1,"text":""}
+{"kind":"slide","id":"sl/6tvoep","slide":2,"title":"总览","textShapes":12}
+{"kind":"shape","id":"sh/yhgn29gr","slide":2,"bbox":[0,0,1280,10]}
+{"kind":"textbox","id":"sh/58z25kb6","slide":2,"text":"总览","textPreview":"总览","textChars":2,"textLines":1,"bbox":[64,30,460,28]}
+{"kind":"textbox","id":"sh/gn29gr2p","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[1168,30,56,28]}
+{"kind":"textbox","id":"sh/nuxc3ylc","slide":2,"text":"4天主线：从单点执行到协作系统","textPreview":"4天主线：从单点执行到协作系统","textChars":15,"textLines":1,"bbox":[64,78,880,56]}
+{"kind":"textbox","id":"sh/y90je9cv","slide":2,"text":"这四天不是零散任务，而是在持续把“能做一次”升级成“下次可复用、可验证、可沉淀”。","textPreview":"这四天不是零散任务，而是在持续把“能做一次”升级成“下次可复用、可验证、可沉淀”。","textChars":41,"textLines":1,"bbox":[66,142,990,38]}
+{"kind":"shape","id":"sh/5wjudg7a","slide":2,"bbox":[64,222,360,318]}
+{"kind":"shape","id":"sh/gbq1oryt","slide":2,"bbox":[64,222,7,318]}
+{"kind":"textbox","id":"sh/nqxs72x4","slide":2,"text":"工作流产品化","textPreview":"工作流产品化","textChars":6,"textLines":1,"bbox":[84,240,326,28]}
+{"kind":"textbox","id":"sh/u54zidon","slide":2,"text":"飞书 AI 日报、Base 回写、钉钉退款率群聊推送、ZenTao API 查询等流程被固化为 skill、文档或脚本。","textPreview":"飞书 AI 日报、Base 回写、钉钉退款率群聊推送、ZenTao API 查询等流程被固化为 skill、文档或脚本。","textChars":60,"textLines":1,"bbox":[84,278,326,252]}
+{"kind":"shape","id":"sh/cbulwval","slide":2,"bbox":[448,222,360,318]}
+{"kind":"shape","id":"sh/5sneloj2","slide":2,"bbox":[448,222,7,318]}
+{"kind":"textbox","id":"sh/u54zidon","slide":2,"text":"经营知识基座","textPreview":"经营知识基座","textChars":6,"textLines":1,"bbox":[468,240,326,28]}
+{"kind":"textbox","id":"sh/nqxs72x4","slide":2,"text":"从客户风险、运营驾驶舱到九大公司模块，明确 Codex 的长期角色：个人合伙人咨询师与公司经营协作伙伴。","textPreview":"从客户风险、运营驾驶舱到九大公司模块，明确 Codex 的长期角色：个人合伙人咨询师与公司经营协作伙伴。","textChars":52,"textLines":1,"bbox":[468,278,326,252]}
+{"kind":"shape","id":"sh/czed8v6p","slide":2,"bbox":[832,222,360,318]}
+{"kind":"shape","id":"sh/5kb6xkf6","slide":2,"bbox":[832,222,7,318]}
+{"kind":"textbox","id":"sh/ytsvu9kn","slide":2,"text":"工程可交付","textPreview":"工程可交付","textChars":5,"textLines":1,"bbox":[852,240,326,28]}
+{"kind":"textbox","id":"sh/neloj2t8","slide":2,"text":"仓库中文化、自动化资产入库、setup.bat、一键环境、用量看板和 PowerShell 更新，让工作区更能长期运行。","textPreview":"仓库中文化、自动化资产入库、setup.bat、一键环境、用量看板和 PowerShell 更新，让工作区更能长期运行。","textChars":60,"textLines":1,"bbox":[852,278,326,252]}
+{"kind":"textbox","id":"sh/gn29gr2p","slide":2,"text":"核心变化：交付不再只看“有没有完成”，还看有没有留下路径、验证信号、复用材料和下一步责任。","textPreview":"核心变化：交付不再只看“有没有完成”，还看有没有留下路径、验证信号、复用材料和下一步责任。","textChars":45,"textLines":1,"bbox":[88,584,1040,34]}
+{"kind":"shape","id":"sh/58z25kb6","slide":2,"bbox":[64,662,1152,1]}
+{"kind":"textbox","id":"sh/tcj6tova","slide":2,"text":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textPreview":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textChars":65,"textLines":1,"bbox":[64,674,880,24]}
+{"kind":"notes","id":"nt/6tvoep","slide":2,"text":""}
+{"kind":"slide","id":"sl/m61czk","slide":3,"title":"工作地图","textShapes":15}
+{"kind":"shape","id":"sh/u9knih4b","slide":3,"bbox":[0,0,1280,10]}
+{"kind":"textbox","id":"sh/1032lszq","slide":3,"text":"工作地图","textPreview":"工作地图","textChars":4,"textLines":1,"bbox":[64,30,460,28]}
+{"kind":"textbox","id":"sh/cfa9w3m9","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1168,30,56,28]}
+{"kind":"textbox","id":"sh/jm1cfa9w","slide":3,"text":"五类工作流归档","textPreview":"五类工作流归档","textChars":7,"textLines":1,"bbox":[64,78,880,56]}
+{"kind":"textbox","id":"sh/u18jqh0f","slide":3,"text":"按经营价值归类，而不是按工具或聊天顺序堆叠。","textPreview":"按经营价值归类，而不是按工具或聊天顺序堆叠。","textChars":22,"textLines":1,"bbox":[66,142,990,38]}
+{"kind":"shape","id":"sh/1orytsvu","slide":3,"bbox":[76,204,1060,56]}
+{"kind":"shape","id":"sh/c7u54zid","slide":3,"bbox":[76,204,14,56]}
+{"kind":"textbox","id":"sh/nap4r65w","slide":3,"text":"业务复盘","textPreview":"业务复盘","textChars":4,"textLines":1,"bbox":[112,216,180,28]}
+{"kind":"textbox","id":"sh/upwb2hwf","slide":3,"text":"客户台账、退款率、产品手册、读书/学习素材，支撑运营判断。","textPreview":"客户台账、退款率、产品手册、读书/学习素材，支撑运营判断。","textChars":29,"textLines":1,"bbox":[304,219,760,26]}
+{"kind":"shape","id":"sh/orytsvu9","slide":3,"bbox":[76,282,1060,56]}
+{"kind":"shape","id":"sh/hcrmhk3q","slide":3,"bbox":[76,282,14,56]}
+{"kind":"textbox","id":"sh/al87ed8b","slide":3,"text":"自动化/机器人","textPreview":"自动化/机器人","textChars":7,"textLines":1,"bbox":[112,294,180,28]}
+{"kind":"textbox","id":"sh/z61032ls","slide":3,"text":"钉钉机器人、Stream、DWS、DataFinder 报表推送，支撑日常执行。","textPreview":"钉钉机器人、Stream、DWS、DataFinder 报表推送，支撑日常执行。","textChars":40,"textLines":1,"bbox":[304,297,760,26]}
+{"kind":"shape","id":"sh/sfil0rqd","slide":3,"bbox":[76,360,1060,56]}
+{"kind":"shape","id":"sh/h0fepkzu","slide":3,"bbox":[76,360,14,56]}
+{"kind":"textbox","id":"sh/a9w3m94f","slide":3,"text":"知识库/skill","textPreview":"知识库/skill","textChars":9,"textLines":1,"bbox":[112,372,180,28]}
+{"kind":"textbox","id":"sh/zupwb2hw","slide":3,"text":"飞书日报、DingTalk、ZenTao、Tencent Docs、公司 copilot skill。","textPreview":"飞书日报、DingTalk、ZenTao、Tencent Docs、公司 copilot skill。","textChars":51,"textLines":1,"bbox":[304,375,760,26]}
+{"kind":"shape","id":"sh/obm58z25","slide":3,"bbox":[76,438,1060,56]}
+{"kind":"shape","id":"sh/hwfyxobm","slide":3,"bbox":[76,438,14,56]}
+{"kind":"textbox","id":"sh/18jqh0fe","slide":3,"text":"工程资产","textPreview":"工程资产","textChars":4,"textLines":1,"bbox":[112,450,180,28]}
+{"kind":"textbox","id":"sh/8nqxs72x","slide":3,"text":"仓库中文化、脚本入库、测试验证、secret 处理、setup.bat。","textPreview":"仓库中文化、脚本入库、测试验证、secret 处理、setup.bat。","textChars":36,"textLines":1,"bbox":[304,453,760,26]}
+{"kind":"shape","id":"sh/j2t83itg","slide":3,"bbox":[76,516,1060,56]}
+{"kind":"shape","id":"sh/qh0fepkz","slide":3,"bbox":[76,516,14,56]}
+{"kind":"textbox","id":"sh/1w7mp0bi","slide":3,"text":"环境与可观测","textPreview":"环境与可观测","textChars":6,"textLines":1,"bbox":[112,528,180,28]}
+{"kind":"textbox","id":"sh/8bat47y1","slide":3,"text":"Codex 用量看板、PowerShell 7.6.3、进程排查、路径约定。","textPreview":"Codex 用量看板、PowerShell 7.6.3、进程排查、路径约定。","textChars":38,"textLines":1,"bbox":[304,531,760,26]}
+{"kind":"shape","id":"sh/jqh0fepk","slide":3,"bbox":[64,662,1152,1]}
+{"kind":"textbox","id":"sh/q5o7qpg3","slide":3,"text":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textPreview":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textChars":65,"textLines":1,"bbox":[64,674,880,24]}
+{"kind":"notes","id":"nt/m61czk","slide":3,"text":""}
+{"kind":"slide","id":"sl/mo7wdl","slide":4,"title":"6/19","textShapes":25}
+{"kind":"shape","id":"sh/kjm1cfa9","slide":4,"bbox":[0,0,1280,10]}
+{"kind":"textbox","id":"sh/r2p8nqxs","slide":4,"text":"6/19","textPreview":"6/19","textChars":4,"textLines":1,"bbox":[64,30,460,28]}
+{"kind":"textbox","id":"sh/2hwfyxob","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1168,30,56,28]}
+{"kind":"textbox","id":"sh/9gr2p8nq","slide":4,"text":"高密度执行日：多个系统同时打通","textPreview":"高密度执行日：多个系统同时打通","textChars":15,"textLines":1,"bbox":[64,78,880,56]}
+{"kind":"textbox","id":"sh/gvy90je9","slide":4,"text":"6/19 的重点是把外部系统访问、业务数据读取和自动化消息链路跑通。","textPreview":"6/19 的重点是把外部系统访问、业务数据读取和自动化消息链路跑通。","textChars":34,"textLines":1,"bbox":[66,142,990,38]}
+{"kind":"shape","id":"sh/ra5gbq1o","slide":4,"bbox":[64,218,280,42]}
+{"kind":"textbox","id":"sh/2p8nqxs7","slide":4,"text":"目标 / 背景","textPreview":"目标 / 背景","textChars":7,"textLines":1,"bbox":[76,228,256,24]}
+{"kind":"shape","id":"sh/9knih4by","slide":4,"bbox":[344,218,330,42]}
+{"kind":"textbox","id":"sh/kzupwb2h","slide":4,"text":"关键动作","textPreview":"关键动作","textChars":4,"textLines":1,"bbox":[356,228,306,24]}
+{"kind":"shape","id":"sh/ulwval87","slide":4,"bbox":[674,218,260,42]}
+{"kind":"textbox","id":"sh/j6tovaho","slide":4,"text":"产出物","textPreview":"产出物","textChars":3,"textLines":1,"bbox":[686,228,236,24]}
+{"kind":"shape","id":"sh/crmhk3q5","slide":4,"bbox":[934,218,218,42]}
+{"kind":"textbox","id":"sh/1cfa9w3m","slide":4,"text":"验证 / 沉淀","textPreview":"验证 / 沉淀","textChars":7,"textLines":1,"bbox":[946,228,194,24]}
+{"kind":"shape","id":"sh/uxc3ylc7","slide":4,"bbox":[64,260,280,82]}
+{"kind":"textbox","id":"sh/ji5snelo","slide":4,"text":"飞书 / 知识库","textPreview":"飞书 / 知识库","textChars":8,"textLines":1,"bbox":[76,272,256,62]}
+{"kind":"shape","id":"sh/c3ylc7u5","slide":4,"bbox":[344,260,330,82]}
+{"kind":"textbox","id":"sh/1kre1w7m","slide":4,"text":"创建个人知识库节点；建立 AI 日报；Base 回写链接","textPreview":"创建个人知识库节点；建立 AI 日报；Base 回写链接","textChars":28,"textLines":1,"bbox":[356,272,306,62]}
+{"kind":"shape","id":"sh/q5o7qpg3","slide":4,"bbox":[674,260,260,82]}
+{"kind":"textbox","id":"sh/jqh0fepk","slide":4,"text":"AI日报 skill、同日复用规则","textPreview":"AI日报 skill、同日复用规则","textChars":17,"textLines":1,"bbox":[686,272,236,62]}
+{"kind":"shape","id":"sh/bulwval8","slide":4,"bbox":[934,260,218,82]}
+{"kind":"textbox","id":"sh/i9s36hcr","slide":4,"text":"wiki +node-get、Base row readback","textPreview":"wiki +node-get、Base row readback","textChars":32,"textLines":1,"bbox":[946,272,194,62]}
+{"kind":"shape","id":"sh/p0bi9s36","slide":4,"bbox":[64,342,280,82]}
+{"kind":"textbox","id":"sh/0fepkzup","slide":4,"text":"钉钉 / 机器人","textPreview":"钉钉 / 机器人","textChars":8,"textLines":1,"bbox":[76,354,256,62]}
+{"kind":"shape","id":"sh/bi9s36hc","slide":4,"bbox":[344,342,330,82]}
+{"kind":"textbox","id":"sh/ixczed8v","slide":4,"text":"单聊回复、全群总结、Stream 配置、群聊推送","textPreview":"单聊回复、全群总结、Stream 配置、群聊推送","textChars":24,"textLines":1,"bbox":[356,354,306,62]}
+{"kind":"shape","id":"sh/tovahoza","slide":4,"bbox":[674,342,260,82]}
+{"kind":"textbox","id":"sh/032lszqt","slide":4,"text":"dingtalk-app-dev skill、v1.0.3 文档","textPreview":"dingtalk-app-dev skill、v1.0.3 文档","textChars":32,"textLines":1,"bbox":[686,354,236,62]}
+{"kind":"shape","id":"sh/b6xkf6dc","slide":4,"bbox":[934,342,218,82]}
+{"kind":"textbox","id":"sh/il0rqd4v","slide":4,"text":"AI助手组实发、日志 groupCount=1","textPreview":"AI助手组实发、日志 groupCount=1","textChars":23,"textLines":1,"bbox":[946,354,194,62]}
+{"kind":"shape","id":"sh/sneloj2t","slide":4,"bbox":[64,424,280,82]}
+{"kind":"textbox","id":"sh/l87ed8ba","slide":4,"text":"业务数据","textPreview":"业务数据","textChars":4,"textLines":1,"bbox":[76,436,256,62]}
+{"kind":"shape","id":"sh/ahoza1gv","slide":4,"bbox":[344,424,330,82]}
+{"kind":"textbox","id":"sh/32lszqtc","slide":4,"text":"DataFinder 查退款率；客户台账近两周复盘；ZenTao 鉴云计划","textPreview":"DataFinder 查退款率；客户台账近两周复盘；ZenTao 鉴云计划","textChars":37,"textLines":1,"bbox":[356,436,306,62]}
+{"kind":"shape","id":"sh/szqtcj6t","slide":4,"bbox":[674,424,260,82]}
+{"kind":"textbox","id":"sh/lkjm1cfa","slide":4,"text":"报表、客户问题清单、计划任务同步","textPreview":"报表、客户问题清单、计划任务同步","textChars":16,"textLines":1,"bbox":[686,436,236,62]}
+{"kind":"shape","id":"sh/at47y1kr","slide":4,"bbox":[934,424,218,82]}
+{"kind":"textbox","id":"sh/3ex0nuxc","slide":4,"text":"API / DWS / docs fetch 验证","textPreview":"API / DWS / docs fetch 验证","textChars":25,"textLines":1,"bbox":[946,436,194,62]}
+{"kind":"shape","id":"sh/w3m94fu1","slide":4,"bbox":[64,506,280,82]}
+{"kind":"textbox","id":"sh/loj2t83i","slide":4,"text":"产品材料","textPreview":"产品材料","textChars":4,"textLines":1,"bbox":[76,518,256,62]}
+{"kind":"shape","id":"sh/xczed8v6","slide":4,"bbox":[344,506,330,82]}
+{"kind":"textbox","id":"sh/8v6psfil","slide":4,"text":"读取七鱼 31 份 PDF 产品手册，做覆盖式总结","textPreview":"读取七鱼 31 份 PDF 产品手册，做覆盖式总结","textChars":25,"textLines":1,"bbox":[356,518,306,62]}
+{"kind":"shape","id":"sh/fa9w3m94","slide":4,"bbox":[674,506,260,82]}
+{"kind":"textbox","id":"sh/qpg3ex0n","slide":4,"text":"产品能力总览和阅读方法","textPreview":"产品能力总览和阅读方法","textChars":11,"textLines":1,"bbox":[686,518,236,62]}
+{"kind":"shape","id":"sh/x4nap4r6","slide":4,"bbox":[934,506,218,82]}
+{"kind":"textbox","id":"sh/8jqh0fep","slide":4,"text":"31 PDFs 全量提取","textPreview":"31 PDFs 全量提取","textChars":12,"textLines":1,"bbox":[946,518,194,62]}
+{"kind":"shape","id":"sh/fyxobm58","slide":4,"bbox":[64,662,1152,1]}
+{"kind":"textbox","id":"sh/qd4vmtwr","slide":4,"text":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textPreview":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textChars":65,"textLines":1,"bbox":[64,674,880,24]}
+{"kind":"notes","id":"nt/mo7wdl","slide":4,"text":""}
+{"kind":"slide","id":"sl/dd5m4l","slide":5,"title":"飞书 / 知识库","textShapes":12}
+{"kind":"shape","id":"sh/o7qpg3ex","slide":5,"bbox":[0,0,1280,10]}
+{"kind":"textbox","id":"sh/vmtwra5g","slide":5,"text":"飞书 / 知识库","textPreview":"飞书 / 知识库","textChars":8,"textLines":1,"bbox":[64,30,460,28]}
+{"kind":"textbox","id":"sh/61032lsz","slide":5,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1168,30,56,28]}
+{"kind":"textbox","id":"sh/d4vmtwra","slide":5,"text":"飞书日报与 Base 回写：从一次写文档到可复用机制","textPreview":"飞书日报与 Base 回写：从一次写文档到可复用机制","textChars":26,"textLines":1,"bbox":[64,78,880,56]}
+{"kind":"textbox","id":"sh/oj2t83it","slide":5,"text":"用户想每天总结今日和 Codex 工作，所以重点不是写一篇日报，而是沉淀可重复流程。","textPreview":"用户想每天总结今日和 Codex 工作，所以重点不是写一篇日报，而是沉淀可重复流程。","textChars":42,"textLines":1,"bbox":[66,142,990,38]}
+{"kind":"shape","id":"sh/vy90je9c","slide":5,"bbox":[64,214,342,330]}
+{"kind":"textbox","id":"sh/6dcbulwv","slide":5,"text":"目标 / 背景","textPreview":"目标 / 背景","textChars":7,"textLines":1,"bbox":[84,232,302,30]}
+{"kind":"textbox","id":"sh/d8v6psfi","slide":5,"text":"在 AI工作日报 容器下创建或复用当天文档\n标题约定：AI日报 | YYYYMMDD\nBase 表记录创建日期与文档地址","textPreview":"在 AI工作日报 容器下创建或复用当天文档 | 标题约定：AI日报 | YYYYMMDD | Base 表记录创建日期与文档地址","textChars":60,"textLines":3,"bbox":[86,276,298,254]}
+{"kind":"shape","id":"sh/onyd0z61","slide":5,"bbox":[430,214,342,330]}
+{"kind":"textbox","id":"sh/epkzupwb","slide":5,"text":"关键动作","textPreview":"关键动作","textChars":4,"textLines":1,"bbox":[450,232,302,30]}
+{"kind":"textbox","id":"sh/7adsji5s","slide":5,"text":"解析 wiki 节点发现 obj_type=bitable\n定位同日 docx 并覆盖正文\n用文件 JSON payload 创建/更新 Base 记录","textPreview":"解析 wiki 节点发现 obj_type=bitable | 定位同日 docx 并覆盖正文 | 用文件 JSON payload 创建/更新 Base 记录","textChars":76,"textLines":3,"bbox":[452,276,298,254]}
+{"kind":"shape","id":"sh/wval87ed","slide":5,"bbox":[796,214,342,330]}
+{"kind":"textbox","id":"sh/pg3ex0nu","slide":5,"text":"产出 / 沉淀","textPreview":"产出 / 沉淀","textChars":7,"textLines":1,"bbox":[816,232,302,30]}
+{"kind":"textbox","id":"sh/e1w7mp0b","slide":5,"text":"本地 skill：ai-daily-report-feishu\n正文结构固定为 概览 + 细节\n记录 Base 链接文本会被平台规范化","textPreview":"本地 skill：ai-daily-report-feishu | 正文结构固定为 概览 + 细节 | 记录 Base 链接文本会被平台规范化","textChars":67,"textLines":3,"bbox":[818,276,298,254]}
+{"kind":"textbox","id":"sh/7mp0bi9s","slide":5,"text":"验证信号：wiki +node-get 返回 bitable；Base table/field/list/readback 均完成；同日文档复用规则写入 skill。","textPreview":"验证信号：wiki +node-get 返回 bitable；Base table/field/list/readback 均完成；同日文档复用规则写入 skill。","textChars":83,"textLines":1,"bbox":[82,582,1030,34]}
+{"kind":"shape","id":"sh/w7mp0bi9","slide":5,"bbox":[64,662,1152,1]}
+{"kind":"textbox","id":"sh/psfil0rq","slide":5,"text":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textPreview":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textChars":65,"textLines":1,"bbox":[64,674,880,24]}
+{"kind":"notes","id":"nt/dd5m4l","slide":5,"text":""}
+{"kind":"slide","id":"sl/9o71s7","slide":6,"title":"钉钉 / Stream","textShapes":25}
+{"kind":"shape","id":"sh/wjudg7ad","slide":6,"bbox":[0,0,1280,10]}
+{"kind":"textbox","id":"sh/7y1kre1w","slide":6,"text":"钉钉 / Stream","textPreview":"钉钉 / Stream","textChars":11,"textLines":1,"bbox":[64,30,460,28]}
+{"kind":"textbox","id":"sh/ed8v6psf","slide":6,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[1168,30,56,28]}
+{"kind":"textbox","id":"sh/pwb2hwfy","slide":6,"text":"钉钉机器人：从能回复到能读真实群、能推真实群","textPreview":"钉钉机器人：从能回复到能读真实群、能推真实群","textChars":22,"textLines":1,"bbox":[64,78,880,56]}
+{"kind":"textbox","id":"sh/0bi9s36h","slide":6,"text":"这一组工作解决的是“LLM 不能假装看过群聊”的执行可靠性问题。","textPreview":"这一组工作解决的是“LLM 不能假装看过群聊”的执行可靠性问题。","textChars":32,"textLines":1,"bbox":[66,142,990,38]}
+{"kind":"shape","id":"sh/7qpg3ex0","slide":6,"bbox":[64,218,280,42]}
+{"kind":"textbox","id":"sh/i5sneloj","slide":6,"text":"目标 / 背景","textPreview":"目标 / 背景","textChars":7,"textLines":1,"bbox":[76,228,256,24]}
+{"kind":"shape","id":"sh/pkzupwb2","slide":6,"bbox":[344,218,330,42]}
+{"kind":"textbox","id":"sh/0z61032l","slide":6,"text":"关键动作","textPreview":"关键动作","textChars":4,"textLines":1,"bbox":[356,228,306,24]}
+{"kind":"shape","id":"sh/qpg3ex0n","slide":6,"bbox":[674,218,260,42]}
+{"kind":"textbox","id":"sh/fa9w3m94","slide":6,"text":"产出物","textPreview":"产出物","textChars":3,"textLines":1,"bbox":[686,228,236,24]}
+{"kind":"shape","id":"sh/8v6psfil","slide":6,"bbox":[934,218,218,42]}
+{"kind":"textbox","id":"sh/xczed8v6","slide":6,"text":"验证 / 沉淀","textPreview":"验证 / 沉淀","textChars":7,"textLines":1,"bbox":[946,228,194,24]}
+{"kind":"shape","id":"sh/qd4vmtwr","slide":6,"bbox":[64,260,280,78]}
+{"kind":"textbox","id":"sh/fyxobm58","slide":6,"text":"单聊机器人","textPreview":"单聊机器人","textChars":5,"textLines":1,"bbox":[76,272,256,58]}
+{"kind":"shape","id":"sh/8jqh0fep","slide":6,"bbox":[344,260,330,78]}
+{"kind":"textbox","id":"sh/x4nap4r6","slide":6,"text":"配置 DINGTALK_REPLY_MODE=single 与模型参数","textPreview":"配置 DINGTALK_REPLY_MODE=single 与模型参数","textChars":35,"textLines":1,"bbox":[356,272,306,58]}
+{"kind":"shape","id":"sh/q1orytsv","slide":6,"bbox":[674,260,260,78]}
+{"kind":"textbox","id":"sh/fmlkjm1c","slide":6,"text":"单聊直回路径","textPreview":"单聊直回路径","textChars":6,"textLines":1,"bbox":[686,272,236,58]}
+{"kind":"shape","id":"sh/r2p8nqxs","slide":6,"bbox":[934,260,218,78]}
+{"kind":"textbox","id":"sh/2hwfyxob","slide":6,"text":"使用 send-by-bot 对 senderId 回复","textPreview":"使用 send-by-bot 对 senderId 回复","textChars":28,"textLines":1,"bbox":[946,272,194,58]}
+{"kind":"shape","id":"sh/94fu18jq","slide":6,"bbox":[64,338,280,78]}
+{"kind":"textbox","id":"sh/kjm1cfa9","slide":6,"text":"全群总结","textPreview":"全群总结","textChars":4,"textLines":1,"bbox":[76,350,256,58]}
+{"kind":"shape","id":"sh/ra5gbq1o","slide":6,"bbox":[344,338,330,78]}
+{"kind":"textbox","id":"sh/2p8nqxs7","slide":6,"text":"用户要求总结所有群，不是单一群；改走 DWS 真实读取","textPreview":"用户要求总结所有群，不是单一群；改走 DWS 真实读取","textChars":27,"textLines":1,"bbox":[356,350,306,58]}
+{"kind":"shape","id":"sh/9gr2p8nq","slide":6,"bbox":[674,338,260,78]}
+{"kind":"textbox","id":"sh/gvy90je9","slide":6,"text":"群消息总结能力","textPreview":"群消息总结能力","textChars":7,"textLines":1,"bbox":[686,350,236,58]}
+{"kind":"shape","id":"sh/re1w7mp0","slide":6,"bbox":[934,338,218,78]}
+{"kind":"textbox","id":"sh/2t83itgf","slide":6,"text":"避免 LLM 空答“我看不到”","textPreview":"避免 LLM 空答“我看不到”","textChars":15,"textLines":1,"bbox":[946,350,194,58]}
+{"kind":"shape","id":"sh/cvixczed","slide":6,"bbox":[64,416,280,78]}
+{"kind":"textbox","id":"sh/5gbq1ory","slide":6,"text":"Stream 配置","textPreview":"Stream 配置","textChars":9,"textLines":1,"bbox":[76,428,256,58]}
+{"kind":"shape","id":"sh/upwb2hwf","slide":6,"bbox":[344,416,330,78]}
+{"kind":"textbox","id":"sh/nap4r65w","slide":6,"text":"记录创建应用→机器人→Stream→网关/服务器连接顺序","textPreview":"记录创建应用→机器人→Stream→网关/服务器连接顺序","textChars":28,"textLines":1,"bbox":[356,428,306,58]}
+{"kind":"shape","id":"sh/cj6tovah","slide":6,"bbox":[674,416,260,78]}
+{"kind":"textbox","id":"sh/54zidony","slide":6,"text":"README 与 dingtalk-app-dev skill","textPreview":"README 与 dingtalk-app-dev skill","textChars":31,"textLines":1,"bbox":[686,428,236,58]}
+{"kind":"shape","id":"sh/udg7adsj","slide":6,"bbox":[934,416,218,78]}
+{"kind":"textbox","id":"sh/nyd0z610","slide":6,"text":"定位订阅失败原因：本地网关未起","textPreview":"定位订阅失败原因：本地网关未起","textChars":15,"textLines":1,"bbox":[946,428,194,58]}
+{"kind":"shape","id":"sh/cfa9w3m9","slide":6,"bbox":[64,494,280,78]}
+{"kind":"textbox","id":"sh/1032lszq","slide":6,"text":"群聊推送","textPreview":"群聊推送","textChars":4,"textLines":1,"bbox":[76,506,256,58]}
+{"kind":"shape","id":"sh/xobm58z2","slide":6,"bbox":[344,494,330,78]}
+{"kind":"textbox","id":"sh/83itgfml","slide":6,"text":"退款率报告从单聊切到 AI助手组 openConversationId","textPreview":"退款率报告从单聊切到 AI助手组 openConversationId","textChars":35,"textLines":1,"bbox":[356,506,306,58]}
+{"kind":"shape","id":"sh/fil0rqd4","slide":6,"bbox":[674,494,260,78]}
+{"kind":"textbox","id":"sh/qxs72x4n","slide":6,"text":"v1.0.3 产品文档和 changelog","textPreview":"v1.0.3 产品文档和 changelog","textChars":22,"textLines":1,"bbox":[686,506,236,58]}
+{"kind":"shape","id":"sh/x0nuxc3y","slide":6,"bbox":[934,494,218,78]}
+{"kind":"textbox","id":"sh/4fu18jqh","slide":6,"text":"日志 deliveryTarget=group, singleUserCount=0","textPreview":"日志 deliveryTarget=group, singleUserCount=0","textChars":42,"textLines":1,"bbox":[946,506,194,58]}
+{"kind":"shape","id":"sh/fu18jqh0","slide":6,"bbox":[64,662,1152,1]}
+{"kind":"textbox","id":"sh/m94fu18j","slide":6,"text":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textPreview":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textChars":65,"textLines":1,"bbox":[64,674,880,24]}
+{"kind":"notes","id":"nt/9o71s7","slide":6,"text":""}
+{"kind":"slide","id":"sl/tl6cgq","slide":7,"title":"DataFinder","textShapes":12}
+{"kind":"shape","id":"sh/fyxobm58","slide":7,"bbox":[0,0,1280,10]}
+{"kind":"textbox","id":"sh/8jqh0fep","slide":7,"text":"DataFinder","textPreview":"DataFinder","textChars":10,"textLines":1,"bbox":[64,30,460,28]}
+{"kind":"textbox","id":"sh/x4nap4r6","slide":7,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[1168,30,56,28]}
+{"kind":"textbox","id":"sh/qpg3ex0n","slide":7,"text":"退款率日报：从数据查询到钉钉可见报表","textPreview":"退款率日报：从数据查询到钉钉可见报表","textChars":18,"textLines":1,"bbox":[64,78,880,56]}
+{"kind":"textbox","id":"sh/fa9w3m94","slide":7,"text":"这条线把 DataFinder 指标、DWS 发送和钉钉客户端渲染问题连成了闭环。","textPreview":"这条线把 DataFinder 指标、DWS 发送和钉钉客户端渲染问题连成了闭环。","textChars":41,"textLines":1,"bbox":[66,142,990,38]}
+{"kind":"shape","id":"sh/8v6psfil","slide":7,"bbox":[64,212,360,334]}
+{"kind":"shape","id":"sh/xczed8v6","slide":7,"bbox":[64,212,7,334]}
+{"kind":"textbox","id":"sh/qtcj6tov","slide":7,"text":"数据侧","textPreview":"数据侧","textChars":3,"textLines":1,"bbox":[84,230,326,28]}
+{"kind":"textbox","id":"sh/je9cvixc","slide":7,"text":"先读 DataFinder 文档和 skill；确认 refund_back / order_suc_back 的 amount 元数据；默认完整覆盖所有企业，不只示例一行。","textPreview":"先读 DataFinder 文档和 skill；确认 refund_back / order_suc_back 的 amount 元数据；默认完整覆盖所有企业，不只示例一行。","textChars":87,"textLines":1,"bbox":[84,268,326,268]}
+{"kind":"shape","id":"sh/nih4byhg","slide":7,"bbox":[448,212,360,334]}
+{"kind":"shape","id":"sh/yxobm58z","slide":7,"bbox":[448,212,7,334]}
+{"kind":"textbox","id":"sh/5o7qpg3e","slide":7,"text":"发送侧","textPreview":"发送侧","textChars":3,"textLines":1,"bbox":[468,230,326,28]}
+{"kind":"textbox","id":"sh/g3ex0nux","slide":7,"text":"DWS API success 不等于客户端可读；用户反馈“只有标题”后，改用更适合报表的文本/卡片表达","textPreview":"DWS API success 不等于客户端可读；用户反馈“只有标题”后，改用更适合报表的文本/卡片表达","textChars":52,"textLines":1,"bbox":[468,268,326,268]}
+{"kind":"shape","id":"sh/r65wjudg","slide":7,"bbox":[832,212,360,334]}
+{"kind":"shape","id":"sh/ylc7u54z","slide":7,"bbox":[832,212,7,334]}
+{"kind":"textbox","id":"sh/9cvixcze","slide":7,"text":"运营侧","textPreview":"运营侧","textChars":3,"textLines":1,"bbox":[852,230,326,28]}
+{"kind":"textbox","id":"sh/gr2p8nqx","slide":7,"text":"把退款率日报沉淀为定时推送工作流，并在后续改造成 AI助手组群聊推送，避免单聊路径继续干扰。","textPreview":"把退款率日报沉淀为定时推送工作流，并在后续改造成 AI助手组群聊推送，避免单聊路径继续干扰。","textChars":46,"textLines":1,"bbox":[852,268,326,268]}
+{"kind":"textbox","id":"sh/rytsvu9k","slide":7,"text":"沉淀原则：报表交付的验证标准不是 API 返回成功，而是目标接收端真实可读。","textPreview":"沉淀原则：报表交付的验证标准不是 API 返回成功，而是目标接收端真实可读。","textChars":38,"textLines":1,"bbox":[86,582,1010,34]}
+{"kind":"shape","id":"sh/yd0z6103","slide":7,"bbox":[64,662,1152,1]}
+{"kind":"textbox","id":"sh/a9w3m94f","slide":7,"text":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textPreview":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textChars":65,"textLines":1,"bbox":[64,674,880,24]}
+{"kind":"notes","id":"nt/tl6cgq","slide":7,"text":""}
+{"kind":"slide","id":"sl/998v97","slide":8,"title":"ZenTao","textShapes":25}
+{"kind":"shape","id":"sh/mlkjm1cf","slide":8,"bbox":[0,0,1280,10]}
+{"kind":"textbox","id":"sh/xc3ylc7u","slide":8,"text":"ZenTao","textPreview":"ZenTao","textChars":6,"textLines":1,"bbox":[64,30,460,28]}
+{"kind":"textbox","id":"sh/4r65wjud","slide":8,"text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[1168,30,56,28]}
+{"kind":"textbox","id":"sh/fepkzupw","slide":8,"text":"ZenTao 鉴云计划：API 查询与 token 工作流固化","textPreview":"ZenTao 鉴云计划：API 查询与 token 工作流固化","textChars":31,"textLines":1,"bbox":[64,78,880,56]}
+{"kind":"textbox","id":"sh/mtwra5gb","slide":8,"text":"把产品计划查询从临时页面查看升级为 API 化、skill 化、环境变量化。","textPreview":"把产品计划查询从临时页面查看升级为 API 化、skill 化、环境变量化。","textChars":38,"textLines":1,"bbox":[66,142,990,38]}
+{"kind":"shape","id":"sh/xkf6dcbu","slide":8,"bbox":[64,218,280,42]}
+{"kind":"textbox","id":"sh/4zidonyd","slide":8,"text":"目标 / 背景","textPreview":"目标 / 背景","textChars":7,"textLines":1,"bbox":[76,228,256,24]}
+{"kind":"shape","id":"sh/fil0rqd4","slide":8,"bbox":[344,218,330,42]}
+{"kind":"textbox","id":"sh/qxs72x4n","slide":8,"text":"关键动作","textPreview":"关键动作","textChars":4,"textLines":1,"bbox":[356,228,306,24]}
+{"kind":"shape","id":"sh/0bi9s36h","slide":8,"bbox":[674,218,260,42]}
+{"kind":"textbox","id":"sh/pwb2hwfy","slide":8,"text":"产出物","textPreview":"产出物","textChars":3,"textLines":1,"bbox":[686,228,236,24]}
+{"kind":"shape","id":"sh/i5sneloj","slide":8,"bbox":[934,218,218,42]}
+{"kind":"textbox","id":"sh/7qpg3ex0","slide":8,"text":"验证 / 沉淀","textPreview":"验证 / 沉淀","textChars":7,"textLines":1,"bbox":[946,228,194,24]}
+{"kind":"shape","id":"sh/wjudg7ad","slide":8,"bbox":[64,260,280,78]}
+{"kind":"textbox","id":"sh/p4r65wju","slide":8,"text":"访问方式","textPreview":"访问方式","textChars":4,"textLines":1,"bbox":[76,272,256,58]}
+{"kind":"shape","id":"sh/ed8v6psf","slide":8,"bbox":[344,260,330,78]}
+{"kind":"textbox","id":"sh/7y1kre1w","slide":8,"text":"用户要求使用 ZenTao API；PowerShell 下用 curl.exe 避免 alias 干扰","textPreview":"用户要求使用 ZenTao API；PowerShell 下用 curl.exe 避免 alias 干扰","textChars":52,"textLines":1,"bbox":[356,272,306,58]}
+{"kind":"shape","id":"sh/0nuxc3yl","slide":8,"bbox":[674,260,260,78]}
+{"kind":"textbox","id":"sh/p8nqxs72","slide":8,"text":"API 调用路径","textPreview":"API 调用路径","textChars":8,"textLines":1,"bbox":[686,272,236,58]}
+{"kind":"shape","id":"sh/dcbulwva","slide":8,"bbox":[934,260,218,78]}
+{"kind":"textbox","id":"sh/kre1w7mp","slide":8,"text":"GET /api.php/v1/products/2/plans","textPreview":"GET /api.php/v1/products/2/plans","textChars":32,"textLines":1,"bbox":[946,272,194,58]}
+{"kind":"shape","id":"sh/val87ed8","slide":8,"bbox":[64,338,280,78]}
+{"kind":"textbox","id":"sh/6psfil0r","slide":8,"text":"token 处理","textPreview":"token 处理","textChars":8,"textLines":1,"bbox":[76,350,256,58]}
+{"kind":"shape","id":"sh/donyd0z6","slide":8,"bbox":[344,338,330,78]}
+{"kind":"textbox","id":"sh/k3q5o7qp","slide":8,"text":"用户希望后续复用 token；改为环境变量 ZENTAO_TOKEN","textPreview":"用户希望后续复用 token；改为环境变量 ZENTAO_TOKEN","textChars":34,"textLines":1,"bbox":[356,350,306,58]}
+{"kind":"shape","id":"sh/vixczed8","slide":8,"bbox":[674,338,260,78]}
+{"kind":"textbox","id":"sh/2x4nap4r","slide":8,"text":"zentao skill","textPreview":"zentao skill","textChars":12,"textLines":1,"bbox":[686,350,236,58]}
+{"kind":"shape","id":"sh/d0z61032","slide":8,"bbox":[934,338,218,78]}
+{"kind":"textbox","id":"sh/kf6dcbul","slide":8,"text":"不把 token 明文写入代码/文档","textPreview":"不把 token 明文写入代码/文档","textChars":18,"textLines":1,"bbox":[946,350,194,58]}
+{"kind":"shape","id":"sh/y90je9cv","slide":8,"bbox":[64,416,280,78]}
+{"kind":"textbox","id":"sh/nuxc3ylc","slide":8,"text":"计划查询","textPreview":"计划查询","textChars":4,"textLines":1,"bbox":[76,428,256,58]}
+{"kind":"shape","id":"sh/gbq1oryt","slide":8,"bbox":[344,416,330,78]}
+{"kind":"textbox","id":"sh/5wjudg7a","slide":8,"text":"查询鉴云产品计划数量和列表","textPreview":"查询鉴云产品计划数量和列表","textChars":13,"textLines":1,"bbox":[356,428,306,58]}
+{"kind":"shape","id":"sh/yhgn29gr","slide":8,"bbox":[674,416,260,78]}
+{"kind":"textbox","id":"sh/n29gr2p8","slide":8,"text":"计划列表结果","textPreview":"计划列表结果","textChars":6,"textLines":1,"bbox":[686,428,236,58]}
+{"kind":"shape","id":"sh/gn29gr2p","slide":8,"bbox":[934,416,218,78]}
+{"kind":"textbox","id":"sh/58z25kb6","slide":8,"text":"产品 2 plans?limit=200","textPreview":"产品 2 plans?limit=200","textChars":20,"textLines":1,"bbox":[946,428,194,58]}
+{"kind":"shape","id":"sh/ytsvu9kn","slide":8,"bbox":[64,494,280,78]}
+{"kind":"textbox","id":"sh/neloj2t8","slide":8,"text":"0625 任务同步","textPreview":"0625 任务同步","textChars":9,"textLines":1,"bbox":[76,506,256,58]}
+{"kind":"shape","id":"sh/r65wjudg","slide":8,"bbox":[344,494,330,78]}
+{"kind":"textbox","id":"sh/ylc7u54z","slide":8,"text":"定位计划 id=42；读取 productplans/42 的 stories","textPreview":"定位计划 id=42；读取 productplans/42 的 stories","textChars":39,"textLines":1,"bbox":[356,506,306,58]}
+{"kind":"shape","id":"sh/9cvixcze","slide":8,"bbox":[674,494,260,78]}
+{"kind":"textbox","id":"sh/gr2p8nqx","slide":8,"text":"20260625 计划任务/需求同步","textPreview":"20260625 计划任务/需求同步","textChars":18,"textLines":1,"bbox":[686,506,236,58]}
+{"kind":"shape","id":"sh/nih4byhg","slide":8,"bbox":[934,494,218,78]}
+{"kind":"textbox","id":"sh/yxobm58z","slide":8,"text":"tasks 接口 404 后改读计划详情","textPreview":"tasks 接口 404 后改读计划详情","textChars":20,"textLines":1,"bbox":[946,506,194,58]}
+{"kind":"shape","id":"sh/5o7qpg3e","slide":8,"bbox":[64,662,1152,1]}
+{"kind":"textbox","id":"sh/g3ex0nux","slide":8,"text":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textPreview":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textChars":65,"textLines":1,"bbox":[64,674,880,24]}
+{"kind":"notes","id":"nt/998v97","slide":8,"text":""}
+{"kind":"slide","id":"sl/dkana7","slide":9,"title":"客户合作台账","textShapes":12}
+{"kind":"shape","id":"sh/sfil0rqd","slide":9,"bbox":[0,0,1280,10]}
+{"kind":"textbox","id":"sh/zupwb2hw","slide":9,"text":"客户合作台账","textPreview":"客户合作台账","textChars":6,"textLines":1,"bbox":[64,30,460,28]}
+{"kind":"textbox","id":"sh/a9w3m94f","slide":9,"text":"09","textPreview":"09","textChars":2,"textLines":1,"bbox":[1168,30,56,28]}
+{"kind":"textbox","id":"sh/hcrmhk3q","slide":9,"text":"客户台账复盘：先定位原始台账","textPreview":"客户台账复盘：先定位原始台账","textChars":14,"textLines":1,"bbox":[64,78,880,56]}
+{"kind":"textbox","id":"sh/orytsvu9","slide":9,"text":"按京东、奇富、宜享花三个客户台账，抽取近两周行动、问题和解决方案。","textPreview":"按京东、奇富、宜享花三个客户台账，抽取近两周行动、问题和解决方案。","textChars":33,"textLines":1,"bbox":[66,142,990,38]}
+{"kind":"shape","id":"sh/z61032ls","slide":9,"bbox":[64,216,342,312]}
+{"kind":"textbox","id":"sh/al87ed8b","slide":9,"text":"读取路径","textPreview":"读取路径","textChars":4,"textLines":1,"bbox":[84,234,302,30]}
+{"kind":"textbox","id":"sh/hk3q5o7q","slide":9,"text":"入口：002 运营 | 客户合作台账\n确认 obj_type=docx 且 has_child=true\n枚举子节点定位京东金融、奇富数科、宜享花","textPreview":"入口：002 运营 | 客户合作台账 | 确认 obj_type=docx 且 has_child=true | 枚举子节点定位京东金融、奇富数科、宜享花","textChars":73,"textLines":3,"bbox":[86,278,298,236]}
+{"kind":"shape","id":"sh/oza1gvy9","slide":9,"bbox":[430,216,342,312]}
+{"kind":"textbox","id":"sh/29gr2p8n","slide":9,"text":"总结方法","textPreview":"总结方法","textChars":4,"textLines":1,"bbox":[450,234,302,30]}
+{"kind":"textbox","id":"sh/vu9knih4","slide":9,"text":"每家客户单独读取台账正文\n按近两周主要行动、问题、解决方案归纳\n避免只给总览，保留客户粒度","textPreview":"每家客户单独读取台账正文 | 按近两周主要行动、问题、解决方案归纳 | 避免只给总览，保留客户粒度","textChars":45,"textLines":3,"bbox":[452,278,298,236]}
+{"kind":"shape","id":"sh/kf6dcbul","slide":9,"bbox":[796,216,342,312]}
+{"kind":"textbox","id":"sh/d0z61032","slide":9,"text":"经营价值","textPreview":"经营价值","textChars":4,"textLines":1,"bbox":[816,234,302,30]}
+{"kind":"textbox","id":"sh/2lszqtcj","slide":9,"text":"把客户风险从聊天线索升级成可追踪台账\n后续可接入客户风险雷达\n为月度复盘和专题文档提供输入","textPreview":"把客户风险从聊天线索升级成可追踪台账 | 后续可接入客户风险雷达 | 为月度复盘和专题文档提供输入","textChars":45,"textLines":3,"bbox":[818,278,298,236]}
+{"kind":"textbox","id":"sh/v6psfil0","slide":9,"text":"验证信号：wiki nodes list 命中 001 京东金融、002 奇富数科、005 宜享花；docs +fetch 读取正文。","textPreview":"验证信号：wiki nodes list 命中 001 京东金融、002 奇富数科、005 宜享花；docs +fetch 读取正文。","textChars":67,"textLines":1,"bbox":[82,584,1060,30]}
+{"kind":"shape","id":"sh/knih4byh","slide":9,"bbox":[64,662,1152,1]}
+{"kind":"textbox","id":"sh/d8bat47y","slide":9,"text":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textPreview":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textChars":65,"textLines":1,"bbox":[64,674,880,24]}
+{"kind":"notes","id":"nt/dkana7","slide":9,"text":""}
+{"kind":"slide","id":"sl/91og2h","slide":10,"title":"产品材料","textShapes":12}
+{"kind":"shape","id":"sh/4vmtwra5","slide":10,"bbox":[0,0,1280,10]}
+{"kind":"textbox","id":"sh/bat47y1k","slide":10,"text":"产品材料","textPreview":"产品材料","textChars":4,"textLines":1,"bbox":[64,30,460,28]}
+{"kind":"textbox","id":"sh/mp0bi9s3","slide":10,"text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[1168,30,56,28]}
+{"kind":"textbox","id":"sh/tsvu9kni","slide":10,"text":"七鱼产品手册：31 个 PDF 的覆盖式阅读","textPreview":"七鱼产品手册：31 个 PDF 的覆盖式阅读","textChars":22,"textLines":1,"bbox":[64,78,880,56]}
+{"kind":"textbox","id":"sh/47y1kre1","slide":10,"text":"用户明确要求读完整个文件夹，所以执行标准是覆盖所有 PDF，而不是抽样。","textPreview":"用户明确要求读完整个文件夹，所以执行标准是覆盖所有 PDF，而不是抽样。","textChars":36,"textLines":1,"bbox":[66,142,990,38]}
+{"kind":"shape","id":"sh/bm58z25k","slide":10,"bbox":[64,214,360,334]}
+{"kind":"shape","id":"sh/m1cfa9w3","slide":10,"bbox":[64,214,7,334]}
+{"kind":"textbox","id":"sh/twra5gbq","slide":10,"text":"范围","textPreview":"范围","textChars":2,"textLines":1,"bbox":[84,232,326,28]}
+{"kind":"textbox","id":"sh/4byhgn29","slide":10,"text":"本地目录：C:\\Users\\Administrator\\Desktop\\七鱼大模型机器人产品手册；覆盖 01-产品介绍 到 31-Agent调试；共 31 个 PDF。","textPreview":"本地目录：C:\\Users\\Administrator\\Desktop\\七鱼大模型机器人产品手册；覆盖 01-产品介绍 到 31-Agent调试；共 31 个 PDF。","textChars":84,"textLines":1,"bbox":[84,270,326,268]}
+{"kind":"shape","id":"sh/m58z25kb","slide":10,"bbox":[448,214,360,334]}
+{"kind":"shape","id":"sh/bq1oryts","slide":10,"bbox":[448,214,7,334]}
+{"kind":"textbox","id":"sh/4byhgn29","slide":10,"text":"动作","textPreview":"动作","textChars":2,"textLines":1,"bbox":[468,232,326,28]}
+{"kind":"textbox","id":"sh/twra5gbq","slide":10,"text":"使用 bundled Python 读取中文 PDF；逐文件提取文本；做面向产品能力的总览，而非只列文件元数据。","textPreview":"使用 bundled Python 读取中文 PDF；逐文件提取文本；做面向产品能力的总览，而非只列文件元数据。","textChars":56,"textLines":1,"bbox":[468,270,326,268]}
+{"kind":"shape","id":"sh/mhk3q5o7","slide":10,"bbox":[832,214,360,334]}
+{"kind":"shape","id":"sh/b2hwfyxo","slide":10,"bbox":[832,214,7,334]}
+{"kind":"textbox","id":"sh/4nap4r65","slide":10,"text":"价值","textPreview":"价值","textChars":2,"textLines":1,"bbox":[852,232,326,28]}
+{"kind":"textbox","id":"sh/t83itgfm","slide":10,"text":"形成对七鱼大模型机器人能力、配置、知识库、Agent 调试链路的整体理解，可服务后续竞品/客户方案判断。","textPreview":"形成对七鱼大模型机器人能力、配置、知识库、Agent 调试链路的整体理解，可服务后续竞品/客户方案判断。","textChars":52,"textLines":1,"bbox":[852,270,326,268]}
+{"kind":"textbox","id":"sh/mp0bi9s3","slide":10,"text":"沉淀规则：本地资料的最新明确路径优先；用户要求“所有 PDF”时，默认全覆盖。","textPreview":"沉淀规则：本地资料的最新明确路径优先；用户要求“所有 PDF”时，默认全覆盖。","textChars":39,"textLines":1,"bbox":[88,586,1040,32]}
+{"kind":"shape","id":"sh/bat47y1k","slide":10,"bbox":[64,662,1152,1]}
+{"kind":"textbox","id":"sh/3ex0nuxc","slide":10,"text":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textPreview":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textChars":65,"textLines":1,"bbox":[64,674,880,24]}
+{"kind":"notes","id":"nt/91og2h","slide":10,"text":""}
+{"kind":"slide","id":"sl/78i6eh","slide":11,"title":"6/20","textShapes":25}
+{"kind":"shape","id":"sh/1032lszq","slide":11,"bbox":[0,0,1280,10]}
+{"kind":"textbox","id":"sh/u9knih4b","slide":11,"text":"6/20","textPreview":"6/20","textChars":4,"textLines":1,"bbox":[64,30,460,28]}
+{"kind":"textbox","id":"sh/judg7ads","slide":11,"text":"11","textPreview":"11","textChars":2,"textLines":1,"bbox":[1168,30,56,28]}
+{"kind":"textbox","id":"sh/c7u54zid","slide":11,"text":"仓库与协作资产整理日","textPreview":"仓库与协作资产整理日","textChars":10,"textLines":1,"bbox":[64,78,880,56]}
+{"kind":"textbox","id":"sh/1orytsvu","slide":11,"text":"6/20 的主线是让 Codex 工作区从“能跑”变成“可提交、可复用、可协作”。","textPreview":"6/20 的主线是让 Codex 工作区从“能跑”变成“可提交、可复用、可协作”。","textChars":41,"textLines":1,"bbox":[66,142,990,38]}
+{"kind":"shape","id":"sh/u18jqh0f","slide":11,"bbox":[64,218,280,42]}
+{"kind":"textbox","id":"sh/jm1cfa9w","slide":11,"text":"目标 / 背景","textPreview":"目标 / 背景","textChars":7,"textLines":1,"bbox":[76,228,256,24]}
+{"kind":"shape","id":"sh/cvixczed","slide":11,"bbox":[344,218,330,42]}
+{"kind":"textbox","id":"sh/5gbq1ory","slide":11,"text":"关键动作","textPreview":"关键动作","textChars":4,"textLines":1,"bbox":[356,228,306,24]}
+{"kind":"shape","id":"sh/18jqh0fe","slide":11,"bbox":[674,218,260,42]}
+{"kind":"textbox","id":"sh/8nqxs72x","slide":11,"text":"产出物","textPreview":"产出物","textChars":3,"textLines":1,"bbox":[686,228,236,24]}
+{"kind":"shape","id":"sh/j2t83itg","slide":11,"bbox":[934,218,218,42]}
+{"kind":"textbox","id":"sh/qh0fepkz","slide":11,"text":"验证 / 沉淀","textPreview":"验证 / 沉淀","textChars":7,"textLines":1,"bbox":[946,228,194,24]}
+{"kind":"shape","id":"sh/1w7mp0bi","slide":11,"bbox":[64,260,280,78]}
+{"kind":"textbox","id":"sh/8bat47y1","slide":11,"text":"文档中文化","textPreview":"文档中文化","textChars":5,"textLines":1,"bbox":[76,272,256,58]}
+{"kind":"shape","id":"sh/jqh0fepk","slide":11,"bbox":[344,260,330,78]}
+{"kind":"textbox","id":"sh/q5o7qpg3","slide":11,"text":"README、docs、skills、页面说明改为中文优先","textPreview":"README、docs、skills、页面说明改为中文优先","textChars":29,"textLines":1,"bbox":[356,272,306,58]}
+{"kind":"shape","id":"sh/1kre1w7m","slide":11,"bbox":[674,260,260,78]}
+{"kind":"textbox","id":"sh/c3ylc7u5","slide":11,"text":"中文协作文档骨架","textPreview":"中文协作文档骨架","textChars":8,"textLines":1,"bbox":[686,272,236,58]}
+{"kind":"shape","id":"sh/orytsvu9","slide":11,"bbox":[934,260,218,78]}
+{"kind":"textbox","id":"sh/hcrmhk3q","slide":11,"text":"保留命令/API/路径英文原文","textPreview":"保留命令/API/路径英文原文","textChars":15,"textLines":1,"bbox":[946,272,194,58]}
+{"kind":"shape","id":"sh/al87ed8b","slide":11,"bbox":[64,338,280,78]}
+{"kind":"textbox","id":"sh/z61032ls","slide":11,"text":"资产入库","textPreview":"资产入库","textChars":4,"textLines":1,"bbox":[76,350,256,58]}
+{"kind":"shape","id":"sh/sfil0rqd","slide":11,"bbox":[344,338,330,78]}
+{"kind":"textbox","id":"sh/h0fepkzu","slide":11,"text":"盘点脚本、skill、代码成果，选择性纳入 Git","textPreview":"盘点脚本、skill、代码成果，选择性纳入 Git","textChars":25,"textLines":1,"bbox":[356,350,306,58]}
+{"kind":"shape","id":"sh/a9w3m94f","slide":11,"bbox":[674,338,260,78]}
+{"kind":"textbox","id":"sh/zupwb2hw","slide":11,"text":"src/test/scripts/skills 等","textPreview":"src/test/scripts/skills 等","textChars":25,"textLines":1,"bbox":[686,350,236,58]}
+{"kind":"shape","id":"sh/obm58z25","slide":11,"bbox":[934,338,218,78]}
+{"kind":"textbox","id":"sh/hwfyxobm","slide":11,"text":"npm test 48 pass","textPreview":"npm test 48 pass","textChars":16,"textLines":1,"bbox":[946,350,194,58]}
+{"kind":"shape","id":"sh/7u54zido","slide":11,"bbox":[64,416,280,78]}
+{"kind":"textbox","id":"sh/ed8bat47","slide":11,"text":"安全处理","textPreview":"安全处理","textChars":4,"textLines":1,"bbox":[76,428,256,58]}
+{"kind":"shape","id":"sh/l0rqd4vm","slide":11,"bbox":[344,416,330,78]}
+{"kind":"textbox","id":"sh/wfyxobm5","slide":11,"text":"固定飞书 token 改为 MONTHLY_REVIEW_DOC_TOKEN","textPreview":"固定飞书 token 改为 MONTHLY_REVIEW_DOC_TOKEN","textChars":38,"textLines":1,"bbox":[356,428,306,58]}
+{"kind":"shape","id":"sh/36hcrmhk","slide":11,"bbox":[674,416,260,78]}
+{"kind":"textbox","id":"sh/eloj2t83","slide":11,"text":".gitignore 扩展","textPreview":".gitignore 扩展","textChars":13,"textLines":1,"bbox":[686,428,236,58]}
+{"kind":"shape","id":"sh/lc7u54zi","slide":11,"bbox":[934,416,218,78]}
+{"kind":"textbox","id":"sh/wra5gbq1","slide":11,"text":"secret scan 未命中真实 token","textPreview":"secret scan 未命中真实 token","textChars":23,"textLines":1,"bbox":[946,428,194,58]}
+{"kind":"shape","id":"sh/7adsji5s","slide":11,"bbox":[64,494,280,78]}
+{"kind":"textbox","id":"sh/epkzupwb","slide":11,"text":"协作路径","textPreview":"协作路径","textChars":4,"textLines":1,"bbox":[76,506,256,58]}
+{"kind":"shape","id":"sh/ex0nuxc3","slide":11,"bbox":[344,494,330,78]}
+{"kind":"textbox","id":"sh/3itgfmlk","slide":11,"text":"建议 active Codex workspace 与 Git repo 合一","textPreview":"建议 active Codex workspace 与 Git repo 合一","textChars":39,"textLines":1,"bbox":[356,506,306,58]}
+{"kind":"shape","id":"sh/w3m94fu1","slide":11,"bbox":[674,494,260,78]}
+{"kind":"textbox","id":"sh/loj2t83i","slide":11,"text":"减少双仓漂移","textPreview":"减少双仓漂移","textChars":6,"textLines":1,"bbox":[686,506,236,58]}
+{"kind":"shape","id":"sh/e9cvixcz","slide":11,"bbox":[934,494,218,78]}
+{"kind":"textbox","id":"sh/3q5o7qpg","slide":11,"text":"git remote/status/top-level 验证","textPreview":"git remote/status/top-level 验证","textChars":30,"textLines":1,"bbox":[946,506,194,58]}
+{"kind":"shape","id":"sh/wb2hwfyx","slide":11,"bbox":[64,662,1152,1]}
+{"kind":"textbox","id":"sh/lwval87e","slide":11,"text":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textPreview":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textChars":65,"textLines":1,"bbox":[64,674,880,24]}
+{"kind":"notes","id":"nt/78i6eh","slide":11,"text":""}
+{"kind":"slide","id":"sl/iyjwtd","slide":12,"title":"工程资产","textShapes":12}
+{"kind":"shape","id":"sh/dg7adsji","slide":12,"bbox":[0,0,1280,10]}
+{"kind":"textbox","id":"sh/6tovahoz","slide":12,"text":"工程资产","textPreview":"工程资产","textChars":4,"textLines":1,"bbox":[64,30,460,28]}
+{"kind":"textbox","id":"sh/vahoza1g","slide":12,"text":"12","textPreview":"12","textChars":2,"textLines":1,"bbox":[1168,30,56,28]}
+{"kind":"textbox","id":"sh/onyd0z61","slide":12,"text":"仓库中文化与可复用成果入库","textPreview":"仓库中文化与可复用成果入库","textChars":13,"textLines":1,"bbox":[64,78,880,56]}
+{"kind":"textbox","id":"sh/d8v6psfi","slide":12,"text":"这页把 6/20 的工程成果拆成“用户可见、可运行、可维护”三层。","textPreview":"这页把 6/20 的工程成果拆成“用户可见、可运行、可维护”三层。","textChars":33,"textLines":1,"bbox":[66,142,990,38]}
+{"kind":"shape","id":"sh/6hcrmhk3","slide":12,"bbox":[64,214,342,330]}
+{"kind":"textbox","id":"sh/z25kb6xk","slide":12,"text":"用户可见","textPreview":"用户可见","textChars":4,"textLines":1,"bbox":[84,232,302,30]}
+{"kind":"textbox","id":"sh/oj2t83it","slide":12,"text":"README 与 docs 中文化\n新增角色/任务/协作流程文档\ndocs/collaboration/artifact-inventory.md 记录成果清单","textPreview":"README 与 docs 中文化 | 新增角色/任务/协作流程文档 | docs/collaboration/artifact-inventory.md 记录成果清单","textChars":80,"textLines":3,"bbox":[86,276,298,254]}
+{"kind":"shape","id":"sh/d4vmtwra","slide":12,"bbox":[430,214,342,330]}
+{"kind":"textbox","id":"sh/h4byhgn2","slide":12,"text":"可运行","textPreview":"可运行","textChars":3,"textLines":1,"bbox":[450,232,302,30]}
+{"kind":"textbox","id":"sh/sji5snel","slide":12,"text":"src、test、scripts、skills、ai-monthly-review-site 入库\npackage.json / lockfile / .env.example 同步\nD:\\nodejs24\\npm.cmd test 通过","textPreview":"src、test、scripts、skills、ai-monthly-review-site 入库 | package.json / lockfile / .env.example 同步 | D:\\nodejs24\\npm.cmd test 通过","textChars":119,"textLines":3,"bbox":[452,276,298,254]}
+{"kind":"shape","id":"sh/3ylc7u54","slide":12,"bbox":[796,214,342,330]}
+{"kind":"textbox","id":"sh/adsji5sn","slide":12,"text":"可维护","textPreview":"可维护","textChars":3,"textLines":1,"bbox":[816,232,302,30]}
+{"kind":"textbox","id":"sh/lszqtcj6","slide":12,"text":"排除 tmp、.codex、二维码、生成数据文件\n固定 token 改环境变量\n未来提交只 stage 目标文件","textPreview":"排除 tmp、.codex、二维码、生成数据文件 | 固定 token 改环境变量 | 未来提交只 stage 目标文件","textChars":56,"textLines":3,"bbox":[818,276,298,254]}
+{"kind":"textbox","id":"sh/s72x4nap","slide":12,"text":"关键提交：932bc26 Localize docs and add reusable automation artifacts。","textPreview":"关键提交：932bc26 Localize docs and add reusable automation artifacts。","textChars":65,"textLines":1,"bbox":[86,584,1040,30]}
+{"kind":"shape","id":"sh/3m94fu18","slide":12,"bbox":[64,662,1152,1]}
+{"kind":"textbox","id":"sh/a5gbq1or","slide":12,"text":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textPreview":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textChars":65,"textLines":1,"bbox":[64,674,880,24]}
+{"kind":"notes","id":"nt/iyjwtd","slide":12,"text":""}
+{"kind":"slide","id":"sl/ykgwt3","slide":13,"title":"DingTalk 学习沉淀","textShapes":25}
+{"kind":"shape","id":"sh/fyxobm58","slide":13,"bbox":[0,0,1280,10]}
+{"kind":"textbox","id":"sh/8jqh0fep","slide":13,"text":"DingTalk 学习沉淀","textPreview":"DingTalk 学习沉淀","textChars":13,"textLines":1,"bbox":[64,30,460,28]}
+{"kind":"textbox","id":"sh/x4nap4r6","slide":13,"text":"13","textPreview":"13","textChars":2,"textLines":1,"bbox":[1168,30,56,28]}
+{"kind":"textbox","id":"sh/qpg3ex0n","slide":13,"text":"DingTalk 学习：从读文档到本地参考","textPreview":"DingTalk 学习：从读文档到本地参考","textChars":21,"textLines":1,"bbox":[64,78,880,56]}
+{"kind":"textbox","id":"sh/fa9w3m94","slide":13,"text":"覆盖 CLI、MCP、OpenClaw、Agent，后续问题先查本地学习材料。","textPreview":"覆盖 CLI、MCP、OpenClaw、Agent，后续问题先查本地学习材料。","textChars":39,"textLines":1,"bbox":[66,142,990,38]}
+{"kind":"shape","id":"sh/8v6psfil","slide":13,"bbox":[64,218,280,42]}
+{"kind":"textbox","id":"sh/xczed8v6","slide":13,"text":"目标 / 背景","textPreview":"目标 / 背景","textChars":7,"textLines":1,"bbox":[76,228,256,24]}
+{"kind":"shape","id":"sh/qtcj6tov","slide":13,"bbox":[344,218,330,42]}
+{"kind":"textbox","id":"sh/je9cvixc","slide":13,"text":"关键动作","textPreview":"关键动作","textChars":4,"textLines":1,"bbox":[356,228,306,24]}
+{"kind":"shape","id":"sh/nih4byhg","slide":13,"bbox":[674,218,260,42]}
+{"kind":"textbox","id":"sh/yxobm58z","slide":13,"text":"产出物","textPreview":"产出物","textChars":3,"textLines":1,"bbox":[686,228,236,24]}
+{"kind":"shape","id":"sh/5o7qpg3e","slide":13,"bbox":[934,218,218,42]}
+{"kind":"textbox","id":"sh/g3ex0nux","slide":13,"text":"验证 / 沉淀","textPreview":"验证 / 沉淀","textChars":7,"textLines":1,"bbox":[946,228,194,24]}
+{"kind":"shape","id":"sh/r65wjudg","slide":13,"bbox":[64,260,280,78]}
+{"kind":"textbox","id":"sh/ylc7u54z","slide":13,"text":"学习材料","textPreview":"学习材料","textChars":4,"textLines":1,"bbox":[76,272,256,58]}
+{"kind":"shape","id":"sh/9cvixcze","slide":13,"bbox":[344,260,330,78]}
+{"kind":"textbox","id":"sh/gr2p8nqx","slide":13,"text":"读取 DingTalk docs sidebar 并整理到本地参考","textPreview":"读取 DingTalk docs sidebar 并整理到本地参考","textChars":33,"textLines":1,"bbox":[356,272,306,58]}
+{"kind":"shape","id":"sh/rytsvu9k","slide":13,"bbox":[674,260,260,78]}
+{"kind":"textbox","id":"sh/yd0z6103","slide":13,"text":"dingtalk-cli-mcp-openclaw-agent.md","textPreview":"dingtalk-cli-mcp-openclaw-agent.md","textChars":34,"textLines":1,"bbox":[686,272,236,58]}
+{"kind":"shape","id":"sh/a9w3m94f","slide":13,"bbox":[934,260,218,78]}
+{"kind":"textbox","id":"sh/zupwb2hw","slide":13,"text":"后续 DingTalk 问题优先查此文档","textPreview":"后续 DingTalk 问题优先查此文档","textChars":20,"textLines":1,"bbox":[946,272,194,58]}
+{"kind":"shape","id":"sh/sfil0rqd","slide":13,"bbox":[64,338,280,78]}
+{"kind":"textbox","id":"sh/h0fepkzu","slide":13,"text":"路由判断","textPreview":"路由判断","textChars":4,"textLines":1,"bbox":[76,350,256,58]}
+{"kind":"shape","id":"sh/al87ed8b","slide":13,"bbox":[344,338,330,78]}
+{"kind":"textbox","id":"sh/z61032ls","slide":13,"text":"区分 dws、MCP Square、mcporter、connector、Stream 模式","textPreview":"区分 dws、MCP Square、mcporter、connector、Stream 模式","textChars":46,"textLines":1,"bbox":[356,350,306,58]}
+{"kind":"shape","id":"sh/orytsvu9","slide":13,"bbox":[674,338,260,78]}
+{"kind":"textbox","id":"sh/hcrmhk3q","slide":13,"text":"DingTalk app-dev skill 更新","textPreview":"DingTalk app-dev skill 更新","textChars":25,"textLines":1,"bbox":[686,350,236,58]}
+{"kind":"shape","id":"sh/6xkf6dcb","slide":13,"bbox":[934,338,218,78]}
+{"kind":"textbox","id":"sh/zed8v6ps","slide":13,"text":"避免每次重学","textPreview":"避免每次重学","textChars":6,"textLines":1,"bbox":[946,350,194,58]}
+{"kind":"shape","id":"sh/pg3ex0nu","slide":13,"bbox":[64,416,280,78]}
+{"kind":"textbox","id":"sh/wval87ed","slide":13,"text":"登录边界","textPreview":"登录边界","textChars":4,"textLines":1,"bbox":[76,428,256,58]}
+{"kind":"shape","id":"sh/7adsji5s","slide":13,"bbox":[344,416,330,78]}
+{"kind":"textbox","id":"sh/epkzupwb","slide":13,"text":"cardConstruction 页面公开访问跳登录","textPreview":"cardConstruction 页面公开访问跳登录","textChars":26,"textLines":1,"bbox":[356,428,306,58]}
+{"kind":"shape","id":"sh/psfil0rq","slide":13,"bbox":[674,416,260,78]}
+{"kind":"textbox","id":"sh/w7mp0bi9","slide":13,"text":"gated access 记录","textPreview":"gated access 记录","textChars":15,"textLines":1,"bbox":[686,428,236,58]}
+{"kind":"shape","id":"sh/7mp0bi9s","slide":13,"bbox":[934,416,218,78]}
+{"kind":"textbox","id":"sh/e1w7mp0b","slide":13,"text":"needLogin=true，不继续绕过","textPreview":"needLogin=true，不继续绕过","textChars":20,"textLines":1,"bbox":[946,428,194,58]}
+{"kind":"shape","id":"sh/l0rqd4vm","slide":13,"bbox":[64,494,280,78]}
+{"kind":"textbox","id":"sh/wfyxobm5","slide":13,"text":"Git 同步","textPreview":"Git 同步","textChars":6,"textLines":1,"bbox":[76,506,256,58]}
+{"kind":"shape","id":"sh/4nap4r65","slide":13,"bbox":[344,494,330,78]}
+{"kind":"textbox","id":"sh/t83itgfm","slide":13,"text":"学习笔记提交并推送","textPreview":"学习笔记提交并推送","textChars":9,"textLines":1,"bbox":[356,506,306,58]}
+{"kind":"shape","id":"sh/mhk3q5o7","slide":13,"bbox":[674,494,260,78]}
+{"kind":"textbox","id":"sh/b2hwfyxo","slide":13,"text":"d6ffc0d Add DingTalk CLI MCP OpenClaw notes","textPreview":"d6ffc0d Add DingTalk CLI MCP OpenClaw notes","textChars":43,"textLines":1,"bbox":[686,506,236,58]}
+{"kind":"shape","id":"sh/4byhgn29","slide":13,"bbox":[934,494,218,78]}
+{"kind":"textbox","id":"sh/twra5gbq","slide":13,"text":"git push origin main 成功","textPreview":"git push origin main 成功","textChars":23,"textLines":1,"bbox":[946,506,194,58]}
+{"kind":"shape","id":"sh/m58z25kb","slide":13,"bbox":[64,662,1152,1]}
+{"kind":"textbox","id":"sh/bq1oryts","slide":13,"text":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textPreview":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textChars":65,"textLines":1,"bbox":[64,674,880,24]}
+{"kind":"notes","id":"nt/ykgwt3","slide":13,"text":""}
+{"kind":"slide","id":"sl/czp168","slide":14,"title":"6/21","textShapes":25}
+{"kind":"shape","id":"sh/m58z25kb","slide":14,"bbox":[0,0,1280,10]}
+{"kind":"textbox","id":"sh/twra5gbq","slide":14,"text":"6/21","textPreview":"6/21","textChars":4,"textLines":1,"bbox":[64,30,460,28]}
+{"kind":"textbox","id":"sh/4byhgn29","slide":14,"text":"14","textPreview":"14","textChars":2,"textLines":1,"bbox":[1168,30,56,28]}
+{"kind":"textbox","id":"sh/b2hwfyxo","slide":14,"text":"监控、迁移、环境与长期身份升级","textPreview":"监控、迁移、环境与长期身份升级","textChars":15,"textLines":1,"bbox":[64,78,880,56]}
+{"kind":"textbox","id":"sh/mhk3q5o7","slide":14,"text":"6/21 把工具链进一步收拢：看得见用量、换机能启动、长期协作有身份。","textPreview":"6/21 把工具链进一步收拢：看得见用量、换机能启动、长期协作有身份。","textChars":35,"textLines":1,"bbox":[66,142,990,38]}
+{"kind":"shape","id":"sh/t83itgfm","slide":14,"bbox":[64,218,280,42]}
+{"kind":"textbox","id":"sh/4nap4r65","slide":14,"text":"目标 / 背景","textPreview":"目标 / 背景","textChars":7,"textLines":1,"bbox":[76,228,256,24]}
+{"kind":"shape","id":"sh/bat47y1k","slide":14,"bbox":[344,218,330,42]}
+{"kind":"textbox","id":"sh/mp0bi9s3","slide":14,"text":"关键动作","textPreview":"关键动作","textChars":4,"textLines":1,"bbox":[356,228,306,24]}
+{"kind":"shape","id":"sh/4byhgn29","slide":14,"bbox":[674,218,260,42]}
+{"kind":"textbox","id":"sh/twra5gbq","slide":14,"text":"产出物","textPreview":"产出物","textChars":3,"textLines":1,"bbox":[686,228,236,24]}
+{"kind":"shape","id":"sh/m58z25kb","slide":14,"bbox":[934,218,218,42]}
+{"kind":"textbox","id":"sh/bq1oryts","slide":14,"text":"验证 / 沉淀","textPreview":"验证 / 沉淀","textChars":7,"textLines":1,"bbox":[946,228,194,24]}
+{"kind":"shape","id":"sh/4nap4r65","slide":14,"bbox":[64,260,280,78]}
+{"kind":"textbox","id":"sh/t83itgfm","slide":14,"text":"用量监控","textPreview":"用量监控","textChars":4,"textLines":1,"bbox":[76,272,256,58]}
+{"kind":"shape","id":"sh/mhk3q5o7","slide":14,"bbox":[344,260,330,78]}
+{"kind":"textbox","id":"sh/b2hwfyxo","slide":14,"text":"构建本地 Codex 用量看板","textPreview":"构建本地 Codex 用量看板","textChars":15,"textLines":1,"bbox":[356,272,306,58]}
+{"kind":"shape","id":"sh/4vmtwra5","slide":14,"bbox":[674,260,260,78]}
+{"kind":"textbox","id":"sh/tgfmlkjm","slide":14,"text":"API + 静态站点","textPreview":"API + 静态站点","textChars":10,"textLines":1,"bbox":[686,272,236,58]}
+{"kind":"shape","id":"sh/xc3ylc7u","slide":14,"bbox":[934,260,218,78]}
+{"kind":"textbox","id":"sh/4r65wjud","slide":14,"text":"84 tests pass；真实 DB 返回数据","textPreview":"84 tests pass；真实 DB 返回数据","textChars":24,"textLines":1,"bbox":[946,272,194,58]}
+{"kind":"shape","id":"sh/f6dcbulw","slide":14,"bbox":[64,338,280,78]}
+{"kind":"textbox","id":"sh/mlkjm1cf","slide":14,"text":"仓库迁移","textPreview":"仓库迁移","textChars":4,"textLines":1,"bbox":[76,350,256,58]}
+{"kind":"shape","id":"sh/xkf6dcbu","slide":14,"bbox":[344,338,330,78]}
+{"kind":"textbox","id":"sh/4zidonyd","slide":14,"text":"移动嵌套项目到 workspace root；排除 logs","textPreview":"移动嵌套项目到 workspace root；排除 logs","textChars":30,"textLines":1,"bbox":[356,350,306,58]}
+{"kind":"shape","id":"sh/fepkzupw","slide":14,"bbox":[674,338,260,78]}
+{"kind":"textbox","id":"sh/mtwra5gb","slide":14,"text":"根目录成为主工作区","textPreview":"根目录成为主工作区","textChars":9,"textLines":1,"bbox":[686,350,236,58]}
+{"kind":"shape","id":"sh/xobm58z2","slide":14,"bbox":[934,338,218,78]}
+{"kind":"textbox","id":"sh/83itgfml","slide":14,"text":"robocopy / git add 排除验证","textPreview":"robocopy / git add 排除验证","textChars":23,"textLines":1,"bbox":[946,350,194,58]}
+{"kind":"shape","id":"sh/i5sneloj","slide":14,"bbox":[64,416,280,78]}
+{"kind":"textbox","id":"sh/7qpg3ex0","slide":14,"text":"setup.bat","textPreview":"setup.bat","textChars":9,"textLines":1,"bbox":[76,428,256,58]}
+{"kind":"shape","id":"sh/0bi9s36h","slide":14,"bbox":[344,416,330,78]}
+{"kind":"textbox","id":"sh/pwb2hwfy","slide":14,"text":"新机器一键环境脚本；检查 Node/npm；复制 .env","textPreview":"新机器一键环境脚本；检查 Node/npm；复制 .env","textChars":29,"textLines":1,"bbox":[356,428,306,58]}
+{"kind":"shape","id":"sh/ed8v6psf","slide":14,"bbox":[674,416,260,78]}
+{"kind":"textbox","id":"sh/7y1kre1w","slide":14,"text":"Windows onboarding","textPreview":"Windows onboarding","textChars":18,"textLines":1,"bbox":[686,428,236,58]}
+{"kind":"shape","id":"sh/wjudg7ad","slide":14,"bbox":[934,416,218,78]}
+{"kind":"textbox","id":"sh/p4r65wju","slide":14,"text":"不自动跑测试，只提示命令","textPreview":"不自动跑测试，只提示命令","textChars":12,"textLines":1,"bbox":[946,428,194,58]}
+{"kind":"shape","id":"sh/ih4byhgn","slide":14,"bbox":[64,494,280,78]}
+{"kind":"textbox","id":"sh/72x4nap4","slide":14,"text":"身份升级","textPreview":"身份升级","textChars":4,"textLines":1,"bbox":[76,506,256,58]}
+{"kind":"shape","id":"sh/val87ed8","slide":14,"bbox":[344,494,330,78]}
+{"kind":"textbox","id":"sh/6psfil0r","slide":14,"text":"从运营助手升级为合伙人咨询师 / 公司经营协作伙伴","textPreview":"从运营助手升级为合伙人咨询师 / 公司经营协作伙伴","textChars":25,"textLines":1,"bbox":[356,506,306,58]}
+{"kind":"shape","id":"sh/dcbulwva","slide":14,"bbox":[674,494,260,78]}
+{"kind":"textbox","id":"sh/kre1w7mp","slide":14,"text":"KnowledgeBase 起点文档 + skill","textPreview":"KnowledgeBase 起点文档 + skill","textChars":26,"textLines":1,"bbox":[686,506,236,58]}
+{"kind":"shape","id":"sh/vixczed8","slide":14,"bbox":[934,494,218,78]}
+{"kind":"textbox","id":"sh/2x4nap4r","slide":14,"text":"九大模块视角写入","textPreview":"九大模块视角写入","textChars":8,"textLines":1,"bbox":[946,506,194,58]}
+{"kind":"shape","id":"sh/donyd0z6","slide":14,"bbox":[64,662,1152,1]}
+{"kind":"textbox","id":"sh/k3q5o7qp","slide":14,"text":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textPreview":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textChars":65,"textLines":1,"bbox":[64,674,880,24]}
+{"kind":"notes","id":"nt/czp168","slide":14,"text":""}
+{"kind":"slide","id":"sl/h7qwq8","slide":15,"title":"Codex 用量看板","textShapes":12}
+{"kind":"shape","id":"sh/ylc7u54z","slide":15,"bbox":[0,0,1280,10]}
+{"kind":"textbox","id":"sh/9cvixcze","slide":15,"text":"Codex 用量看板","textPreview":"Codex 用量看板","textChars":10,"textLines":1,"bbox":[64,30,460,28]}
+{"kind":"textbox","id":"sh/gr2p8nqx","slide":15,"text":"15","textPreview":"15","textChars":2,"textLines":1,"bbox":[1168,30,56,28]}
+{"kind":"textbox","id":"sh/nih4byhg","slide":15,"text":"实时用量看板：把 Codex 本地状态变成可观测系统","textPreview":"实时用量看板：把 Codex 本地状态变成可观测系统","textChars":26,"textLines":1,"bbox":[64,78,880,56]}
+{"kind":"textbox","id":"sh/yxobm58z","slide":15,"text":"用户要实时监控每个对话的用量，所以第一版直接读取真实 SQLite，而不是做 mock。","textPreview":"用户要实时监控每个对话的用量，所以第一版直接读取真实 SQLite，而不是做 mock。","textChars":44,"textLines":1,"bbox":[66,142,990,38]}
+{"kind":"shape","id":"sh/5o7qpg3e","slide":15,"bbox":[64,214,342,330]}
+{"kind":"textbox","id":"sh/g3ex0nux","slide":15,"text":"数据源","textPreview":"数据源","textChars":3,"textLines":1,"bbox":[84,232,302,30]}
+{"kind":"textbox","id":"sh/rmhk3q5o","slide":15,"text":"state_5.sqlite threads：tokens_used、title、cwd、updated_at\nlogs_2.sqlite logs：response.completed usage\nread-only DatabaseSync 访问","textPreview":"state_5.sqlite threads：tokens_used、title、cwd、updated_at | logs_2.sqlite logs：response.completed usage | read-only DatabaseSync 访问","textChars":125,"textLines":3,"bbox":[86,276,298,254]}
+{"kind":"shape","id":"sh/y1kre1w7","slide":15,"bbox":[430,214,342,330]}
+{"kind":"textbox","id":"sh/kjm1cfa9","slide":15,"text":"实现","textPreview":"实现","textChars":2,"textLines":1,"bbox":[450,232,302,30]}
+{"kind":"textbox","id":"sh/94fu18jq","slide":15,"text":"src/codex-usage.ts 访问层\nsrc/server.ts 暴露 summary / threads / recent-events\ncodex-usage-site 前端轮询刷新","textPreview":"src/codex-usage.ts 访问层 | src/server.ts 暴露 summary / threads / recent-events | codex-usage-site 前端轮询刷新","textChars":97,"textLines":3,"bbox":[452,276,298,254]}
+{"kind":"shape","id":"sh/2hwfyxob","slide":15,"bbox":[796,214,342,330]}
+{"kind":"textbox","id":"sh/r2p8nqxs","slide":15,"text":"验证","textPreview":"验证","textChars":2,"textLines":1,"bbox":[816,232,302,30]}
+{"kind":"textbox","id":"sh/gvy90je9","slide":15,"text":"PORT=3107 启动服务\nHTTP 200 + API 返回真实数据\nD:\\nodejs24\\npm.cmd test：84 pass","textPreview":"PORT=3107 启动服务 | HTTP 200 + API 返回真实数据 | D:\\nodejs24\\npm.cmd test：84 pass","textChars":69,"textLines":3,"bbox":[818,276,298,254]}
+{"kind":"textbox","id":"sh/9gr2p8nq","slide":15,"text":"沉淀：PowerShell 环境优先用 npm.cmd；HTTP 检查用 -UseBasicParsing；Playwright npx 下载不作为主验证路径。","textPreview":"沉淀：PowerShell 环境优先用 npm.cmd；HTTP 检查用 -UseBasicParsing；Playwright npx 下载不作为主验证路径。","textChars":80,"textLines":1,"bbox":[82,584,1080,30]}
+{"kind":"shape","id":"sh/2p8nqxs7","slide":15,"bbox":[64,662,1152,1]}
+{"kind":"textbox","id":"sh/ra5gbq1o","slide":15,"text":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textPreview":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textChars":65,"textLines":1,"bbox":[64,674,880,24]}
+{"kind":"notes","id":"nt/h7qwq8","slide":15,"text":""}
+{"kind":"slide","id":"sl/19bh03","slide":16,"title":"公司经营协作","textShapes":25}
+{"kind":"shape","id":"sh/tovahoza","slide":16,"bbox":[0,0,1280,10]}
+{"kind":"textbox","id":"sh/ixczed8v","slide":16,"text":"公司经营协作","textPreview":"公司经营协作","textChars":6,"textLines":1,"bbox":[64,30,460,28]}
+{"kind":"textbox","id":"sh/bi9s36hc","slide":16,"text":"16","textPreview":"16","textChars":2,"textLines":1,"bbox":[1168,30,56,28]}
+{"kind":"textbox","id":"sh/0fepkzup","slide":16,"text":"从运营助手到合伙人咨询师：长期协作身份升级","textPreview":"从运营助手到合伙人咨询师：长期协作身份升级","textChars":21,"textLines":1,"bbox":[64,78,880,56]}
+{"kind":"textbox","id":"sh/p0bi9s36","slide":16,"text":"这是四天里最重要的“方向性”成果：明确 Codex 不只做任务，还要帮助提升公司经营视野。","textPreview":"这是四天里最重要的“方向性”成果：明确 Codex 不只做任务，还要帮助提升公司经营视野。","textChars":45,"textLines":1,"bbox":[66,142,990,38]}
+{"kind":"shape","id":"sh/i9s36hcr","slide":16,"bbox":[64,218,280,42]}
+{"kind":"textbox","id":"sh/bulwval8","slide":16,"text":"目标 / 背景","textPreview":"目标 / 背景","textChars":7,"textLines":1,"bbox":[76,228,256,24]}
+{"kind":"shape","id":"sh/0je9cvix","slide":16,"bbox":[344,218,330,42]}
+{"kind":"textbox","id":"sh/t47y1kre","slide":16,"text":"关键动作","textPreview":"关键动作","textChars":4,"textLines":1,"bbox":[356,228,306,24]}
+{"kind":"shape","id":"sh/9s36hcrm","slide":16,"bbox":[674,218,260,42]}
+{"kind":"textbox","id":"sh/g7adsji5","slide":16,"text":"产出物","textPreview":"产出物","textChars":3,"textLines":1,"bbox":[686,228,236,24]}
+{"kind":"shape","id":"sh/rmhk3q5o","slide":16,"bbox":[934,218,218,42]}
+{"kind":"textbox","id":"sh/y1kre1w7","slide":16,"text":"验证 / 沉淀","textPreview":"验证 / 沉淀","textChars":7,"textLines":1,"bbox":[946,228,194,24]}
+{"kind":"shape","id":"sh/90je9cvi","slide":16,"bbox":[64,260,280,78]}
+{"kind":"textbox","id":"sh/gfmlkjm1","slide":16,"text":"长期定位","textPreview":"长期定位","textChars":4,"textLines":1,"bbox":[76,272,256,58]}
+{"kind":"shape","id":"sh/rytsvu9k","slide":16,"bbox":[344,260,330,78]}
+{"kind":"textbox","id":"sh/yd0z6103","slide":16,"text":"用户明确要求战略视角 + 高执行落地","textPreview":"用户明确要求战略视角 + 高执行落地","textChars":18,"textLines":1,"bbox":[356,272,306,58]}
+{"kind":"shape","id":"sh/9cvixcze","slide":16,"bbox":[674,260,260,78]}
+{"kind":"textbox","id":"sh/gr2p8nqx","slide":16,"text":"个人合伙人咨询师 / 公司经营协作伙伴","textPreview":"个人合伙人咨询师 / 公司经营协作伙伴","textChars":19,"textLines":1,"bbox":[686,272,236,58]}
+{"kind":"shape","id":"sh/c7u54zid","slide":16,"bbox":[934,260,218,78]}
+{"kind":"textbox","id":"sh/1orytsvu","slide":16,"text":"写入本地记忆和 skill","textPreview":"写入本地记忆和 skill","textChars":13,"textLines":1,"bbox":[946,272,194,58]}
+{"kind":"shape","id":"sh/u18jqh0f","slide":16,"bbox":[64,338,280,78]}
+{"kind":"textbox","id":"sh/jm1cfa9w","slide":16,"text":"知识库主场","textPreview":"知识库主场","textChars":5,"textLines":1,"bbox":[76,350,256,58]}
+{"kind":"shape","id":"sh/cfa9w3m9","slide":16,"bbox":[344,338,330,78]}
+{"kind":"textbox","id":"sh/1032lszq","slide":16,"text":"E:\\KnowledgeBase 作为长期个人知识基座","textPreview":"E:\\KnowledgeBase 作为长期个人知识基座","textChars":27,"textLines":1,"bbox":[356,350,306,58]}
+{"kind":"shape","id":"sh/u9knih4b","slide":16,"bbox":[674,338,260,78]}
+{"kind":"textbox","id":"sh/judg7ads","slide":16,"text":"Obsidian 风格目录结构","textPreview":"Obsidian 风格目录结构","textChars":15,"textLines":1,"bbox":[686,350,236,58]}
+{"kind":"shape","id":"sh/cj6tovah","slide":16,"bbox":[934,338,218,78]}
+{"kind":"textbox","id":"sh/54zidony","slide":16,"text":"project000/docs 只放工程相关文档","textPreview":"project000/docs 只放工程相关文档","textChars":24,"textLines":1,"bbox":[946,350,194,58]}
+{"kind":"shape","id":"sh/ra5gbq1o","slide":16,"bbox":[64,416,280,78]}
+{"kind":"textbox","id":"sh/2p8nqxs7","slide":16,"text":"九大模块","textPreview":"九大模块","textChars":4,"textLines":1,"bbox":[76,428,256,58]}
+{"kind":"shape","id":"sh/9gr2p8nq","slide":16,"bbox":[344,416,330,78]}
+{"kind":"textbox","id":"sh/gvy90je9","slide":16,"text":"战略、市场、产品、运营、技术、人事、行政、财务、法务","textPreview":"战略、市场、产品、运营、技术、人事、行政、财务、法务","textChars":26,"textLines":1,"bbox":[356,428,306,58]}
+{"kind":"shape","id":"sh/r2p8nqxs","slide":16,"bbox":[674,416,260,78]}
+{"kind":"textbox","id":"sh/2hwfyxob","slide":16,"text":"公司经营驾驶舱","textPreview":"公司经营驾驶舱","textChars":7,"textLines":1,"bbox":[686,428,236,58]}
+{"kind":"shape","id":"sh/94fu18jq","slide":16,"bbox":[934,416,218,78]}
+{"kind":"textbox","id":"sh/kjm1cfa9","slide":16,"text":"客户风险是入口，不是边界","textPreview":"客户风险是入口，不是边界","textChars":12,"textLines":1,"bbox":[946,428,194,58]}
+{"kind":"shape","id":"sh/rqd4vmtw","slide":16,"bbox":[64,494,280,78]}
+{"kind":"textbox","id":"sh/25kb6xkf","slide":16,"text":"落地文档","textPreview":"落地文档","textChars":4,"textLines":1,"bbox":[76,506,256,58]}
+{"kind":"shape","id":"sh/i9s36hcr","slide":16,"bbox":[344,494,330,78]}
+{"kind":"textbox","id":"sh/bulwval8","slide":16,"text":"更新驾驶舱、客户风险雷达、AI 协作机制、合伙人原则","textPreview":"更新驾驶舱、客户风险雷达、AI 协作机制、合伙人原则","textChars":26,"textLines":1,"bbox":[356,506,306,58]}
+{"kind":"shape","id":"sh/0fepkzup","slide":16,"bbox":[674,494,260,78]}
+{"kind":"textbox","id":"sh/p0bi9s36","slide":16,"text":"personal-company-copilot skill","textPreview":"personal-company-copilot skill","textChars":30,"textLines":1,"bbox":[686,506,236,58]}
+{"kind":"shape","id":"sh/ixczed8v","slide":16,"bbox":[934,494,218,78]}
+{"kind":"textbox","id":"sh/bi9s36hc","slide":16,"text":"quick_validate.py 通过","textPreview":"quick_validate.py 通过","textChars":20,"textLines":1,"bbox":[946,506,194,58]}
+{"kind":"shape","id":"sh/032lszqt","slide":16,"bbox":[64,662,1152,1]}
+{"kind":"textbox","id":"sh/tovahoza","slide":16,"text":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textPreview":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textChars":65,"textLines":1,"bbox":[64,674,880,24]}
+{"kind":"notes","id":"nt/19bh03","slide":16,"text":""}
+{"kind":"slide","id":"sl/6h2a9u","slide":17,"title":"环境 / 交付","textShapes":25}
+{"kind":"shape","id":"sh/54zidony","slide":17,"bbox":[0,0,1280,10]}
+{"kind":"textbox","id":"sh/udg7adsj","slide":17,"text":"环境 / 交付","textPreview":"环境 / 交付","textChars":7,"textLines":1,"bbox":[64,30,460,28]}
+{"kind":"textbox","id":"sh/nyd0z610","slide":17,"text":"17","textPreview":"17","textChars":2,"textLines":1,"bbox":[1168,30,56,28]}
+{"kind":"textbox","id":"sh/cvixczed","slide":17,"text":"环境与交付能力：让下一次工作更少卡在机器上","textPreview":"环境与交付能力：让下一次工作更少卡在机器上","textChars":21,"textLines":1,"bbox":[64,78,880,56]}
+{"kind":"textbox","id":"sh/5gbq1ory","slide":17,"text":"这一组工作看似杂，但共同目标是降低以后协作、部署、迁移和排障成本。","textPreview":"这一组工作看似杂，但共同目标是降低以后协作、部署、迁移和排障成本。","textChars":33,"textLines":1,"bbox":[66,142,990,38]}
+{"kind":"shape","id":"sh/upwb2hwf","slide":17,"bbox":[64,218,280,42]}
+{"kind":"textbox","id":"sh/nap4r65w","slide":17,"text":"目标 / 背景","textPreview":"目标 / 背景","textChars":7,"textLines":1,"bbox":[76,228,256,24]}
+{"kind":"shape","id":"sh/c7u54zid","slide":17,"bbox":[344,218,330,42]}
+{"kind":"textbox","id":"sh/1orytsvu","slide":17,"text":"关键动作","textPreview":"关键动作","textChars":4,"textLines":1,"bbox":[356,228,306,24]}
+{"kind":"shape","id":"sh/l0rqd4vm","slide":17,"bbox":[674,218,260,42]}
+{"kind":"textbox","id":"sh/wfyxobm5","slide":17,"text":"产出物","textPreview":"产出物","textChars":3,"textLines":1,"bbox":[686,228,236,24]}
+{"kind":"shape","id":"sh/7u54zido","slide":17,"bbox":[934,218,218,42]}
+{"kind":"textbox","id":"sh/ed8bat47","slide":17,"text":"验证 / 沉淀","textPreview":"验证 / 沉淀","textChars":7,"textLines":1,"bbox":[946,228,194,24]}
+{"kind":"shape","id":"sh/lc7u54zi","slide":17,"bbox":[64,260,280,78]}
+{"kind":"textbox","id":"sh/wra5gbq1","slide":17,"text":"PowerShell","textPreview":"PowerShell","textChars":10,"textLines":1,"bbox":[76,272,256,58]}
+{"kind":"shape","id":"sh/36hcrmhk","slide":17,"bbox":[344,260,330,78]}
+{"kind":"textbox","id":"sh/eloj2t83","slide":17,"text":"检查 Windows PowerShell 与 PowerShell 7；winget 不可用后走 MSI","textPreview":"检查 Windows PowerShell 与 PowerShell 7；winget 不可用后走 MSI","textChars":53,"textLines":1,"bbox":[356,272,306,58]}
+{"kind":"shape","id":"sh/pg3ex0nu","slide":17,"bbox":[674,260,260,78]}
+{"kind":"textbox","id":"sh/wval87ed","slide":17,"text":"PowerShell 7.6.3","textPreview":"PowerShell 7.6.3","textChars":16,"textLines":1,"bbox":[686,272,236,58]}
+{"kind":"shape","id":"sh/w3m94fu1","slide":17,"bbox":[934,260,218,78]}
+{"kind":"textbox","id":"sh/loj2t83i","slide":17,"text":"pwsh.exe 全路径验证；PATH 需新会话","textPreview":"pwsh.exe 全路径验证；PATH 需新会话","textChars":24,"textLines":1,"bbox":[946,272,194,58]}
+{"kind":"shape","id":"sh/ex0nuxc3","slide":17,"bbox":[64,338,280,78]}
+{"kind":"textbox","id":"sh/3itgfmlk","slide":17,"text":"setup.bat","textPreview":"setup.bat","textChars":9,"textLines":1,"bbox":[76,350,256,58]}
+{"kind":"shape","id":"sh/wb2hwfyx","slide":17,"bbox":[344,338,330,78]}
+{"kind":"textbox","id":"sh/lwval87e","slide":17,"text":"新机器 clone 后一键检查 Node 24/npm/.env 并安装依赖","textPreview":"新机器 clone 后一键检查 Node 24/npm/.env 并安装依赖","textChars":38,"textLines":1,"bbox":[356,350,306,58]}
+{"kind":"shape","id":"sh/e9cvixcz","slide":17,"bbox":[674,338,260,78]}
+{"kind":"textbox","id":"sh/3q5o7qpg","slide":17,"text":"Windows onboarding 脚本","textPreview":"Windows onboarding 脚本","textChars":21,"textLines":1,"bbox":[686,350,236,58]}
+{"kind":"shape","id":"sh/sneloj2t","slide":17,"bbox":[934,338,218,78]}
+{"kind":"textbox","id":"sh/l87ed8ba","slide":17,"text":"只打印后续命令，不自动跑全测试","textPreview":"只打印后续命令，不自动跑全测试","textChars":15,"textLines":1,"bbox":[946,350,194,58]}
+{"kind":"shape","id":"sh/b6xkf6dc","slide":17,"bbox":[64,416,280,78]}
+{"kind":"textbox","id":"sh/il0rqd4v","slide":17,"text":"Git 交付","textPreview":"Git 交付","textChars":6,"textLines":1,"bbox":[76,428,256,58]}
+{"kind":"shape","id":"sh/tcj6tova","slide":17,"bbox":[344,416,330,78]}
+{"kind":"textbox","id":"sh/0rqd4vmt","slide":17,"text":"project000 替换远程内容；setup.bat 复制后提交推送","textPreview":"project000 替换远程内容；setup.bat 复制后提交推送","textChars":35,"textLines":1,"bbox":[356,428,306,58]}
+{"kind":"shape","id":"sh/byhgn29g","slide":17,"bbox":[674,416,260,78]}
+{"kind":"textbox","id":"sh/idonyd0z","slide":17,"text":"远程 main 同步","textPreview":"远程 main 同步","textChars":10,"textLines":1,"bbox":[686,428,236,58]}
+{"kind":"shape","id":"sh/t47y1kre","slide":17,"bbox":[934,416,218,78]}
+{"kind":"textbox","id":"sh/0je9cvix","slide":17,"text":"force-with-lease stale 后 fetch 再推","textPreview":"force-with-lease stale 后 fetch 再推","textChars":33,"textLines":1,"bbox":[946,428,194,58]}
+{"kind":"shape","id":"sh/bulwval8","slide":17,"bbox":[64,494,280,78]}
+{"kind":"textbox","id":"sh/i9s36hcr","slide":17,"text":"工作区运维","textPreview":"工作区运维","textChars":5,"textLines":1,"bbox":[76,506,256,58]}
+{"kind":"shape","id":"sh/25kb6xkf","slide":17,"bbox":[344,494,330,78]}
+{"kind":"textbox","id":"sh/rqd4vmtw","slide":17,"text":"查找并关闭占用 workspace 的进程","textPreview":"查找并关闭占用 workspace 的进程","textChars":21,"textLines":1,"bbox":[356,506,306,58]}
+{"kind":"shape","id":"sh/kb6xkf6d","slide":17,"bbox":[674,494,260,78]}
+{"kind":"textbox","id":"sh/9w3m94fu","slide":17,"text":"rename blocker 解除","textPreview":"rename blocker 解除","textChars":17,"textLines":1,"bbox":[686,506,236,58]}
+{"kind":"shape","id":"sh/2t83itgf","slide":17,"bbox":[934,494,218,78]}
+{"kind":"textbox","id":"sh/re1w7mp0","slide":17,"text":"Win32_Process 过滤 command line","textPreview":"Win32_Process 过滤 command line","textChars":29,"textLines":1,"bbox":[946,506,194,58]}
+{"kind":"shape","id":"sh/kzupwb2h","slide":17,"bbox":[64,662,1152,1]}
+{"kind":"textbox","id":"sh/9knih4by","slide":17,"text":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textPreview":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textChars":65,"textLines":1,"bbox":[64,674,880,24]}
+{"kind":"notes","id":"nt/6h2a9u","slide":17,"text":""}
+{"kind":"slide","id":"sl/xl0esb","slide":18,"title":"下一步","textShapes":31}
+{"kind":"shape","id":"sh/wfyxobm5","slide":18,"bbox":[0,0,1280,10]}
+{"kind":"textbox","id":"sh/7u54zido","slide":18,"text":"下一步","textPreview":"下一步","textChars":3,"textLines":1,"bbox":[64,30,460,28]}
+{"kind":"textbox","id":"sh/ed8bat47","slide":18,"text":"18","textPreview":"18","textChars":2,"textLines":1,"bbox":[1168,30,56,28]}
+{"kind":"textbox","id":"sh/lc7u54zi","slide":18,"text":"下一轮动作：把复盘变成经营系统","textPreview":"下一轮动作：把复盘变成经营系统","textChars":15,"textLines":1,"bbox":[64,78,880,56]}
+{"kind":"textbox","id":"sh/wra5gbq1","slide":18,"text":"后续重点不是继续堆工具，而是把已跑通的路径变成稳定机制。","textPreview":"后续重点不是继续堆工具，而是把已跑通的路径变成稳定机制。","textChars":28,"textLines":1,"bbox":[66,142,990,38]}
+{"kind":"shape","id":"sh/36hcrmhk","slide":18,"bbox":[64,216,330,44]}
+{"kind":"textbox","id":"sh/eloj2t83","slide":18,"text":"动作","textPreview":"动作","textChars":2,"textLines":1,"bbox":[76,228,306,22]}
+{"kind":"shape","id":"sh/pg3ex0nu","slide":18,"bbox":[394,216,420,44]}
+{"kind":"textbox","id":"sh/wval87ed","slide":18,"text":"交付定义","textPreview":"交付定义","textChars":4,"textLines":1,"bbox":[406,228,396,22]}
+{"kind":"shape","id":"sh/6hcrmhk3","slide":18,"bbox":[814,216,150,44]}
+{"kind":"textbox","id":"sh/z25kb6xk","slide":18,"text":"Owner","textPreview":"Owner","textChars":5,"textLines":1,"bbox":[826,228,126,22]}
+{"kind":"shape","id":"sh/onyd0z61","slide":18,"bbox":[964,216,110,44]}
+{"kind":"textbox","id":"sh/d8v6psfi","slide":18,"text":"时间","textPreview":"时间","textChars":2,"textLines":1,"bbox":[976,228,86,22]}
+{"kind":"shape","id":"sh/6tovahoz","slide":18,"bbox":[1074,216,130,44]}
+{"kind":"textbox","id":"sh/vahoza1g","slide":18,"text":"状态","textPreview":"状态","textChars":2,"textLines":1,"bbox":[1086,228,106,22]}
+{"kind":"shape","id":"sh/ovahoza1","slide":18,"bbox":[64,260,330,78]}
+{"kind":"textbox","id":"sh/dg7adsji","slide":18,"text":"日报/月报复盘机制","textPreview":"日报/月报复盘机制","textChars":9,"textLines":1,"bbox":[76,274,306,52]}
+{"kind":"shape","id":"sh/61032lsz","slide":18,"bbox":[394,260,420,78]}
+{"kind":"textbox","id":"sh/vmtwra5g","slide":18,"text":"固定输入源、输出模板、Feishu/Base 写入与本地留档","textPreview":"固定输入源、输出模板、Feishu/Base 写入与本地留档","textChars":30,"textLines":1,"bbox":[406,274,396,52]}
+{"kind":"shape","id":"sh/nqxs72x4","slide":18,"bbox":[814,260,150,78]}
+{"kind":"textbox","id":"sh/u54zidon","slide":18,"text":"我 + Codex","textPreview":"我 + Codex","textChars":9,"textLines":1,"bbox":[826,274,126,52]}
+{"kind":"shape","id":"sh/5sneloj2","slide":18,"bbox":[964,260,110,78]}
+{"kind":"textbox","id":"sh/cbulwval","slide":18,"text":"本周","textPreview":"本周","textChars":2,"textLines":1,"bbox":[976,274,86,52]}
+{"kind":"shape","id":"sh/neloj2t8","slide":18,"bbox":[1074,260,130,78]}
+{"kind":"textbox","id":"sh/ytsvu9kn","slide":18,"text":"进行中","textPreview":"进行中","textChars":3,"textLines":1,"bbox":[1086,274,106,52]}
+{"kind":"shape","id":"sh/5kb6xkf6","slide":18,"bbox":[64,338,330,78]}
+{"kind":"textbox","id":"sh/czed8v6p","slide":18,"text":"自动化稳定性复验","textPreview":"自动化稳定性复验","textChars":8,"textLines":1,"bbox":[76,352,306,52]}
+{"kind":"shape","id":"sh/n29gr2p8","slide":18,"bbox":[394,338,420,78]}
+{"kind":"textbox","id":"sh/yhgn29gr","slide":18,"text":"退款率、钉钉群推、Stream 网关、DataFinder 数据链路定期检查","textPreview":"退款率、钉钉群推、Stream 网关、DataFinder 数据链路定期检查","textChars":38,"textLines":1,"bbox":[406,352,396,52]}
+{"kind":"shape","id":"sh/8jqh0fep","slide":18,"bbox":[814,338,150,78]}
+{"kind":"textbox","id":"sh/x4nap4r6","slide":18,"text":"我 + Codex","textPreview":"我 + Codex","textChars":9,"textLines":1,"bbox":[826,352,126,52]}
+{"kind":"shape","id":"sh/qd4vmtwr","slide":18,"bbox":[964,338,110,78]}
+{"kind":"textbox","id":"sh/fyxobm58","slide":18,"text":"6/24","textPreview":"6/24","textChars":4,"textLines":1,"bbox":[976,352,86,52]}
+{"kind":"shape","id":"sh/8v6psfil","slide":18,"bbox":[1074,338,130,78]}
+{"kind":"textbox","id":"sh/xczed8v6","slide":18,"text":"待复查","textPreview":"待复查","textChars":3,"textLines":1,"bbox":[1086,352,106,52]}
+{"kind":"shape","id":"sh/qpg3ex0n","slide":18,"bbox":[64,416,330,78]}
+{"kind":"textbox","id":"sh/fa9w3m94","slide":18,"text":"KnowledgeBase 维护","textPreview":"KnowledgeBase 维护","textChars":16,"textLines":1,"bbox":[76,430,306,52]}
+{"kind":"shape","id":"sh/8z25kb6x","slide":18,"bbox":[394,416,420,78]}
+{"kind":"textbox","id":"sh/1gvy90je","slide":18,"text":"持续把客户风险、经营方法、决策记录沉淀到 E:\\KnowledgeBase","textPreview":"持续把客户风险、经营方法、决策记录沉淀到 E:\\KnowledgeBase","textChars":37,"textLines":1,"bbox":[406,430,396,52]}
+{"kind":"shape","id":"sh/tsvu9kni","slide":18,"bbox":[814,416,150,78]}
+{"kind":"textbox","id":"sh/47y1kre1","slide":18,"text":"我 + Codex","textPreview":"我 + Codex","textChars":9,"textLines":1,"bbox":[826,430,126,52]}
+{"kind":"shape","id":"sh/bm58z25k","slide":18,"bbox":[964,416,110,78]}
+{"kind":"textbox","id":"sh/m1cfa9w3","slide":18,"text":"持续","textPreview":"持续","textChars":2,"textLines":1,"bbox":[976,430,86,52]}
+{"kind":"shape","id":"sh/tgfmlkjm","slide":18,"bbox":[1074,416,130,78]}
+{"kind":"textbox","id":"sh/4vmtwra5","slide":18,"text":"长期","textPreview":"长期","textChars":2,"textLines":1,"bbox":[1086,430,106,52]}
+{"kind":"shape","id":"sh/bat47y1k","slide":18,"bbox":[64,494,330,78]}
+{"kind":"textbox","id":"sh/mp0bi9s3","slide":18,"text":"经营驾驶舱扩展","textPreview":"经营驾驶舱扩展","textChars":7,"textLines":1,"bbox":[76,508,306,52]}
+{"kind":"shape","id":"sh/t83itgfm","slide":18,"bbox":[394,494,420,78]}
+{"kind":"textbox","id":"sh/4nap4r65","slide":18,"text":"从客户风险入口扩展到九大模块，形成公司经营协作仪表盘","textPreview":"从客户风险入口扩展到九大模块，形成公司经营协作仪表盘","textChars":26,"textLines":1,"bbox":[406,508,396,52]}
+{"kind":"shape","id":"sh/eloj2t83","slide":18,"bbox":[814,494,150,78]}
+{"kind":"textbox","id":"sh/36hcrmhk","slide":18,"text":"我 + Codex","textPreview":"我 + Codex","textChars":9,"textLines":1,"bbox":[826,508,126,52]}
+{"kind":"shape","id":"sh/wra5gbq1","slide":18,"bbox":[964,494,110,78]}
+{"kind":"textbox","id":"sh/lc7u54zi","slide":18,"text":"6/30","textPreview":"6/30","textChars":4,"textLines":1,"bbox":[976,508,86,52]}
+{"kind":"shape","id":"sh/ed8bat47","slide":18,"bbox":[1074,494,130,78]}
+{"kind":"textbox","id":"sh/7u54zido","slide":18,"text":"规划中","textPreview":"规划中","textChars":3,"textLines":1,"bbox":[1086,508,106,52]}
+{"kind":"textbox","id":"sh/wfyxobm5","slide":18,"text":"评价标准：下一次同类任务应该更快、更稳、更少解释背景，并能留下可复用资产。","textPreview":"评价标准：下一次同类任务应该更快、更稳、更少解释背景，并能留下可复用资产。","textChars":37,"textLines":1,"bbox":[84,594,1040,32]}
+{"kind":"shape","id":"sh/l0rqd4vm","slide":18,"bbox":[64,662,1152,1]}
+{"kind":"textbox","id":"sh/e1w7mp0b","slide":18,"text":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textPreview":"来源：本机 Codex memory / rollout summaries；范围：2026-06-19 至 2026-06-22","textChars":65,"textLines":1,"bbox":[64,674,880,24]}
+{"kind":"notes","id":"nt/xl0esb","slide":18,"text":""}

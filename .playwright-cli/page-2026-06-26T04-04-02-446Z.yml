@@ -1,0 +1,192 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - paragraph [ref=e4]: 宜信补贴 ROI 测算
+      - heading "补贴是否真正赚钱，一页算清" [level=1] [ref=e5]
+      - paragraph [ref=e6]: 主口径：净利润 ROI = 补贴带来的净增利润 / 补贴及营销成本。默认不写入真实经营数据，输入仅在当前浏览器临时计算。
+    - generic "页面信息" [ref=e7]:
+      - generic [ref=e8]: 适用对象：经营复盘 / 投放评估 / 老板汇报
+      - generic [ref=e9]: 更新时间：2026-06-26
+      - generic [ref=e10]: 数据状态：待填成本与业务结果
+  - main [ref=e11]:
+    - region "ROI 测算工作台" [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - heading "四类 ROI" [level=2] [ref=e15]
+          - paragraph [ref=e16]: 先填收入、退费和成本，再看不同口径下补贴是否值得继续。
+        - tablist "测算口径" [ref=e17]:
+          - tab "保守" [selected] [ref=e18] [cursor=pointer]
+          - tab "中性" [ref=e19] [cursor=pointer]
+          - tab "乐观" [ref=e20] [cursor=pointer]
+      - generic [ref=e21]:
+        - article [ref=e22]:
+          - generic [ref=e23]: 表观 ROI
+          - strong [ref=e24]: 待填
+          - generic [ref=e25]: 支付收入增量 / 补贴及营销成本
+        - article [ref=e26]:
+          - generic [ref=e27]: 净利润 ROI
+          - strong [ref=e28]: 待填
+          - generic [ref=e29]: 主结论口径
+        - article [ref=e30]:
+          - generic [ref=e31]: 退费修正 ROI
+          - strong [ref=e32]: 待填
+          - generic [ref=e33]: 扣除退费变化和边际成本
+        - article [ref=e34]:
+          - generic [ref=e35]: 多头修正 ROI
+          - strong [ref=e36]: 待填
+          - generic [ref=e37]: 剔除宜信后多头净收入影响
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - generic [ref=e40]:
+            - heading "临时输入" [level=3] [ref=e41]
+            - generic [ref=e42]:
+              - button "填入示例" [ref=e43] [cursor=pointer]
+              - button "清空" [ref=e44] [cursor=pointer]
+          - generic [ref=e45]:
+            - generic [ref=e46]:
+              - generic [ref=e47]: 基准期支付金额
+              - spinbutton "基准期支付金额" [ref=e48]
+            - generic [ref=e49]:
+              - generic [ref=e50]: 补贴期支付金额
+              - spinbutton "补贴期支付金额" [ref=e51]
+            - generic [ref=e52]:
+              - generic [ref=e53]: 基准期退费金额
+              - spinbutton "基准期退费金额" [ref=e54]
+            - generic [ref=e55]:
+              - generic [ref=e56]: 补贴期退费金额
+              - spinbutton "补贴期退费金额" [ref=e57]
+            - generic [ref=e58]:
+              - generic [ref=e59]: 补贴成本
+              - spinbutton "补贴成本" [ref=e60]
+            - generic [ref=e61]:
+              - generic [ref=e62]: 营销成本
+              - spinbutton "营销成本" [ref=e63]
+            - generic [ref=e64]:
+              - generic [ref=e65]: 支付通道成本
+              - spinbutton "支付通道成本" [ref=e66]
+            - generic [ref=e67]:
+              - generic [ref=e68]: 客服/投诉成本
+              - spinbutton "客服/投诉成本" [ref=e69]
+            - generic [ref=e70]:
+              - generic [ref=e71]: 后续复购收益
+              - spinbutton "后续复购收益" [ref=e72]
+            - generic [ref=e73]:
+              - generic [ref=e74]: 基准期多头净收入
+              - spinbutton "基准期多头净收入" [ref=e75]
+            - generic [ref=e76]:
+              - generic [ref=e77]: 补贴期多头净收入
+              - spinbutton "补贴期多头净收入" [ref=e78]
+        - complementary "计算解释" [ref=e79]:
+          - heading "等待输入" [level=3] [ref=e80]
+          - paragraph [ref=e81]: 填入补贴期和基准期数据后，这里会给出继续、收缩、限投或暂停验证的建议。
+          - generic [ref=e82]:
+            - generic [ref=e83]:
+              - term [ref=e84]: 支付收入增量
+              - definition [ref=e85]: 待填
+            - generic [ref=e86]:
+              - term [ref=e87]: 退费金额增量
+              - definition [ref=e88]: 待填
+            - generic [ref=e89]:
+              - term [ref=e90]: 补贴及营销成本
+              - definition [ref=e91]: 待填
+            - generic [ref=e92]:
+              - term [ref=e93]: 当前纳入边际项
+              - definition [ref=e94]: 通道成本、客服/投诉成本；不计后续复购收益
+    - region "测算框架" [ref=e95]:
+      - article [ref=e96]:
+        - generic [ref=e97]:
+          - heading "收益拆解" [level=2] [ref=e98]
+          - generic [ref=e99]: 先看真实增量
+        - generic [ref=e100]:
+          - generic [ref=e101]:
+            - strong [ref=e102]: 支付收入增量
+            - paragraph [ref=e103]: 补贴期支付收入减基准期同口径支付收入，或补贴组相对对照组的差异。
+          - generic [ref=e104]:
+            - strong [ref=e105]: 退费减少收益
+            - paragraph [ref=e106]: 用基准退费率估算预期退费，再与实际退费比较。
+          - generic [ref=e107]:
+            - strong [ref=e108]: 后续在约/复购收益
+            - paragraph [ref=e109]: 只有表和观察窗口确认后才进入主口径，否则放进敏感性分析。
+      - article [ref=e110]:
+        - generic [ref=e111]:
+          - heading "成本拆解" [level=2] [ref=e112]
+          - generic [ref=e113]: 补贴不能只看投放
+        - table "成本拆解" [ref=e114]:
+          - row "补贴成本 主口径必计" [ref=e115]:
+            - cell "补贴成本" [ref=e116]
+            - cell "主口径必计" [ref=e117]
+          - row "营销成本 主口径必计" [ref=e118]:
+            - cell "营销成本" [ref=e119]
+            - cell "主口径必计" [ref=e120]
+          - row "支付通道成本 可取数则扣减" [ref=e121]:
+            - cell "支付通道成本" [ref=e122]
+            - cell "可取数则扣减" [ref=e123]
+          - row "客服/投诉成本 保守口径扣减" [ref=e124]:
+            - cell "客服/投诉成本" [ref=e125]
+            - cell "保守口径扣减" [ref=e126]
+          - row "后续复购收益 乐观口径纳入" [ref=e127]:
+            - cell "后续复购收益" [ref=e128]
+            - cell "乐观口径纳入" [ref=e129]
+    - region "多头分层诊断" [ref=e130]:
+      - generic [ref=e132]:
+        - heading "分层诊断" [level=2] [ref=e133]
+        - paragraph [ref=e134]: 补贴是否有效，要按多头状态拆开看。单渠道赚钱、多头亏钱时，不应该全量放大。
+      - table [ref=e136]:
+        - rowgroup [ref=e137]:
+          - row "用户分层 判定方式 ROI 解读 建议动作" [ref=e138]:
+            - columnheader "用户分层" [ref=e139]
+            - columnheader "判定方式" [ref=e140]
+            - columnheader "ROI 解读" [ref=e141]
+            - columnheader "建议动作" [ref=e142]
+        - rowgroup [ref=e143]:
+          - row "宜信单渠道 观察窗口内只有宜信订单 最干净的补贴效果样本 ROI 为正可扩大灰度" [ref=e144]:
+            - cell "宜信单渠道" [ref=e145]
+            - cell "观察窗口内只有宜信订单" [ref=e146]
+            - cell "最干净的补贴效果样本" [ref=e147]
+            - cell "ROI 为正可扩大灰度" [ref=e148]
+          - row "非宜信先购 宜信支付前已有非宜信订单 天然风险可能更高 单独看退费率和客诉" [ref=e149]:
+            - cell "非宜信先购" [ref=e150]
+            - cell "宜信支付前已有非宜信订单" [ref=e151]
+            - cell "天然风险可能更高" [ref=e152]
+            - cell "单独看退费率和客诉" [ref=e153]
+          - row "宜信后多头 宜信支付后 1/3/7/15/30 天内出现非宜信订单 可能反向抬高宜信退费 限投、降补或权益隔离" [ref=e154]:
+            - cell "宜信后多头" [ref=e155]
+            - cell "宜信支付后 1/3/7/15/30 天内出现非宜信订单" [ref=e156]
+            - cell "可能反向抬高宜信退费" [ref=e157]
+            - cell "限投、降补或权益隔离" [ref=e158]
+          - row "多平台密集购买 30 天内跨 2 个及以上非宜信渠道或多次购买 重复购买感知和投诉风险高 优先排除或单独灰度" [ref=e159]:
+            - cell "多平台密集购买" [ref=e160]
+            - cell "30 天内跨 2 个及以上非宜信渠道或多次购买" [ref=e161]
+            - cell "重复购买感知和投诉风险高" [ref=e162]
+            - cell "优先排除或单独灰度" [ref=e163]
+    - region "决策规则和落地清单" [ref=e164]:
+      - article [ref=e165]:
+        - generic [ref=e166]:
+          - heading "决策规则" [level=2] [ref=e167]
+          - generic [ref=e168]: 老板汇报口径
+        - list [ref=e169]:
+          - listitem [ref=e170]:
+            - strong [ref=e171]: 净利润 ROI > 0 且退费率未升高：
+            - text: 补贴有效，可继续或扩大灰度。
+          - listitem [ref=e172]:
+            - strong [ref=e173]: 表观 ROI > 0 但净利润 ROI <= 0：
+            - text: 收入增长被退费或成本吞掉，优先收缩。
+          - listitem [ref=e174]:
+            - strong [ref=e175]: 单渠道 ROI 为正，多头 ROI 为负：
+            - text: 对多头用户限投、降补或权益隔离。
+          - listitem [ref=e176]:
+            - strong [ref=e177]: 高风险标签 ROI 为负：
+            - text: 补贴前置风控，或直接排除该类客群。
+      - article [ref=e178]:
+        - generic [ref=e179]:
+          - heading "落地清单" [level=2] [ref=e180]
+          - generic [ref=e181]: 下一步补数据
+        - list [ref=e182]:
+          - listitem [ref=e183]: 补贴开始和结束日期、灰度范围、覆盖规则。
+          - listitem [ref=e184]: 补贴成本和营销成本，最好按日、活动、渠道拆分。
+          - listitem [ref=e185]: 宜信订单、退款字段、用户 ID、支付状态字段。
+          - listitem [ref=e186]: 非宜信订单表，用于识别多头和二次购买。
+          - listitem [ref=e187]: 通道成本、退款手续费、客服/投诉成本是否计入。
+  - contentinfo [ref=e188]:
+    - generic [ref=e189]: 来源：宜信补贴 ROI 测算模板、退费率归因模板、SQL 草案。
+    - generic [ref=e190]: 页面不保存输入，不连接数据库。

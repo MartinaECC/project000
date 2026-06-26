@@ -1,3 +1,4 @@
+import { parseCustomerLedgerInput } from './customer-ledger.ts';
 import type { Intent } from './types.ts';
 
 const summaryWords = [
@@ -48,6 +49,14 @@ const todoCapturePatterns = [
 
 export function routeIntent(text: string): Intent {
   const normalized = text.trim();
+
+  const customerLedger = parseCustomerLedgerInput(normalized);
+  if (customerLedger) {
+    return {
+      type: 'capture_customer_ledger',
+      ...customerLedger
+    };
+  }
 
   if (isGroupSummaryRequest(normalized)) {
     return {

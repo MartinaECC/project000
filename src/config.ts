@@ -36,6 +36,15 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): AppConfig {
       mode: 'tagged',
       appRole: blankToUndefined(env.APP_ROLE) ?? 'ecocc_intake'
     },
+    customerLedger: {
+      enabled: env.CUSTOMER_LEDGER_ENABLED === 'true',
+      storageDir: blankToUndefined(env.CUSTOMER_LEDGER_STORAGE_DIR) ?? 'E:\\KnowledgeBase\\00-Inbox\\DingTalkCustomerLedger',
+      appRole: blankToUndefined(env.CUSTOMER_LEDGER_APP_ROLE) ?? blankToUndefined(env.APP_ROLE) ?? 'customer_ledger',
+      larkCliBin: blankToUndefined(env.CUSTOMER_LEDGER_LARK_CLI_BIN) ?? blankToUndefined(env.LARK_CLI_BIN),
+      wikiParentNodeToken: blankToUndefined(env.CUSTOMER_LEDGER_WIKI_PARENT_NODE_TOKEN),
+      spaceId: blankToUndefined(env.CUSTOMER_LEDGER_SPACE_ID),
+      dateFormat: 'yyMMdd'
+    },
     groupSummaryLimits: {
       today: numberEnv(env.DINGTALK_GROUP_SUMMARY_LIMIT_TODAY, 50),
       this_week: numberEnv(env.DINGTALK_GROUP_SUMMARY_LIMIT_WEEK, 100)

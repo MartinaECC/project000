@@ -1,0 +1,4 @@
+interface:
+  display_name: "客户台账钉钉飞书"
+  short_description: "调试和维护钉钉到飞书客户台账流程"
+  default_prompt: "Use $customer-ledger-dingtalk-feishu to debug or extend the DingTalk-to-Feishu customer ledger workflow."

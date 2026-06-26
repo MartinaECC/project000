@@ -12,6 +12,8 @@ For DingTalk CLI, MCP Square, OpenClaw, or Agent onboarding/deployment questions
 It captures the official DingTalk documentation map, installation patterns, MCP/OpenClaw routing,
 and local Windows host caveats learned from live setup.
 
+For QingLong, cloud server, crontab, or scheduled deployment work around DingTalk broadcasts, also use the `qinglong-automation-deploy` skill and keep QingLong-specific deployment details there.
+
 ## Core Workflow
 
 1. Clarify the target app and robot.
@@ -56,6 +58,7 @@ Quick rules:
 - For card typography and spacing, use DingTalk markdown design tokens such as `sizeToken=common_h1_text_style__font_size` and visible spacer lines such as `&nbsp;`; plain heading markers, numeric `font size=...`, and empty lines may not render as intended.
 - For DataFinder-backed amount totals such as payment amount, refund amount, or `c0收入`, use the report metric rules in the interactive-card reference. Amount `合计值` should use `event_indicator: "measure"` with `measure_info.measure_type: "sum"`, not `amount * events` recomputation.
 - For DingTalk product documents, preserve old versions before editing the current document. Keep the current product document as the latest version entry point, and store immutable snapshots under a version directory such as `docs/products/dingtalk-chart-broadcast-versions/v1.0.1.md`. Add new snapshots; do not overwrite historical version documents.
+- For scheduled DingTalk broadcasts deployed to QingLong, treat QingLong as the production schedule owner and stop the overlapping local sender, such as the local `3002` refund-report service, before declaring the cutover complete.
 - Validate with a small real card first, then send the full report or alert.
 
 ## Important Stream Setup Note

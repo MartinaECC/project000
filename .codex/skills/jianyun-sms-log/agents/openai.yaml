@@ -1,0 +1,4 @@
+interface:
+  display_name: "鉴云短信日志"
+  short_description: "通过浏览器登录鉴云查询短信日志并导出投诉核查结果表格"
+  default_prompt: "Use $jianyun-sms-log to query Jianyun SMS logs for complaint phone numbers and export a checked result table."

@@ -1,7 +1,19 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { BotService } from '../src/bot-service.ts';
-import type { BotEvent, IntakeRecord, IntakeStore, LlmAgent, ReplyService, ToolRegistry } from '../src/types.ts';
+import { CustomerLedgerMatchError } from '../src/customer-ledger.ts';
+import type {
+  BotEvent,
+  CustomerLedgerImageResolver,
+  CustomerLedgerRecord,
+  CustomerLedgerStore,
+  CustomerLedgerWriter,
+  IntakeRecord,
+  IntakeStore,
+  LlmAgent,
+  ReplyService,
+  ToolRegistry
+} from '../src/types.ts';
 
 function event(overrides: Partial<BotEvent> = {}): BotEvent {
   return {
@@ -87,6 +99,88 @@ function intakeFake() {
     }
   };
   return { store, records };
+}
+
+function customerLedgerFake(writer: CustomerLedgerWriter) {
+  const records: CustomerLedgerRecord[] = [];
+  const store: CustomerLedgerStore = {
+    async appendPending(record) {
+      const saved: CustomerLedgerRecord = {
+        id: `#CL-20260622-${String(records.length + 1).padStart(3, '0')}`,
+        createdAt: '2026-06-22T10:00:00.000Z',
+        updatedAt: '2026-06-22T10:00:00.000Z',
+        source: 'dingtalk',
+        status: 'pending',
+        ...record
+      };
+      records.push(saved);
+      return saved;
+    },
+    async markSynced(id, result) {
+      const saved: CustomerLedgerRecord = {
+        id,
+        createdAt: '2026-06-22T10:00:00.000Z',
+        updatedAt: '2026-06-22T10:00:01.000Z',
+        source: 'dingtalk',
+        status: 'synced',
+        appRole: 'customer_ledger',
+        customerName: '',
+        occurredAt: '',
+        ledgerDate: '',
+        action: '',
+        conversationId: '',
+        senderId: '',
+        messageId: '',
+        rawText: '',
+        ...result
+      };
+      records.push(saved);
+      return saved;
+    },
+    async markFailed(id, error) {
+      const saved: CustomerLedgerRecord = {
+        id,
+        createdAt: '2026-06-22T10:00:00.000Z',
+        updatedAt: '2026-06-22T10:00:01.000Z',
+        source: 'dingtalk',
+        status: 'failed',
+        appRole: 'customer_ledger',
+        customerName: '',
+        occurredAt: '',
+        ledgerDate: '',
+        action: '',
+        conversationId: '',
+        senderId: '',
+        messageId: '',
+        rawText: '',
+        error
+      };
+      records.push(saved);
+      return saved;
+    },
+    async markNeedsCustomerConfirmation(id, error) {
+      const saved: CustomerLedgerRecord = {
+        id,
+        createdAt: '2026-06-22T10:00:00.000Z',
+        updatedAt: '2026-06-22T10:00:01.000Z',
+        source: 'dingtalk',
+        status: 'needs_customer_confirmation',
+        appRole: 'customer_ledger',
+        customerName: '',
+        occurredAt: '',
+        ledgerDate: '',
+        action: '',
+        conversationId: '',
+        senderId: '',
+        messageId: '',
+        rawText: '',
+        error
+      };
+      records.push(saved);
+      return saved;
+    }
+  };
+  return { store, writer, records };
 }
 
 test('denies events from conversations outside the allow list', async () => {
@@ -368,4 +462,238 @@ test('replies clearly when there are no recent todos', async () => {
   await service.handleEvent(event({ text: '\u5f85\u529e\u6e05\u5355' }));
 
   assert.equal(replies[0], '\u6700\u8fd1 7 \u5929\u6ca1\u6709\u6536\u96c6\u5230\u5f85\u529e\u3002');
+});
+
+test('captures customer ledger messages and writes them without calling the LLM', async () => {
+  const { tools, llm, reply, replies, chatPrompts } = fakes();
+  const writerCalls: string[] = [];
+  const writer: CustomerLedgerWriter = {
+    async write(request) {
+      writerCalls.push(`${request.customerName}:${request.ledgerDate}:${request.action}:${request.imageUrls?.join('|') ?? ''}`);
+      return {
+        docToken: 'doc-jd',
+        wikiNodeToken: 'node-jd',
+        customerTitle: '001 \u4eac\u4e1c\u91d1\u878d\uff5c\u9879\u76ee\u53f0\u8d26'
+      };
+    }
+  };
+  const { store, records } = customerLedgerFake(writer);
+  const service = new BotService(
+    {
+      allowedConversationIds: ['single-cid'],
+      customerLedger: {
+        enabled: true,
+        storageDir: 'unused',
+        appRole: 'customer_ledger',
+        wikiParentNodeToken: 'parent',
+        spaceId: 'space',
+        dateFormat: 'yyMMdd'
+      }
+    },
+    tools,
+    llm,
+    reply,
+    undefined,
+    undefined,
+    undefined,
+    store,
+    writer
+  );
+
+  const result = await service.handleEvent(
+    event({
+      text: '\u4eac\u4e1c\u91d1\u878d 260626 15:30 \u540c\u6b651503\u6d41\u91cf\u5207\u56de39.9\u5143',
+      attachments: [{ type: 'image', url: 'https://example.test/a.png' }]
+    })
+  );
+
+  assert.equal(result.status, 'handled');
+  assert.deepEqual(chatPrompts, []);
+  assert.deepEqual(writerCalls, [
+    '\u4eac\u4e1c\u91d1\u878d:260626:\u540c\u6b651503\u6d41\u91cf\u5207\u56de39.9\u5143:https://example.test/a.png'
+  ]);
+  assert.equal(records[0].status, 'pending');
+  assert.deepEqual(records[0].imageUrls, ['https://example.test/a.png']);
+  assert.equal(records[1].status, 'synced');
+  assert.match(replies[0], /\u56fe\u72471\u5f20/u);
+});
+
+test('resolves customer ledger image download codes before writing', async () => {
+  const { tools, llm, reply, replies } = fakes();
+  const writerCalls: Array<{ action: string; imageUrls?: string[] }> = [];
+  const writer: CustomerLedgerWriter = {
+    async write(request) {
+      writerCalls.push({ action: request.action, imageUrls: request.imageUrls });
+      return {
+        docToken: 'doc-yxh',
+        wikiNodeToken: 'node-yxh',
+        customerTitle: '005 \u5b9c\u4eab\u82b1\uff5c\u9879\u76ee\u53f0\u8d26'
+      };
+    }
+  };
+  const imageResolver: CustomerLedgerImageResolver = {
+    async resolveImageUrls(attachments) {
+      assert.equal(attachments[0].downloadCode, 'download-code-1');
+      return ['https://ding.example/temp-image.png'];
+    }
+  };
+  const { store, records } = customerLedgerFake(writer);
+  const service = new BotService(
+    {
+      allowedConversationIds: ['single-cid'],
+      customerLedger: {
+        enabled: true,
+        storageDir: 'unused',
+        appRole: 'customer_ledger',
+        wikiParentNodeToken: 'parent',
+        spaceId: 'space',
+        dateFormat: 'yyMMdd'
+      }
+    },
+    tools,
+    llm,
+    reply,
+    undefined,
+    undefined,
+    undefined,
+    store,
+    writer,
+    imageResolver
+  );
+
+  await service.handleEvent(
+    event({
+      text: '\u5b9c\u4eab\u82b1 260626 \u5ba2\u6237\u63d0\u51fa\u9000\u8d39\u7387\u8981\u6c42',
+      attachments: [{ type: 'image', downloadCode: 'download-code-1' }]
+    })
+  );
+
+  assert.deepEqual(writerCalls, [
+    { action: '\u5ba2\u6237\u63d0\u51fa\u9000\u8d39\u7387\u8981\u6c42', imageUrls: ['https://ding.example/temp-image.png'] }
+  ]);
+  assert.deepEqual(records[0].imageUrls, ['https://ding.example/temp-image.png']);
+  assert.match(replies[0], /\u56fe\u72471\u5f20/u);
+});
+
+test('keeps customer ledger record pending when image download code resolution fails', async () => {
+  const { tools, llm, reply, replies } = fakes();
+  let writerCalled = false;
+  const writer: CustomerLedgerWriter = {
+    async write() {
+      writerCalled = true;
+      throw new Error('writer should not be called');
+    }
+  };
+  const imageResolver: CustomerLedgerImageResolver = {
+    async resolveImageUrls() {
+      throw new Error('downloadCode expired');
+    }
+  };
+  const { store, records } = customerLedgerFake(writer);
+  const service = new BotService(
+    {
+      allowedConversationIds: ['single-cid'],
+      customerLedger: {
+        enabled: true,
+        storageDir: 'unused',
+        appRole: 'customer_ledger',
+        wikiParentNodeToken: 'parent',
+        spaceId: 'space',
+        dateFormat: 'yyMMdd'
+      }
+    },
+    tools,
+    llm,
+    reply,
+    undefined,
+    undefined,
+    undefined,
+    store,
+    writer,
+    imageResolver
+  );
+
+  await service.handleEvent(
+    event({
+      text: '\u5b9c\u4eab\u82b1 260626 \u5ba2\u6237\u63d0\u51fa\u9000\u8d39\u7387\u8981\u6c42',
+      attachments: [{ type: 'image', downloadCode: 'download-code-1' }]
+    })
+  );
+
+  assert.equal(writerCalled, false);
+  assert.equal(records[0].status, 'pending');
+  assert.equal(records[1].status, 'failed');
+  assert.match(replies[0], /\u56fe\u7247\u4e0b\u8f7d\u5931\u8d25/u);
+});
+
+test('keeps customer ledger record pending when customer match is ambiguous', async () => {
+  const { tools, llm, reply, replies } = fakes();
+  const writer: CustomerLedgerWriter = {
+    async write() {
+      throw new CustomerLedgerMatchError('\u5ba2\u6237\u540d\u4e0d\u552f\u4e00\uff1a\u5c0f\u8d62');
+    }
+  };
+  const { store, records } = customerLedgerFake(writer);
+  const service = new BotService(
+    {
+      allowedConversationIds: ['single-cid'],
+      customerLedger: {
+        enabled: true,
+        storageDir: 'unused',
+        appRole: 'customer_ledger',
+        wikiParentNodeToken: 'parent',
+        spaceId: 'space',
+        dateFormat: 'yyMMdd'
+      }
+    },
+    tools,
+    llm,
+    reply,
+    undefined,
+    undefined,
+    undefined,
+    store,
+    writer
+  );
+
+  await service.handleEvent(event({ text: '\u5c0f\u8d62 260626 \u8ddf\u8fdb\u8fd0\u8425\u65b9\u6848' }));
+
+  assert.equal(records[1].status, 'needs_customer_confirmation');
+  assert.match(replies[0], /^\u5ba2\u6237\u672a\u786e\u8ba4\uff0c\u5df2\u6682\u5b58/u);
+});
+
+test('keeps customer ledger record pending when Lark sync fails', async () => {
+  const { tools, llm, reply, replies } = fakes();
+  const writer: CustomerLedgerWriter = {
+    async write() {
+      throw new Error('lark update failed');
+    }
+  };
+  const { store, records } = customerLedgerFake(writer);
+  const service = new BotService(
+    {
+      allowedConversationIds: ['single-cid'],
+      customerLedger: {
+        enabled: true,
+        storageDir: 'unused',
+        appRole: 'customer_ledger',
+        wikiParentNodeToken: 'parent',
+        spaceId: 'space',
+        dateFormat: 'yyMMdd'
+      }
+    },
+    tools,
+    llm,
+    reply,
+    undefined,
+    undefined,
+    undefined,
+    store,
+    writer
+  );
+
+  await service.handleEvent(event({ text: '\u4eac\u4e1c\u91d1\u878d 260626 \u8ddf\u8fdb\u8fd0\u8425\u65b9\u6848' }));
+
+  assert.equal(records[1].status, 'failed');
+  assert.match(replies[0], /^\u5ba2\u6237\u53f0\u8d26\u5df2\u6682\u5b58/u);
 });

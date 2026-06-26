@@ -1,6 +1,8 @@
 import { BotService } from './bot-service.ts';
 import { loadConfig } from './config.ts';
+import { JsonlCustomerLedgerStore, LarkCliCustomerLedgerWriter } from './customer-ledger.ts';
 import { DingTalkInteractiveCardSender } from './dingtalk-card-service.ts';
+import { DingTalkRobotMediaResolver } from './dingtalk-media.ts';
 import { loadEnvFile } from './env-file.ts';
 import { JsonlIntakeStore } from './intake-store.ts';
 import { logger } from './logger.ts';
@@ -39,6 +41,14 @@ logger.info('config.loaded', {
     mode: config.intake?.mode,
     appRole: config.intake?.appRole
   },
+  customerLedger: {
+    enabled: config.customerLedger?.enabled ?? false,
+    storageDir: config.customerLedger?.storageDir,
+    hasLarkCliBin: Boolean(config.customerLedger?.larkCliBin),
+    hasWikiParentNodeToken: Boolean(config.customerLedger?.wikiParentNodeToken),
+    hasSpaceId: Boolean(config.customerLedger?.spaceId),
+    dateFormat: config.customerLedger?.dateFormat
+  },
   refundReport: {
     enabled: config.refundReport?.enabled ?? false,
     deliveryTarget: config.refundReport?.deliveryTarget,
@@ -60,6 +70,36 @@ logger.info('config.loaded', {
 const tools = new DwsToolRegistry(config.dwsBin, undefined, config.groupSummaryLimits);
 const llm = new OpenAiCompatibleLlmAgent(config.llm);
 const intakeStore = config.intake?.enabled ? new JsonlIntakeStore(config.intake.storageDir, config.intake.appRole) : undefined;
+const customerLedgerEnabled =
+  config.customerLedger?.enabled && config.customerLedger.wikiParentNodeToken && config.customerLedger.spaceId;
+if (config.customerLedger?.enabled && !customerLedgerEnabled) {
+  logger.warn('customer_ledger.disabled', {
+    reason: 'missing CUSTOMER_LEDGER_WIKI_PARENT_NODE_TOKEN or CUSTOMER_LEDGER_SPACE_ID'
+  });
+}
+const customerLedgerStore = customerLedgerEnabled
+  ? new JsonlCustomerLedgerStore(config.customerLedger.storageDir, config.customerLedger.appRole)
+  : undefined;
+const customerLedgerWriter = customerLedgerEnabled
+  ? new LarkCliCustomerLedgerWriter({
+      larkCliBin: config.customerLedger.larkCliBin,
+      spaceId: config.customerLedger.spaceId as string,
+      parentNodeToken: config.customerLedger.wikiParentNodeToken as string
+    })
+  : undefined;
+const customerLedgerImageResolver =
+  customerLedgerEnabled && config.dingtalkClientId && config.dingtalkClientSecret && config.dingtalkBotId
+    ? new DingTalkRobotMediaResolver({
+        clientId: config.dingtalkClientId,
+        clientSecret: config.dingtalkClientSecret,
+        robotCode: config.dingtalkBotId
+      })
+    : undefined;
+if (customerLedgerEnabled && !customerLedgerImageResolver) {
+  logger.warn('customer_ledger.image_resolver.disabled', {
+    reason: 'missing DINGTALK_CLIENT_ID, DINGTALK_CLIENT_SECRET, or DINGTALK_BOT_ID'
+  });
+}
 
 if (config.refundReport?.enabled) {
   const targetValidationError = validateRefundReportTargets(config.refundReport);
@@ -103,7 +143,18 @@ if (config.mode === 'http') {
   const replyService = config.dingtalkBotId
     ? new DwsReplyService(config.dwsBin, config.dingtalkBotId, undefined, config.dingtalkReplyMode)
     : new ConsoleReplyService();
-  const service = new BotService(config, tools, llm, replyService, undefined, undefined, intakeStore);
+  const service = new BotService(
+    config,
+    tools,
+    llm,
+    replyService,
+    undefined,
+    undefined,
+    intakeStore,
+    customerLedgerStore,
+    customerLedgerWriter,
+    customerLedgerImageResolver
+  );
 
   createBotHttpServer(service).listen(config.port, () => {
     logger.info('server.started', {
@@ -112,7 +163,18 @@ if (config.mode === 'http') {
   });
 } else {
   const streamReplyService = new StreamWebhookReplyService(async () => streamClient.getAccessToken());
-  const service = new BotService(config, tools, llm, streamReplyService, undefined, undefined, intakeStore);
+  const service = new BotService(
+    config,
+    tools,
+    llm,
+    streamReplyService,
+    undefined,
+    undefined,
+    intakeStore,
+    customerLedgerStore,
+    customerLedgerWriter,
+    customerLedgerImageResolver
+  );
 
   createBotHttpServer(service).listen(config.port, () => {
     logger.info('server.started', {

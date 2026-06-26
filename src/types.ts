@@ -2,6 +2,14 @@ export type Intent =
   | { type: 'summarize_document'; documentUrl: string }
   | { type: 'summarize_group'; range: 'today' | 'this_week' }
   | { type: 'capture_intake'; itemType: IntakeItemType; label: string; text: string; rawText: string }
+  | {
+      type: 'capture_customer_ledger';
+      customerName: string;
+      occurredAt: string;
+      ledgerDate: string;
+      action: string;
+      rawText: string;
+    }
   | { type: 'list_recent_todos'; days: number; limit: number }
   | { type: 'draft_weekly_report' }
   | { type: 'confirm_latest' }
@@ -14,6 +22,14 @@ export type BotEvent = {
   conversationId: string;
   senderId: string;
   text: string;
+  attachments?: Array<{
+    type: 'image';
+    url?: string;
+    mediaId?: string;
+    downloadCode?: string;
+    pictureDownloadCode?: string;
+    name?: string;
+  }>;
   raw: unknown;
 };
 
@@ -62,6 +78,71 @@ export type IntakeStore = {
   listRecent(options: { type?: IntakeItemType; days: number; limit: number }): Promise<IntakeRecord[]>;
 };
 
+export type CustomerLedgerStatus = 'pending' | 'synced' | 'failed' | 'needs_customer_confirmation';
+
+export type CustomerLedgerRecord = {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  source: 'dingtalk';
+  status: CustomerLedgerStatus;
+  appRole: string;
+  customerName: string;
+  occurredAt: string;
+  ledgerDate: string;
+  action: string;
+  conversationId: string;
+  senderId: string;
+  messageId: string;
+  rawText: string;
+  imageUrls?: string[];
+  docToken?: string;
+  wikiNodeToken?: string;
+  customerTitle?: string;
+  error?: string;
+};
+
+export type CustomerLedgerStore = {
+  appendPending(
+    record: Omit<
+      CustomerLedgerRecord,
+      'id' | 'createdAt' | 'updatedAt' | 'source' | 'status' | 'docToken' | 'wikiNodeToken' | 'customerTitle' | 'error'
+    >
+  ): Promise<CustomerLedgerRecord>;
+  markSynced(
+    id: string,
+    result: { docToken: string; wikiNodeToken: string; customerTitle: string }
+  ): Promise<CustomerLedgerRecord>;
+  markFailed(id: string, error: string): Promise<CustomerLedgerRecord>;
+  markNeedsCustomerConfirmation(id: string, error: string): Promise<CustomerLedgerRecord>;
+};
+
+export type CustomerLedgerWriteRequest = {
+  customerName: string;
+  occurredAt: string;
+  ledgerDate: string;
+  action: string;
+  imageUrls?: string[];
+  messageId: string;
+  senderId: string;
+  conversationId: string;
+  rawText: string;
+};
+
+export type CustomerLedgerWriteResult = {
+  docToken: string;
+  wikiNodeToken: string;
+  customerTitle: string;
+};
+
+export type CustomerLedgerWriter = {
+  write(request: CustomerLedgerWriteRequest): Promise<CustomerLedgerWriteResult>;
+};
+
+export type CustomerLedgerImageResolver = {
+  resolveImageUrls(attachments: NonNullable<BotEvent['attachments']>): Promise<string[]>;
+};
+
 export type RefundReportSettings = {
   enabled: boolean;
   deliveryTarget: 'single' | 'group' | 'both';
@@ -90,6 +171,15 @@ export type BotConfig = {
   groupSummaryLimits?: {
     today: number;
     this_week: number;
+  };
+  customerLedger?: {
+    enabled: boolean;
+    storageDir: string;
+    appRole: string;
+    larkCliBin?: string;
+    wikiParentNodeToken?: string;
+    spaceId?: string;
+    dateFormat: 'yyMMdd';
   };
   refundReport?: RefundReportSettings;
 };

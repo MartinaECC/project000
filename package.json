@@ -7,6 +7,8 @@
     "dev": "node --watch src/index.ts",
     "start": "node src/index.ts",
     "start:intake": "node scripts/start_intake.mjs",
+    "customer-ledger:replay": "node scripts/replay_customer_ledger.mjs",
+    "customer-ledger:replay:dry-run": "node scripts/replay_customer_ledger.mjs --dry-run",
     "refund-report:once": "node scripts/send_refund_report_once.mjs",
     "test": "node --test \"test/**/*.test.ts\""
   },

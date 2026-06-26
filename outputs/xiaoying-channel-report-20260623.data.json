@@ -1,0 +1,120 @@
+{
+  "targetCompany": "小赢科技",
+  "generatedAt": "2026-06-23T11:01:47.032107+08:00",
+  "periods": [
+    "6/21",
+    "6/22",
+    "6/23截至10:00"
+  ],
+  "totals": {
+    "6/21": {
+      "incomeAmount": 239.2,
+      "refundCount": 1.0
+    },
+    "6/22": {
+      "incomeAmount": 328.9,
+      "refundCount": 0.0
+    },
+    "6/23截至10:00": {
+      "incomeAmount": 89.7,
+      "refundCount": 0.0
+    }
+  },
+  "rows": [
+    {
+      "udchl": "小赢科技2-29.9",
+      "6/21": {
+        "incomeAmount": 239.2,
+        "refundCount": 1.0
+      },
+      "6/22": {
+        "incomeAmount": 328.9,
+        "refundCount": 0.0
+      },
+      "6/23截至10:00": {
+        "incomeAmount": 59.8,
+        "refundCount": 0.0
+      }
+    },
+    {
+      "udchl": "小赢科技_中收首页icon_29.9",
+      "6/21": {
+        "incomeAmount": 0.0,
+        "refundCount": 0.0
+      },
+      "6/22": {
+        "incomeAmount": 0.0,
+        "refundCount": 0.0
+      },
+      "6/23截至10:00": {
+        "incomeAmount": 29.9,
+        "refundCount": 0.0
+      }
+    }
+  ],
+  "newChannels": {
+    "2026-06-22": [],
+    "2026-06-23": [
+      "小赢科技_中收首页icon_29.9"
+    ]
+  },
+  "diagnostics": [
+    {
+      "period": "6/21",
+      "income": {
+        "rowCount": 221,
+        "truncated": false,
+        "badCount": 0,
+        "queryStart": "2026-06-21T00:00:00+08:00",
+        "queryEnd": "2026-06-21T00:00:00+08:00",
+        "granularity": "day"
+      },
+      "refundCount": {
+        "rowCount": 166,
+        "truncated": false,
+        "badCount": 0,
+        "queryStart": "2026-06-21T00:00:00+08:00",
+        "queryEnd": "2026-06-21T00:00:00+08:00",
+        "granularity": "day"
+      }
+    },
+    {
+      "period": "6/22",
+      "income": {
+        "rowCount": 246,
+        "truncated": false,
+        "badCount": 0,
+        "queryStart": "2026-06-22T00:00:00+08:00",
+        "queryEnd": "2026-06-22T00:00:00+08:00",
+        "granularity": "day"
+      },
+      "refundCount": {
+        "rowCount": 176,
+        "truncated": false,
+        "badCount": 0,
+        "queryStart": "2026-06-22T00:00:00+08:00",
+        "queryEnd": "2026-06-22T00:00:00+08:00",
+        "granularity": "day"
+      }
+    },
+    {
+      "period": "6/23截至10:00",
+      "income": {
+        "rowCount": 159,
+        "truncated": false,
+        "badCount": 0,
+        "queryStart": "2026-06-23T00:00:00+08:00",
+        "queryEnd": "2026-06-23T10:00:00+08:00",
+        "granularity": "hour"
+      },
+      "refundCount": {
+        "rowCount": 124,
+        "truncated": false,
+        "badCount": 0,
+        "queryStart": "2026-06-23T00:00:00+08:00",
+        "queryEnd": "2026-06-23T10:00:00+08:00",
+        "granularity": "hour"
+      }
+    }
+  ]
+}

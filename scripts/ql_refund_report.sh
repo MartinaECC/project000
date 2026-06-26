@@ -8,6 +8,10 @@ PYTHON_BIN="${PYTHON_BIN:-python3}"
 
 cd "$PROJECT_DIR"
 
+if [ -z "${FONTCONFIG_FILE:-}" ] && [ -f "$PROJECT_DIR/vendor/fonts/fonts.conf" ]; then
+  export FONTCONFIG_FILE="$PROJECT_DIR/vendor/fonts/fonts.conf"
+fi
+
 if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   git pull --ff-only
 fi

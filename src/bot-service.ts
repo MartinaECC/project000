@@ -1,8 +1,20 @@
 import { InMemoryApprovalStore } from './approval-store.ts';
+import { CustomerLedgerMatchError } from './customer-ledger.ts';
 import { InMemoryIdempotencyStore } from './idempotency-store.ts';
 import { routeIntent } from './intent-router.ts';
 import { errorFields, logger } from './logger.ts';
-import type { BotConfig, BotEvent, HandleResult, IntakeStore, LlmAgent, ReplyService, ToolRegistry } from './types.ts';
+import type {
+  BotConfig,
+  BotEvent,
+  CustomerLedgerImageResolver,
+  CustomerLedgerStore,
+  CustomerLedgerWriter,
+  HandleResult,
+  IntakeStore,
+  LlmAgent,
+  ReplyService,
+  ToolRegistry
+} from './types.ts';
 
 export class BotService {
   readonly #config: BotConfig;
@@ -12,6 +24,9 @@ export class BotService {
   readonly #approvals: InMemoryApprovalStore;
   readonly #idempotency: InMemoryIdempotencyStore;
   readonly #intakeStore?: IntakeStore;
+  readonly #customerLedgerStore?: CustomerLedgerStore;
+  readonly #customerLedgerWriter?: CustomerLedgerWriter;
+  readonly #customerLedgerImageResolver?: CustomerLedgerImageResolver;
 
   constructor(
     config: BotConfig,
@@ -20,7 +35,10 @@ export class BotService {
     reply: ReplyService,
     approvals = new InMemoryApprovalStore(),
     idempotency = new InMemoryIdempotencyStore(),
-    intakeStore?: IntakeStore
+    intakeStore?: IntakeStore,
+    customerLedgerStore?: CustomerLedgerStore,
+    customerLedgerWriter?: CustomerLedgerWriter,
+    customerLedgerImageResolver?: CustomerLedgerImageResolver
   ) {
     this.#config = config;
     this.#tools = tools;
@@ -29,6 +47,9 @@ export class BotService {
     this.#approvals = approvals;
     this.#idempotency = idempotency;
     this.#intakeStore = intakeStore;
+    this.#customerLedgerStore = customerLedgerStore;
+    this.#customerLedgerWriter = customerLedgerWriter;
+    this.#customerLedgerImageResolver = customerLedgerImageResolver;
   }
 
   async handleEvent(event: BotEvent): Promise<HandleResult> {
@@ -52,6 +73,10 @@ export class BotService {
 
     if (intent.type === 'summarize_group') {
       return this.#summarizeAllGroups(event, intent.range);
+    }
+
+    if (intent.type === 'capture_customer_ledger' && this.#config.customerLedger?.enabled) {
+      return this.#captureCustomerLedger(event, intent);
     }
 
     if (intent.type === 'capture_intake' && this.#config.intake?.enabled) {
@@ -80,6 +105,128 @@ export class BotService {
 
   async confirmLatest(event: BotEvent): Promise<HandleResult> {
     return this.handleEvent(event);
+  }
+
+  async #captureCustomerLedger(
+    event: BotEvent,
+    intent: Extract<ReturnType<typeof routeIntent>, { type: 'capture_customer_ledger' }>
+  ): Promise<HandleResult> {
+    if (!this.#customerLedgerStore || !this.#customerLedgerWriter) {
+      logger.warn('customer_ledger.capture.disabled', {
+        ...eventLogFields(event),
+        reason: 'missing_store_or_writer',
+        customerName: intent.customerName
+      });
+      await this.#reply.sendText(event, '客户台账记录服务未启用。');
+      return { status: 'handled' };
+    }
+
+    let imageUrls: string[];
+    let imageResolveError: unknown;
+    try {
+      imageUrls = await this.#customerLedgerImageUrls(event);
+    } catch (error) {
+      imageUrls = [];
+      imageResolveError = error;
+    }
+    const pending = await this.#customerLedgerStore.appendPending({
+      appRole: this.#config.customerLedger?.appRole ?? this.#config.appRole ?? 'customer_ledger',
+      customerName: intent.customerName,
+      occurredAt: intent.occurredAt,
+      ledgerDate: intent.ledgerDate,
+      action: intent.action,
+      imageUrls,
+      conversationId: event.conversationId,
+      senderId: event.senderId,
+      messageId: event.messageId,
+      rawText: intent.rawText
+    });
+
+    logger.info('customer_ledger.capture.pending_saved', {
+      ...eventLogFields(event),
+      id: pending.id,
+      customerName: intent.customerName,
+      ledgerDate: intent.ledgerDate,
+      actionLength: intent.action.length,
+      imageAttachmentCount: event.attachments?.length ?? 0,
+      imageUrlCount: imageUrls.length
+    });
+
+    if (imageResolveError) {
+      const message = imageResolveError instanceof Error ? imageResolveError.message : String(imageResolveError);
+      await this.#customerLedgerStore.markFailed(pending.id, message);
+      logger.error('customer_ledger.image.resolve_failed', {
+        ...eventLogFields(event),
+        id: pending.id,
+        customerName: intent.customerName,
+        ...errorFields(imageResolveError)
+      });
+      await this.#reply.sendText(event, `客户台账已暂存 ${pending.id}，但图片下载失败，暂未写飞书：${message}`);
+      logger.info('bot.reply.sent', eventLogFields(event));
+      return { status: 'handled' };
+    }
+
+    try {
+      const result = await this.#customerLedgerWriter.write({
+        customerName: intent.customerName,
+        occurredAt: intent.occurredAt,
+        ledgerDate: intent.ledgerDate,
+        action: intent.action,
+        imageUrls,
+        conversationId: event.conversationId,
+        senderId: event.senderId,
+        messageId: event.messageId,
+        rawText: intent.rawText
+      });
+      await this.#customerLedgerStore.markSynced(pending.id, result);
+      logger.info('customer_ledger.capture.synced', {
+        ...eventLogFields(event),
+        id: pending.id,
+        customerName: intent.customerName,
+        customerTitle: result.customerTitle,
+        docToken: result.docToken
+      });
+      try {
+        await this.#reply.sendText(
+          event,
+          `已记录到客户运营台账：${result.customerTitle} / ${intent.ledgerDate} / ${intent.action}${imageUrls.length ? ` / 图片${imageUrls.length}张` : ''}`
+        );
+        logger.info('bot.reply.sent', eventLogFields(event));
+      } catch (replyError) {
+        logger.error('customer_ledger.reply.failed_after_sync', {
+          ...eventLogFields(event),
+          id: pending.id,
+          customerName: intent.customerName,
+          ...errorFields(replyError)
+        });
+      }
+      return { status: 'handled' };
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      if (error instanceof CustomerLedgerMatchError) {
+        await this.#customerLedgerStore.markNeedsCustomerConfirmation(pending.id, message);
+        logger.warn('customer_ledger.capture.needs_customer_confirmation', {
+          ...eventLogFields(event),
+          id: pending.id,
+          customerName: intent.customerName,
+          reason: message
+        });
+        await this.#reply.sendText(event, `客户未确认，已暂存 ${pending.id}：${message}`);
+        logger.info('bot.reply.sent', eventLogFields(event));
+        return { status: 'handled' };
+      }
+
+      await this.#customerLedgerStore.markFailed(pending.id, message);
+      logger.error('customer_ledger.capture.failed', {
+        ...eventLogFields(event),
+        id: pending.id,
+        customerName: intent.customerName,
+        ...errorFields(error)
+      });
+      await this.#reply.sendText(event, `客户台账已暂存 ${pending.id}，但同步飞书失败：${message}`);
+      logger.info('bot.reply.sent', eventLogFields(event));
+      return { status: 'handled' };
+    }
   }
 
   async #captureIntake(
@@ -206,6 +353,28 @@ export class BotService {
     const userAllowed =
       !this.#config.allowedUserIds?.length || this.#config.allowedUserIds.includes(event.senderId);
     return conversationAllowed && userAllowed;
+  }
+
+  async #customerLedgerImageUrls(event: BotEvent): Promise<string[]> {
+    const attachments = event.attachments?.filter((attachment) => attachment.type === 'image') ?? [];
+    if (!attachments.length) {
+      return [];
+    }
+
+    if (this.#customerLedgerImageResolver) {
+      return this.#customerLedgerImageResolver.resolveImageUrls(attachments);
+    }
+
+    const urls = attachments.flatMap((attachment) => (attachment.url ? [attachment.url] : []));
+    const missingResolvableUrlCount = attachments.filter((attachment) => !attachment.url).length;
+    if (missingResolvableUrlCount > 0) {
+      logger.warn('customer_ledger.image.unresolved', {
+        ...eventLogFields(event),
+        imageAttachmentCount: attachments.length,
+        missingResolvableUrlCount
+      });
+    }
+    return [...new Set(urls)];
   }
 }
 

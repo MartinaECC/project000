@@ -1,0 +1,4535 @@
+{
+  "workbook": {
+    "path": "C:/Users/Administrator/Desktop/jianyun生产数据库字典.xlsx",
+    "sheets": [
+      {
+        "name": "表",
+        "range": "A1:F287",
+        "rows": 286,
+        "description": "表清单，含主题、英文表名、中文表名、数据量"
+      },
+      {
+        "name": "表结构",
+        "range": "A1:O4404",
+        "rows": 4403,
+        "description": "字段级结构，含列名、类型、顺序、是否为空、KEY、默认值等"
+      },
+      {
+        "name": "数据字典（码表）",
+        "range": "A1:D231",
+        "rows": 230,
+        "description": "枚举/码表，含字典名称、类型和值说明"
+      }
+    ]
+  },
+  "totals": {
+    "databases": [
+      "jianyun"
+    ],
+    "tables": 286,
+    "columns": 4403,
+    "codeDictionaries": 230,
+    "totalRecordedRows": 142710088
+  },
+  "topics": [
+    {
+      "topic": "member数据 / 记录表",
+      "tables": 11,
+      "rows": 4451984
+    },
+    {
+      "topic": "权益数据 / 权益表",
+      "tables": 11,
+      "rows": 197
+    },
+    {
+      "topic": "分销数据 / 分销表",
+      "tables": 11,
+      "rows": 51
+    },
+    {
+      "topic": "qrtz数据 / 其他表",
+      "tables": 11,
+      "rows": 36
+    },
+    {
+      "topic": "product数据 / 商品表",
+      "tables": 10,
+      "rows": 3329516
+    },
+    {
+      "topic": "promotion数据 / 营销表",
+      "tables": 10,
+      "rows": 0
+    },
+    {
+      "topic": "pr数据 / 记录表",
+      "tables": 8,
+      "rows": 65834
+    },
+    {
+      "topic": "pay数据 / 订单表",
+      "tables": 6,
+      "rows": 7574168
+    },
+    {
+      "topic": "partner数据 / 产品表",
+      "tables": 5,
+      "rows": 37305718
+    },
+    {
+      "topic": "vip数据 / 权益表",
+      "tables": 5,
+      "rows": 205
+    },
+    {
+      "topic": "member数据 / 会员表",
+      "tables": 4,
+      "rows": 1831644
+    },
+    {
+      "topic": "infra数据 / 日志表",
+      "tables": 4,
+      "rows": 1336624
+    },
+    {
+      "topic": "promotion数据 / 渠道表",
+      "tables": 4,
+      "rows": 31891
+    },
+    {
+      "topic": "pay数据 / 信息表",
+      "tables": 4,
+      "rows": 7523
+    },
+    {
+      "topic": "promotion数据 / 配置表",
+      "tables": 4,
+      "rows": 1583
+    },
+    {
+      "topic": "promotion数据 / 商品表",
+      "tables": 4,
+      "rows": 1056
+    },
+    {
+      "topic": "system数据 / 信息表",
+      "tables": 4,
+      "rows": 126
+    },
+    {
+      "topic": "infra数据 / 配置表",
+      "tables": 4,
+      "rows": 90
+    },
+    {
+      "topic": "member数据 / 企微",
+      "tables": 4,
+      "rows": 9
+    },
+    {
+      "topic": "datasource数据 / 数据表",
+      "tables": 3,
+      "rows": 18096593
+    },
+    {
+      "topic": "trade数据 / 订单表",
+      "tables": 3,
+      "rows": 7774520
+    },
+    {
+      "topic": "trade数据 / 信息表",
+      "tables": 3,
+      "rows": 3763229
+    },
+    {
+      "topic": "product数据 / 记录表",
+      "tables": 3,
+      "rows": 3122570
+    },
+    {
+      "topic": "system数据 / 日志表",
+      "tables": 3,
+      "rows": 2030021
+    },
+    {
+      "topic": "cooperation数据 / 记录表",
+      "tables": 3,
+      "rows": 2015646
+    },
+    {
+      "topic": "member数据 / 信息表",
+      "tables": 3,
+      "rows": 856611
+    },
+    {
+      "topic": "二手车数据 / 二手车",
+      "tables": 3,
+      "rows": 30597
+    },
+    {
+      "topic": "system数据 / 用户表",
+      "tables": 3,
+      "rows": 5272
+    },
+    {
+      "topic": "infra数据 / 文件表",
+      "tables": 3,
+      "rows": 842
+    },
+    {
+      "topic": "system数据 / 模板表",
+      "tables": 3,
+      "rows": 60
+    },
+    {
+      "topic": "cooperation数据 / 配置表",
+      "tables": 3,
+      "rows": 14
+    },
+    {
+      "topic": "trade数据 / 配置表",
+      "tables": 3,
+      "rows": 0
+    },
+    {
+      "topic": "datasource数据 / 日志表",
+      "tables": 2,
+      "rows": 23197473
+    },
+    {
+      "topic": "trade数据 / 日志表",
+      "tables": 2,
+      "rows": 7686957
+    },
+    {
+      "topic": "cooperation数据 / 关联表",
+      "tables": 2,
+      "rows": 2887463
+    },
+    {
+      "topic": "system数据 / 令牌信息",
+      "tables": 2,
+      "rows": 2653975
+    },
+    {
+      "topic": "pay数据 / 日志表",
+      "tables": 2,
+      "rows": 1073214
+    },
+    {
+      "topic": "infra数据 / 地址表",
+      "tables": 2,
+      "rows": 815817
+    },
+    {
+      "topic": "cooperation数据 / 信息表",
+      "tables": 2,
+      "rows": 611928
+    },
+    {
+      "topic": "pr数据 / 标签表",
+      "tables": 2,
+      "rows": 555140
+    },
+    {
+      "topic": "pr数据 / 统计表",
+      "tables": 2,
+      "rows": 521550
+    },
+    {
+      "topic": "system数据 / 码表",
+      "tables": 2,
+      "rows": 40449
+    },
+    {
+      "topic": "临时表数据 / 临时表",
+      "tables": 2,
+      "rows": 34808
+    },
+    {
+      "topic": "system数据 / 社交表",
+      "tables": 2,
+      "rows": 12782
+    },
+    {
+      "topic": "system数据 / 关联表",
+      "tables": 2,
+      "rows": 3313
+    },
+    {
+      "topic": "pay数据 / 投诉表",
+      "tables": 2,
+      "rows": 1017
+    },
+    {
+      "topic": "system数据 / 字典表",
+      "tables": 2,
+      "rows": 894
+    },
+    {
+      "topic": "system数据 / 权限表",
+      "tables": 2,
+      "rows": 780
+    },
+    {
+      "topic": "promotion数据 / 日志表",
+      "tables": 2,
+      "rows": 478
+    },
+    {
+      "topic": "infra数据 / 记录表",
+      "tables": 2,
+      "rows": 466
+    },
+    {
+      "topic": "infra数据 / 码表",
+      "tables": 2,
+      "rows": 256
+    },
+    {
+      "topic": "partner数据 / 记录表",
+      "tables": 2,
+      "rows": 105
+    },
+    {
+      "topic": "partner数据 / 关联表",
+      "tables": 2,
+      "rows": 75
+    },
+    {
+      "topic": "cooperation数据 / 账户表",
+      "tables": 2,
+      "rows": 48
+    },
+    {
+      "topic": "promotion数据 / 管理表",
+      "tables": 2,
+      "rows": 39
+    },
+    {
+      "topic": "trade数据 / 投诉表",
+      "tables": 2,
+      "rows": 16
+    },
+    {
+      "topic": "promotion数据 / 分类表",
+      "tables": 2,
+      "rows": 6
+    },
+    {
+      "topic": "promotion数据 / 关联表",
+      "tables": 2,
+      "rows": 6
+    },
+    {
+      "topic": "promotion数据 / 标签表",
+      "tables": 2,
+      "rows": 2
+    },
+    {
+      "topic": "member数据 / 用户表",
+      "tables": 2,
+      "rows": 1
+    },
+    {
+      "topic": "pay数据 / 充值表",
+      "tables": 2,
+      "rows": 0
+    },
+    {
+      "topic": "promotion数据 / 记录表",
+      "tables": 2,
+      "rows": 0
+    },
+    {
+      "topic": "promotion数据 / 其他表",
+      "tables": 2,
+      "rows": 0
+    },
+    {
+      "topic": "promotion数据 / 会话表",
+      "tables": 2,
+      "rows": 0
+    },
+    {
+      "topic": "system数据 / 记录表",
+      "tables": 1,
+      "rows": 4224497
+    },
+    {
+      "topic": "cooperation数据 / 用户表",
+      "tables": 1,
+      "rows": 1738306
+    },
+    {
+      "topic": "pay数据 / 通知表",
+      "tables": 1,
+      "rows": 1072336
+    },
+    {
+      "topic": "member数据 / 标签表",
+      "tables": 1,
+      "rows": 630129
+    },
+    {
+      "topic": "member数据 / 手机号表",
+      "tables": 1,
+      "rows": 617995
+    },
+    {
+      "topic": "pr数据 / 信息表",
+      "tables": 1,
+      "rows": 352738
+    },
+    {
+      "topic": "member数据 / 身份信息表",
+      "tables": 1,
+      "rows": 302614
+    },
+    {
+      "topic": "promotion数据 / 统计表",
+      "tables": 1,
+      "rows": 11129
+    },
+    {
+      "topic": "member数据 / 黑名单",
+      "tables": 1,
+      "rows": 9332
+    },
+    {
+      "topic": "partner数据 / 任务表",
+      "tables": 1,
+      "rows": 8944
+    },
+    {
+      "topic": "pay数据 / 转账单表",
+      "tables": 1,
+      "rows": 3900
+    },
+    {
+      "topic": "datasource数据 / 用户不动产表",
+      "tables": 1,
+      "rows": 1510
+    },
+    {
+      "topic": "cooperation数据 / 电话表",
+      "tables": 1,
+      "rows": 1162
+    },
+    {
+      "topic": "datasource数据 / 用户收入分表",
+      "tables": 1,
+      "rows": 485
+    },
+    {
+      "topic": "pr数据 / 关联表",
+      "tables": 1,
+      "rows": 371
+    },
+    {
+      "topic": "datasource数据 / 用户社保表",
+      "tables": 1,
+      "rows": 269
+    },
+    {
+      "topic": "partner数据 / 明细表",
+      "tables": 1,
+      "rows": 177
+    },
+    {
+      "topic": "member数据 / 日志表",
+      "tables": 1,
+      "rows": 116
+    },
+    {
+      "topic": "pay数据 / 渠道表",
+      "tables": 1,
+      "rows": 85
+    },
+    {
+      "topic": "datasource数据 / 产品表",
+      "tables": 1,
+      "rows": 69
+    },
+    {
+      "topic": "partner数据 / 账户表",
+      "tables": 1,
+      "rows": 68
+    },
+    {
+      "topic": "partner数据 / 统计表",
+      "tables": 1,
+      "rows": 65
+    },
+    {
+      "topic": "partner数据 / 信息表",
+      "tables": 1,
+      "rows": 59
+    },
+    {
+      "topic": "partner数据 / 配置表",
+      "tables": 1,
+      "rows": 56
+    },
+    {
+      "topic": "pr数据 / 模块表",
+      "tables": 1,
+      "rows": 48
+    },
+    {
+      "topic": "pr数据 / 配置表",
+      "tables": 1,
+      "rows": 48
+    },
+    {
+      "topic": "pay数据 / 钱包表",
+      "tables": 1,
+      "rows": 40
+    },
+    {
+      "topic": "cooperation数据 / 明细表",
+      "tables": 1,
+      "rows": 38
+    },
+    {
+      "topic": "datasource数据 / 服务表",
+      "tables": 1,
+      "rows": 36
+    },
+    {
+      "topic": "cooperation数据 / 权限表",
+      "tables": 1,
+      "rows": 29
+    },
+    {
+      "topic": "cooperation数据 / 汇总表",
+      "tables": 1,
+      "rows": 27
+    },
+    {
+      "topic": "pr数据 / 产品表",
+      "tables": 1,
+      "rows": 22
+    },
+    {
+      "topic": "pr数据 / 报告表",
+      "tables": 1,
+      "rows": 13
+    },
+    {
+      "topic": "system数据 / 部门表",
+      "tables": 1,
+      "rows": 13
+    },
+    {
+      "topic": "member数据 / 签到表",
+      "tables": 1,
+      "rows": 12
+    },
+    {
+      "topic": "infra数据 / 任务表",
+      "tables": 1,
+      "rows": 11
+    },
+    {
+      "topic": "system数据 / 消息表",
+      "tables": 1,
+      "rows": 9
+    },
+    {
+      "topic": "system数据 / 渠道表",
+      "tables": 1,
+      "rows": 9
+    },
+    {
+      "topic": "pr数据 / 明细表",
+      "tables": 1,
+      "rows": 8
+    },
+    {
+      "topic": "pr数据 / 汇总表",
+      "tables": 1,
+      "rows": 6
+    },
+    {
+      "topic": "system数据 / 账号表",
+      "tables": 1,
+      "rows": 5
+    },
+    {
+      "topic": "system数据 / 公告表",
+      "tables": 1,
+      "rows": 5
+    },
+    {
+      "topic": "system数据 / 客户端表",
+      "tables": 1,
+      "rows": 4
+    },
+    {
+      "topic": "partner数据 / 账号表",
+      "tables": 1,
+      "rows": 3
+    },
+    {
+      "topic": "企讯数据 / 模块表",
+      "tables": 1,
+      "rows": 1
+    },
+    {
+      "topic": "member数据 / 配置表",
+      "tables": 1,
+      "rows": 1
+    },
+    {
+      "topic": "datasource数据 / 记录表",
+      "tables": 1,
+      "rows": 0
+    },
+    {
+      "topic": "member数据 / 地址表",
+      "tables": 1,
+      "rows": 0
+    },
+    {
+      "topic": "partner数据 / 商户表",
+      "tables": 1,
+      "rows": 0
+    },
+    {
+      "topic": "partner数据 / 白名单",
+      "tables": 1,
+      "rows": 0
+    },
+    {
+      "topic": "pay数据 / 流水表",
+      "tables": 1,
+      "rows": 0
+    },
+    {
+      "topic": "pr数据 / 保存表",
+      "tables": 1,
+      "rows": 0
+    },
+    {
+      "topic": "promotion数据 / 活动表",
+      "tables": 1,
+      "rows": 0
+    },
+    {
+      "topic": "system数据 / 批准表",
+      "tables": 1,
+      "rows": 0
+    },
+    {
+      "topic": "trade数据 / 记录表",
+      "tables": 1,
+      "rows": 0
+    },
+    {
+      "topic": "trade数据 / 用户表",
+      "tables": 1,
+      "rows": 0
+    },
+    {
+      "topic": "trade数据 / 佣金表",
+      "tables": 1,
+      "rows": 0
+    },
+    {
+      "topic": "trade数据 / 商品表",
+      "tables": 1,
+      "rows": 0
+    },
+    {
+      "topic": "trade数据 / 模板表",
+      "tables": 1,
+      "rows": 0
+    }
+  ],
+  "largestTables": [
+    {
+      "db": "jianyun",
+      "topic1": "datasource数据",
+      "topic2": "日志表",
+      "table": "datasource_inf_log",
+      "name": "数据源接口调用日志表",
+      "rows": 23197473,
+      "columns": 30,
+      "primaryKeys": 1,
+      "nullableColumns": 23
+    },
+    {
+      "db": "jianyun",
+      "topic1": "partner数据",
+      "topic2": "产品表",
+      "table": "partner_org_product_usage",
+      "name": "企业产品使用详情表",
+      "rows": 18652648,
+      "columns": 18,
+      "primaryKeys": 1,
+      "nullableColumns": 13
+    },
+    {
+      "db": "jianyun",
+      "topic1": "partner数据",
+      "topic2": "产品表",
+      "table": "partner_org_product_usage_data",
+      "name": "企业产品使用数据详情表",
+      "rows": 18652647,
+      "columns": 8,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "datasource数据",
+      "topic2": "数据表",
+      "table": "datasource_inf_data",
+      "name": "数据源接口MOCK数据表",
+      "rows": 18096424,
+      "columns": 15,
+      "primaryKeys": 1,
+      "nullableColumns": 10
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "日志表",
+      "table": "trade_order_log",
+      "name": "交易订单日志",
+      "rows": 7586392,
+      "columns": 14,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "记录表",
+      "table": "system_login_log",
+      "name": "系统访问记录",
+      "rows": 4224497,
+      "columns": 15,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "订单表",
+      "table": "trade_order",
+      "name": "交易订单表",
+      "rows": 3861949,
+      "columns": 62,
+      "primaryKeys": 1,
+      "nullableColumns": 39
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "订单表",
+      "table": "trade_order_item",
+      "name": "交易订单明细表",
+      "rows": 3861949,
+      "columns": 30,
+      "primaryKeys": 1,
+      "nullableColumns": 8
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "订单表",
+      "table": "pay_order",
+      "name": "支付订单",
+      "rows": 3859203,
+      "columns": 26,
+      "primaryKeys": 1,
+      "nullableColumns": 12
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "信息表",
+      "table": "trade_order_ext",
+      "name": "trade order 信息扩展表",
+      "rows": 3763229,
+      "columns": 8,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "product数据",
+      "topic2": "商品表",
+      "table": "product_browse_history",
+      "name": "商品浏览记录表",
+      "rows": 3313699,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "订单表",
+      "table": "pay_order_extension",
+      "name": "支付订单",
+      "rows": 3074862,
+      "columns": 19,
+      "primaryKeys": 1,
+      "nullableColumns": 9
+    },
+    {
+      "db": "jianyun",
+      "topic1": "cooperation数据",
+      "topic2": "关联表",
+      "table": "cooperation_order_rel",
+      "name": "B端订单和优鉴订单关联表",
+      "rows": 2887463,
+      "columns": 21,
+      "primaryKeys": 1,
+      "nullableColumns": 17
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "记录表",
+      "table": "member_agreement_log",
+      "name": "用户协议授权记录表",
+      "rows": 2450048,
+      "columns": 11,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "日志表",
+      "table": "system_sms_log",
+      "name": "短信日志",
+      "rows": 2026944,
+      "columns": 31,
+      "primaryKeys": 1,
+      "nullableColumns": 16
+    },
+    {
+      "db": "jianyun",
+      "topic1": "cooperation数据",
+      "topic2": "记录表",
+      "table": "cooperation_callback_record",
+      "name": "C2B推送记录表",
+      "rows": 2015608,
+      "columns": 20,
+      "primaryKeys": 1,
+      "nullableColumns": 15
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "会员表",
+      "table": "member_user",
+      "name": "会员用户",
+      "rows": 1831639,
+      "columns": 31,
+      "primaryKeys": 1,
+      "nullableColumns": 17
+    },
+    {
+      "db": "jianyun",
+      "topic1": "cooperation数据",
+      "topic2": "用户表",
+      "table": "cooperation_user",
+      "name": "第三方用户表",
+      "rows": 1738306,
+      "columns": 16,
+      "primaryKeys": 1,
+      "nullableColumns": 12
+    },
+    {
+      "db": "jianyun",
+      "topic1": "product数据",
+      "topic2": "记录表",
+      "table": "product_period_agreement_pay",
+      "name": "支付签约订单代扣记录",
+      "rows": 1730310,
+      "columns": 18,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "令牌信息",
+      "table": "system_oauth2_refresh_token",
+      "name": "OAuth2 刷新令牌",
+      "rows": 1328785,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "令牌信息",
+      "table": "system_oauth2_access_token",
+      "name": "OAuth2 访问令牌",
+      "rows": 1325190,
+      "columns": 14,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "infra数据",
+      "topic2": "日志表",
+      "table": "infra_api_access_log",
+      "name": "API 访问日志表",
+      "rows": 1316351,
+      "columns": 24,
+      "primaryKeys": 1,
+      "nullableColumns": 8
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "日志表",
+      "table": "pay_notify_log",
+      "name": "支付通知 App 的日志",
+      "rows": 1072526,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "通知表",
+      "table": "pay_notify_task",
+      "name": "商户支付、退款等的通知",
+      "rows": 1072336,
+      "columns": 17,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "记录表",
+      "table": "member_experience_record",
+      "name": "会员经验记录",
+      "rows": 997385,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    }
+  ],
+  "widestTables": [
+    {
+      "db": "jianyun",
+      "topic1": "二手车数据",
+      "topic2": "二手车",
+      "table": "datapulse_vehicle_models",
+      "name": "车辆详细参数表",
+      "rows": 24538,
+      "columns": 120,
+      "primaryKeys": 1,
+      "nullableColumns": 113
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pr数据",
+      "topic2": "标签表",
+      "table": "pr_user_tags",
+      "name": "用户标签表",
+      "rows": 291502,
+      "columns": 98,
+      "primaryKeys": 1,
+      "nullableColumns": 95
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "订单表",
+      "table": "trade_order",
+      "name": "交易订单表",
+      "rows": 3861949,
+      "columns": 62,
+      "primaryKeys": 1,
+      "nullableColumns": 39
+    },
+    {
+      "db": "jianyun",
+      "topic1": "product数据",
+      "topic2": "记录表",
+      "table": "product_period_agreement",
+      "name": "签约记录表",
+      "rows": 537298,
+      "columns": 48,
+      "primaryKeys": 1,
+      "nullableColumns": 22
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "订单表",
+      "table": "trade_after_sale",
+      "name": "售后订单",
+      "rows": 50622,
+      "columns": 45,
+      "primaryKeys": 1,
+      "nullableColumns": 27
+    },
+    {
+      "db": "jianyun",
+      "topic1": "权益数据",
+      "topic2": "权益表",
+      "table": "benefit_usage_record",
+      "name": "用户使用权益记录表",
+      "rows": 4,
+      "columns": 33,
+      "primaryKeys": 1,
+      "nullableColumns": 25
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "渠道表",
+      "table": "promotion_channel_statistics",
+      "name": "渠道统计",
+      "rows": 12874,
+      "columns": 32,
+      "primaryKeys": 1,
+      "nullableColumns": 30
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "记录表",
+      "table": "member_message_record",
+      "name": "合力亿捷消息记录",
+      "rows": 11745,
+      "columns": 31,
+      "primaryKeys": 1,
+      "nullableColumns": 30
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "记录表",
+      "table": "member_form_data_reocrd",
+      "name": "合力亿捷-表单推送记录",
+      "rows": 14,
+      "columns": 31,
+      "primaryKeys": 1,
+      "nullableColumns": 30
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "会员表",
+      "table": "member_user",
+      "name": "会员用户",
+      "rows": 1831639,
+      "columns": 31,
+      "primaryKeys": 1,
+      "nullableColumns": 17
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "日志表",
+      "table": "system_sms_log",
+      "name": "短信日志",
+      "rows": 2026944,
+      "columns": 31,
+      "primaryKeys": 1,
+      "nullableColumns": 16
+    },
+    {
+      "db": "jianyun",
+      "topic1": "datasource数据",
+      "topic2": "日志表",
+      "table": "datasource_inf_log",
+      "name": "数据源接口调用日志表",
+      "rows": 23197473,
+      "columns": 30,
+      "primaryKeys": 1,
+      "nullableColumns": 23
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "记录表",
+      "table": "member_call_record",
+      "name": "合力亿捷通话记录",
+      "rows": 10888,
+      "columns": 30,
+      "primaryKeys": 1,
+      "nullableColumns": 29
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "订单表",
+      "table": "trade_order_item",
+      "name": "交易订单明细表",
+      "rows": 3861949,
+      "columns": 30,
+      "primaryKeys": 1,
+      "nullableColumns": 8
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "投诉表",
+      "table": "trade_order_robot_complaint_record",
+      "name": "合力亿捷-ai(robot)投诉工单",
+      "rows": 14,
+      "columns": 29,
+      "primaryKeys": 1,
+      "nullableColumns": 27
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "投诉表",
+      "table": "trade_order_complaint_record",
+      "name": "客户投诉工单",
+      "rows": 2,
+      "columns": 28,
+      "primaryKeys": 1,
+      "nullableColumns": 24
+    },
+    {
+      "db": "jianyun",
+      "topic1": "infra数据",
+      "topic2": "日志表",
+      "table": "infra_api_error_log",
+      "name": "系统异常日志",
+      "rows": 20262,
+      "columns": 27,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "订单表",
+      "table": "pay_refund",
+      "name": "退款订单",
+      "rows": 47332,
+      "columns": 27,
+      "primaryKeys": 1,
+      "nullableColumns": 9
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "转账单表",
+      "table": "pay_transfer",
+      "name": "转账单表",
+      "rows": 3900,
+      "columns": 27,
+      "primaryKeys": 1,
+      "nullableColumns": 11
+    },
+    {
+      "db": "jianyun",
+      "topic1": "product数据",
+      "topic2": "商品表",
+      "table": "product_comment",
+      "name": "商品评论",
+      "rows": 0,
+      "columns": 27,
+      "primaryKeys": 1,
+      "nullableColumns": 14
+    },
+    {
+      "db": "jianyun",
+      "topic1": "product数据",
+      "topic2": "商品表",
+      "table": "product_spu",
+      "name": "商品spu",
+      "rows": 17,
+      "columns": 27,
+      "primaryKeys": 1,
+      "nullableColumns": 16
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "订单表",
+      "table": "pay_order",
+      "name": "支付订单",
+      "rows": 3859203,
+      "columns": 26,
+      "primaryKeys": 1,
+      "nullableColumns": 12
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "营销表",
+      "table": "promotion_coupon_template",
+      "name": "优惠劵模板",
+      "rows": 0,
+      "columns": 26,
+      "primaryKeys": 1,
+      "nullableColumns": 11
+    },
+    {
+      "db": "jianyun",
+      "topic1": "权益数据",
+      "topic2": "权益表",
+      "table": "benefit_item",
+      "name": "权益项目表",
+      "rows": 83,
+      "columns": 25,
+      "primaryKeys": 1,
+      "nullableColumns": 18
+    },
+    {
+      "db": "jianyun",
+      "topic1": "分销数据",
+      "topic2": "分销表",
+      "table": "brokerage_user_withdraw",
+      "name": "佣金提现",
+      "rows": 0,
+      "columns": 25,
+      "primaryKeys": 1,
+      "nullableColumns": 15
+    }
+  ],
+  "tableDetails": [
+    {
+      "db": "jianyun",
+      "topic1": "权益数据",
+      "topic2": "权益表",
+      "table": "benefit_consume_record",
+      "name": "权益消费记录表",
+      "rows": 0,
+      "columns": 19,
+      "primaryKeys": 1,
+      "nullableColumns": 15
+    },
+    {
+      "db": "jianyun",
+      "topic1": "权益数据",
+      "topic2": "权益表",
+      "table": "benefit_ext_goods",
+      "name": "权益外部商品表",
+      "rows": 4,
+      "columns": 14,
+      "primaryKeys": 1,
+      "nullableColumns": 7
+    },
+    {
+      "db": "jianyun",
+      "topic1": "权益数据",
+      "topic2": "权益表",
+      "table": "benefit_item",
+      "name": "权益项目表",
+      "rows": 83,
+      "columns": 25,
+      "primaryKeys": 1,
+      "nullableColumns": 18
+    },
+    {
+      "db": "jianyun",
+      "topic1": "权益数据",
+      "topic2": "权益表",
+      "table": "benefit_module",
+      "name": "权益模块表",
+      "rows": 13,
+      "columns": 15,
+      "primaryKeys": 1,
+      "nullableColumns": 10
+    },
+    {
+      "db": "jianyun",
+      "topic1": "权益数据",
+      "topic2": "权益表",
+      "table": "benefit_module_image",
+      "name": "权益模块图片表",
+      "rows": 13,
+      "columns": 11,
+      "primaryKeys": 1,
+      "nullableColumns": 7
+    },
+    {
+      "db": "jianyun",
+      "topic1": "权益数据",
+      "topic2": "权益表",
+      "table": "benefit_package",
+      "name": "权益礼包",
+      "rows": 1,
+      "columns": 19,
+      "primaryKeys": 1,
+      "nullableColumns": 13
+    },
+    {
+      "db": "jianyun",
+      "topic1": "权益数据",
+      "topic2": "权益表",
+      "table": "benefit_package_item",
+      "name": "权益礼包项目表",
+      "rows": 74,
+      "columns": 18,
+      "primaryKeys": 1,
+      "nullableColumns": 11
+    },
+    {
+      "db": "jianyun",
+      "topic1": "权益数据",
+      "topic2": "权益表",
+      "table": "benefit_period_notify",
+      "name": "权益周期提醒记录",
+      "rows": 0,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "权益数据",
+      "topic2": "权益表",
+      "table": "benefit_record",
+      "name": "权益礼包记录表",
+      "rows": 1,
+      "columns": 19,
+      "primaryKeys": 1,
+      "nullableColumns": 8
+    },
+    {
+      "db": "jianyun",
+      "topic1": "权益数据",
+      "topic2": "权益表",
+      "table": "benefit_send_log",
+      "name": "权益商调用日志",
+      "rows": 4,
+      "columns": 14,
+      "primaryKeys": 1,
+      "nullableColumns": 12
+    },
+    {
+      "db": "jianyun",
+      "topic1": "权益数据",
+      "topic2": "权益表",
+      "table": "benefit_usage_record",
+      "name": "用户使用权益记录表",
+      "rows": 4,
+      "columns": 33,
+      "primaryKeys": 1,
+      "nullableColumns": 25
+    },
+    {
+      "db": "jianyun",
+      "topic1": "分销数据",
+      "topic2": "分销表",
+      "table": "brokerage_config",
+      "name": "分销配置表",
+      "rows": 1,
+      "columns": 20,
+      "primaryKeys": 1,
+      "nullableColumns": 19
+    },
+    {
+      "db": "jianyun",
+      "topic1": "分销数据",
+      "topic2": "分销表",
+      "table": "brokerage_user_account",
+      "name": "分销用户账户表",
+      "rows": 5,
+      "columns": 19,
+      "primaryKeys": 1,
+      "nullableColumns": 17
+    },
+    {
+      "db": "jianyun",
+      "topic1": "分销数据",
+      "topic2": "分销表",
+      "table": "brokerage_user_channel",
+      "name": "分销渠道配置表",
+      "rows": 12,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 9
+    },
+    {
+      "db": "jianyun",
+      "topic1": "分销数据",
+      "topic2": "分销表",
+      "table": "brokerage_user_channel_config",
+      "name": "分销价格配置表",
+      "rows": 22,
+      "columns": 9,
+      "primaryKeys": 1,
+      "nullableColumns": 7
+    },
+    {
+      "db": "jianyun",
+      "topic1": "分销数据",
+      "topic2": "分销表",
+      "table": "brokerage_user_record",
+      "name": "佣金记录",
+      "rows": 10,
+      "columns": 22,
+      "primaryKeys": 1,
+      "nullableColumns": 7
+    },
+    {
+      "db": "jianyun",
+      "topic1": "分销数据",
+      "topic2": "分销表",
+      "table": "brokerage_user_withdraw",
+      "name": "佣金提现",
+      "rows": 0,
+      "columns": 25,
+      "primaryKeys": 1,
+      "nullableColumns": 15
+    },
+    {
+      "db": "jianyun",
+      "topic1": "分销数据",
+      "topic2": "分销表",
+      "table": "brokerage_user_data_range",
+      "name": "业务员数据查看范围表（记录业务员可查看的父渠道范围）",
+      "rows": 1,
+      "columns": 7,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "分销数据",
+      "topic2": "分销表",
+      "table": "brokerage_channel_monthly_summary",
+      "name": "分销渠道月结总览表",
+      "rows": 0,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "分销数据",
+      "topic2": "分销表",
+      "table": "brokerage_settlement_attachment",
+      "name": "佣金结算附件关联表",
+      "rows": 0,
+      "columns": 7,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "分销数据",
+      "topic2": "分销表",
+      "table": "brokerage_settlement_detail",
+      "name": "佣金结算明细表",
+      "rows": 0,
+      "columns": 18,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "分销数据",
+      "topic2": "分销表",
+      "table": "brokerage_settlement_summary",
+      "name": "佣金结算汇总表",
+      "rows": 0,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "cooperation数据",
+      "topic2": "配置表",
+      "table": "cooperation_business_config",
+      "name": "B端业务配置",
+      "rows": 1,
+      "columns": 9,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "cooperation数据",
+      "topic2": "记录表",
+      "table": "cooperation_callback_record",
+      "name": "C2B推送记录表",
+      "rows": 2015608,
+      "columns": 20,
+      "primaryKeys": 1,
+      "nullableColumns": 15
+    },
+    {
+      "db": "jianyun",
+      "topic1": "cooperation数据",
+      "topic2": "配置表",
+      "table": "cooperation_config",
+      "name": "C端对接的B端配置表",
+      "rows": 13,
+      "columns": 22,
+      "primaryKeys": 1,
+      "nullableColumns": 17
+    },
+    {
+      "db": "jianyun",
+      "topic1": "cooperation数据",
+      "topic2": "电话表",
+      "table": "cooperation_phone_range",
+      "name": "移动电话号码区段表-(宁夏移动安心保）",
+      "rows": 1162,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 7
+    },
+    {
+      "db": "jianyun",
+      "topic1": "cooperation数据",
+      "topic2": "关联表",
+      "table": "cooperation_order_rel",
+      "name": "B端订单和优鉴订单关联表",
+      "rows": 2887463,
+      "columns": 21,
+      "primaryKeys": 1,
+      "nullableColumns": 17
+    },
+    {
+      "db": "jianyun",
+      "topic1": "cooperation数据",
+      "topic2": "用户表",
+      "table": "cooperation_user",
+      "name": "第三方用户表",
+      "rows": 1738306,
+      "columns": 16,
+      "primaryKeys": 1,
+      "nullableColumns": 12
+    },
+    {
+      "db": "jianyun",
+      "topic1": "cooperation数据",
+      "topic2": "信息表",
+      "table": "cooperation_user_bankcard",
+      "name": "快捷支付绑卡信息表",
+      "rows": 0,
+      "columns": 16,
+      "primaryKeys": 1,
+      "nullableColumns": 11
+    },
+    {
+      "db": "jianyun",
+      "topic1": "cooperation数据",
+      "topic2": "信息表",
+      "table": "cooperation_user_ext",
+      "name": "第三方用户信息扩展表",
+      "rows": 611928,
+      "columns": 7,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "cooperation数据",
+      "topic2": "记录表",
+      "table": "cooperation_authorization_record",
+      "name": "授权记录表",
+      "rows": 38,
+      "columns": 21,
+      "primaryKeys": 1,
+      "nullableColumns": 16
+    },
+    {
+      "db": "jianyun",
+      "topic1": "cooperation数据",
+      "topic2": "权限表",
+      "table": "cooperation_menu",
+      "name": "菜单权限表",
+      "rows": 29,
+      "columns": 19,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "cooperation数据",
+      "topic2": "账户表",
+      "table": "cooperation_org_account",
+      "name": "企业资金账户表",
+      "rows": 0,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 7
+    },
+    {
+      "db": "jianyun",
+      "topic1": "cooperation数据",
+      "topic2": "记录表",
+      "table": "cooperation_org_account_charge",
+      "name": "企业账户充值记录表",
+      "rows": 0,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 8
+    },
+    {
+      "db": "jianyun",
+      "topic1": "cooperation数据",
+      "topic2": "配置表",
+      "table": "cooperation_org_channel_config",
+      "name": "企业渠道配置表",
+      "rows": 0,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "cooperation数据",
+      "topic2": "明细表",
+      "table": "cooperation_org_sku_charge",
+      "name": "企业套餐购买明细表",
+      "rows": 38,
+      "columns": 14,
+      "primaryKeys": 1,
+      "nullableColumns": 9
+    },
+    {
+      "db": "jianyun",
+      "topic1": "cooperation数据",
+      "topic2": "汇总表",
+      "table": "cooperation_org_sku_summary",
+      "name": "企业套餐汇总表",
+      "rows": 27,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "cooperation数据",
+      "topic2": "账户表",
+      "table": "cooperation_org_user",
+      "name": "企业登录账号表",
+      "rows": 48,
+      "columns": 23,
+      "primaryKeys": 1,
+      "nullableColumns": 18
+    },
+    {
+      "db": "jianyun",
+      "topic1": "cooperation数据",
+      "topic2": "关联表",
+      "table": "cooperation_org_user_menu",
+      "name": "用户和菜单关联表",
+      "rows": 0,
+      "columns": 7,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "datasource数据",
+      "topic2": "记录表",
+      "table": "datasource_app_com_market_query_log",
+      "name": "企业信息查询随机匹配记录表",
+      "rows": 0,
+      "columns": 8,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "datasource数据",
+      "topic2": "服务表",
+      "table": "datasource_config",
+      "name": "数据源服务表",
+      "rows": 36,
+      "columns": 9,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "datasource数据",
+      "topic2": "用户收入分表",
+      "table": "datasource_income_score",
+      "name": "数据源_收入分_结构化存储",
+      "rows": 485,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 9
+    },
+    {
+      "db": "jianyun",
+      "topic1": "datasource数据",
+      "topic2": "数据表",
+      "table": "datasource_inf",
+      "name": "数据源接口表",
+      "rows": 79,
+      "columns": 18,
+      "primaryKeys": 1,
+      "nullableColumns": 13
+    },
+    {
+      "db": "jianyun",
+      "topic1": "datasource数据",
+      "topic2": "数据表",
+      "table": "datasource_inf_data",
+      "name": "数据源接口MOCK数据表",
+      "rows": 18096424,
+      "columns": 15,
+      "primaryKeys": 1,
+      "nullableColumns": 10
+    },
+    {
+      "db": "jianyun",
+      "topic1": "datasource数据",
+      "topic2": "日志表",
+      "table": "datasource_inf_log",
+      "name": "数据源接口调用日志表",
+      "rows": 23197473,
+      "columns": 30,
+      "primaryKeys": 1,
+      "nullableColumns": 23
+    },
+    {
+      "db": "jianyun",
+      "topic1": "datasource数据",
+      "topic2": "用户不动产表",
+      "table": "datasource_real_estate",
+      "name": "数据源_不动产_结构化存储",
+      "rows": 1510,
+      "columns": 22,
+      "primaryKeys": 1,
+      "nullableColumns": 19
+    },
+    {
+      "db": "jianyun",
+      "topic1": "datasource数据",
+      "topic2": "产品表",
+      "table": "datasource_report",
+      "name": "数据源子产品表",
+      "rows": 69,
+      "columns": 11,
+      "primaryKeys": 1,
+      "nullableColumns": 7
+    },
+    {
+      "db": "jianyun",
+      "topic1": "datasource数据",
+      "topic2": "日志表",
+      "table": "datasource_report_log",
+      "name": "数据源子产品日志表",
+      "rows": 0,
+      "columns": 20,
+      "primaryKeys": 1,
+      "nullableColumns": 13
+    },
+    {
+      "db": "jianyun",
+      "topic1": "datasource数据",
+      "topic2": "数据表",
+      "table": "datasource_report_strategy",
+      "name": "数据源产品接口策略表",
+      "rows": 90,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "datasource数据",
+      "topic2": "用户社保表",
+      "table": "datasource_social_security",
+      "name": "数据源_社保_结构化存储",
+      "rows": 269,
+      "columns": 14,
+      "primaryKeys": 1,
+      "nullableColumns": 11
+    },
+    {
+      "db": "jianyun",
+      "topic1": "二手车数据",
+      "topic2": "二手车",
+      "table": "datapulse_vehicle_brands",
+      "name": "车系信息表",
+      "rows": 542,
+      "columns": 2,
+      "primaryKeys": 1,
+      "nullableColumns": 0
+    },
+    {
+      "db": "jianyun",
+      "topic1": "二手车数据",
+      "topic2": "二手车",
+      "table": "datapulse_vehicle_models",
+      "name": "车辆详细参数表",
+      "rows": 24538,
+      "columns": 120,
+      "primaryKeys": 1,
+      "nullableColumns": 113
+    },
+    {
+      "db": "jianyun",
+      "topic1": "二手车数据",
+      "topic2": "二手车",
+      "table": "datapulse_vehicle_series",
+      "name": "车辆车系表",
+      "rows": 5517,
+      "columns": 22,
+      "primaryKeys": 1,
+      "nullableColumns": 13
+    },
+    {
+      "db": "jianyun",
+      "topic1": "企讯数据",
+      "topic2": "模块表",
+      "table": "enterprise_module",
+      "name": "企讯模块表",
+      "rows": 1,
+      "columns": 9,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "infra数据",
+      "topic2": "日志表",
+      "table": "infra_api_access_log",
+      "name": "API 访问日志表",
+      "rows": 1316351,
+      "columns": 24,
+      "primaryKeys": 1,
+      "nullableColumns": 8
+    },
+    {
+      "db": "jianyun",
+      "topic1": "infra数据",
+      "topic2": "日志表",
+      "table": "infra_api_error_log",
+      "name": "系统异常日志",
+      "rows": 20262,
+      "columns": 27,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "infra数据",
+      "topic2": "配置表",
+      "table": "infra_business_config",
+      "name": "业务配置表",
+      "rows": 0,
+      "columns": 9,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "infra数据",
+      "topic2": "码表",
+      "table": "infra_codegen_column",
+      "name": "代码生成表字段定义",
+      "rows": 239,
+      "columns": 23,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "infra数据",
+      "topic2": "码表",
+      "table": "infra_codegen_table",
+      "name": "代码生成表定义",
+      "rows": 17,
+      "columns": 24,
+      "primaryKeys": 1,
+      "nullableColumns": 9
+    },
+    {
+      "db": "jianyun",
+      "topic1": "infra数据",
+      "topic2": "记录表",
+      "table": "infra_common_export_file",
+      "name": "渠道统计文件导出记录",
+      "rows": 13,
+      "columns": 9,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "infra数据",
+      "topic2": "配置表",
+      "table": "infra_config",
+      "name": "参数配置表",
+      "rows": 76,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "infra数据",
+      "topic2": "配置表",
+      "table": "infra_data_source_config",
+      "name": "数据源配置表",
+      "rows": 0,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "infra数据",
+      "topic2": "日志表",
+      "table": "infra_external_api_log",
+      "name": "第三方调用日志表",
+      "rows": 11,
+      "columns": 23,
+      "primaryKeys": 1,
+      "nullableColumns": 20
+    },
+    {
+      "db": "jianyun",
+      "topic1": "infra数据",
+      "topic2": "文件表",
+      "table": "infra_file",
+      "name": "文件表",
+      "rows": 834,
+      "columns": 14,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "infra数据",
+      "topic2": "配置表",
+      "table": "infra_file_config",
+      "name": "文件配置表",
+      "rows": 14,
+      "columns": 11,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "infra数据",
+      "topic2": "文件表",
+      "table": "infra_file_content",
+      "name": "文件表",
+      "rows": 1,
+      "columns": 9,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "infra数据",
+      "topic2": "记录表",
+      "table": "infra_file_encrypt_record",
+      "name": "OS文件加密记录表",
+      "rows": 453,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 10
+    },
+    {
+      "db": "jianyun",
+      "topic1": "infra数据",
+      "topic2": "文件表",
+      "table": "infra_file_label",
+      "name": "文件标签表",
+      "rows": 7,
+      "columns": 7,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "infra数据",
+      "topic2": "地址表",
+      "table": "infra_ip_address",
+      "name": "ip地址表",
+      "rows": 0,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "infra数据",
+      "topic2": "任务表",
+      "table": "infra_job",
+      "name": "定时任务表",
+      "rows": 11,
+      "columns": 14,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "infra数据",
+      "topic2": "日志表",
+      "table": "infra_job_log",
+      "name": "定时任务日志表",
+      "rows": 0,
+      "columns": 15,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "infra数据",
+      "topic2": "地址表",
+      "table": "infra_short_url",
+      "name": "短链表",
+      "rows": 815817,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "地址表",
+      "table": "member_address",
+      "name": "用户收件地址",
+      "rows": 0,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "记录表",
+      "table": "member_agreement_log",
+      "name": "用户协议授权记录表",
+      "rows": 2450048,
+      "columns": 11,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "记录表",
+      "table": "member_auth_log",
+      "name": "用户认证记录表",
+      "rows": 690041,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "信息表",
+      "table": "member_base_info",
+      "name": "用户基础脱敏信息",
+      "rows": 617960,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "标签表",
+      "table": "member_base_tag",
+      "name": "用户画像标签基本表",
+      "rows": 630129,
+      "columns": 22,
+      "primaryKeys": 1,
+      "nullableColumns": 19
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "黑名单",
+      "table": "member_blacklist",
+      "name": "用户黑名单数据",
+      "rows": 9332,
+      "columns": 8,
+      "primaryKeys": 1,
+      "nullableColumns": 7
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "记录表",
+      "table": "member_call_record",
+      "name": "合力亿捷通话记录",
+      "rows": 10888,
+      "columns": 30,
+      "primaryKeys": 1,
+      "nullableColumns": 29
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "记录表",
+      "table": "member_message_record",
+      "name": "合力亿捷消息记录",
+      "rows": 11745,
+      "columns": 31,
+      "primaryKeys": 1,
+      "nullableColumns": 30
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "信息表",
+      "table": "member_ca_contract",
+      "name": "CA合同信息表",
+      "rows": 178531,
+      "columns": 21,
+      "primaryKeys": 1,
+      "nullableColumns": 15
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "信息表",
+      "table": "member_ca_user",
+      "name": "CA用户信息表",
+      "rows": 60120,
+      "columns": 11,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "日志表",
+      "table": "member_clean_log",
+      "name": "用户清除日志",
+      "rows": 116,
+      "columns": 9,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "配置表",
+      "table": "member_config",
+      "name": "会员配置表",
+      "rows": 1,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "记录表",
+      "table": "member_experience_record",
+      "name": "会员经验记录",
+      "rows": 997385,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "记录表",
+      "table": "member_face_verify",
+      "name": "人脸比对审核记录",
+      "rows": 291860,
+      "columns": 17,
+      "primaryKeys": 1,
+      "nullableColumns": 11
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "记录表",
+      "table": "member_face_verify_operate_log",
+      "name": "人脸比对审核操作记录",
+      "rows": 0,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "记录表",
+      "table": "member_form_data_reocrd",
+      "name": "合力亿捷-表单推送记录",
+      "rows": 14,
+      "columns": 31,
+      "primaryKeys": 1,
+      "nullableColumns": 30
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "用户表",
+      "table": "member_group",
+      "name": "用户分组",
+      "rows": 1,
+      "columns": 9,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "会员表",
+      "table": "member_level",
+      "name": "会员等级",
+      "rows": 3,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "记录表",
+      "table": "member_level_record",
+      "name": "会员等级记录",
+      "rows": 3,
+      "columns": 14,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "记录表",
+      "table": "member_point_record",
+      "name": "用户积分记录",
+      "rows": 0,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "身份信息表",
+      "table": "member_sfz",
+      "name": "sfz",
+      "rows": 302614,
+      "columns": 7,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "签到表",
+      "table": "member_sign_in_config",
+      "name": "签到规则",
+      "rows": 12,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "记录表",
+      "table": "member_sign_in_record",
+      "name": "签到记录",
+      "rows": 0,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "手机号表",
+      "table": "member_sjh",
+      "name": "sjh",
+      "rows": 617995,
+      "columns": 7,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "会员表",
+      "table": "member_tag",
+      "name": "会员标签",
+      "rows": 2,
+      "columns": 7,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "会员表",
+      "table": "member_user",
+      "name": "会员用户",
+      "rows": 1831639,
+      "columns": 31,
+      "primaryKeys": 1,
+      "nullableColumns": 17
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "会员表",
+      "table": "member_user_ext",
+      "name": "member_user 信息扩展表",
+      "rows": 0,
+      "columns": 8,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "用户表",
+      "table": "member_user_blacklist",
+      "name": "用户黑名单表",
+      "rows": 0,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "企微",
+      "table": "member_wecom_qrcode",
+      "name": "企微二维码维护",
+      "rows": 6,
+      "columns": 7,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "企微",
+      "table": "member_wecom_msg_channel_rel",
+      "name": "企微欢迎语渠道配置",
+      "rows": 0,
+      "columns": 8,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "企微",
+      "table": "member_wecom_user",
+      "name": "企微用户信息",
+      "rows": 3,
+      "columns": 8,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "member数据",
+      "topic2": "企微",
+      "table": "member_wecom_welcome_msg",
+      "name": "企微欢迎语设置",
+      "rows": 0,
+      "columns": 8,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "partner数据",
+      "topic2": "商户表",
+      "table": "partner_business",
+      "name": "商户商务表",
+      "rows": 0,
+      "columns": 9,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "partner数据",
+      "topic2": "关联表",
+      "table": "partner_business_org_info",
+      "name": "商户商务关联企业表",
+      "rows": 0,
+      "columns": 8,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "partner数据",
+      "topic2": "白名单",
+      "table": "partner_ip_white_list_info",
+      "name": "商户IP白名单表",
+      "rows": 0,
+      "columns": 8,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "partner数据",
+      "topic2": "产品表",
+      "table": "partner_module",
+      "name": "产品模块表",
+      "rows": 77,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "partner数据",
+      "topic2": "账户表",
+      "table": "partner_org_account",
+      "name": "企业资金账户表",
+      "rows": 68,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "partner数据",
+      "topic2": "记录表",
+      "table": "partner_org_account_charge",
+      "name": "企业账户充值记录表",
+      "rows": 70,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "partner数据",
+      "topic2": "配置表",
+      "table": "partner_org_config",
+      "name": "企业配置信息表",
+      "rows": 56,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "partner数据",
+      "topic2": "信息表",
+      "table": "partner_org_info",
+      "name": "企业信息表",
+      "rows": 59,
+      "columns": 15,
+      "primaryKeys": 1,
+      "nullableColumns": 9
+    },
+    {
+      "db": "jianyun",
+      "topic1": "partner数据",
+      "topic2": "产品表",
+      "table": "partner_org_product",
+      "name": "企业购买产品详情表",
+      "rows": 273,
+      "columns": 21,
+      "primaryKeys": 1,
+      "nullableColumns": 10
+    },
+    {
+      "db": "jianyun",
+      "topic1": "partner数据",
+      "topic2": "产品表",
+      "table": "partner_org_product_usage",
+      "name": "企业产品使用详情表",
+      "rows": 18652648,
+      "columns": 18,
+      "primaryKeys": 1,
+      "nullableColumns": 13
+    },
+    {
+      "db": "jianyun",
+      "topic1": "partner数据",
+      "topic2": "产品表",
+      "table": "partner_org_product_usage_data",
+      "name": "企业产品使用数据详情表",
+      "rows": 18652647,
+      "columns": 8,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "partner数据",
+      "topic2": "统计表",
+      "table": "partner_org_statement_record",
+      "name": "商户tob结算单统计",
+      "rows": 65,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 9
+    },
+    {
+      "db": "jianyun",
+      "topic1": "partner数据",
+      "topic2": "明细表",
+      "table": "partner_org_statement_details_record",
+      "name": "商户tob结算单明细统计",
+      "rows": 177,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 9
+    },
+    {
+      "db": "jianyun",
+      "topic1": "partner数据",
+      "topic2": "账号表",
+      "table": "partner_org_user",
+      "name": "企业登录开放平台账号表",
+      "rows": 3,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 7
+    },
+    {
+      "db": "jianyun",
+      "topic1": "partner数据",
+      "topic2": "产品表",
+      "table": "partner_product",
+      "name": "产品详情表",
+      "rows": 73,
+      "columns": 16,
+      "primaryKeys": 1,
+      "nullableColumns": 8
+    },
+    {
+      "db": "jianyun",
+      "topic1": "partner数据",
+      "topic2": "关联表",
+      "table": "partner_product_module",
+      "name": "产品跟模块关联表",
+      "rows": 75,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "partner数据",
+      "topic2": "任务表",
+      "table": "partner_result_callback",
+      "name": "B端回调任务表",
+      "rows": 8944,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 8
+    },
+    {
+      "db": "jianyun",
+      "topic1": "partner数据",
+      "topic2": "记录表",
+      "table": "partner_sync_process_notify_record",
+      "name": "企业匹配异步处理通知记录表",
+      "rows": 35,
+      "columns": 11,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "信息表",
+      "table": "pay_app",
+      "name": "支付应用信息",
+      "rows": 20,
+      "columns": 14,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "信息表",
+      "table": "pay_bank_card_info",
+      "name": "跨行转账卡表总信息",
+      "rows": 7503,
+      "columns": 11,
+      "primaryKeys": 1,
+      "nullableColumns": 8
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "渠道表",
+      "table": "pay_channel",
+      "name": "支付渠道",
+      "rows": 85,
+      "columns": 17,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "投诉表",
+      "table": "pay_complaint_alipay",
+      "name": "支付宝投诉信息表",
+      "rows": 508,
+      "columns": 25,
+      "primaryKeys": 1,
+      "nullableColumns": 16
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "投诉表",
+      "table": "pay_complaint_reply_record",
+      "name": "支付宝投诉回复记录表",
+      "rows": 509,
+      "columns": 4,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "订单表",
+      "table": "pay_demo_order",
+      "name": "示例订单",
+      "rows": 2,
+      "columns": 17,
+      "primaryKeys": 1,
+      "nullableColumns": 7
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "订单表",
+      "table": "pay_demo_transfer",
+      "name": "示例业务转账订单",
+      "rows": 0,
+      "columns": 16,
+      "primaryKeys": 1,
+      "nullableColumns": 8
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "信息表",
+      "table": "pay_merchant",
+      "name": "支付商户信息",
+      "rows": 0,
+      "columns": 11,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "日志表",
+      "table": "pay_http_client_log",
+      "name": "支付接口调用日志表",
+      "rows": 688,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 9
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "日志表",
+      "table": "pay_notify_log",
+      "name": "支付通知 App 的日志",
+      "rows": 1072526,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "通知表",
+      "table": "pay_notify_task",
+      "name": "商户支付、退款等的通知",
+      "rows": 1072336,
+      "columns": 17,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "订单表",
+      "table": "pay_order",
+      "name": "支付订单",
+      "rows": 3859203,
+      "columns": 26,
+      "primaryKeys": 1,
+      "nullableColumns": 12
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "订单表",
+      "table": "pay_order_extension",
+      "name": "支付订单",
+      "rows": 3074862,
+      "columns": 19,
+      "primaryKeys": 1,
+      "nullableColumns": 9
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "订单表",
+      "table": "pay_refund",
+      "name": "退款订单",
+      "rows": 47332,
+      "columns": 27,
+      "primaryKeys": 1,
+      "nullableColumns": 9
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "订单表",
+      "table": "pay_sign_order",
+      "name": "支付签约订单",
+      "rows": 592769,
+      "columns": 24,
+      "primaryKeys": 1,
+      "nullableColumns": 14
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "转账单表",
+      "table": "pay_transfer",
+      "name": "转账单表",
+      "rows": 3900,
+      "columns": 27,
+      "primaryKeys": 1,
+      "nullableColumns": 11
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "信息表",
+      "table": "pay_user_bankcard",
+      "name": "自营快捷支付绑卡信息表",
+      "rows": 0,
+      "columns": 21,
+      "primaryKeys": 1,
+      "nullableColumns": 16
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "钱包表",
+      "table": "pay_wallet",
+      "name": "会员钱包表",
+      "rows": 40,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "充值表",
+      "table": "pay_wallet_recharge",
+      "name": "会员钱包充值",
+      "rows": 0,
+      "columns": 21,
+      "primaryKeys": 1,
+      "nullableColumns": 8
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "充值表",
+      "table": "pay_wallet_recharge_package",
+      "name": "充值套餐表",
+      "rows": 0,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pay数据",
+      "topic2": "流水表",
+      "table": "pay_wallet_transaction",
+      "name": "会员钱包流水表",
+      "rows": 0,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pr数据",
+      "topic2": "记录表",
+      "table": "pr_agreement_record",
+      "name": "授权书记录表",
+      "rows": 1,
+      "columns": 16,
+      "primaryKeys": 1,
+      "nullableColumns": 11
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pr数据",
+      "topic2": "记录表",
+      "table": "pr_authorization_record",
+      "name": "授权记录表",
+      "rows": 9,
+      "columns": 21,
+      "primaryKeys": 1,
+      "nullableColumns": 16
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pr数据",
+      "topic2": "报告表",
+      "table": "pr_claim",
+      "name": "个人报告声明表",
+      "rows": 13,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pr数据",
+      "topic2": "标签表",
+      "table": "pr_company_tags",
+      "name": "企业标签表",
+      "rows": 263638,
+      "columns": 18,
+      "primaryKeys": 1,
+      "nullableColumns": 15
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pr数据",
+      "topic2": "模块表",
+      "table": "pr_module",
+      "name": "个人报告模块表",
+      "rows": 48,
+      "columns": 11,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pr数据",
+      "topic2": "配置表",
+      "table": "pr_module_config",
+      "name": "报告模块配置表",
+      "rows": 48,
+      "columns": 19,
+      "primaryKeys": 1,
+      "nullableColumns": 16
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pr数据",
+      "topic2": "统计表",
+      "table": "pr_module_statistics",
+      "name": "个人报告模块统计表",
+      "rows": 521550,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pr数据",
+      "topic2": "记录表",
+      "table": "pr_objection",
+      "name": "报告异议记录表",
+      "rows": 14867,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 7
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pr数据",
+      "topic2": "保存表",
+      "table": "pr_objection_attach",
+      "name": "异议文件key保存表",
+      "rows": 0,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 7
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pr数据",
+      "topic2": "记录表",
+      "table": "pr_objection_item",
+      "name": "报告异议记录子项表",
+      "rows": 38343,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 9
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pr数据",
+      "topic2": "记录表",
+      "table": "pr_objection_switch",
+      "name": "个人报告模块字段异议开关",
+      "rows": 11119,
+      "columns": 8,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pr数据",
+      "topic2": "明细表",
+      "table": "pr_org_sku_charge",
+      "name": "企业套餐购买明细表",
+      "rows": 8,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pr数据",
+      "topic2": "汇总表",
+      "table": "pr_org_sku_summary",
+      "name": "企业套餐汇总表",
+      "rows": 6,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pr数据",
+      "topic2": "记录表",
+      "table": "pr_pdf_record",
+      "name": "个人报告PDF发送记录",
+      "rows": 0,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 7
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pr数据",
+      "topic2": "产品表",
+      "table": "pr_product",
+      "name": "个人报告产品表",
+      "rows": 22,
+      "columns": 11,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pr数据",
+      "topic2": "关联表",
+      "table": "pr_product_module",
+      "name": "个人报告产品跟模块关联表",
+      "rows": 371,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pr数据",
+      "topic2": "信息表",
+      "table": "pr_record",
+      "name": "报告信息表,保存报告信息",
+      "rows": 352738,
+      "columns": 23,
+      "primaryKeys": 1,
+      "nullableColumns": 16
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pr数据",
+      "topic2": "记录表",
+      "table": "pr_share",
+      "name": "报告分享记录表",
+      "rows": 14,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 8
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pr数据",
+      "topic2": "记录表",
+      "table": "pr_tax_record",
+      "name": "财税报告记录表",
+      "rows": 1481,
+      "columns": 23,
+      "primaryKeys": 1,
+      "nullableColumns": 19
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pr数据",
+      "topic2": "统计表",
+      "table": "pr_tags_statistics",
+      "name": "分析模块统计表",
+      "rows": 0,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "pr数据",
+      "topic2": "标签表",
+      "table": "pr_user_tags",
+      "name": "用户标签表",
+      "rows": 291502,
+      "columns": 98,
+      "primaryKeys": 1,
+      "nullableColumns": 95
+    },
+    {
+      "db": "jianyun",
+      "topic1": "product数据",
+      "topic2": "商品表",
+      "table": "product_brand",
+      "name": "商品品牌",
+      "rows": 3,
+      "columns": 11,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "product数据",
+      "topic2": "商品表",
+      "table": "product_browse_history",
+      "name": "商品浏览记录表",
+      "rows": 3313699,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "product数据",
+      "topic2": "商品表",
+      "table": "product_category",
+      "name": "商品分类",
+      "rows": 47,
+      "columns": 11,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "product数据",
+      "topic2": "商品表",
+      "table": "product_comment",
+      "name": "商品评论",
+      "rows": 0,
+      "columns": 27,
+      "primaryKeys": 1,
+      "nullableColumns": 14
+    },
+    {
+      "db": "jianyun",
+      "topic1": "product数据",
+      "topic2": "商品表",
+      "table": "product_favorite",
+      "name": "商品收藏表",
+      "rows": 0,
+      "columns": 8,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "product数据",
+      "topic2": "记录表",
+      "table": "product_period_agreement",
+      "name": "签约记录表",
+      "rows": 537298,
+      "columns": 48,
+      "primaryKeys": 1,
+      "nullableColumns": 22
+    },
+    {
+      "db": "jianyun",
+      "topic1": "product数据",
+      "topic2": "记录表",
+      "table": "product_period_agreement_pay",
+      "name": "支付签约订单代扣记录",
+      "rows": 1730310,
+      "columns": 18,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "product数据",
+      "topic2": "记录表",
+      "table": "product_period_agreement_pay_notify",
+      "name": "支付签约订单预扣提醒记录",
+      "rows": 854962,
+      "columns": 15,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "product数据",
+      "topic2": "商品表",
+      "table": "product_property",
+      "name": "商品属性项",
+      "rows": 9,
+      "columns": 9,
+      "primaryKeys": 1,
+      "nullableColumns": 7
+    },
+    {
+      "db": "jianyun",
+      "topic1": "product数据",
+      "topic2": "商品表",
+      "table": "product_property_value",
+      "name": "商品属性值",
+      "rows": 110,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 8
+    },
+    {
+      "db": "jianyun",
+      "topic1": "product数据",
+      "topic2": "商品表",
+      "table": "product_sku",
+      "name": "商品sku",
+      "rows": 104,
+      "columns": 18,
+      "primaryKeys": 1,
+      "nullableColumns": 13
+    },
+    {
+      "db": "jianyun",
+      "topic1": "product数据",
+      "topic2": "商品表",
+      "table": "product_spu",
+      "name": "商品spu",
+      "rows": 17,
+      "columns": 27,
+      "primaryKeys": 1,
+      "nullableColumns": 16
+    },
+    {
+      "db": "jianyun",
+      "topic1": "product数据",
+      "topic2": "商品表",
+      "table": "product_statistics",
+      "name": "商品统计表",
+      "rows": 15527,
+      "columns": 20,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "管理表",
+      "table": "promotion_article",
+      "name": "文章管理表",
+      "rows": 39,
+      "columns": 19,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "管理表",
+      "table": "promotion_article_backup",
+      "name": "文章管理备份表",
+      "rows": 0,
+      "columns": 20,
+      "primaryKeys": 1,
+      "nullableColumns": 8
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "分类表",
+      "table": "promotion_article_category",
+      "name": "文章分类表",
+      "rows": 3,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "分类表",
+      "table": "promotion_article_product_cate",
+      "name": "文章产品类型关系表",
+      "rows": 3,
+      "columns": 7,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "营销表",
+      "table": "promotion_banner",
+      "name": "Banner 广告位",
+      "rows": 0,
+      "columns": 14,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "营销表",
+      "table": "promotion_bargain_activity",
+      "name": "砍价活动",
+      "rows": 0,
+      "columns": 21,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "营销表",
+      "table": "promotion_bargain_help",
+      "name": "砍价助力表",
+      "rows": 0,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "记录表",
+      "table": "promotion_bargain_record",
+      "name": "砍价记录表",
+      "rows": 0,
+      "columns": 15,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "渠道表",
+      "table": "promotion_channel",
+      "name": "营销渠道表",
+      "rows": 206,
+      "columns": 17,
+      "primaryKeys": 1,
+      "nullableColumns": 11
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "配置表",
+      "table": "promotion_channel_config",
+      "name": "营销渠道配置表",
+      "rows": 195,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "配置表",
+      "table": "promotion_channel_config_change_log",
+      "name": "子渠道配置变更记录",
+      "rows": 1137,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "渠道表",
+      "table": "promotion_channel_parent",
+      "name": "营销父渠道",
+      "rows": 24,
+      "columns": 16,
+      "primaryKeys": 1,
+      "nullableColumns": 11
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "商品表",
+      "table": "promotion_channel_product",
+      "name": "营销渠道商品表",
+      "rows": 1056,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "渠道表",
+      "table": "promotion_channel_rebate",
+      "name": "渠道佣金统计",
+      "rows": 18787,
+      "columns": 18,
+      "primaryKeys": 1,
+      "nullableColumns": 16
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "日志表",
+      "table": "promotion_channel_rebate_log",
+      "name": "渠道佣金统计日志",
+      "rows": 9,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 8
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "渠道表",
+      "table": "promotion_channel_statistics",
+      "name": "渠道统计",
+      "rows": 12874,
+      "columns": 32,
+      "primaryKeys": 1,
+      "nullableColumns": 30
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "营销表",
+      "table": "promotion_combination_activity",
+      "name": "拼团活动",
+      "rows": 0,
+      "columns": 16,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "商品表",
+      "table": "promotion_combination_product",
+      "name": "拼团商品",
+      "rows": 0,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "记录表",
+      "table": "promotion_combination_record",
+      "name": "拼团记录",
+      "rows": 0,
+      "columns": 25,
+      "primaryKeys": 1,
+      "nullableColumns": 14
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "营销表",
+      "table": "promotion_coupon",
+      "name": "优惠劵",
+      "rows": 0,
+      "columns": 23,
+      "primaryKeys": 1,
+      "nullableColumns": 9
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "营销表",
+      "table": "promotion_coupon_template",
+      "name": "优惠劵模板",
+      "rows": 0,
+      "columns": 26,
+      "primaryKeys": 1,
+      "nullableColumns": 11
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "标签表",
+      "table": "promotion_customer_tag",
+      "name": "客群标签主表",
+      "rows": 1,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 9
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "关联表",
+      "table": "promotion_customer_tag_channel",
+      "name": "标签渠道关联表",
+      "rows": 1,
+      "columns": 8,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "标签表",
+      "table": "promotion_customer_tag_pref",
+      "name": "客群偏好主表",
+      "rows": 1,
+      "columns": 9,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "关联表",
+      "table": "promotion_customer_tag_pref_module",
+      "name": "偏好模块关联表",
+      "rows": 5,
+      "columns": 9,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "营销表",
+      "table": "promotion_discount_activity",
+      "name": "限时折扣活动",
+      "rows": 0,
+      "columns": 11,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "商品表",
+      "table": "promotion_discount_product",
+      "name": "限时折扣商品",
+      "rows": 0,
+      "columns": 15,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "其他表",
+      "table": "promotion_diy_page",
+      "name": "装修页面",
+      "rows": 0,
+      "columns": 11,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "其他表",
+      "table": "promotion_diy_template",
+      "name": "装修模板",
+      "rows": 0,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "会话表",
+      "table": "promotion_kefu_conversation",
+      "name": "客服会话",
+      "rows": 0,
+      "columns": 14,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "会话表",
+      "table": "promotion_kefu_message",
+      "name": "客服消息",
+      "rows": 0,
+      "columns": 14,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "活动表",
+      "table": "promotion_operational_activities",
+      "name": "运营活动表",
+      "rows": 0,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "统计表",
+      "table": "promotion_real_channel_statistics",
+      "name": "渠道_分销渠道统计",
+      "rows": 11129,
+      "columns": 21,
+      "primaryKeys": 1,
+      "nullableColumns": 18
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "营销表",
+      "table": "promotion_reward_activity",
+      "name": "满减送活动",
+      "rows": 0,
+      "columns": 15,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "营销表",
+      "table": "promotion_seckill_activity",
+      "name": "秒杀活动",
+      "rows": 0,
+      "columns": 18,
+      "primaryKeys": 1,
+      "nullableColumns": 7
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "营销表",
+      "table": "promotion_seckill_config",
+      "name": "秒杀时段",
+      "rows": 0,
+      "columns": 11,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "商品表",
+      "table": "promotion_seckill_product",
+      "name": "秒杀参与商品",
+      "rows": 0,
+      "columns": 15,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "配置表",
+      "table": "promotion_visual_channel",
+      "name": "可视化配置渠道对应表",
+      "rows": 153,
+      "columns": 7,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "配置表",
+      "table": "promotion_visual_config",
+      "name": "可视化配置表",
+      "rows": 98,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 10
+    },
+    {
+      "db": "jianyun",
+      "topic1": "promotion数据",
+      "topic2": "日志表",
+      "table": "promotion_visual_config_log",
+      "name": "可视化渠道配置变更日志表",
+      "rows": 469,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 7
+    },
+    {
+      "db": "jianyun",
+      "topic1": "qrtz数据",
+      "topic2": "其他表",
+      "table": "qrtz_blob_triggers",
+      "name": null,
+      "rows": 0,
+      "columns": 4,
+      "primaryKeys": 3,
+      "nullableColumns": 1
+    },
+    {
+      "db": "jianyun",
+      "topic1": "qrtz数据",
+      "topic2": "其他表",
+      "table": "qrtz_calendars",
+      "name": null,
+      "rows": 0,
+      "columns": 3,
+      "primaryKeys": 2,
+      "nullableColumns": 0
+    },
+    {
+      "db": "jianyun",
+      "topic1": "qrtz数据",
+      "topic2": "其他表",
+      "table": "qrtz_cron_triggers",
+      "name": null,
+      "rows": 11,
+      "columns": 5,
+      "primaryKeys": 3,
+      "nullableColumns": 1
+    },
+    {
+      "db": "jianyun",
+      "topic1": "qrtz数据",
+      "topic2": "其他表",
+      "table": "qrtz_fired_triggers",
+      "name": null,
+      "rows": 0,
+      "columns": 13,
+      "primaryKeys": 2,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "qrtz数据",
+      "topic2": "其他表",
+      "table": "qrtz_job_details",
+      "name": null,
+      "rows": 11,
+      "columns": 10,
+      "primaryKeys": 3,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "qrtz数据",
+      "topic2": "其他表",
+      "table": "qrtz_locks",
+      "name": null,
+      "rows": 2,
+      "columns": 2,
+      "primaryKeys": 2,
+      "nullableColumns": 0
+    },
+    {
+      "db": "jianyun",
+      "topic1": "qrtz数据",
+      "topic2": "其他表",
+      "table": "qrtz_paused_trigger_grps",
+      "name": null,
+      "rows": 0,
+      "columns": 2,
+      "primaryKeys": 2,
+      "nullableColumns": 0
+    },
+    {
+      "db": "jianyun",
+      "topic1": "qrtz数据",
+      "topic2": "其他表",
+      "table": "qrtz_scheduler_state",
+      "name": null,
+      "rows": 1,
+      "columns": 4,
+      "primaryKeys": 2,
+      "nullableColumns": 0
+    },
+    {
+      "db": "jianyun",
+      "topic1": "qrtz数据",
+      "topic2": "其他表",
+      "table": "qrtz_simple_triggers",
+      "name": null,
+      "rows": 0,
+      "columns": 6,
+      "primaryKeys": 3,
+      "nullableColumns": 0
+    },
+    {
+      "db": "jianyun",
+      "topic1": "qrtz数据",
+      "topic2": "其他表",
+      "table": "qrtz_simprop_triggers",
+      "name": null,
+      "rows": 0,
+      "columns": 14,
+      "primaryKeys": 3,
+      "nullableColumns": 11
+    },
+    {
+      "db": "jianyun",
+      "topic1": "qrtz数据",
+      "topic2": "其他表",
+      "table": "qrtz_triggers",
+      "name": null,
+      "rows": 11,
+      "columns": 16,
+      "primaryKeys": 3,
+      "nullableColumns": 8
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "部门表",
+      "table": "system_dept",
+      "name": "部门表",
+      "rows": 13,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "字典表",
+      "table": "system_dict_data",
+      "name": "字典数据表",
+      "rows": 734,
+      "columns": 14,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "字典表",
+      "table": "system_dict_type",
+      "name": "字典类型表",
+      "rows": 160,
+      "columns": 11,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "记录表",
+      "table": "system_login_log",
+      "name": "系统访问记录",
+      "rows": 4224497,
+      "columns": 15,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "账号表",
+      "table": "system_mail_account",
+      "name": "邮箱账号表",
+      "rows": 5,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "日志表",
+      "table": "system_mail_log",
+      "name": "邮件日志表",
+      "rows": 1782,
+      "columns": 21,
+      "primaryKeys": 1,
+      "nullableColumns": 8
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "模板表",
+      "table": "system_mail_template",
+      "name": "邮件模版表",
+      "rows": 7,
+      "columns": 15,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "权限表",
+      "table": "system_menu",
+      "name": "菜单权限表",
+      "rows": 774,
+      "columns": 19,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "公告表",
+      "table": "system_notice",
+      "name": "通知公告表",
+      "rows": 5,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "消息表",
+      "table": "system_notify_message",
+      "name": "站内信消息表",
+      "rows": 9,
+      "columns": 16,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "模板表",
+      "table": "system_notify_template",
+      "name": "站内信模板表",
+      "rows": 0,
+      "columns": 14,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "令牌信息",
+      "table": "system_oauth2_access_token",
+      "name": "OAuth2 访问令牌",
+      "rows": 1325190,
+      "columns": 14,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "批准表",
+      "table": "system_oauth2_approve",
+      "name": "OAuth2 批准表",
+      "rows": 0,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "客户端表",
+      "table": "system_oauth2_client",
+      "name": "OAuth2 客户端表",
+      "rows": 4,
+      "columns": 21,
+      "primaryKeys": 1,
+      "nullableColumns": 8
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "码表",
+      "table": "system_oauth2_code",
+      "name": "OAuth2 授权码表",
+      "rows": 0,
+      "columns": 14,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "令牌信息",
+      "table": "system_oauth2_refresh_token",
+      "name": "OAuth2 刷新令牌",
+      "rows": 1328785,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "日志表",
+      "table": "system_operate_log",
+      "name": "操作日志记录 V2 版本",
+      "rows": 1295,
+      "columns": 18,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "信息表",
+      "table": "system_post",
+      "name": "岗位信息表",
+      "rows": 4,
+      "columns": 11,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "信息表",
+      "table": "system_role",
+      "name": "角色信息表",
+      "rows": 21,
+      "columns": 14,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "关联表",
+      "table": "system_role_menu",
+      "name": "角色和菜单关联表",
+      "rows": 3175,
+      "columns": 8,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "权限表",
+      "table": "system_role_data_permission",
+      "name": "角色菜单数据权限表",
+      "rows": 6,
+      "columns": 7,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "渠道表",
+      "table": "system_sms_channel",
+      "name": "短信渠道",
+      "rows": 9,
+      "columns": 14,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "码表",
+      "table": "system_sms_code",
+      "name": "手机验证码",
+      "rows": 40449,
+      "columns": 14,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "日志表",
+      "table": "system_sms_log",
+      "name": "短信日志",
+      "rows": 2026944,
+      "columns": 31,
+      "primaryKeys": 1,
+      "nullableColumns": 16
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "模板表",
+      "table": "system_sms_template",
+      "name": "短信模板",
+      "rows": 53,
+      "columns": 17,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "社交表",
+      "table": "system_social_client",
+      "name": "社交客户端表",
+      "rows": 13,
+      "columns": 18,
+      "primaryKeys": 1,
+      "nullableColumns": 8
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "用户表",
+      "table": "system_social_user",
+      "name": "社交用户表",
+      "rows": 5219,
+      "columns": 15,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "社交表",
+      "table": "system_social_user_bind",
+      "name": "社交绑定表",
+      "rows": 12769,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "用户表",
+      "table": "system_user_favorite",
+      "name": "用户收藏表",
+      "rows": 27,
+      "columns": 9,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "用户表",
+      "table": "system_user_post",
+      "name": "用户岗位表",
+      "rows": 26,
+      "columns": 8,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "关联表",
+      "table": "system_user_role",
+      "name": "用户和角色关联表",
+      "rows": 138,
+      "columns": 8,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "信息表",
+      "table": "system_users",
+      "name": "用户信息表",
+      "rows": 93,
+      "columns": 21,
+      "primaryKeys": 1,
+      "nullableColumns": 13
+    },
+    {
+      "db": "jianyun",
+      "topic1": "system数据",
+      "topic2": "信息表",
+      "table": "system_webhook",
+      "name": "系统webhook管理",
+      "rows": 8,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 9
+    },
+    {
+      "db": "jianyun",
+      "topic1": "临时表数据",
+      "topic2": "临时表",
+      "table": "temp_keep_ids",
+      "name": null,
+      "rows": 34723,
+      "columns": 3,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "临时表数据",
+      "topic2": "临时表",
+      "table": "temp_system_social_user",
+      "name": null,
+      "rows": 85,
+      "columns": 15,
+      "primaryKeys": 0,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "订单表",
+      "table": "trade_after_sale",
+      "name": "售后订单",
+      "rows": 50622,
+      "columns": 45,
+      "primaryKeys": 1,
+      "nullableColumns": 27
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "日志表",
+      "table": "trade_after_sale_log",
+      "name": "售后订单日志",
+      "rows": 100565,
+      "columns": 17,
+      "primaryKeys": 1,
+      "nullableColumns": 6
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "记录表",
+      "table": "trade_brokerage_record",
+      "name": "佣金记录",
+      "rows": 0,
+      "columns": 18,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "用户表",
+      "table": "trade_brokerage_user",
+      "name": "分销用户",
+      "rows": 0,
+      "columns": 12,
+      "primaryKeys": 1,
+      "nullableColumns": 5
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "佣金表",
+      "table": "trade_brokerage_withdraw",
+      "name": "佣金提现",
+      "rows": 0,
+      "columns": 20,
+      "primaryKeys": 1,
+      "nullableColumns": 10
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "商品表",
+      "table": "trade_cart",
+      "name": "购物车的商品信息",
+      "rows": 0,
+      "columns": 11,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "配置表",
+      "table": "trade_config",
+      "name": "交易中心配置",
+      "rows": 0,
+      "columns": 21,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "信息表",
+      "table": "trade_delivery_express",
+      "name": "快递公司",
+      "rows": 0,
+      "columns": 11,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "模板表",
+      "table": "trade_delivery_express_template",
+      "name": "快递运费模板",
+      "rows": 0,
+      "columns": 9,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "配置表",
+      "table": "trade_delivery_express_template_charge",
+      "name": "快递运费模板计费配置",
+      "rows": 0,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "配置表",
+      "table": "trade_delivery_express_template_free",
+      "name": "快递运费模板包邮配置",
+      "rows": 0,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "信息表",
+      "table": "trade_delivery_pick_up_store",
+      "name": "自提门店",
+      "rows": 0,
+      "columns": 17,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "订单表",
+      "table": "trade_order",
+      "name": "交易订单表",
+      "rows": 3861949,
+      "columns": 62,
+      "primaryKeys": 1,
+      "nullableColumns": 39
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "投诉表",
+      "table": "trade_order_complaint_record",
+      "name": "客户投诉工单",
+      "rows": 2,
+      "columns": 28,
+      "primaryKeys": 1,
+      "nullableColumns": 24
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "投诉表",
+      "table": "trade_order_robot_complaint_record",
+      "name": "合力亿捷-ai(robot)投诉工单",
+      "rows": 14,
+      "columns": 29,
+      "primaryKeys": 1,
+      "nullableColumns": 27
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "信息表",
+      "table": "trade_order_ext",
+      "name": "trade order 信息扩展表",
+      "rows": 3763229,
+      "columns": 8,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "订单表",
+      "table": "trade_order_item",
+      "name": "交易订单明细表",
+      "rows": 3861949,
+      "columns": 30,
+      "primaryKeys": 1,
+      "nullableColumns": 8
+    },
+    {
+      "db": "jianyun",
+      "topic1": "trade数据",
+      "topic2": "日志表",
+      "table": "trade_order_log",
+      "name": "交易订单日志",
+      "rows": 7586392,
+      "columns": 14,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    },
+    {
+      "db": "jianyun",
+      "topic1": "vip数据",
+      "topic2": "权益表",
+      "table": "trade_statistics",
+      "name": "交易统计表",
+      "rows": 205,
+      "columns": 19,
+      "primaryKeys": 1,
+      "nullableColumns": 2
+    },
+    {
+      "db": "jianyun",
+      "topic1": "vip数据",
+      "topic2": "权益表",
+      "table": "vip_item",
+      "name": "vip权益明细",
+      "rows": 0,
+      "columns": 10,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "vip数据",
+      "topic2": "权益表",
+      "table": "vip_product",
+      "name": "vip权益",
+      "rows": 0,
+      "columns": 14,
+      "primaryKeys": 1,
+      "nullableColumns": 7
+    },
+    {
+      "db": "jianyun",
+      "topic1": "vip数据",
+      "topic2": "权益表",
+      "table": "vip_product_item",
+      "name": "vip权益关联明细",
+      "rows": 0,
+      "columns": 9,
+      "primaryKeys": 1,
+      "nullableColumns": 3
+    },
+    {
+      "db": "jianyun",
+      "topic1": "vip数据",
+      "topic2": "权益表",
+      "table": "vip_user",
+      "name": "用户购买vip权益记录",
+      "rows": 0,
+      "columns": 13,
+      "primaryKeys": 1,
+      "nullableColumns": 4
+    }
+  ],
+  "sampleCodeDictionaries": [
+    {
+      "字典主键": "777",
+      "字典名称": "客群标签匹配操作符",
+      "字典类型": "customer_tag_match_operator",
+      "字典数据": "CONTAINS:包含匹配 EQUALS:等于 IN:包含于 REGEX:正则匹配 STARTS_WITH:开头匹配"
+    },
+    {
+      "字典主键": "776",
+      "字典名称": "运营配置类型",
+      "字典类型": "operational_activities_config_type",
+      "字典数据": "1:优惠券补贴"
+    },
+    {
+      "字典主键": "775",
+      "字典名称": "权益-是否需要领取",
+      "字典类型": "benefit_model_need_acquire",
+      "字典数据": "0:否 1:是"
+    },
+    {
+      "字典主键": "774",
+      "字典名称": "业务配置类型",
+      "字典类型": "infra_business_config_type",
+      "字典数据": "1:退费挽留"
+    },
+    {
+      "字典主键": "773",
+      "字典名称": "售后-退款方式",
+      "字典类型": "trade_after_sale_refund_type",
+      "字典数据": "1:部分退款 2:全部退款"
+    },
+    {
+      "字典主键": "772",
+      "字典名称": "分销渠道经理类型",
+      "字典类型": "org_user_channel_manager_type",
+      "字典数据": "0:正式员工  1:兼职员工"
+    },
+    {
+      "字典主键": "771",
+      "字典名称": "结算状态",
+      "字典类型": "brokerage_settlement_status",
+      "字典数据": "0:未结算  1:已结算  2:部分结算"
+    },
+    {
+      "字典主键": "770",
+      "字典名称": "结算类型",
+      "字典类型": "settlement_type",
+      "字典数据": "1:收益  2:退款"
+    },
+    {
+      "字典主键": "769",
+      "字典名称": "售后线下退款类型",
+      "字典类型": "after_sale_offline_refund_type",
+      "字典数据": "1:支付平台退费  2:对公转账"
+    },
+    {
+      "字典主键": "768",
+      "字典名称": "订单商品类型",
+      "字典类型": "trade_order_product_type",
+      "字典数据": "1:报告  2:权益包  3:权益项"
+    },
+    {
+      "字典主键": "767",
+      "字典名称": "模块大类",
+      "字典类型": "pr_module_category",
+      "字典数据": "C_AQJGFX:安全监管风险  C_BGSM:报告说明  C_BGZJ:报告总结  C_BLJLHC:不良记录核查  C_CLXX:车辆信息  C_COMMON:通用模块  C_CSFX:财税风险  C_DRFDDBR:担任法定代表人  C_DTXX:动态信息  C_FXGL:风险概览  C_FXZS:风险综述  C_FYSSJL:法院诉讼记录  C_FZRPQFX:非真人爬取风险风险  C_GRCCCX:个人车产查询  C_GSJYFX:工商经营风险  C_GTZY:国土资源  C_GZLLHYGD:工作履历核验（广东）  C_GZLLXXGD:工作履历信息（广东）  C_HBCF:环保处罚  C_HOME:基本信息  C_HYQK:婚姻情况  C_HYZK:婚姻状况  C_JJNLPG:经济能力评估  C_JJNLPGGD:经济能力评估（广东）  C_JRFXHC:资金申请记录  C_JRSQPL:金融业务申请频率  C_JRSQTGL:金融业务申请通过率  C_JRXQDJ:金融业务申请需求等级  C_JRYQFX:金融逾期风险  C_JYQK:企业经营情况  C_JYQZFX:交友风险  C_KHFX:客户分析  C_KPXX:开票信息  C_LDRSZCHC:劳动人事仲裁风险核查  C_LSSFSQTJ:历史司法诉前调解  C_QYJBXX:企业基本信息"
+    },
+    {
+      "字典主键": "766",
+      "字典名称": "赠送模式",
+      "字典类型": "personal_inclusive_mode",
+      "字典数据": "1:赠送报告并跳转  2:报告中显示  3:支付成功赠送报告  4:支付失败赠送报告"
+    },
+    {
+      "字典主键": "765",
+      "字典名称": "短信企微引流模式",
+      "字典类型": "cooperation_sms_we_com_mode",
+      "字典数据": "1:报告链接  2:获客助手  3:微信客服"
+    },
+    {
+      "字典主键": "764",
+      "字典名称": "佣金支付类型",
+      "字典类型": "brokerage_record_pay_type",
+      "字典数据": "0:主动支付  1:续费支付"
+    },
+    {
+      "字典主键": "763",
+      "字典名称": "联登签约模式",
+      "字典类型": "cooperation_agreement_mode",
+      "字典数据": "1:仅签约  2:签约首扣  3:签约复购"
+    },
+    {
+      "字典主键": "762",
+      "字典名称": "ai 工单来源",
+      "字典类型": "order_complaint_robot_complaint_source",
+      "字典数据": "ai_service:语音客服  ivr_service:ivr  qiyu_service:网易七鱼"
+    },
+    {
+      "字典主键": "761",
+      "字典名称": "ai工单解决方案",
+      "字典类型": "order_complaint_robot_resolution_context",
+      "字典数据": "1:退款和解约(退款则自动解约)  2:仅解约  3:回电未接听  4:已回电处理  5:客户已再次进线处理"
+    },
+    {
+      "字典主键": "760",
+      "字典名称": "企微回调类型",
+      "字典类型": "member_wecom_callback_type",
+      "字典数据": "1:客服会话回调  2:添加外部联系人回调"
+    },
+    {
+      "字典主键": "759",
+      "字典名称": "企微引流模式",
+      "字典类型": "member_wecom_drainage_mode",
+      "字典数据": "1:获客助手  2:微信客服"
+    },
+    {
+      "字典主键": "758",
+      "字典名称": "佣金提现状态",
+      "字典类型": "brokerage_withdraw_status",
+      "字典数据": "0:审核中  10:提现中  15:提现中，需重新下单  20:提现成功  25:审核不通过  30:提现失败  5:审核通过"
+    },
+    {
+      "字典主键": "757",
+      "字典名称": "外部接口编号",
+      "字典类型": "infra_interface_code",
+      "字典数据": "10001:获取协议地址接口  10002:签约接口  10003:获取用户签约状态接口  10004:支付宝实时支付接口  10005:劳务模式订单支付状态回调通知  10006:查询劳务模式单笔订单信息接口  10007:查询日订单汇总接口  20001:获取access_token  20002:获客发送欢迎语  20003:微信读取消息  20004:微信客服发送欢迎语  20005:创建微信渠道二维码  20006:删除微信渠道二维码  20007:获取客服url  20008:企微回调事件  20009:获取企微会话状态  20010:修改企微会话状态  20011:获取客服对应的员工接待列表  30001:权益供应商下单接口  30002:供应商订单回调接口  30003:权益供应商查询订单接口  40001:获取财税授权URL  40002:获取订单状态  40003:获取财税报告PDF  40004:畅捷通回调  40005:生成财税报告  40006:创建授权订单  40007:获取地区税局登录所需参数  40008:发送验证码  40009:授权登录  40010:获取授权二维码"
+    },
+    {
+      "字典主键": "756",
+      "字典名称": "接口提供商",
+      "字典类型": "infra_interface_provider_code",
+      "字典数据": "1:云账户  10:蚂蚁数科  11:芭乐  2:企微  3:璐付  4:芒雷  5:南京洋芋  6:银盛数惠  7:优钱  8:众联享付  9:畅捷通"
+    },
+    {
+      "字典主键": "755",
+      "字典名称": "业务类型",
+      "字典类型": "infra_business_type",
+      "字典数据": "1:分销提现  2:企微引流  3:行使权益  4:财税报告"
+    },
+    {
+      "字典主键": "754",
+      "字典名称": "微服务类型",
+      "字典类型": "module_prefix",
+      "字典数据": "10:SYSTEM  12:PROMOTION  13:PRODUCT  14:TRADE  15:DATA  16:STATISTICS  17:ENTERPRISE  20:INFRA  30:MEMBER  40:DATASOURCE  60:PARTNER  61:COOPERATION  70:PAY  80:PERSONAL"
+    },
+    {
+      "字典主键": "753",
+      "字典名称": "活体渠道",
+      "字典类型": "living_body_channel",
+      "字典数据": "ALI:阿里  FDD:法大大  KANG_SHI:旷视"
+    },
+    {
+      "字典主键": "752",
+      "字典名称": "权益通知状态",
+      "字典类型": "benefit_notify_status",
+      "字典数据": "0:失败  1:成功  2:无通知次数"
+    },
+    {
+      "字典主键": "751",
+      "字典名称": "工单-客诉风险",
+      "字典类型": "order_complaint_risk_level",
+      "字典数据": "1:P2  2:P1  3:P0"
+    },
+    {
+      "字典主键": "750",
+      "字典名称": "权益模块-领取周期",
+      "字典类型": "benefit_model_acquirePeriod",
+      "字典数据": "0:每期  1:每日  2:每月"
+    },
+    {
+      "字典主键": "749",
+      "字典名称": "权益优惠方式",
+      "字典类型": "benefit_discount_type",
+      "字典数据": "1:折扣  2:立减"
+    },
+    {
+      "字典主键": "748",
+      "字典名称": "权益订单类型",
+      "字典类型": "benefit_order_type",
+      "字典数据": "1:独立订单  2:续费订单"
+    }
+  ]
+}

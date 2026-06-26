@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Business Experiment"
+  short_description: "Evaluate and validate AI micro-business opportunities"
+  default_prompt: "Use $ai-business-experiment to evaluate an AI monetization idea and turn it into a 7-day validation plan."

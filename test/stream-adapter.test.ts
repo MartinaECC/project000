@@ -55,6 +55,78 @@ test('stream handler acknowledges immediately and processes the message asynchro
   assert.equal(handled[0].text, '你好');
 });
 
+test('parses DingTalk stream robot richText message into BotEvent text', () => {
+  const event = parseRobotTextEvent({
+    ...streamMessage,
+    data: JSON.stringify({
+      conversationId: 'conversation-1',
+      msgId: 'ding-msg-rich-1',
+      senderStaffId: 'staff-1',
+      senderId: 'sender-open-id-1',
+      msgtype: 'richText',
+      content: {
+        richText: [
+          { type: 'at', text: '@小灰龙-运营助手' },
+          { type: 'text', text: ' 登记台账：宜享花 今日 客户提出退费率要求' },
+          { type: 'text', text: '\n下一步计划输出分析文档' },
+          { type: 'image', url: 'https://example.test/screenshot.png', name: 'screenshot.png' }
+        ]
+      },
+      robotCode: 'robot-1'
+    })
+  });
+
+  assert.equal(event?.text, '@小灰龙-运营助手 登记台账：宜享花 今日 客户提出退费率要求 下一步计划输出分析文档');
+  assert.deepEqual(event?.attachments, [
+    {
+      type: 'image',
+      url: 'https://example.test/screenshot.png',
+      mediaId: undefined,
+      downloadCode: undefined,
+      pictureDownloadCode: undefined,
+      name: 'screenshot.png'
+    }
+  ]);
+});
+
+test('parses DingTalk richText picture download codes without adding them to text', () => {
+  const event = parseRobotTextEvent({
+    ...streamMessage,
+    data: JSON.stringify({
+      conversationId: 'conversation-1',
+      msgId: 'ding-msg-picture-1',
+      senderStaffId: 'staff-1',
+      senderId: 'sender-open-id-1',
+      msgtype: 'richText',
+      content: {
+        richText: [
+          { text: '@小灰龙-运营助手' },
+          { text: ' 登记台账：宜享花 今日 客户提出退费率要求' },
+          {
+            type: 'picture',
+            content: 'content-token-should-not-be-text',
+            downloadCode: 'download-code-1',
+            pictureDownloadCode: 'picture-code-1'
+          }
+        ]
+      },
+      robotCode: 'robot-1'
+    })
+  });
+
+  assert.equal(event?.text, '@小灰龙-运营助手 登记台账：宜享花 今日 客户提出退费率要求');
+  assert.deepEqual(event?.attachments, [
+    {
+      type: 'image',
+      url: undefined,
+      mediaId: undefined,
+      downloadCode: 'download-code-1',
+      pictureDownloadCode: 'picture-code-1',
+      name: undefined
+    }
+  ]);
+});
+
 test('stream handler ignores non-text robot messages after acking success', async () => {
   const handled: BotEvent[] = [];
   const handler = createRobotStreamHandler({

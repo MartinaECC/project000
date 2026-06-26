@@ -1,0 +1,7 @@
+interface:
+  display_name: "青龙自动化部署"
+  short_description: "Deploy QingLong scheduled jobs and DingTalk broadcasts"
+  default_prompt: "Use $qinglong-automation-deploy to plan and verify a QingLong scheduled deployment for a DingTalk report."
+
+policy:
+  allow_implicit_invocation: true
