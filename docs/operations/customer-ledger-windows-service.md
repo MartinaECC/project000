@@ -48,6 +48,10 @@ C:\nssm\nssm.exe                        # NSSM
 ```text
 DINGTALK_ALLOWED_CONVERSATION_IDS=cidFAOgAztoZGdUmkfl60XKXA==
 DINGTALK_ALLOWED_USER_IDS=
+DINGTALK_REACTION_ENABLED=true
+DINGTALK_REACTION_EMOTION_NAME=get
+DINGTALK_REACTION_EMOTION_TYPE=2
+DINGTALK_REACTION_TEXT=get
 ```
 
 长期服务建议把 `CUSTOMER_LEDGER_LARK_CLI_BIN` 配成 `lark-cli.cmd` 的绝对路径。任务计划程序或 Windows 服务启动时不一定继承当前终端的 `PATH`，只写 `lark-cli.cmd` 可能导致飞书同步失败。
@@ -79,7 +83,7 @@ PowerShell -ExecutionPolicy Bypass -File .\scripts\windows\register-customer-led
 @小灰龙-运营助手 京东金融 今天15:30 试点服务登记测试
 ```
 
-7. 检查日志和飞书写入：
+7. 确认原消息下方出现 `get` 表情，并检查日志和飞书写入：
 
 ```powershell
 Get-Content D:\OpsAssistant\logs\ecocc-intake.out.log -Tail 80
@@ -129,6 +133,7 @@ PowerShell -ExecutionPolicy Bypass -File .\scripts\windows\customer-ledger-repla
 - 纯图片消息暂不登记，因为缺少客户、日期和动作。
 - 如果钉钉事件返回 `downloadCode` / `pictureDownloadCode`，服务会调用钉钉 `robot/messageFiles/download` 换取临时图片 URL，再写入飞书台账。
 - 如果下载码过期或钉钉媒体接口失败，服务会先暂存记录并回复“图片下载失败”，需要重新发送同一条图文登记。
+- 小灰龙收到授权且非重复消息后会自动对原消息贴 `get` 表情，表示服务已接收；贴表情失败不会影响台账写入。
 
 可登记：
 
@@ -147,6 +152,7 @@ PowerShell -ExecutionPolicy Bypass -File .\scripts\windows\customer-ledger-repla
 ## 试点验收
 
 - 3-5 名试点成员均能成功登记。
+- 试点成员发送消息后，原消息下方能看到 `get` 表情。
 - 至少 3 个客户文档写入成功。
 - 服务连续 7 天不依赖个人电脑运行。
 - failed/pending 记录可通过补偿脚本处理。

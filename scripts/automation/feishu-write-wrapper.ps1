@@ -194,12 +194,14 @@ $entry = [ordered]@{
     payload_hex_prefix = Get-HexPrefix -Bytes $payloadBytes
     dry_run = [bool]$DryRun
     feishu_write_enabled = [bool]$config.feishu_write_enabled
+    feishu_write_skipped = $false
     mode = $config.mode
     command_args = $CommandArgs
 }
 
 if (-not $config.feishu_write_enabled) {
     $entry.result = "skipped"
+    $entry.feishu_write_skipped = $true
     $entry.skip_reason = "feishu_write_disabled"
     $logPath = Write-StructuredLog -Entry $entry -Root $AutomationsRoot -Id $AutomationId
     [pscustomobject]@{

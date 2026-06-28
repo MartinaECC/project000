@@ -70,3 +70,21 @@ test('loads intake configuration from env without enabling refund report', () =>
   });
   assert.equal(config.refundReport?.enabled, false);
 });
+
+test('loads DingTalk get reaction configuration from env', () => {
+  const config = loadConfig({
+    DINGTALK_REACTION_ENABLED: 'true',
+    DINGTALK_REACTION_EMOTION_NAME: 'get',
+    DINGTALK_REACTION_EMOTION_TYPE: '2',
+    DINGTALK_REACTION_TEXT: 'get',
+    DINGTALK_API_BASE_URL: 'https://example.dingtalk.test'
+  });
+
+  assert.deepEqual(config.reaction, {
+    enabled: true,
+    emotionName: 'get',
+    emotionType: 2,
+    text: 'get',
+    apiBaseUrl: 'https://example.dingtalk.test'
+  });
+});

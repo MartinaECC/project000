@@ -6,7 +6,7 @@ Skill 管理总览：[docs/skills/README.md](docs/skills/README.md)
 
 ## 当前包含的能力
 
-- **钉钉智能机器人底座**：支持 DingTalk Stream 模式接入、消息解析、白名单、幂等处理、LLM 对话和回复。
+- **钉钉智能机器人底座**：支持 DingTalk Stream 模式接入、消息解析、白名单、幂等处理、收到授权消息自动贴 `get` 表情、LLM 对话和回复。
 - **客户运营台账记录**：支持在钉钉 `@小灰龙 客户 时间 动作` 或 `@小灰龙 记台账：客户 时间 动作`，匹配飞书 Wiki 下的客户台账子文档并追加运营记录；支持同条图文消息，图片写入 `内容` 单元格，见 [运营助手客户台账记录](docs/products/customer-ledger-dingtalk-feishu.md)。
 - **群聊总结助手雏形**：识别“总结今天群聊”“总结本周群消息”等意图，通过 DWS 读取群消息并交给 LLM 总结。
 - **退款率报告能力**：从 DataFinder 查询收入和退款数据，生成退款率报告，并在异常时调用 LLM 做摘要。
@@ -40,6 +40,8 @@ $env:DINGTALK_CLIENT_SECRET="企业内部应用 AppSecret / ClientSecret"
 $env:DINGTALK_BOT_ID="机器人 robot-code"
 $env:DINGTALK_ALLOWED_CONVERSATION_IDS="允许使用机器人的会话 ID，可留空"
 $env:DINGTALK_ALLOWED_USER_IDS="允许使用机器人的用户 ID，可留空"
+$env:DINGTALK_REACTION_ENABLED="true"
+$env:DINGTALK_REACTION_TEXT="get"
 $env:LLM_API_KEY="模型 API Key"
 $env:LLM_BASE_URL="https://api.openai.com/v1"
 $env:LLM_MODEL="模型名称"

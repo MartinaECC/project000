@@ -3,6 +3,7 @@ import { loadConfig } from './config.ts';
 import { JsonlCustomerLedgerStore, LarkCliCustomerLedgerWriter } from './customer-ledger.ts';
 import { DingTalkInteractiveCardSender } from './dingtalk-card-service.ts';
 import { DingTalkRobotMediaResolver } from './dingtalk-media.ts';
+import { DingTalkRobotReactionService } from './dingtalk-reaction.ts';
 import { loadEnvFile } from './env-file.ts';
 import { JsonlIntakeStore } from './intake-store.ts';
 import { logger } from './logger.ts';
@@ -60,6 +61,12 @@ logger.info('config.loaded', {
     renderMode: config.refundReport?.renderMode,
     llmOnAnomaly: config.refundReport?.llmOnAnomaly
   },
+  reaction: {
+    enabled: config.reaction?.enabled ?? false,
+    emotionName: config.reaction?.emotionName,
+    emotionType: config.reaction?.emotionType,
+    text: config.reaction?.text
+  },
   llm: {
     baseUrl: config.llm.baseUrl,
     model: config.llm.model,
@@ -97,6 +104,24 @@ const customerLedgerImageResolver =
     : undefined;
 if (customerLedgerEnabled && !customerLedgerImageResolver) {
   logger.warn('customer_ledger.image_resolver.disabled', {
+    reason: 'missing DINGTALK_CLIENT_ID, DINGTALK_CLIENT_SECRET, or DINGTALK_BOT_ID'
+  });
+}
+
+const reactionService =
+  config.reaction?.enabled && config.dingtalkClientId && config.dingtalkClientSecret && config.dingtalkBotId
+    ? new DingTalkRobotReactionService({
+        clientId: config.dingtalkClientId,
+        clientSecret: config.dingtalkClientSecret,
+        robotCode: config.dingtalkBotId,
+        apiBaseUrl: config.reaction.apiBaseUrl,
+        emotionName: config.reaction.emotionName,
+        emotionType: config.reaction.emotionType,
+        text: config.reaction.text
+      })
+    : undefined;
+if (config.reaction?.enabled && !reactionService) {
+  logger.warn('dingtalk.reaction.disabled', {
     reason: 'missing DINGTALK_CLIENT_ID, DINGTALK_CLIENT_SECRET, or DINGTALK_BOT_ID'
   });
 }
@@ -153,7 +178,8 @@ if (config.mode === 'http') {
     intakeStore,
     customerLedgerStore,
     customerLedgerWriter,
-    customerLedgerImageResolver
+    customerLedgerImageResolver,
+    reactionService
   );
 
   createBotHttpServer(service).listen(config.port, () => {
@@ -173,7 +199,8 @@ if (config.mode === 'http') {
     intakeStore,
     customerLedgerStore,
     customerLedgerWriter,
-    customerLedgerImageResolver
+    customerLedgerImageResolver,
+    reactionService
   );
 
   createBotHttpServer(service).listen(config.port, () => {

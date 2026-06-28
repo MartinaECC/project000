@@ -1,0 +1,256 @@
+:root {
+  background: #edf4ef;
+  color: #183b2c;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 320px;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.stage {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 18px;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(189, 215, 190, 0.45), transparent 26rem),
+    radial-gradient(circle at 86% 82%, rgba(226, 204, 172, 0.38), transparent 24rem),
+    linear-gradient(135deg, #eaf3ed 0%, #fbf8ef 52%, #dfeae5 100%);
+}
+
+.phone {
+  position: relative;
+  width: min(390px, calc(100vw - 36px));
+  aspect-ratio: 390 / 844;
+  max-height: calc(100vh - 36px);
+  overflow: hidden;
+  border-radius: 34px;
+  background: #fbfaf4;
+  box-shadow: 0 30px 90px rgba(22, 56, 39, 0.26);
+}
+
+.screen-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.hotspot,
+.nav-bar button {
+  position: absolute;
+  z-index: 5;
+  border-radius: 24px;
+}
+
+.hotspot:focus-visible,
+.nav-bar button:focus-visible {
+  outline: 3px solid rgba(38, 101, 69, 0.55);
+  outline-offset: 2px;
+}
+
+.today-checkin {
+  left: 7%;
+  top: 40.2%;
+  width: 86%;
+  height: 6.3%;
+}
+
+.today-jewelry {
+  left: 46%;
+  top: 68.3%;
+  width: 45%;
+  height: 8.5%;
+}
+
+.onboarding-primary {
+  left: 9%;
+  top: 82.5%;
+  width: 82%;
+  height: 6.4%;
+}
+
+.onboarding-secondary {
+  left: 21%;
+  top: 90.2%;
+  width: 58%;
+  height: 4.4%;
+}
+
+.birth-primary {
+  left: 8%;
+  top: 84.5%;
+  width: 84%;
+  height: 6.4%;
+}
+
+.birth-secondary {
+  left: 28%;
+  top: 91.8%;
+  width: 44%;
+  height: 4.2%;
+}
+
+.reveal-primary {
+  left: 8%;
+  top: 84.5%;
+  width: 84%;
+  height: 7%;
+}
+
+.soul-primary,
+.tarot-primary {
+  left: 50%;
+  top: 87%;
+  width: 42%;
+  height: 6.2%;
+}
+
+.back-hotspot {
+  left: 3.5%;
+  top: 2.4%;
+  width: 10%;
+  height: 6%;
+  border-radius: 50%;
+}
+
+.test-continue {
+  left: 50%;
+  top: 87%;
+  width: 42%;
+  height: 6.2%;
+}
+
+.profile-practice {
+  left: 8%;
+  top: 85.5%;
+  width: 44%;
+  height: 6%;
+}
+
+.profile-jewelry {
+  left: 54%;
+  top: 85.5%;
+  width: 38%;
+  height: 6%;
+}
+
+.growth-unlock {
+  left: 8%;
+  top: 79%;
+  width: 84%;
+  height: 8.4%;
+}
+
+.jewelry-order {
+  left: 7%;
+  top: 85.6%;
+  width: 86%;
+  height: 5.4%;
+}
+
+.jewelry-practice {
+  left: 7%;
+  top: 91.8%;
+  width: 86%;
+  height: 4.6%;
+}
+
+.order-primary,
+.checkout-primary,
+.tracker-primary {
+  left: 8%;
+  top: 84.8%;
+  width: 84%;
+  height: 6.4%;
+}
+
+.order-secondary,
+.checkout-secondary,
+.tracker-secondary {
+  left: 17%;
+  top: 91.8%;
+  width: 66%;
+  height: 4.6%;
+}
+
+.nav-bar {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 6;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  height: 7.8%;
+  padding: 0.55% 4.8% 0.85%;
+  border-top: 1px solid rgba(202, 196, 180, 0.58);
+  background: rgba(255, 253, 247, 0.94);
+  backdrop-filter: blur(12px);
+}
+
+.nav-bar button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  gap: 2px;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  background: transparent;
+  color: #59645f;
+  font: 500 10px/1.05 Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+.nav-bar button.active {
+  color: #0f6b55;
+}
+
+.nav-bar button.active::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #0f6b55;
+}
+
+@media (max-width: 480px) {
+  .stage {
+    padding: 0;
+  }
+
+  .phone {
+    width: 100vw;
+    height: 100vh;
+    max-height: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}

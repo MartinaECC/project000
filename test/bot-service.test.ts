@@ -11,6 +11,7 @@ import type {
   IntakeRecord,
   IntakeStore,
   LlmAgent,
+  ReactionService,
   ReplyService,
   ToolRegistry
 } from '../src/types.ts';
@@ -203,6 +204,67 @@ test('sends normal messages to the LLM and replies with the answer', async () =>
   assert.equal(result.status, 'handled');
   assert.deepEqual(chatPrompts, ['你是谁']);
   assert.deepEqual(toolCalls, []);
+  assert.equal(replies[0], 'LLM says: 你是谁');
+});
+
+test('sends get reaction for authorized non-duplicate messages', async () => {
+  const { tools, llm, reply, replies, chatPrompts } = fakes();
+  const reacted: string[] = [];
+  const reaction: ReactionService = {
+    async sendGetReaction(target) {
+      reacted.push(target.messageId);
+    }
+  };
+  const service = new BotService(
+    { allowedConversationIds: ['single-cid'], reaction: { enabled: true, emotionName: 'get', emotionType: 2, text: 'get' } },
+    tools,
+    llm,
+    reply,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    reaction
+  );
+
+  await service.handleEvent(event({ messageId: 'msg-reaction-1', text: '你是谁' }));
+  await service.handleEvent(event({ messageId: 'msg-reaction-1', text: '你是谁' }));
+
+  await new Promise((resolve) => setImmediate(resolve));
+
+  assert.deepEqual(reacted, ['msg-reaction-1']);
+  assert.deepEqual(chatPrompts, ['你是谁']);
+  assert.deepEqual(replies, ['LLM says: 你是谁']);
+});
+
+test('continues normal handling when get reaction fails', async () => {
+  const { tools, llm, reply, replies, chatPrompts } = fakes();
+  const reaction: ReactionService = {
+    async sendGetReaction() {
+      throw new Error('reaction failed');
+    }
+  };
+  const service = new BotService(
+    { allowedConversationIds: ['single-cid'], reaction: { enabled: true, emotionName: 'get', emotionType: 2, text: 'get' } },
+    tools,
+    llm,
+    reply,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    reaction
+  );
+
+  const result = await service.handleEvent(event({ text: '你是谁' }));
+  await new Promise((resolve) => setImmediate(resolve));
+
+  assert.equal(result.status, 'handled');
+  assert.deepEqual(chatPrompts, ['你是谁']);
   assert.equal(replies[0], 'LLM says: 你是谁');
 });
 

@@ -12,6 +12,7 @@ import type {
   HandleResult,
   IntakeStore,
   LlmAgent,
+  ReactionService,
   ReplyService,
   ToolRegistry
 } from './types.ts';
@@ -27,6 +28,7 @@ export class BotService {
   readonly #customerLedgerStore?: CustomerLedgerStore;
   readonly #customerLedgerWriter?: CustomerLedgerWriter;
   readonly #customerLedgerImageResolver?: CustomerLedgerImageResolver;
+  readonly #reaction?: ReactionService;
 
   constructor(
     config: BotConfig,
@@ -38,7 +40,8 @@ export class BotService {
     intakeStore?: IntakeStore,
     customerLedgerStore?: CustomerLedgerStore,
     customerLedgerWriter?: CustomerLedgerWriter,
-    customerLedgerImageResolver?: CustomerLedgerImageResolver
+    customerLedgerImageResolver?: CustomerLedgerImageResolver,
+    reaction?: ReactionService
   ) {
     this.#config = config;
     this.#tools = tools;
@@ -50,6 +53,7 @@ export class BotService {
     this.#customerLedgerStore = customerLedgerStore;
     this.#customerLedgerWriter = customerLedgerWriter;
     this.#customerLedgerImageResolver = customerLedgerImageResolver;
+    this.#reaction = reaction;
   }
 
   async handleEvent(event: BotEvent): Promise<HandleResult> {
@@ -63,6 +67,8 @@ export class BotService {
       logger.info('bot.event.duplicate', eventLogFields(event));
       return { status: 'duplicate' };
     }
+
+    this.#sendGetReaction(event);
 
     const intent = routeIntent(event.text);
     logger.info('bot.intent.routed', {
@@ -105,6 +111,21 @@ export class BotService {
 
   async confirmLatest(event: BotEvent): Promise<HandleResult> {
     return this.handleEvent(event);
+  }
+
+  async #sendGetReaction(event: BotEvent): Promise<void> {
+    if (!this.#config.reaction?.enabled || !this.#reaction) {
+      return;
+    }
+
+    try {
+      await this.#reaction.sendGetReaction(event);
+    } catch (error) {
+      logger.warn('dingtalk.reaction.failed', {
+        ...eventLogFields(event),
+        ...errorFields(error)
+      });
+    }
   }
 
   async #captureCustomerLedger(

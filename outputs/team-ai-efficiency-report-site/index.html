@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>团队 AI 提效汇报｜从落地样板到独立服务器</title>
+    <meta name="description" content="面向企业管理层的团队 AI 提效阶段成果汇报网站。" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231E3A8A'/%3E%3Cpath d='M15 43h34v5H15zM19 32h26v5H19zM24 21h16v5H24z' fill='white'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="团队 AI 提效汇报">
+        <span class="brand-icon" aria-hidden="true">AI</span>
+        <span>团队 AI 提效汇报</span>
+      </a>
+      <nav class="tabs" aria-label="汇报章节">
+        <button class="tab-button active" type="button" data-tab="overview">汇报总览</button>
+        <button class="tab-button" type="button" data-tab="results">落地成果</button>
+        <button class="tab-button" type="button" data-tab="roadmap">未来规划</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="executive-hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Executive Briefing / 2026-06-27</p>
+          <h1>把 AI 从个人工具升级为团队经营协作系统</h1>
+          <p class="hero-lead">
+            我们已经验证了 AI 在经营数据、客户跟进、项目记录和组织汇报中的实际价值。下一步，是让这些能力从单次脚本变成长期运行的经营协作系统。
+          </p>
+          <div class="hero-actions">
+            <button class="primary-action" type="button" data-tab-jump="results">查看成果</button>
+            <button class="secondary-action" type="button" data-tab-jump="roadmap">看服务器规划</button>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="团队 AI 协作视觉">
+          <img src="./assets/hero-workshop.webp" alt="团队讨论 AI 工作流" />
+          <div class="hero-metric">
+            <span>已验证链路</span>
+            <strong>14</strong>
+            <small>个落地样板与产物</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="quote-banner" aria-label="核心结论">
+        <span>核心结论</span>
+        <strong>服务器不是单纯硬件采购，而是团队 AI 提效从“个人工具”升级为“团队基础设施”的前提。</strong>
+      </section>
+
+      <section class="tab-panel active" id="overview" aria-label="汇报总览">
+        <div class="section-title">
+          <p class="eyebrow">01 / Overview</p>
+          <h2>目的与框架</h2>
+          <p>用最少概念讲清楚：为什么做、围绕什么做、哪些原则不能破。</p>
+        </div>
+
+        <div class="position-grid">
+          <article class="position-card">
+            <span class="mini-icon">01</span>
+            <h3>链路可行</h3>
+            <p>钉钉、飞书、DataFinder、客户台账、日报周报、退费率播报等真实链路已经跑通。</p>
+          </article>
+          <article class="position-card">
+            <span class="mini-icon">02</span>
+            <h3>不是单点工具</h3>
+            <p>AI 提效的核心不是写文案，而是把信息进入、处理分析、业务输出和能力沉淀串起来。</p>
+          </article>
+          <article class="position-card">
+            <span class="mini-icon">03</span>
+            <h3>试点要生产化</h3>
+            <p>从个人电脑和临时脚本，升级到团队可用、可监控、可审计、可扩展的稳定基础设施。</p>
+          </article>
+          <article class="position-card">
+            <span class="mini-icon">04</span>
+            <h3>服务器是下一步</h3>
+            <p>购买独立服务器主机放在下一步计划中，是团队 AI 试点和生产化的必要条件。</p>
+          </article>
+        </div>
+
+        <div class="split-layout">
+          <section class="stack-card">
+            <div class="module-head">
+              <p class="eyebrow">Stack Architecture</p>
+              <h3>四层能力架构</h3>
+            </div>
+            <div class="stack-architecture">
+              <article class="stack-layer output">
+                <div>
+                  <span>最顶层 / 面向用户</span>
+                  <h4>业务输出层</h4>
+                </div>
+                <div class="tag-row">
+                  <b>钉钉播报</b><b>飞书台账</b><b>日报周报</b><b>客户复盘</b><b>网页报告</b>
+                </div>
+              </article>
+              <article class="stack-layer brain">
+                <div>
+                  <span>核心大脑</span>
+                  <h4>处理分析层</h4>
+                </div>
+                <div class="tag-row">
+                  <b>指标计算</b><b>客户动作解析</b><b>异常归因</b><b>知识检索</b><b>SQL / 脚本分析</b>
+                </div>
+              </article>
+              <article class="stack-layer input">
+                <div>
+                  <span>数据输入</span>
+                  <h4>信息入口层</h4>
+                </div>
+                <div class="tag-row">
+                  <b>钉钉</b><b>飞书</b><b>DataFinder</b><b>数仓</b><b>客服/短信日志</b>
+                </div>
+              </article>
+              <article class="stack-layer base">
+                <div>
+                  <span>底层基座</span>
+                  <h4>稳定运行层</h4>
+                </div>
+                <div class="tag-row">
+                  <b>Linux 服务器</b><b>定时任务</b><b>日志审计</b><b>权限控制</b><b>失败补偿</b>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="visual-card">
+            <img src="./assets/opportunity-map.webp" alt="AI 机会地图" />
+            <div>
+              <p class="eyebrow">Operating Logic</p>
+              <h3>成熟流程必须沉淀为团队资产</h3>
+              <p>让高频任务从“人记得怎么做”变成“系统可以稳定跑、团队可以复用”。</p>
+            </div>
+          </section>
+        </div>
+
+        <div class="risk-grid">
+          <article class="risk-card accuracy">
+            <span class="risk-icon">Shield</span>
+            <h3>准确性底线</h3>
+            <p>收入、退款、退费率、客户复盘等高准确性任务，优先调用审核过的 SQL、Python 脚本或 Skill。AI 负责解释、归纳、排版和初稿。</p>
+          </article>
+          <article class="risk-card security">
+            <span class="risk-icon">Lock</span>
+            <h3>安全底线</h3>
+            <p>权限必须在数据源、检索层和工具层控制。公共团队 Agent 与敏感经营分析 Agent 使用不同凭证、数据源和运行空间。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="results" aria-label="落地成果">
+        <div class="section-title">
+          <p class="eyebrow">02 / Results</p>
+          <h2>落地成果</h2>
+          <p>去掉长表格，只看能证明团队 AI 提效已经发生的关键证据。</p>
+        </div>
+
+        <div class="metrics-row">
+          <article>
+            <span>覆盖工作场景</span>
+            <strong>7 类</strong>
+            <p>数据监控、客户记录、项目跟进、异常归因、证据整理、知识沉淀、组织汇报</p>
+          </article>
+          <article>
+            <span>核心链路</span>
+            <strong>入口 + 数据 + Skill + 自动化</strong>
+            <p>从消息入口到业务输出，再沉淀为可复用能力</p>
+          </article>
+          <article>
+            <span>落地案例总数</span>
+            <strong>14 个</strong>
+            <p>每个案例都对应真实文档、脚本、网页或业务产物</p>
+          </article>
+        </div>
+
+        <div class="case-grid" id="caseGrid"></div>
+      </section>
+
+      <section class="tab-panel" id="roadmap" aria-label="未来规划">
+        <div class="section-title">
+          <p class="eyebrow">03 / Roadmap</p>
+          <h2>未来规划</h2>
+          <p>下一步不是继续做零散 Demo，而是稳定现有样板、开放团队试点、建设平台底座。</p>
+        </div>
+
+        <div class="roadmap-layout">
+          <section class="timeline-card">
+            <div class="module-head">
+              <p class="eyebrow">Business Rollout</p>
+              <h3>业务推进路线</h3>
+            </div>
+            <div class="timeline">
+              <article>
+                <span>01</span>
+                <h4>稳定现有样板</h4>
+                <p>固化退费率播报、客户台账、日报周报、失败补偿和健康检查。</p>
+              </article>
+              <article>
+                <span>02</span>
+                <h4>团队小范围试点</h4>
+                <p>开放 3-5 名运营/销售真实使用，输出说明并收集反馈。</p>
+              </article>
+              <article>
+                <span>03</span>
+                <h4>扩展高价值场景</h4>
+                <p>增加客户反馈日报、项目进度机器人、自然语言查数、异常归因 Skill。</p>
+              </article>
+              <article>
+                <span>04</span>
+                <h4>形成团队 AI 平台</h4>
+                <p>统一管理 Agent、Skill、权限、日志、Token、成功率和负责人。</p>
+              </article>
+            </div>
+          </section>
+
+          <aside class="decision-board">
+            <p class="eyebrow">Executive Decision</p>
+            <h3>服务器主机汇报口径</h3>
+            <ul>
+              <li>当前能力已完成业务验证，但运行环境仍分散在个人电脑和临时调度中。</li>
+              <li>团队试点要求机器人、定时任务、知识检索、数据查询和日志审计持续在线。</li>
+              <li>独立服务器统一承载公共 Agent、定时播报、客户台账、失败补偿和权限控制。</li>
+              <li><strong>服务器不是单纯硬件采购，而是团队 AI 提效从“个人工具”升级为“团队基础设施”的前提。</strong></li>
+            </ul>
+          </aside>
+        </div>
+
+        <section class="accordion-card">
+          <div class="module-head">
+            <p class="eyebrow">Technical Workstreams</p>
+            <h3>技术实施方案</h3>
+          </div>
+          <div class="accordion" id="techAccordion"></div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="closing-banner">
+      <p>最终收束</p>
+      <strong>我们已经验证了 AI 的实际价值。下一步要做的，是用独立服务器把这些能力稳定托管起来，从单次脚本变成长期运行的经营协作系统。</strong>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

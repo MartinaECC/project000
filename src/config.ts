@@ -64,6 +64,13 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): AppConfig {
       timezone: blankToUndefined(env.REFUND_REPORT_TIMEZONE) ?? 'Asia/Shanghai',
       llmOnAnomaly: parseRefundReportLlmPolicy(env.REFUND_REPORT_LLM_ON_ANOMALY)
     },
+    reaction: {
+      enabled: env.DINGTALK_REACTION_ENABLED === 'true',
+      emotionName: blankToUndefined(env.DINGTALK_REACTION_EMOTION_NAME) ?? 'get',
+      emotionType: numberEnv(env.DINGTALK_REACTION_EMOTION_TYPE, 2),
+      text: blankToUndefined(env.DINGTALK_REACTION_TEXT) ?? 'get',
+      apiBaseUrl: blankToUndefined(env.DINGTALK_API_BASE_URL)
+    },
     llm: {
       apiKey: env.LLM_API_KEY,
       baseUrl: env.LLM_BASE_URL ?? 'https://api.openai.com/v1',

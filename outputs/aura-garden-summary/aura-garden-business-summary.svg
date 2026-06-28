@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <defs>
+    <style>
+      .bg { fill: #f8f4ee; }
+      .ink { fill: #24302f; }
+      .muted { fill: #67716d; }
+      .jade { fill: #2f7d68; }
+      .plum { fill: #7d3c63; }
+      .amber { fill: #c7812d; }
+      .rose { fill: #b85f6a; }
+      .card { fill: #fffdf9; stroke: #e1d7ca; stroke-width: 2; }
+      .line { stroke: #d9cdbd; stroke-width: 2; }
+      .title { font: 700 62px "Microsoft YaHei", "PingFang SC", Arial, sans-serif; letter-spacing: 0; }
+      .subtitle { font: 400 28px "Microsoft YaHei", "PingFang SC", Arial, sans-serif; letter-spacing: 0; }
+      .h2 { font: 700 34px "Microsoft YaHei", "PingFang SC", Arial, sans-serif; letter-spacing: 0; }
+      .h3 { font: 700 27px "Microsoft YaHei", "PingFang SC", Arial, sans-serif; letter-spacing: 0; }
+      .body { font: 400 25px "Microsoft YaHei", "PingFang SC", Arial, sans-serif; letter-spacing: 0; }
+      .small { font: 400 22px "Microsoft YaHei", "PingFang SC", Arial, sans-serif; letter-spacing: 0; }
+      .chip { font: 700 21px "Microsoft YaHei", "PingFang SC", Arial, sans-serif; letter-spacing: 0; }
+      .num { font: 800 38px Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1080" height="1920"/>
+  <rect x="0" y="0" width="1080" height="18" fill="#2f7d68"/>
+  <rect x="0" y="18" width="1080" height="10" fill="#c7812d"/>
+
+  <text x="70" y="105" class="small amber">AI PRIVATE FORTUNE ADVISOR · CROSS-BORDER SPIRITUAL JEWELRY</text>
+  <text x="70" y="178" class="title ink">Aura Garden</text>
+  <text x="70" y="232" class="subtitle ink">玄学珠宝/香薰跨境商业总结图</text>
+  <text x="70" y="284" class="body muted">融合东西方灵性智慧、AI 技术与能量消费品，打造用户自己的</text>
+  <text x="70" y="322" class="body muted">“私人运势顾问”和专属幸运能量珠宝/香薰。</text>
+
+  <rect x="70" y="370" width="940" height="154" rx="26" class="card"/>
+  <text x="105" y="426" class="h2 jade">一句话定位</text>
+  <text x="105" y="472" class="body ink">让用户先理解自己的能量，再把成长意图变成可佩戴、</text>
+  <text x="105" y="510" class="body ink">可使用、可分享的幸运信物。</text>
+
+  <rect x="70" y="566" width="450" height="220" rx="24" class="card"/>
+  <circle cx="116" cy="622" r="22" fill="#e8f1eb"/>
+  <text x="105" y="636" class="num jade">1</text>
+  <text x="153" y="632" class="h2 ink">目标人群</text>
+  <text x="105" y="684" class="body muted">20-45 岁女性为主</text>
+  <text x="105" y="724" class="small muted">爱情、生活、成长困境</text>
+  <text x="105" y="758" class="small muted">喜欢星座、塔罗、水晶、香薰、显化</text>
+
+  <rect x="560" y="566" width="450" height="220" rx="24" class="card"/>
+  <circle cx="606" cy="622" r="22" fill="#f5e8ef"/>
+  <text x="595" y="636" class="num plum">2</text>
+  <text x="643" y="632" class="h2 ink">核心痛点</text>
+  <text x="595" y="684" class="body muted">需要被理解和陪伴</text>
+  <text x="595" y="724" class="small muted">灵性内容碎片化，缺少长期行动</text>
+  <text x="595" y="758" class="small muted">普通水晶/香薰缺少个人故事</text>
+
+  <text x="70" y="862" class="h2 ink">产品闭环</text>
+  <line x1="70" y1="884" x2="1010" y2="884" class="line"/>
+
+  <rect x="70" y="920" width="210" height="210" rx="24" fill="#eef6f1" stroke="#cfe3d7" stroke-width="2"/>
+  <text x="104" y="977" class="h3 jade">灵性测评</text>
+  <text x="104" y="1025" class="small muted">星座/塔罗</text>
+  <text x="104" y="1058" class="small muted">东方命理</text>
+  <text x="104" y="1091" class="small muted">情绪状态</text>
+
+  <path d="M295 1025 L344 1025" class="line"/>
+  <path d="M335 1012 L352 1025 L335 1038" fill="none" stroke="#d9cdbd" stroke-width="3"/>
+
+  <rect x="360" y="920" width="210" height="210" rx="24" fill="#fff4e4" stroke="#ead2aa" stroke-width="2"/>
+  <text x="394" y="977" class="h3 amber">AI 顾问</text>
+  <text x="394" y="1025" class="small muted">每日运势</text>
+  <text x="394" y="1058" class="small muted">成长建议</text>
+  <text x="394" y="1091" class="small muted">情感陪伴</text>
+
+  <path d="M585 1025 L634 1025" class="line"/>
+  <path d="M625 1012 L642 1025 L625 1038" fill="none" stroke="#d9cdbd" stroke-width="3"/>
+
+  <rect x="650" y="920" width="210" height="210" rx="24" fill="#f8edf2" stroke="#e8cbd7" stroke-width="2"/>
+  <text x="684" y="977" class="h3 plum">能量商品</text>
+  <text x="684" y="1025" class="small muted">水晶珠宝</text>
+  <text x="684" y="1058" class="small muted">香薰礼盒</text>
+  <text x="684" y="1091" class="small muted">专属祝福卡</text>
+
+  <path d="M875 1025 L946 1025" class="line"/>
+  <path d="M937 1012 L954 1025 L937 1038" fill="none" stroke="#d9cdbd" stroke-width="3"/>
+
+  <circle cx="970" cy="1025" r="40" fill="#2f7d68"/>
+  <text x="942" y="1034" class="chip" fill="#fffdf9">复购</text>
+
+  <rect x="70" y="1180" width="940" height="240" rx="28" class="card"/>
+  <text x="105" y="1240" class="h2 ink">商业模式</text>
+  <rect x="105" y="1270" width="190" height="58" rx="29" fill="#e8f1eb"/>
+  <text x="136" y="1308" class="chip jade">内容/工具引流</text>
+  <rect x="315" y="1270" width="220" height="58" rx="29" fill="#fff4e4"/>
+  <text x="346" y="1308" class="chip amber">灵修陪伴订阅</text>
+  <rect x="555" y="1270" width="200" height="58" rx="29" fill="#f8edf2"/>
+  <text x="586" y="1308" class="chip plum">定制珠宝转化</text>
+  <rect x="775" y="1270" width="190" height="58" rx="29" fill="#f8ece8"/>
+  <text x="806" y="1308" class="chip rose">会员社群复购</text>
+  <text x="105" y="1372" class="body muted">核心不是直接卖货，而是先让用户完成自我识别，</text>
+  <text x="105" y="1410" class="body muted">再用“能量画像 × 每日陪伴 × 专属商品”提升溢价。</text>
+
+  <rect x="70" y="1462" width="450" height="252" rx="24" class="card"/>
+  <text x="105" y="1522" class="h2 jade">获客增长</text>
+  <text x="105" y="1574" class="body muted">主阵地：TikTok 灵修内容</text>
+  <text x="105" y="1616" class="small muted">今日能量测试 / 爱情困境 / 水晶故事</text>
+  <text x="105" y="1650" class="small muted">显化仪式 / AI 顾问演示 / 用户晒单</text>
+  <text x="105" y="1684" class="small muted">目标：播放 → 测评 → 留资 → 预购</text>
+
+  <rect x="560" y="1462" width="450" height="252" rx="24" class="card"/>
+  <text x="595" y="1522" class="h2 amber">供应链</text>
+  <text x="595" y="1574" class="body muted">珠宝：水贝，小批量半定制</text>
+  <text x="595" y="1616" class="small muted">优先验证水晶、金属、包装、质检</text>
+  <text x="595" y="1650" class="body muted">香薰：待考察</text>
+  <text x="595" y="1684" class="small muted">重点看成分、运输、标签与合规</text>
+
+  <rect x="70" y="1756" width="940" height="104" rx="24" fill="#24302f"/>
+  <text x="105" y="1812" class="h2" fill="#fffdf9">下一步验证</text>
+  <text x="312" y="1798" class="small" fill="#fffdf9">3 个场景 · 1 个测评页 · 3 个 SKU</text>
+  <text x="312" y="1832" class="small" fill="#fffdf9">30 条 TikTok 脚本 · 2 周数据测试</text>
+  <text x="70" y="1898" class="small muted">MVP 目标：验证“灵性养成故事”能否提升珠宝/香薰转化与溢价。</text>
+</svg>

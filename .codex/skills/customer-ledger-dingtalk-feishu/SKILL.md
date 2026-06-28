@@ -27,6 +27,7 @@ This skill is for implementation, production debugging, replay, and roadmap work
 - Image source handling: if DingTalk exposes a direct image URL, use it. If it exposes `downloadCode` / `pictureDownloadCode`, call DingTalk `POST https://api.dingtalk.com/v1.0/robot/messageFiles/download` with `robotCode` to obtain `downloadUrl`, then write that URL into Feishu Docx.
 - Image limitation: pure image-only messages do not contain customer/date/action and are not ledger records. If the DingTalk download code is expired or the API fails, save the JSONL pending row, mark it failed, and ask the user to resend the image with the ledger text.
 - Reliability: save pending JSONL first, write Feishu second, use DingTalk `messageId` for idempotency
+- Message acknowledgement: after an authorized non-duplicate DingTalk message is accepted, the bot sends a lightweight `get` reaction through `POST /v1.0/robot/emotion/reply`. Reaction failures are warn-only and must not block ledger writes or text replies.
 
 ## Repo Touchpoints
 
@@ -37,6 +38,7 @@ In `E:\Workspace_codex\project000`:
 - `src/stream-adapter.ts`: parses DingTalk `text` and `richText`, including image attachment URL/media metadata
 - `src/dingtalk-media.ts`: exchanges DingTalk robot image `downloadCode` for a temporary `downloadUrl`
 - `src/bot-service.ts`: customer ledger intent branch, pending/synced/failed replies, passes image URLs to the writer
+- `src/dingtalk-reaction.ts`: robot `get` reaction sender for incoming messages
 - `src/config.ts` and `.env.intake.local`: runtime config
 - `scripts/start_intake.mjs`: long-running DingTalk Stream entry
 - `test/customer-ledger.test.ts` and `test/bot-service.test.ts`: focused validation

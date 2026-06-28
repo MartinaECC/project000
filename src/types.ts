@@ -59,6 +59,10 @@ export type ReplyService = {
   sendText(event: BotEvent, text: string): Promise<void>;
 };
 
+export type ReactionService = {
+  sendGetReaction(event: BotEvent): Promise<void>;
+};
+
 export type IntakeRecord = {
   id: string;
   createdAt: string;
@@ -182,6 +186,13 @@ export type BotConfig = {
     dateFormat: 'yyMMdd';
   };
   refundReport?: RefundReportSettings;
+  reaction?: {
+    enabled: boolean;
+    emotionName: string;
+    emotionType: number;
+    text: string;
+    apiBaseUrl?: string;
+  };
 };
 
 export type HandleResult =

@@ -27,6 +27,7 @@
 - 写入表格：客户 Docx 内的运营台账表
 - 写入列：`日期`、`内容`
 - 图片位置：同一行 `内容` 单元格内，紧跟文字后面
+- 消息确认：服务收到授权且非重复消息后，会先对原消息贴 `get` 表情；贴表情失败只记日志，不影响台账写入和文字回复。
 
 暂不支持：
 
@@ -65,13 +66,14 @@
 1. DingTalk Stream 收到机器人消息。
 2. `stream-adapter` 解析 `text` / `richText`，提取正文和图片附件元数据。
 3. `intent-router` 判断是否为客户台账登记。
-4. `bot-service` 先写 JSONL pending，再同步飞书。
-5. 客户匹配器从 Wiki 父节点子文档标题中提取客户名并匹配目标 Docx。
-6. Docx writer 找到运营台账表，在表格末尾追加一行。
-7. 图片处理：
+4. `bot-service` 对原消息调用钉钉 `POST /v1.0/robot/emotion/reply` 贴 `get` 表情。
+5. `bot-service` 先写 JSONL pending，再同步飞书。
+6. 客户匹配器从 Wiki 父节点子文档标题中提取客户名并匹配目标 Docx。
+7. Docx writer 找到运营台账表，在表格末尾追加一行。
+8. 图片处理：
    - 如果钉钉直接给 URL，直接写入 Docx `<img href="..."/>`。
    - 如果钉钉给 `downloadCode` / `pictureDownloadCode`，调用 `POST https://api.dingtalk.com/v1.0/robot/messageFiles/download` 换取临时 `downloadUrl`，再写入 Docx。
-8. 成功后机器人回复“已记录到客户运营台账... / 图片N张”。
+9. 成功后机器人回复“已记录到客户运营台账... / 图片N张”。
 
 ## 5. 可靠性约定
 
@@ -85,6 +87,7 @@
 
 - `src/stream-adapter.ts`：解析钉钉 `text` / `richText` 和图片元数据
 - `src/dingtalk-media.ts`：用 `downloadCode` 换取钉钉临时图片 URL
+- `src/dingtalk-reaction.ts`：调用钉钉机器人贴表情接口，对收到的消息贴 `get`
 - `src/customer-ledger.ts`：客户匹配、JSONL store、Docx XML row writer
 - `src/bot-service.ts`：台账意图分支、回复、失败处理
 - `scripts/replay_customer_ledger.mjs`：失败记录补偿
